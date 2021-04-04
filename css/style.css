@@ -134,12 +134,13 @@ src: https: //tobiasahlin.com/spinkit/
   }
 
   .loading {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     width: 200px;
     height: 200px;
-    margin-top: -100px;
+    margin-top: -150px;
     margin-left: -100px;
     text-align: center;
     z-index: 9;
@@ -248,6 +249,7 @@ Header navigation
   position: absolute;
   right: -100%;
   top: 0;
+  margin-top: 15px;
 }
 
 .nav-list li {
@@ -304,7 +306,7 @@ Main content
 }
 
 .top .content p {
-  text-align: right;
+  text-align: center;
   font-size: small;
 }
 

@@ -12,23 +12,21 @@ $(function () {
   /**
    * ローディング画面
    */
-  var $window = $(window),
-    h = $window.height();
+  var $window = $(window);
+  $(".is-loading, .loading").css({ display: 'block' });
   $(".wrapper").css({display: 'none'});
-  $(".is-loading, .loading").height(h).css({display: 'block'});
 });
 
 $(document).ready(function (){
-  $(".is-loading").delay(900).fadeOut(800);
-  $(".loading").delay(600).fadeOut(300);
-  $(".wrapper").css({display: 'block'});
+  changeDisplay();
 });
 
+//10秒経ってもロードが完了しなければ表示する
 $(function (){
-  setTimeout('stopLoad()', 10000);
+  setTimeout(changeDisplay, 10000);
 });
 
-function stopLoad() {
+function changeDisplay() {
   $(".wrapper").css({ display: 'block'});
   $(".is-loading").delay(900).fadeOut(800);
   $(".loading").delay(600).fadeOut(300);
