@@ -11,16 +11,21 @@
 Common
 ============================================= */
 
+html,
 body {
   color: #000;
   font-family: 'Roboto',
-  sans-serif;
+    sans-serif;
+  height: 100%;
 }
 
-h2 {
-  margin: 0;
+.wrapper {
+  position:relative;
+  min-height: 100vh;
+  padding-bottom: 20px;
 }
 
+h2,
 p {
   margin: 0;
 }
@@ -173,19 +178,25 @@ Main content
 Footer
 ============================================= */
 
-footer {
-  position:relative;
-  margin-top: 30px;
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.rain {
+  position: absolute;
+  bottom: 0;
   color: #fff;
   padding: 30px;
   height: 20px;
   text-align: center;
 }
 
-footer .content {
+#footer .content {
   position: absolute;
   text-align: center;
-  top: 65%;
+  top: 67%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

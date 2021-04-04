@@ -1,13 +1,13 @@
 'use strict';
 
-// $(function () {
-//   //ヘッダーの高さ分、全体を下げる
-//   var height = $('#header').outerHeight();
-//   console.log(height);
-//   $("body").css('margin-top', height);
-// });
 
 $(function () {
+  //ヘッダーの高さ分、全体を下げる
+  var height = $('#header').outerHeight();
+  console.log(height);
+  $("body").css('margin-top', height);
+
+
   //コンテンツをスライドインさせる
   $(".nav-list").animate({
     right: 0,
@@ -18,7 +18,7 @@ $(function () {
   }, 1500, 'easeInOutBack');
 
   //raindrops
-  $('footer').raindrops({
+  $('.rain').raindrops({
     color: '#444',
     waveLength: 200,
     frequency: 3,
