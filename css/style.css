@@ -1,10 +1,20 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @charset "utf-8";
 
 /* =============================================
 Common
 ============================================= */
+
 body {
   color: #000;
+  font-family: 'Roboto',
+  sans-serif;
 }
 
 h2 {
@@ -24,7 +34,35 @@ a:hover {
   cursor: pointer;
 }
 
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* logo */
+
+.logo {
+  margin: 20px 0 0 10px;
+  position: relative;
+}
+
+.logo li {
+  width: 33px;
+  height: 33px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.logo .position-qiita {
+  position: absolute;
+  top: -5px;
+  right: 100px;
+}
+
+
 /* float */
+
 .floatL {
   float: left;
 }
@@ -40,6 +78,7 @@ a:hover {
 /* =============================================
 Header navigation
 ============================================= */
+
 #nav {
   position: fixed;
   top: 0;
@@ -68,7 +107,6 @@ Header navigation
   position: absolute;
   right: -100%;
   top: 0;
-  list-style: none;
 }
 
 .nav-list li {
@@ -80,7 +118,7 @@ Header navigation
 }
 
 .nav-list a {
-  display:block;
+  display: block;
   padding: 5px 15px;
   color: #000;
 }
@@ -94,16 +132,12 @@ Main content
 ============================================= */
 
 /* top */
+
 .top {
   position: relative;
   height: 500px;
-  background: url(../img/top.jpg) left top/cover no-repeat;
+  background: url(../img/top2.png) left top/cover no-repeat;
   color: #fff;
-}
-
-.top .dark {
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 500px;
 }
 
 .top .content {
@@ -114,6 +148,11 @@ Main content
 
 .top .content h2 {
   letter-spacing: 7px;
+  font-size: 30px;
+}
+
+.top .content a {
+  color: #fff;
 }
 
 .top .content h2::after {
@@ -121,11 +160,33 @@ Main content
   display: block;
   width: 80%;
   height: 1px;
-  margin:  8px auto;
+  margin: 8px auto;
   background-color: #fff;
 }
 
 .top .content p {
   text-align: right;
   font-size: small;
+}
+
+/* =============================================
+Footer
+============================================= */
+
+footer {
+  position:relative;
+  margin-top: 30px;
+  color: #fff;
+  padding: 30px;
+  height: 20px;
+  text-align: center;
+}
+
+footer .content {
+  position: absolute;
+  text-align: center;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
