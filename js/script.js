@@ -6,35 +6,38 @@ $(function () {
   // var height = $('#header').outerHeight();
   // console.log(height);
   // $("body").css('margin-top', height);
-
+});
+$(function () {
 
 
   /**
    * ローディング画面
    */
-  var $window = $(window);
-  $(".is-loading, .loading").css({ display: 'block' });
-  $(".wrapper").css({display: 'none'});
+  //HTML側で実装
+  // var $window = $(window);
+  // $(".is-loading, .loading").css({ display: 'block' });
+  // $(".wrapper").css({ display: 'none' });
 });
 
-$(document).ready(function (){
+$(document).ready(function () {
   changeDisplay();
 });
 
 //10秒経ってもロードが完了しなければ表示する
-$(function (){
+$(function () {
   setTimeout(changeDisplay, 10000);
 });
 
+//ローディング画面と通常画面を切り替える
 function changeDisplay() {
-  $(".wrapper").css({ display: 'block'});
+  $(".wrapper").css({ display: 'block' });
   $(".is-loading").delay(900).fadeOut(800);
   $(".loading").delay(600).fadeOut(300);
 }
 
 
 
-$(function(){
+$(function () {
   /**
    * コンテンツのスライドイン
    */
@@ -47,7 +50,11 @@ $(function(){
     left: "5%",
   }, slideDuration, 'easeInOutBack');
 
-  //raindrops
+
+
+  /**
+   * raindrops
+   */
   $('.rain').raindrops({
     color: '#444',
     waveLength: 200,
@@ -116,4 +123,6 @@ $(function(){
   /**
    * 画面に入ったらフェードインする
    */
+
+
 });

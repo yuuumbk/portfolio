@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="js/vendor/jquery-3.6.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="js/vendor/footerFixed.js"></script>
   <script src="js/vendor/raindrops.js"></script>
   <script src="js/script.js"></script>
 </head>
@@ -29,8 +30,12 @@
         <div class="cube2"></div>
       </div>
     </div>
-
   </div>
+  <script>
+    var $window = $(window);
+    $(".is-loading, .loading").css({ display: 'block' });
+    $(".wrapper").css({ display: 'none' });
+  </script>
 
   <!-- 通常コンテンツ -->
   <div class="wrapper">
@@ -57,7 +62,7 @@
           <ul class="logo">
             <li><a href="https://twitter.com/yuuumbk" target="_blank"><img src="img/logo/Logo white.svg" alt="twitter"></a><br><span class="logo-desc">Twitter</span></li>
             <li><a href="https://github.com/yuuumbk" target="_blank"><img src="img/logo/github-white.png" alt="github"></a><span class="logo-desc">GitHub</span></li>
-            <li><a href="https://qiita.com/yuuumbk" target="_blank"><img src="img/logo/qiita-white.svg" alt="qiita" class="position-qiita"></a><span class="logo-desc">Qiita</span></li>
+            <!-- <li><a href="https://qiita.com/yuuumbk" target="_blank"><img src="img/logo/qiita-white.svg" alt="qiita" class="position-qiita"></a><span class="logo-desc">Qiita</span></li> -->
             <li><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><img src="img/logo/mail-white.svg" alt="email"></a><span class="logo-desc">Contact</span></li>
           </ul>
         </div>
