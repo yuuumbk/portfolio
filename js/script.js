@@ -1,6 +1,5 @@
 'use strict';
 
-
 $(function () {
   //ヘッダーの高さ分、全体を下げる
   // var height = $('#header').outerHeight();
@@ -21,11 +20,6 @@ $(function () {
 
 $(document).ready(function () {
   changeDisplay();
-});
-
-//10秒経ってもロードが完了しなければ表示する
-$(function () {
-  setTimeout(changeDisplay, 10000);
 });
 
 //ローディング画面と通常画面を切り替える
@@ -124,5 +118,24 @@ $(function () {
    * 画面に入ったらフェードインする
    */
 
+  $(window).on('scroll', $.throttle(200, function () {
+    var windowHeight = $(window).height();
+    $('.scroll-fadein').each(function () {
+      var $scrollFadeIn = $(this),
+        scrollFadeInOffset = $scrollFadeIn.offset().top;
 
+      $scrollFadeIn.addClass('fadein');
+
+      fadeIn();
+
+      function fadeIn() {
+        var scrollAmount = $(window).scrollTop();
+        if (scrollAmount > scrollFadeInOffset - windowHeight + 100) {
+          $scrollFadeIn.addClass('scrollin');
+        }else {
+          $scrollFadeIn.removeClass('scrollin');
+        }
+      }
+    });
+  }));
 });
