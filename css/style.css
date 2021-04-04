@@ -30,6 +30,22 @@ p {
   margin: 0;
 }
 
+h2 {
+  font-size: 35px;
+  margin: 30px 0 10px;
+  text-align: center;
+}
+
+h2::after {
+  content:"";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto;
+  background-color: #000;
+
+}
+
 a {
   text-decoration: none;
   color: orangered;
@@ -59,12 +75,15 @@ ol {
   display: inline-block;
 }
 
+.logo-desc {
+  font-size: 6px;
+}
+
 .logo .position-qiita {
   position: absolute;
   top: -5px;
   right: 100px;
 }
-
 
 /* float */
 
@@ -148,7 +167,7 @@ Main content
 .top .content {
   position: absolute;
   left: -100%;
-  top: 65%;
+  top: 60%;
 }
 
 .top .content h2 {
@@ -162,10 +181,8 @@ Main content
 
 .top .content h2::after {
   content: "";
-  display: block;
   width: 80%;
   height: 1px;
-  margin: 8px auto;
   background-color: #fff;
 }
 

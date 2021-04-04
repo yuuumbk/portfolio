@@ -3,19 +3,23 @@
 
 $(function () {
   //ヘッダーの高さ分、全体を下げる
-  var height = $('#header').outerHeight();
-  console.log(height);
-  $("body").css('margin-top', height);
+  // var height = $('#header').outerHeight();
+  // console.log(height);
+  // $("body").css('margin-top', height);
 
 
-  //コンテンツをスライドインさせる
+
+  /**
+   * コンテンツのスライドイン
+   */
+  var slideDuration = 2000;
   $(".nav-list").animate({
     right: 0,
-  }, 1500, 'easeInOutBack');
+  }, slideDuration, 'easeInOutBack');
 
   $(".top .content").animate({
     left: "5%",
-  }, 1500, 'easeInOutBack');
+  }, slideDuration, 'easeInOutBack');
 
   //raindrops
   $('.rain').raindrops({
@@ -31,7 +35,12 @@ $(function () {
     positionLeft: 0
   });
 
-  //ロゴのアニメーション
+
+
+  /**
+   * ロゴホバー切り替え
+   */
+
   //twitter
   $('.logo img[alt="twitter"]').on({
     'mouseenter': function () {
@@ -75,4 +84,10 @@ $(function () {
       $(this).attr('src', '../img/logo/mail-white.svg');
     }
   });
+
+
+
+  /**
+   * 画面に入ったらフェードインする
+   */
 });
