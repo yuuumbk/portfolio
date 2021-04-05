@@ -141,7 +141,7 @@ About
 
 .prf-img {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .prf-img img {
@@ -193,20 +193,53 @@ Footer
   color: #fff;
 }
 
+
+
+/* =============================================
+タブレット用
+============================================= */
+
+@media screen and (max-width: 940px) {
+
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+
+  #about {
+    background: linear-gradient(#fff, #fff 30%, #eee 30%, #eee);
+  }
+
+  .logo-upper-right {
+    width: 30%;
+    position: absolute;
+    top: 33%;
+    right: 7%;
+  }
+
+  .introduction-first-half,
+  .introduction-latter-half {
+    width: 46%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    line-height: 1.8em;
+    text-decoration: dotted;
+  }
+}
+
+
+
 /* =============================================
 モバイル用
 ============================================= */
 
 @media screen and (max-width: 767px) {
-  #about {
-    background: linear-gradient(#fff, #fff 21%, #eee 21%, #eee);
-    padding: 20px;
-    position: relative;
-  }
 
-  .prf-img {
-    text-align: center;
-    margin-bottom: 20px;
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+
+  #about {
+    background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
   }
 
   .prf-img img {

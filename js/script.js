@@ -4,7 +4,7 @@
  * ローディング画面
  */
 
-$(document).ready(function () {
+$(function () {
   changeDisplay();
 });
 
