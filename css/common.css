@@ -57,9 +57,14 @@ ol {
   padding-left: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 /* logo */
 
-.logo {
+.logo,
+.logo-switching {
   display: flex;
   justify-content: space-between;
   width: 70%;
@@ -67,7 +72,8 @@ ol {
   position: relative;
 }
 
-.logo li {
+.logo li,
+.logo-switching li {
   width: 35px;
   height: 35px;
   display: inline-block;
@@ -77,7 +83,14 @@ ol {
   font-size: 6px;
 }
 
-/* .logo .position-qiita {
+strong {
+  position: relative;
+  background: linear-gradient(transparent 80%, #02dded 80%);
+}
+
+
+/* .logo .position-qiita,
+  .logo-switching .position-qiita {
   position: absolute;
   top: -5px;
   right: 100px;
@@ -93,8 +106,8 @@ ol {
   float: right;
 }
 
-.clearfix {
-  clear: both;
+.over-hidden {
+  overflow: hidden;
 }
 
 .spinner {
