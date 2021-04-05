@@ -4,16 +4,16 @@
  * ローディング画面
  */
 
-// $(document).ready(function () {
-//   changeDisplay();
-// });
+$(document).ready(function () {
+  changeDisplay();
+});
 
-// //ローディング画面と通常画面を切り替える
-// function changeDisplay() {
-//   $(".wrapper").css({ display: 'block' });
-//   $(".is-loading").delay(900).fadeOut(800);
-//   $(".loading").delay(600).fadeOut(300);
-// }
+//ローディング画面と通常画面を切り替える
+function changeDisplay() {
+  $(".wrapper").css({ display: 'block' });
+  $(".is-loading").delay(900).fadeOut(800);
+  $(".loading").delay(600).fadeOut(300);
+}
 
 
 
