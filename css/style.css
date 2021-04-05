@@ -32,12 +32,23 @@ Header navigation
   * 開発後、HTMLの対象コンテンツと
   * このスタイルをコメントアウト
   */
-#nav h1,
-#nav p {
-  display:inline-block;
-  margin-left: 20px;
+  #nav h1,
+  #nav p {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+  }
+  #nav p {
+        font-size: small;
+  }
 
-}
+  @media screen and (max-width: 767px) {
+    #nav p {
+      display: block;
+      margin: 15px 10px 0;
+      text-align: center;
+    }
+  }
 
 .nav-title a {
   color: #000;
