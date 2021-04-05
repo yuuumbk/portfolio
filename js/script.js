@@ -1,22 +1,8 @@
 'use strict';
 
-$(function () {
-  //ヘッダーの高さ分、全体を下げる
-  // var height = $('#header').outerHeight();
-  // console.log(height);
-  // $("body").css('margin-top', height);
-});
-$(function () {
-
-
-  /**
-   * ローディング画面
-   */
-  //HTML側で実装
-  // var $window = $(window);
-  // $(".is-loading, .loading").css({ display: 'block' });
-  // $(".wrapper").css({ display: 'none' });
-});
+/**
+ * ローディング画面
+ */
 
 $(document).ready(function () {
   changeDisplay();
@@ -33,8 +19,18 @@ function changeDisplay() {
 
 $(function () {
   /**
+   * ヘッダー分コンテンツを下げる
+   */
+
+  var height = $('#nav').outerHeight();
+  $("body").css('margin-top', height);
+
+
+
+  /**
    * コンテンツのスライドイン
    */
+
   var slideDuration = 2000;
   $(".nav-list").animate({
     right: 0,
@@ -49,6 +45,7 @@ $(function () {
   /**
    * raindrops
    */
+
   $('.rain').raindrops({
     color: '#444',
     waveLength: 200,

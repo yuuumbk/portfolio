@@ -37,7 +37,7 @@ h2::after {
   display: block;
   width: 20%;
   height: 1px;
-  margin: 8px auto;
+  margin: 8px auto 20px;
   background-color: #000;
 
 }
@@ -68,8 +68,8 @@ ol {
 }
 
 .logo li {
-  width: 33px;
-  height: 33px;
+  width: 35px;
+  height: 35px;
   display: inline-block;
 }
 
@@ -77,11 +77,11 @@ ol {
   font-size: 6px;
 }
 
-.logo .position-qiita {
+/* .logo .position-qiita {
   position: absolute;
   top: -5px;
   right: 100px;
-}
+} */
 
 /* float */
 
