@@ -118,24 +118,49 @@ $(function () {
    * 画面に入ったらフェードインする
    */
 
-  $(window).on('scroll', $.throttle(200, function () {
-    var windowHeight = $(window).height();
+  //フェードインさせたい要素を非表示
+  $('.scroll-fadein').each(function () {
+    $(this).addClass('invisible');
+  });
+
+  //ウィンドウの高さを取得
+  var windowHeight = $(window).height();
+
+  //最初のビューでのフェードイン
+  $(document).ready(function () {
+    scroll(true);
+  });
+
+    $(window).on('scroll', $.throttle(200, function () {
+      scroll();
+    }));
+
+  function scroll(delay = false) {
     $('.scroll-fadein').each(function () {
       var $scrollFadeIn = $(this),
         scrollFadeInOffset = $scrollFadeIn.offset().top;
 
-      $scrollFadeIn.addClass('fadein');
+      fadeIn(delay);
 
-      fadeIn();
-
-      function fadeIn() {
+      function fadeIn(delay) {
         var scrollAmount = $(window).scrollTop();
-        if (scrollAmount > scrollFadeInOffset - windowHeight + 100) {
-          $scrollFadeIn.addClass('scrollin');
-        }else {
+        if (scrollAmount > scrollFadeInOffset - windowHeight + 50) {
+          if (delay) {
+            setTimeout(function () {
+              $scrollFadeIn.addClass('scrollin');
+            }, 1500);
+          } else {
+            $scrollFadeIn.addClass('scrollin');
+          }
+        } else {
+          if (delay) {
+            $setTimeout(function () {
+              $scrollFadeIn.removeClass('scrollin');
+            }, 1500);
+          }
           $scrollFadeIn.removeClass('scrollin');
         }
       }
     });
-  }));
+  }
 });
