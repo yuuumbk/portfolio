@@ -126,12 +126,19 @@ $(function () {
   //ウィンドウの高さを取得
   var windowHeight = $(window).height();
 
-  //最初のビューでのフェードイン
+  //最初のビューでのフェードインさせるものがあれば
+  $(document).ready(function(){
     scroll(true);
+  });
 
-    $(window).on('scroll', $.throttle(200, function () {
-      scroll();
-    }));
+  //1秒間に5回までイベントを発生
+  $(window).on('scroll', $.throttle(200, function () {
+    /**
+     *  ある程度スクロールされた後、リロードされると
+     *  上のscrollだけでなく、こちらのscrollも動いてしまう
+     */
+    scroll();
+  }));
 
   function scroll(delay = false) {
     $('.scroll-fadein').each(function () {
@@ -142,6 +149,7 @@ $(function () {
 
       function fadeIn(delay) {
         var scrollAmount = $(window).scrollTop();
+        
         if (scrollAmount > scrollFadeInOffset - windowHeight + 50) {
           if (delay) {
             setTimeout(function () {

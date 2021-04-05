@@ -12,6 +12,9 @@ Header navigation
   padding: 10px 0 15px 10px;
   background-color: #fff;
   z-index: 3;
+
+  /* shadow */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .nav-title {
@@ -45,10 +48,13 @@ Header navigation
   right: -100%;
   top: 0;
   margin-top: 15px;
+  /* 要素同士の隙間が開くのを防ぐ */
+  letter-spacing: -0.4em;
 }
 
 .nav-list li {
   display: inline-block;
+  letter-spacing: normal;
 }
 
 .nav-list li + li {
@@ -68,6 +74,10 @@ Header navigation
 /* =============================================
 Main content
 ============================================= */
+
+#main {
+  margin-bottom: 80px;
+}
 
 /* top */
 
