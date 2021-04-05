@@ -1,7 +1,6 @@
 /* =============================================
 Common
 ============================================= */
-
 * {
   margin: 0px;
   padding: 0px;
@@ -10,8 +9,7 @@ Common
 html,
 body {
   color: #000;
-  font-family: 'Roboto',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   height: 100%;
 }
 
@@ -39,7 +37,6 @@ h2::after {
   height: 1px;
   margin: 8px auto 20px;
   background-color: #000;
-
 }
 
 a {
@@ -61,12 +58,21 @@ img {
   max-width: 100%;
 }
 
-/* logo */
+strong {
+  position: relative;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, transparent), color-stop(80%, #02dded));
+  background: linear-gradient(transparent 80%, #02dded 80%);
+}
 
+/* logo */
 .logo,
 .logo-switching {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 70%;
   margin: 20px auto 10px;
   position: relative;
@@ -83,11 +89,9 @@ img {
   font-size: 6px;
 }
 
-strong {
-  position: relative;
-  background: linear-gradient(transparent 80%, #02dded 80%);
+.logo-twitter {
+  margin-top: 3px;
 }
-
 
 /* .logo .position-qiita,
   .logo-switching .position-qiita {
@@ -95,9 +99,7 @@ strong {
   top: -5px;
   right: 100px;
 } */
-
 /* float */
-
 .floatL {
   float: left;
 }
@@ -128,15 +130,17 @@ strong {
 }
 
 /* scroll-fadein */
-
 .scroll-fadein.invisible {
   opacity: 0;
-  transform: translate(0, 60px);
-
+  -webkit-transform: translate(0, 60px);
+          transform: translate(0, 60px);
 }
 
 .scroll-fadein.scrollin {
   opacity: 1;
-  transform: translate(0,0);
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: all 1000ms;
   transition: all 1000ms;
 }
+/*# sourceMappingURL=common.css.map */

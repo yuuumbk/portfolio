@@ -22,8 +22,8 @@ $(function () {
    * ヘッダー分コンテンツを下げる
    */
 
-  var height = $('#nav').outerHeight();
-  $('body').css('margin-top', height);
+  var height = $('.nav').outerHeight();
+  $('.main').css('margin-top', height);
 
 
 
@@ -35,21 +35,19 @@ $(function () {
 
   // モバイル
   if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
-    console.log('モバイル')
     $('.top .content')
-    .css({
-      opacity: 0,
-    })
-    .animate({
-      opacity: 1,
-      top: '50%',
-    }, slideDuration, 'easeInOutBack');
+      .css({
+        opacity: 0,
+      })
+      .animate({
+        opacity: 1,
+        top: '50%',
+      }, slideDuration, 'easeInOutBack');
   }
 
   // タブレット・PC
   else {
-    console.log('PC');
-    $('.nav-list').animate({
+    $('.nav .list').animate({
       right: 0,
     }, slideDuration, 'easeInOutBack');
 
@@ -69,9 +67,9 @@ $(function () {
 
   $('.rain').raindrops({
     color: '#444',
-    waveLength: 200,
-    frequency: 3,
-    waveHeight: 50,
+    waveLength: 400,
+    frequency: 5,
+    waveHeight: 80,
     density: 0,
     rippleSpeed: 0.002,
     canvasWidth: 2000,

@@ -4,7 +4,7 @@
 Header navigation
 ============================================= */
 
-#nav {
+.nav {
   position: fixed;
   top: 0;
   left: -10px;
@@ -12,81 +12,58 @@ Header navigation
   padding: 10px 0 15px 10px;
   background-color: #fff;
   z-index: 3;
-
-  /* shadow */
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-}
 
-.nav-title {
-  font-family: 'Meie Script',
-    cursive;
-  font-size: 25px;
-  margin: 0;
-  margin-top: 5px;
-  font-weight: 100;
-  padding-left: 10px;
-}
+  .title {
+    font-family: 'Meie Script',
+      cursive;
+    font-size: 25px;
+    margin: 0;
+    margin-top: 5px;
+    font-weight: 100;
+    padding-left: 10px;
 
-/**
-  * 製作中の表示
-  * 開発後、HTMLの対象コンテンツと
-  * このスタイルをコメントアウト
-  */
-  #nav h1,
-  #nav p {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  #nav p {
-    font-size: small;
-    margin-left: 20px;
-  }
-
-  @media screen and (max-width: 767px) {
-    #nav p {
-      display: block;
-      margin: 15px 10px 0;
-      text-align: center;
+    a {
+      color: #000;
     }
   }
 
-.nav-title a {
-  color: #000;
+  .list {
+    position: absolute;
+    right: -100%;
+    top: 0;
+    margin-top: 15px;
+    /* 要素同士の隙間が開くのを防ぐ */
+    letter-spacing: -0.5em;
+
+    li {
+      display: inline-block;
+      letter-spacing: normal;
+
+      +li {
+        border-left: 1px solid #aaa;
+      }
+    }
+  }
+
+  .list a {
+    display: block;
+    padding: 5px 15px;
+    color: #000;
+
+    &:hover {
+      color: #777;
+    }
+  }
 }
 
-.nav-list {
-  position: absolute;
-  right: -100%;
-  top: 0;
-  margin-top: 15px;
-  /* 要素同士の隙間が開くのを防ぐ */
-  letter-spacing: -0.5em;
-}
 
-.nav-list li {
-  display: inline-block;
-  letter-spacing: normal;
-}
-
-.nav-list li + li {
-  border-left: 1px solid #aaa;
-}
-
-.nav-list a {
-  display: block;
-  padding: 5px 15px;
-  color: #000;
-}
-
-.nav-list a:hover {
-  color: #777;
-}
 
 /* =============================================
 Main content
 ============================================= */
 
-#main {
+.main {
   margin-bottom: 80px;
 }
 
@@ -99,50 +76,52 @@ Top
   height: 500px;
   background: url(../img/top2.png) left top/cover no-repeat;
   color: #fff;
+
+  .content {
+    position: absolute;
+    left: -100%;
+    top: 50%;
+  }
+
+  .content h2 {
+    letter-spacing: 7px;
+    font-size: 30px;
+  }
+
+  .content a {
+    color: #fff;
+  }
+
+  .content h2::after {
+    content: "";
+    width: 80%;
+    height: 1px;
+    background-color: #fff;
+  }
+
+  .content p {
+    text-align: center;
+    font-size: small;
+  }
+
+  .saying {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    width: 40%;
+    font-size: 37px;
+    line-height: 1.5em;
+  }
+
 }
 
-.top .content {
-  position: absolute;
-  left: -100%;
-  top: 50%;
-}
-
-.top .content h2 {
-  letter-spacing: 7px;
-  font-size: 30px;
-}
-
-.top .content a {
-  color: #fff;
-}
-
-.top .content h2::after {
-  content: "";
-  width: 80%;
-  height: 1px;
-  background-color: #fff;
-}
-
-.top .content p {
-  text-align: center;
-  font-size: small;
-}
-
-.top .saying {
-  position: absolute;
-  top: 30%;
-  right: 5%;
-  width: 40%;
-  font-size: 37px;
-  line-height: 1.5em;
-}
 
 
 /*-------------------------------------
 About
 --------------------------------------*/
 
-#about {
+.about {
   background: linear-gradient(#fff, #fff 40%, #eee 40%, #eee);
   padding: 40px;
   position: relative;
@@ -166,13 +145,30 @@ About
   right: 15%;
 }
 
-.introduction-first-half,
-.introduction-latter-half {
-  width: 46%;
+.introduction .first-half,
+.introduction .latter-half {
+  width: 50%;
   box-sizing: border-box;
   padding: 0 15px;
   line-height: 1.8em;
   text-decoration: dotted;
+}
+
+.introduction dt,
+.introduction dd {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.introduction dt {
+  width: 30%;
+  text-align: center;
+}
+
+.introduction dd {
+  padding-left: 5px;
+  width: 68%;
 }
 
 
@@ -180,7 +176,7 @@ About
 Footer
 ============================================= */
 
-#footer {
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -192,7 +188,7 @@ Footer
   height: 20px;
 }
 
-#footer .content {
+.footer .content {
   position: absolute;
   text-align: center;
   top: 67%;
@@ -223,7 +219,7 @@ Footer
   About
   --------------------------------------*/
 
-  #about {
+  .about {
     background: linear-gradient(#fff, #fff 30%, #eee 30%, #eee);
   }
 
@@ -256,7 +252,7 @@ Footer
   Header navigation
   ============================================= */
 
-  .nav-list {
+  .nav .list {
     right: 0;
   }
 
@@ -282,7 +278,7 @@ Footer
   About
   --------------------------------------*/
 
-  #about {
+  .about {
     background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
   }
 
@@ -301,8 +297,14 @@ Footer
     position: static;
   }
 
-  .introduction-first-half,
-  .introduction-latter-half {
+  .introduction .first-half,
+  .introduction .latter-half {
     width: 100%;
   }
+
+  .introduction dl dt,
+  .introduction dl dd {
+    text-align: center;
+  }
+
 }
