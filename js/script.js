@@ -58,9 +58,6 @@ $(function () {
 
 
 
-
-
-
   /**
    * raindrops
    */
