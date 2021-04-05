@@ -127,9 +127,7 @@ $(function () {
   var windowHeight = $(window).height();
 
   //最初のビューでのフェードイン
-  $(document).ready(function () {
     scroll(true);
-  });
 
     $(window).on('scroll', $.throttle(200, function () {
       scroll();
@@ -148,16 +146,11 @@ $(function () {
           if (delay) {
             setTimeout(function () {
               $scrollFadeIn.addClass('scrollin');
-            }, 1500);
+            }, 2000);
           } else {
             $scrollFadeIn.addClass('scrollin');
           }
         } else {
-          if (delay) {
-            $setTimeout(function () {
-              $scrollFadeIn.removeClass('scrollin');
-            }, 1500);
-          }
           $scrollFadeIn.removeClass('scrollin');
         }
       }

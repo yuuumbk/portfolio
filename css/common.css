@@ -111,6 +111,10 @@ ol {
 
 /* scroll-fadein */
 
+.scroll-fadein {
+  overflow: hidden;
+}
+
 .scroll-fadein.invisible {
   opacity: 0;
   transform: translate(0, 70px);
