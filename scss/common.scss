@@ -24,6 +24,8 @@ body {
 .container {
   width: 90%;
   margin: auto;
+  // ページ内リンク対策
+  padding-top: 100px;
 }
 
 h2 {
@@ -136,7 +138,6 @@ strong {
 .scroll-fadein.invisible {
   opacity: 0;
   transform: translate(0, 60px);
-
 }
 
 .scroll-fadein.scrollin {

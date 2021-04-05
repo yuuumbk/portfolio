@@ -114,7 +114,7 @@ About
 .about {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(40%, #fff), color-stop(40%, #eee), to(#eee));
   background: linear-gradient(#fff, #fff 40%, #eee 40%, #eee);
-  padding: 40px;
+  padding: 0 40px 40px;
   position: relative;
 }
 
