@@ -39,7 +39,7 @@ Header navigation
     vertical-align: middle;
   }
   #nav p {
-        font-size: small;
+    font-size: small;
   }
 
   @media screen and (max-width: 767px) {
@@ -151,3 +151,7 @@ Footer
   z-index: 1;
   color: #fff;
 }
+
+/* =============================================
+モバイル用
+============================================= */

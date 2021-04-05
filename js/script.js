@@ -71,44 +71,44 @@ $(function () {
   //twitter
   $('.logo img[alt="twitter"]').on({
     'mouseenter': function () {
-      $(this).attr('src', '../img/logo/Logo blue.svg');
+      $(this).attr('src', 'img/logo/Logo blue.svg');
     },
 
     'mouseleave': function () {
-      $(this).attr('src', '../img/logo/Logo white.svg');
+      $(this).attr('src', 'img/logo/Logo white.svg');
     }
   });
 
   //github
   $('.logo img[alt="github"]').on({
     'mouseenter': function () {
-      $(this).attr('src', '../img/logo/github-purple.png');
+      $(this).attr('src', 'img/logo/github-purple.png');
     },
 
     'mouseleave': function () {
-      $(this).attr('src', '../img/logo/github-white.png');
+      $(this).attr('src', 'img/logo/github-white.png');
     }
   });
 
   //qiita
-  $('.logo img[alt="qiita"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', '../img/logo/qiita.svg');
-    },
+  // $('.logo img[alt="qiita"]').on({
+  //   'mouseenter': function () {
+  //     $(this).attr('src', '../img/logo/qiita.svg');
+  //   },
 
-    'mouseleave': function () {
-      $(this).attr('src', '../img/logo/qiita-white.svg');
-    }
-  });
+  //   'mouseleave': function () {
+  //     $(this).attr('src', '../img/logo/qiita-white.svg');
+  //   }
+  // });
 
   //email
   $('.logo img[alt="email"]').on({
     'mouseenter': function () {
-      $(this).attr('src', '../img/logo/mail-red.svg');
+      $(this).attr('src', 'img/logo/mail-red.svg');
     },
 
     'mouseleave': function () {
-      $(this).attr('src', '../img/logo/mail-white.svg');
+      $(this).attr('src', 'img/logo/mail-white.svg');
     }
   });
 
@@ -149,7 +149,7 @@ $(function () {
 
       function fadeIn(delay) {
         var scrollAmount = $(window).scrollTop();
-        
+
         if (scrollAmount > scrollFadeInOffset - windowHeight + 50) {
           if (delay) {
             setTimeout(function () {
