@@ -128,6 +128,15 @@ Top
   font-size: small;
 }
 
+.top .saying {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  width: 40%;
+  font-size: 37px;
+  line-height: 1.5em;
+}
+
 
 /*-------------------------------------
 About
@@ -135,7 +144,7 @@ About
 
 #about {
   background: linear-gradient(#fff, #fff 40%, #eee 40%, #eee);
-  padding: 20px;
+  padding: 40px;
   position: relative;
 }
 
@@ -201,6 +210,15 @@ Footer
 
 @media screen and (max-width: 940px) {
 
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+
   /*-------------------------------------
   About
   --------------------------------------*/
@@ -234,12 +252,42 @@ Footer
 
 @media screen and (max-width: 767px) {
 
+  /* =============================================
+  Header navigation
+  ============================================= */
+
+  .nav-list {
+    right: 0;
+  }
+
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  .top .content {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .top .saying {
+    display: none;
+  }
+
   /*-------------------------------------
   About
   --------------------------------------*/
 
   #about {
     background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
+  }
+
+  .prf-img {
+    margin-bottom: 20px;
   }
 
   .prf-img img {

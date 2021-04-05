@@ -10,9 +10,9 @@ $(function () {
 
 //ローディング画面と通常画面を切り替える
 function changeDisplay() {
-  $(".wrapper").css({ display: 'block' });
-  $(".is-loading").delay(900).fadeOut(800);
-  $(".loading").delay(600).fadeOut(300);
+  $('.wrapper').css({ display: 'block' });
+  $('.is-loading').delay(900).fadeOut(800);
+  $('.loading').delay(600).fadeOut(300);
 }
 
 
@@ -23,7 +23,7 @@ $(function () {
    */
 
   var height = $('#nav').outerHeight();
-  $("body").css('margin-top', height);
+  $('body').css('margin-top', height);
 
 
 
@@ -32,13 +32,34 @@ $(function () {
    */
 
   var slideDuration = 2000;
-  $(".nav-list").animate({
-    right: 0,
-  }, slideDuration, 'easeInOutBack');
 
-  $(".top .content").animate({
-    left: "5%",
-  }, slideDuration, 'easeInOutBack');
+  // モバイル
+  if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
+    console.log('モバイル')
+    $('.top .content')
+    .css({
+      opacity: 0,
+    })
+    .animate({
+      opacity: 1,
+      top: '50%',
+    }, slideDuration, 'easeInOutBack');
+  }
+
+  // タブレット・PC
+  else {
+    console.log('PC');
+    $('.nav-list').animate({
+      right: 0,
+    }, slideDuration, 'easeInOutBack');
+
+    $('.top .content').animate({
+      left: '5%',
+    }, slideDuration, 'easeInOutBack');
+  }
+
+
+
 
 
 
@@ -124,7 +145,7 @@ $(function () {
   var windowHeight = $(window).height();
 
   //最初のビューでのフェードインさせるものがあれば
-  $(document).ready(function(){
+  $(document).ready(function () {
     scroll(true);
   });
 
