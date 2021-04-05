@@ -35,11 +35,11 @@ Header navigation
   #nav h1,
   #nav p {
     display: inline-block;
-    margin-left: 20px;
     vertical-align: middle;
   }
   #nav p {
     font-size: small;
+    margin-left: 20px;
   }
 
   @media screen and (max-width: 767px) {
@@ -60,7 +60,7 @@ Header navigation
   top: 0;
   margin-top: 15px;
   /* 要素同士の隙間が開くのを防ぐ */
-  letter-spacing: -0.4em;
+  letter-spacing: -0.5em;
 }
 
 .nav-list li {
