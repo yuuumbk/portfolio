@@ -90,7 +90,9 @@ Main content
   margin-bottom: 80px;
 }
 
-/* top */
+/*-------------------------------------
+Top
+--------------------------------------*/
 
 .top {
   position: relative;
@@ -102,7 +104,7 @@ Main content
 .top .content {
   position: absolute;
   left: -100%;
-  top: 60%;
+  top: 50%;
 }
 
 .top .content h2 {
@@ -125,6 +127,45 @@ Main content
   text-align: center;
   font-size: small;
 }
+
+
+/*-------------------------------------
+About
+--------------------------------------*/
+
+#about {
+  background: linear-gradient(#fff, #fff 40%, #eee 40%, #eee);
+  padding: 20px;
+  position: relative;
+}
+
+.prf-img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.prf-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.logo-upper-right {
+  width: 15%;
+  position: absolute;
+  top: 43%;
+  right: 15%;
+}
+
+.introduction-first-half,
+.introduction-latter-half {
+  width: 46%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  line-height: 1.8em;
+  text-decoration: dotted;
+}
+
 
 /* =============================================
 Footer
@@ -155,3 +196,7 @@ Footer
 /* =============================================
 モバイル用
 ============================================= */
+
+@media screen and (max-width: 767px) {
+
+}
