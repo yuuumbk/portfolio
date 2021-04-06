@@ -124,7 +124,7 @@ About
 
 .about {
   background: linear-gradient(#fff, #fff 45%, #eee 45%, #eee);
-  padding: 0 40px 40px;
+  padding: 0 20px 40px;
   position: relative;
 
   .prf-img {
@@ -207,6 +207,42 @@ About
     .name-en {
       padding: 0;
       font-size: medium;
+    }
+  }
+}
+
+/*-------------------------------------
+Skills
+--------------------------------------*/
+
+.skills {
+  .container {
+    width: 100%;
+
+    .glide__track {
+      .glide__slides {
+        justify-content: space-between;
+
+        .glide__slide {
+          border-radius: 15%;
+          box-shadow: 0 100px 100px -50px rgba(0, 0, 0, 0.25),
+                      0 -100px 100px -50px rgba(0, 0, 0, 0.25),
+                      20px 0 80px -50px rgba(0, 0, 0, 0.15),
+                      -20px 0 80px -50px rgba(0, 0, 0, 0.15);
+          text-align: center;
+          height: 300px;
+          position: relative;
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            max-height: 100%;
+          }
+        }
+      }
     }
   }
 }
@@ -348,9 +384,13 @@ Footer
       p.latter-half {
         width: 100%;
       }
+
+      p.latter-half {
+        margin-top: 40px;
+      }
     }
 
-    .latter-half dt {
+    .latter-half dd:first-of-type {
       border-top: none;
     }
   }
