@@ -149,7 +149,8 @@ About
 
   .introduction {
     .first-half,
-    .latter-half {
+    .latter-half,
+    &-logo {
       position: relative;
       width: 50%;
       box-sizing: border-box;
@@ -346,15 +347,10 @@ Footer
 
     .introduction{
       .first-half,
-      .latter-half {
+      .latter-half,
+      p.latter-half,
+      &-logo {
         width: 100%;
-      }
-
-      dl {
-        dt,
-        dd {
-          text-align: center;
-        }
       }
     }
   }

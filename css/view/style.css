@@ -137,7 +137,7 @@ About
 }
 
 .about .introduction .first-half,
-.about .introduction .latter-half {
+.about .introduction .latter-half, .about .introduction-logo {
   position: relative;
   width: 50%;
   -webkit-box-sizing: border-box;
@@ -312,12 +312,9 @@ Footer
     position: static;
   }
   .about .introduction .first-half,
-  .about .introduction .latter-half {
+  .about .introduction .latter-half,
+  .about .introduction p.latter-half, .about .introduction-logo {
     width: 100%;
-  }
-  .about .introduction dl dt,
-  .about .introduction dl dd {
-    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */
