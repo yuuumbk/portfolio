@@ -11,8 +11,8 @@ $(function () {
 //ローディング画面と通常画面を切り替える
 function changeDisplay() {
   $('.wrapper').css({ display: 'block' });
-  $('.is-loading').delay(900).fadeOut(800);
-  $('.loading').delay(600).fadeOut(300);
+  $('.is-loading').delay(1400).fadeOut(800);
+  $('.loading').delay(1000).fadeOut(300);
 }
 
 
@@ -31,7 +31,7 @@ $(function () {
    * コンテンツのスライドイン
    */
 
-  var slideDuration = 2000;
+  var slideDuration = 2500;
 
   // モバイル
   if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
@@ -167,7 +167,7 @@ $(function () {
           if (delay) {
             setTimeout(function () {
               $scrollFadeIn.addClass('scrollin');
-            }, 2000);
+            }, 2500);
           } else {
             $scrollFadeIn.addClass('scrollin');
           }

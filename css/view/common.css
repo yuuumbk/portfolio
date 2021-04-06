@@ -61,8 +61,8 @@ img {
 
 strong {
   position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, transparent), color-stop(80%, #02dded));
-  background: linear-gradient(transparent 80%, #02dded 80%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #02dded));
+  background: linear-gradient(transparent 70%, #02dded 70%);
 }
 
 /* logo */

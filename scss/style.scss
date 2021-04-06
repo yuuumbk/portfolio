@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import 'mixin.scss';
+
 /* =============================================
 Header navigation
 ============================================= */
@@ -74,34 +76,34 @@ Top
 .top {
   position: relative;
   height: 500px;
-  background: url(../img/top2.png) left top/cover no-repeat;
+  background: url(../img/top.png) left top/cover no-repeat;
   color: #fff;
 
   .content {
     position: absolute;
     left: -100%;
     top: 50%;
-  }
 
-  .content h2 {
-    letter-spacing: 7px;
-    font-size: 30px;
-  }
+    h2 {
+      letter-spacing: 7px;
+      font-size: 30px;
 
-  .content a {
-    color: #fff;
-  }
+      &::after {
+        content: "";
+        width: 80%;
+        height: 1px;
+        background-color: #fff;
+      }
+    }
 
-  .content h2::after {
-    content: "";
-    width: 80%;
-    height: 1px;
-    background-color: #fff;
-  }
+    p {
+      text-align: center;
+      font-size: small;
+    }
 
-  .content p {
-    text-align: center;
-    font-size: small;
+    a {
+      color: #fff;
+    }
   }
 
   .saying {
@@ -116,60 +118,101 @@ Top
 }
 
 
-
 /*-------------------------------------
 About
 --------------------------------------*/
 
 .about {
-  background: linear-gradient(#fff, #fff 40%, #eee 40%, #eee);
+  background: linear-gradient(#fff, #fff 45%, #eee 45%, #eee);
   padding: 0 40px 40px;
   position: relative;
+
+  .prf-img {
+    text-align: center;
+    margin-bottom: 50px;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+
+  .upper-{
+    &right {
+      width: 15%;
+      position: absolute;
+      top: 50%;
+      right: 15%;
+    }
+  }
+
+  .introduction {
+    .first-half,
+    .latter-half {
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 0 15px;
+      line-height: 2em;
+      text-decoration: dotted;
+    }
+
+    p.latter-half {
+      width: 45%;
+      margin-top: 10px;
+    }
+
+    dt,
+    dd {
+      display: inline-block;
+      vertical-align: middle;
+      box-sizing: border-box;
+      text-align: center;
+      border-bottom: #777 1px dotted;
+    }
+
+    dt {
+      width: 30%;
+
+      &:first-of-type {
+        border-top: #777 1px dotted;
+      }
+    }
+
+    .latter-half dt {
+      border-top: #777 1px dotted;
+    }
+
+    dd {
+      padding-left: 5px;
+      width: 68%;
+
+      &:first-of-type {
+        border-top: #777 1px dotted;
+      }
+    }
+  }
+
+  &-name {
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 36px;
+    padding: 10px;
+
+    .name-ja::after {
+      @include underline;
+      width: 40%;
+      margin: 8px auto;
+    }
+
+    .name-en {
+      padding: 0;
+      font-size: medium;
+    }
+  }
 }
 
-.prf-img {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.prf-img img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
-
-.logo-upper-right {
-  width: 15%;
-  position: absolute;
-  top: 43%;
-  right: 15%;
-}
-
-.introduction .first-half,
-.introduction .latter-half {
-  width: 50%;
-  box-sizing: border-box;
-  padding: 0 15px;
-  line-height: 1.8em;
-  text-decoration: dotted;
-}
-
-.introduction dt,
-.introduction dd {
-  display: inline-block;
-  vertical-align: middle;
-  box-sizing: border-box;
-}
-
-.introduction dt {
-  width: 30%;
-  text-align: center;
-}
-
-.introduction dd {
-  padding-left: 5px;
-  width: 68%;
-}
 
 
 /* =============================================
@@ -180,21 +223,21 @@ Footer
   position: absolute;
   bottom: 0;
   width: 100%;
-}
 
-.rain {
-  padding: 30px;
-  height: 20px;
-}
+  .rain {
+    padding: 30px;
+    height: 20px;
+  }
 
-.footer .content {
-  position: absolute;
-  text-align: center;
-  top: 67%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  color: #fff;
+  .content {
+    position: absolute;
+    text-align: center;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #fff;
+  }
 }
 
 
@@ -229,13 +272,15 @@ Footer
     right: 7%;
   }
 
-  .introduction-first-half,
-  .introduction-latter-half {
-    width: 46%;
-    box-sizing: border-box;
-    padding: 0 15px;
-    line-height: 1.8em;
-    text-decoration: dotted;
+  .introduction {
+    .first-half,
+    .latter-half {
+      width: 46%;
+      box-sizing: border-box;
+      padding: 0 15px;
+      line-height: 1.8em;
+      text-decoration: dotted;
+    }
   }
 }
 
@@ -251,8 +296,10 @@ Footer
   Header navigation
   ============================================= */
 
-  .nav .list {
-    right: 0;
+  .nav {
+    .list {
+      right: 0;
+    }
   }
 
   /* =============================================
@@ -263,14 +310,16 @@ Footer
   Top
   --------------------------------------*/
 
-  .top .content {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  .top {
+    .content {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-  .top .saying {
-    display: none;
+    .saying {
+      display: none;
+    }
   }
 
   /*-------------------------------------
@@ -279,31 +328,34 @@ Footer
 
   .about {
     background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
-  }
 
-  .prf-img {
-    margin-bottom: 20px;
-  }
+    .prf-img {
+      margin-bottom: 20px;
 
-  .prf-img img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+    }
 
-  .logo-upper-right {
-    width: 100%;
-    position: static;
-  }
+    .logo-upper-right {
+      width: 100%;
+      position: static;
+    }
 
-  .introduction .first-half,
-  .introduction .latter-half {
-    width: 100%;
-  }
+    .introduction{
+      .first-half,
+      .latter-half {
+        width: 100%;
+      }
 
-  .introduction dl dt,
-  .introduction dl dd {
-    text-align: center;
+      dl {
+        dt,
+        dd {
+          text-align: center;
+        }
+      }
+    }
   }
-
 }

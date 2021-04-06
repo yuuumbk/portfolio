@@ -1,0 +1,8 @@
+@mixin underline {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background-color: #000;
+}

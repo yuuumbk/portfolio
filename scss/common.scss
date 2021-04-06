@@ -1,3 +1,7 @@
+@charset "utf-8";
+
+@import 'mixin.scss';
+
 /* =============================================
 Common
 ============================================= */
@@ -32,26 +36,21 @@ h2 {
   font-size: 35px;
   margin: 30px 0 10px;
   text-align: center;
-}
 
-h2::after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background-color: #000;
-
+  &::after {
+    @include underline;
+  }
 }
 
 a {
   text-decoration: none;
   color: orangered;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-a:hover {
-  cursor: pointer;
-}
 
 ul,
 ol {
@@ -65,7 +64,7 @@ img {
 
 strong {
   position: relative;
-  background: linear-gradient(transparent 80%, #02dded 80%);
+  background: linear-gradient(transparent 70%, #02dded 70%);
 }
 
 /* logo */
@@ -77,22 +76,25 @@ strong {
   width: 70%;
   margin: 20px auto 10px;
   position: relative;
+
+  li {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+  }
+
 }
 
-.logo li,
-.logo-switching li {
-  width: 35px;
-  height: 35px;
-  display: inline-block;
+.logo {
+  &-desc {
+    font-size: 6px;
+  }
+
+  &-twitter {
+    margin-top: 3px;
+  }
 }
 
-.logo-desc {
-  font-size: 6px;
-}
-
-.logo-twitter {
-  margin-top: 3px;
-}
 
 
 /* .logo .position-qiita,
@@ -104,12 +106,14 @@ strong {
 
 /* float */
 
-.floatL {
-  float: left;
-}
+.float {
+  &L {
+    float: left;
+  }
 
-.floatR {
-  float: right;
+  &R {
+    float: right;
+  }
 }
 
 .over-hidden {
@@ -135,13 +139,16 @@ strong {
 
 /* scroll-fadein */
 
-.scroll-fadein.invisible {
-  opacity: 0;
-  transform: translate(0, 60px);
-}
 
-.scroll-fadein.scrollin {
-  opacity: 1;
-  transform: translate(0,0);
-  transition: all 1000ms;
+.scroll-fadein {
+  &.invisible {
+    opacity: 0;
+    transform: translate(0, 60px);
+  }
+
+  &.scrollin {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 1000ms;
+  }
 }
