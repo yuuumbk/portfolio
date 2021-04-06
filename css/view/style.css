@@ -129,7 +129,7 @@ About
   border-radius: 50%;
 }
 
-.about .upper-right {
+.about-logo {
   width: 15%;
   position: absolute;
   top: 50%;
@@ -137,7 +137,7 @@ About
 }
 
 .about .introduction .first-half,
-.about .introduction .latter-half, .about .introduction-logo {
+.about .introduction .latter-half {
   position: relative;
   width: 50%;
   -webkit-box-sizing: border-box;
@@ -307,14 +307,17 @@ Footer
     height: 200px;
     border-radius: 50%;
   }
-  .about .logo-upper-right {
+  .about-logo {
     width: 100%;
     position: static;
   }
   .about .introduction .first-half,
   .about .introduction .latter-half,
-  .about .introduction p.latter-half, .about .introduction-logo {
+  .about .introduction p.latter-half {
     width: 100%;
+  }
+  .about .latter-half dt {
+    border-top: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

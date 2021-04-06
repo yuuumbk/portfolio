@@ -138,19 +138,16 @@ About
     }
   }
 
-  .upper-{
-    &right {
+  &-logo {
       width: 15%;
       position: absolute;
       top: 50%;
       right: 15%;
     }
-  }
 
   .introduction {
     .first-half,
-    .latter-half,
-    &-logo {
+    .latter-half {
       position: relative;
       width: 50%;
       box-sizing: border-box;
@@ -340,7 +337,7 @@ Footer
       }
     }
 
-    .logo-upper-right {
+    &-logo {
       width: 100%;
       position: static;
     }
@@ -348,10 +345,13 @@ Footer
     .introduction{
       .first-half,
       .latter-half,
-      p.latter-half,
-      &-logo {
+      p.latter-half {
         width: 100%;
       }
+    }
+
+    .latter-half dt {
+      border-top: none;
     }
   }
 }
