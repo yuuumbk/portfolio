@@ -312,12 +312,9 @@ Footer
     position: static;
   }
   .about .introduction .first-half,
-  .about .introduction .latter-half {
+  .about .introduction .latter-half,
+  .about .introduction p.latter-half {
     width: 100%;
-  }
-  .about .introduction dl dt,
-  .about .introduction dl dd {
-    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */

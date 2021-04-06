@@ -346,16 +346,12 @@ Footer
 
     .introduction{
       .first-half,
-      .latter-half {
+      .latter-half,
+      p.latter-half {
         width: 100%;
       }
 
-      dl {
-        dt,
-        dd {
-          text-align: center;
-        }
-      }
+      .
     }
   }
 }
