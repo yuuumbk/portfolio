@@ -31,29 +31,96 @@ $(function () {
    * コンテンツのスライドイン
    */
 
-  var slideDuration = 2500;
+  slideIn();
 
-  // モバイル
-  if (window.matchMedia && window.matchMedia('screen and (max-width: 600px)').matches) {
-    $('.top .content')
-      .css({
-        opacity: 0,
-      })
-      .animate({
-        opacity: 1,
-        top: '50%',
+  //画面回転された時に再度スライドインアニメーションを発火させる
+  $(window).on('resize', $.throttle(50, function(obj) {
+    //すぐに透明化することで処理の遅延による表示の乱れを防ぐ
+    $('.nav .list, .top .content').css({ opacity: 0 });
+
+    var slideDuration = 1500;
+
+    if(obj.type === 'resize'){
+      // 縦画面
+      if (window.matchMedia && window.matchMedia('screen and (max-width: 600px)').matches) {
+        console.log('縦画面');
+        $('.nav .list')
+          .css({
+            opacity: 1,
+            right: '0',
+          });
+
+        $('.top .content')
+          .css({
+            top: 0,
+            left: '50%',
+          })
+          .animate({
+            opacity: 1,
+            top: '50%',
+          }, slideDuration, 'easeInOutBack');
+      }
+
+      // 横画面
+      else {
+        console.log('横画面');
+        $('.nav .list')
+          .css({
+            right: '-100%',
+          })
+          .animate({
+            opacity: 1,
+            right: 0,
+          }, slideDuration, 'easeInOutBack');
+
+        $('.top .content')
+          .css({
+            left: '-100%'
+          })
+          .animate({
+            opacity: 1,
+            left: '5%',
+          }, slideDuration, 'easeInOutBack');
+      }
+    }
+  }));
+
+
+  function slideIn(delay = true){
+    var slideDuration = 2500;
+
+    // モバイル
+    if (window.matchMedia && window.matchMedia('screen and (max-width: 600px)').matches) {
+      console.log('モバイル');
+      $('.top .content')
+        .css({
+          opacity: 0,
+          top: 0,
+        })
+        .animate({
+          opacity: 1,
+          top: '50%',
+        }, slideDuration, 'easeInOutBack');
+    }
+
+    // タブレット・PC
+    else {
+      console.log('タブレット・PC');
+      $('.nav .list')
+        .css({
+          right: '-100%',
+        })
+        .animate({
+          right: 0,
+        }, slideDuration, 'easeInOutBack');
+
+      $('.top .content')
+        .css({
+          left: '-100%',
+        }).animate({
+        left: '5%',
       }, slideDuration, 'easeInOutBack');
-  }
-
-  // タブレット・PC
-  else {
-    $('.nav .list').animate({
-      right: 0,
-    }, slideDuration, 'easeInOutBack');
-
-    $('.top .content').animate({
-      left: '5%',
-    }, slideDuration, 'easeInOutBack');
+    }
   }
 
 
@@ -177,4 +244,33 @@ $(function () {
       }
     });
   }
+
+  /**
+   * スライドショー
+   */
+
+  var glide = new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 1,
+    peek: {
+      before: 50,
+      after: 50
+    },
+    perView: 4,
+    breakpoints: {
+      1500: {
+        perView: 3
+      },
+      1024: {
+        perView: 2
+      },
+      599: {
+        perView: 1
+      }
+    },
+    autoplay: 3000,
+  });
+
+  glide.mount();
 });
