@@ -6,7 +6,7 @@
 Header navigation
 ============================================= */
 
-.nav {
+.header {
   position: fixed;
   top: 0;
   left: -10px;
@@ -26,32 +26,38 @@ Header navigation
     padding-left: 10px;
   }
 
-  .list {
-    position: absolute;
-    right: -100%;
-    top: 0;
-    margin-top: 15px;
-    /* 要素同士の隙間が開くのを防ぐ */
-    letter-spacing: -0.5em;
+  .pc {
+    .list {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-top: 15px;
+      /* 要素同士の隙間が開くのを防ぐ */
+      letter-spacing: -0.5em;
 
-    li {
-      display: inline-block;
-      letter-spacing: normal;
+      li {
+        display: inline-block;
+        letter-spacing: normal;
 
-      +li {
-        border-left: 1px solid #aaa;
+        +li {
+          border-left: 1px solid #aaa;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 5px 15px;
+
+        &:hover {
+          color: #777;
+        }
       }
     }
   }
 
-  .list a {
-    display: block;
-    padding: 5px 15px;
-
-    &:hover {
-      color: #777;
-    }
-  }
+  // .mb {
+  //   display: none;
+  // }
 }
 
 
@@ -76,8 +82,9 @@ Top
 
   .content {
     position: absolute;
-    left: -100%;
+    left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
 
     h2 {
       letter-spacing: 7px;
@@ -98,15 +105,6 @@ Top
     a {
       color: #fff;
     }
-  }
-
-  .saying {
-    position: absolute;
-    top: 30%;
-    right: 5%;
-    width: 40%;
-    font-size: 37px;
-    line-height: 1.5em;
   }
 
 }
@@ -151,7 +149,6 @@ About
       position: relative;
       width: 50%;
       box-sizing: border-box;
-      padding: 0 15px;
       line-height: 2em;
     }
 
@@ -304,6 +301,10 @@ Footer
   Main content
   ============================================= */
 
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
 /*-------------------------------------
   About
   --------------------------------------*/
@@ -345,8 +346,6 @@ Footer
 }
 
 
-
-
 /* =============================================
 モバイル用
 ============================================= */
@@ -357,11 +356,62 @@ Footer
   Header navigation
   ============================================= */
 
-  .nav {
-    .list {
-      right: 0;
+  // .nav {
+  //   .list {
+  //     right: 0;
+  //   }
+  // }
+
+  .header {
+
+    /**
+    * ハンバーガーメニュー
+    */
+
+    .pc {
+      display: none;
+    }
+
+    .mb {
+
+      .btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        height: 36px;
+        width: 42px;
+
+        &-line {
+          display: flex;
+          position: relative;
+          flex-direction: row-reverse;
+          height: 2px;
+          background-color: #777;
+          margin: 8px 0;
+
+          &:nth-of-type(1) {
+            width: 100%;
+          }
+
+          &:nth-of-type(2) {
+            width: 80%;
+          }
+
+          &:nth-of-type(3) {
+            width: 60%;
+          }
+        }
+      }
+
+      .list {
+        position: absolute;
+        right: -100%;
+      }
     }
   }
+
 
   /* =============================================
   Main content
@@ -371,17 +421,6 @@ Footer
   Top
   --------------------------------------*/
 
-  .top {
-    .content {
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .saying {
-      display: none;
-    }
-  }
 
   /*-------------------------------------
   About

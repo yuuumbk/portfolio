@@ -2,7 +2,7 @@
 /* =============================================
 Header navigation
 ============================================= */
-.nav {
+.header {
   position: fixed;
   top: 0;
   left: -10px;
@@ -14,7 +14,7 @@ Header navigation
           box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.nav .title {
+.header .title {
   font-family: 'Meie Script', cursive;
   font-size: 25px;
   margin: 0;
@@ -23,30 +23,30 @@ Header navigation
   padding-left: 10px;
 }
 
-.nav .list {
+.header .pc .list {
   position: absolute;
-  right: -100%;
+  right: 0;
   top: 0;
   margin-top: 15px;
   /* 要素同士の隙間が開くのを防ぐ */
   letter-spacing: -0.5em;
 }
 
-.nav .list li {
+.header .pc .list li {
   display: inline-block;
   letter-spacing: normal;
 }
 
-.nav .list li + li {
+.header .pc .list li + li {
   border-left: 1px solid #aaa;
 }
 
-.nav .list a {
+.header .pc .list a {
   display: block;
   padding: 5px 15px;
 }
 
-.nav .list a:hover {
+.header .pc .list a:hover {
   color: #777;
 }
 
@@ -69,8 +69,10 @@ Top
 
 .top .content {
   position: absolute;
-  left: -100%;
+  left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .top .content h2 {
@@ -98,15 +100,6 @@ Top
 
 .top .content a {
   color: #fff;
-}
-
-.top .saying {
-  position: absolute;
-  top: 30%;
-  right: 5%;
-  width: 40%;
-  font-size: 37px;
-  line-height: 1.5em;
 }
 
 /*-------------------------------------
@@ -145,7 +138,6 @@ About
   width: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 15px;
   line-height: 2em;
 }
 
@@ -297,6 +289,9 @@ Footer
   Main content
   ============================================= */
   /*-------------------------------------
+  Top
+  --------------------------------------*/
+  /*-------------------------------------
   About
   --------------------------------------*/
   .about .prf-img {
@@ -331,8 +326,49 @@ Footer
   /* =============================================
   Header navigation
   ============================================= */
-  .nav .list {
+  .header {
+    /**
+    * ハンバーガーメニュー
+    */
+  }
+  .header .pc {
+    display: none;
+  }
+  .header .mb .btn {
+    position: absolute;
+    top: 50%;
     right: 0;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    cursor: pointer;
+    height: 36px;
+    width: 42px;
+  }
+  .header .mb .btn-line {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    height: 2px;
+    background-color: #777;
+    margin: 8px 0;
+  }
+  .header .mb .btn-line:nth-of-type(1) {
+    width: 100%;
+  }
+  .header .mb .btn-line:nth-of-type(2) {
+    width: 80%;
+  }
+  .header .mb .btn-line:nth-of-type(3) {
+    width: 60%;
+  }
+  .header .mb .list {
+    position: absolute;
+    right: -100%;
   }
   /* =============================================
   Main content
@@ -340,15 +376,6 @@ Footer
   /*-------------------------------------
   Top
   --------------------------------------*/
-  .top .content {
-    top: 0;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-  }
-  .top .saying {
-    display: none;
-  }
   /*-------------------------------------
   About
   --------------------------------------*/

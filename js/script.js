@@ -6,18 +6,16 @@
 
 $(function () {
   changeDisplay();
-});
 
-//ローディング画面と通常画面を切り替える
-function changeDisplay() {
-  $('.wrapper').css({ display: 'block' });
-  $('.is-loading').delay(1400).fadeOut(800);
-  $('.loading').delay(1000).fadeOut(300);
-}
-
+  //ローディング画面と通常画面を切り替える
+  function changeDisplay() {
+    $('.wrapper').css({ display: 'block' });
+    $('.is-loading').delay(1400).fadeOut(800);
+    $('.loading').delay(1000).fadeOut(300);
+  }
 
 
-$(function () {
+
   /**
    * ヘッダー分コンテンツを下げる
    */
@@ -27,34 +25,34 @@ $(function () {
 
 
 
-  /**
-   * コンテンツのスライドイン
-   */
+  // /**
+  //  * コンテンツのスライドイン
+  //  */
 
-  var slideDuration = 2500;
+  // var slideDuration = 2500;
 
-  // モバイル
-  if (window.matchMedia && window.matchMedia('screen and (max-width: 599px)').matches) {
-    $('.top .content')
-      .css({
-        opacity: 0,
-      })
-      .animate({
-        opacity: 1,
-        top: '50%',
-      }, slideDuration, 'easeInOutBack');
-  }
+  // // モバイル
+  // if (window.matchMedia && window.matchMedia('screen and (max-width: 599px)').matches) {
+  //   $('.top .content')
+  //     .css({
+  //       opacity: 0,
+  //     })
+  //     .animate({
+  //       opacity: 1,
+  //       top: '50%',
+  //     }, slideDuration, 'easeInOutBack');
+  // }
 
-  // タブレット・PC
-  else {
-    $('.nav .list').animate({
-      right: 0,
-    }, slideDuration, 'easeInOutBack');
+  // // タブレット・PC
+  // else {
+  //   $('.nav .list').animate({
+  //     right: 0,
+  //   }, slideDuration, 'easeInOutBack');
 
-    $('.top .content').animate({
-      left: '5%',
-    }, slideDuration, 'easeInOutBack');
-  }
+  //   $('.top .content').animate({
+  //     left: '5%',
+  //   }, slideDuration, 'easeInOutBack');
+  // }
 
 
 
@@ -95,7 +93,7 @@ $(function () {
   //github
   $('.logo-switching img[alt="github"]').on({
     'mouseenter': function () {
-      $(this).attr('src', 'img/logo/github-purple.png');
+      $(this).attr('src', 'img/logo/github-black.png');
     },
 
     'mouseleave': function () {
