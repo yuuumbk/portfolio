@@ -123,8 +123,13 @@ About
 --------------------------------------*/
 
 .about {
+<<<<<<< Updated upstream
   background: linear-gradient(#fff, #fff 45%, #eee 45%, #eee);
   padding: 0 40px 40px;
+=======
+  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  padding: 0 20px 40px;
+>>>>>>> Stashed changes
   position: relative;
 
   .prf-img {
@@ -139,10 +144,13 @@ About
   }
 
   &-logo {
-      width: 15%;
       position: absolute;
-      top: 50%;
+      top: 375px;
       right: 15%;
+
+      .logo {
+        width: 130px;
+      }
     }
 
   .introduction {
@@ -241,43 +249,35 @@ Footer
 
 
 /* =============================================
-タブレット用
+aboutの表示調整
 ============================================= */
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1300px) {
 
   /* =============================================
   Main content
   ============================================= */
 
   /*-------------------------------------
-  Top
-  --------------------------------------*/
-
-
-  /*-------------------------------------
   About
   --------------------------------------*/
 
   .about {
-    background: linear-gradient(#fff, #fff 30%, #eee 30%, #eee);
-  }
 
-  .logo-upper-right {
-    width: 30%;
-    position: absolute;
-    top: 33%;
-    right: 7%;
-  }
+    .introduction {
+      .first-half,
+      .latter-half,
+      p.latter-half {
+        width: 100%;
+      }
 
-  .introduction {
-    .first-half,
-    .latter-half {
-      width: 46%;
-      box-sizing: border-box;
-      padding: 0 15px;
-      line-height: 1.8em;
-      text-decoration: dotted;
+      p.latter-half {
+        margin-top: 40px;
+      }
+
+    .latter-half dd:first-of-type {
+      border-top: none;
+    }
     }
   }
 }
@@ -288,7 +288,7 @@ Footer
 モバイル用
 ============================================= */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 599px) {
 
   /* =============================================
   Header navigation
@@ -325,7 +325,6 @@ Footer
   --------------------------------------*/
 
   .about {
-    background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
 
     .prf-img {
       margin-bottom: 20px;

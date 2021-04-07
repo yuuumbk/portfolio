@@ -34,7 +34,11 @@ $(function () {
   var slideDuration = 2500;
 
   // モバイル
+<<<<<<< Updated upstream
   if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
+=======
+  if (window.matchMedia && window.matchMedia('screen and (max-width: 599px)').matches) {
+>>>>>>> Stashed changes
     $('.top .content')
       .css({
         opacity: 0,

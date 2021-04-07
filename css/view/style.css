@@ -112,9 +112,14 @@ Top
 About
 --------------------------------------*/
 .about {
+<<<<<<< Updated upstream
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(45%, #fff), color-stop(45%, #eee), to(#eee));
   background: linear-gradient(#fff, #fff 45%, #eee 45%, #eee);
   padding: 0 40px 40px;
+=======
+  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  padding: 0 20px 40px;
+>>>>>>> Stashed changes
   position: relative;
 }
 
@@ -130,10 +135,13 @@ About
 }
 
 .about-logo {
-  width: 15%;
   position: absolute;
-  top: 50%;
+  top: 375px;
   right: 15%;
+}
+
+.about-logo .logo {
+  width: 130px;
 }
 
 .about .introduction .first-half,
@@ -233,44 +241,32 @@ Footer
 }
 
 /* =============================================
-タブレット用
+aboutの表示調整
 ============================================= */
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1300px) {
   /* =============================================
   Main content
   ============================================= */
   /*-------------------------------------
-  Top
-  --------------------------------------*/
-  /*-------------------------------------
   About
   --------------------------------------*/
-  .about {
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(30%, #fff), color-stop(30%, #eee), to(#eee));
-    background: linear-gradient(#fff, #fff 30%, #eee 30%, #eee);
+  .about .introduction .first-half,
+  .about .introduction .latter-half,
+  .about .introduction p.latter-half {
+    width: 100%;
   }
-  .logo-upper-right {
-    width: 30%;
-    position: absolute;
-    top: 33%;
-    right: 7%;
+  .about .introduction p.latter-half {
+    margin-top: 40px;
   }
-  .introduction .first-half,
-  .introduction .latter-half {
-    width: 46%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 0 15px;
-    line-height: 1.8em;
-    -webkit-text-decoration: dotted;
-            text-decoration: dotted;
+  .about .introduction .latter-half dd:first-of-type {
+    border-top: none;
   }
 }
 
 /* =============================================
 モバイル用
 ============================================= */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 599px) {
   /* =============================================
   Header navigation
   ============================================= */
@@ -295,10 +291,6 @@ Footer
   /*-------------------------------------
   About
   --------------------------------------*/
-  .about {
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(24%, #fff), color-stop(24%, #eee), to(#eee));
-    background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
-  }
   .about .prf-img {
     margin-bottom: 20px;
   }
