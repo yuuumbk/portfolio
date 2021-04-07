@@ -34,7 +34,7 @@ $(function () {
   var slideDuration = 2500;
 
   // モバイル
-  if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
+  if (window.matchMedia && window.matchMedia('screen and (max-width: 600px)').matches) {
     $('.top .content')
       .css({
         opacity: 0,
