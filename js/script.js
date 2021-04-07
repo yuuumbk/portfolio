@@ -182,36 +182,29 @@ $(function () {
    * スライドショー
    */
 
-  // モバイル
-  if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
-    var glide = new Glide('.glide', {
-      type: 'carousel',
-      startAt: 0,
-      perView: 1,
-      peek: {
-        before: 50,
-        after: 50
+  var glide = new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 1,
+    peek: {
+      before: 50,
+      after: 50
+    },
+    perView: 4,
+    breakpoints: {
+      1500: {
+        perView: 3
       },
-      autoplay: 3000,
-    })
-
-    glide.mount();
-  }
-
-  // タブレット・PC
-  else {
-    var glide = new Glide('.glide', {
-      type: 'carousel',
-      startAt: 0,
-      perView: 3,
-      peek: {
-        before: 50,
-        after: 50
+      1024: {
+        perView: 2
       },
-      autoplay: 3000,
-    })
+      599: {
+        perView: 1
+      }
+    },
+    autoplay: 3000,
+  });
 
-    glide.mount();
-  }
+  glide.mount();
 
 });
