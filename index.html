@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PORTFOLIO</title>
+  <meta name="description" content="yuuumbkのポートフォリオです。">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/common.min.css">
+  <link rel="stylesheet" href="css/glide.core.min.css">
+  <link rel="stylesheet" href="css/glide.theme.min.css">
+  <link rel="stylesheet" href="css/loading-animation.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Meie+Script&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
+  <script src="js/vendor/glide.min.js"></script>
+  <script src="js/vendor/raindrops.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <!-- ローディング画面 -->
+  <div class="is-loading">
+    <div class="loading">
+      <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
+    </div>
+    <script>
+      var $window = $(window);
+      $(".is-loading, .loading").css({ display: 'block' });
+      $(".wrapper").css({ display: 'none' });
+    </script>
+  </div>
+
+  <!-- コンテンツ -->
+  <div class="wrapper">
+    <header id="header" class="header">
+      <nav id="nav" class="nav">
+        <h1  class= "title"><a href="index.html">Portfolio</a></h1>
+        <div class= "button">
+          <ul class= "list">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <!-- <li><a href="#works">WORKS</a></li> -->
+            <li><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="main">
+      <section class="top">
+        <div class="dark">
+          <div class="content">
+            <p>現在、製作中です。完成まで今しばらくお待ちください。<br>
+              このポートフォリオについてご意見がございましたら、<br>
+              Contactからお知らせください。<br>
+              モバイル・タブレットへの対応は随時行って参ります。</p>
+            <h2><a href="#about">KOKI YUMOTO</a></h2>
+            <p>Web Engineer</p>
+            <ul class="logo-switching">
+              <li class="logo-twitter"><a href="https://twitter.com/yuuumbk" target="_blank"><img src="img/logo/Logo white.svg" alt="twitter"></a</li>
+              <li><a href="https://github.com/yuuumbk" target="_blank"><img src="img/logo/github-white.png" alt="github"></a></li>
+              <!-- <li><a href="https://qiita.com/yuuumbk" target="_blank"><img src="img/logo/qiita-white.svg" alt="qiita" class="position-qiita"></li> -->
+              <li><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><img src="img/logo/mail-white.svg" alt="email"></a></li>
+            </ul>
+          </div>
+
+          <div class="saying">
+            I find out what the world needs. Then, I go ahead and invent it.
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about scroll-fadein">
+        <div class="container">
+          <h2>ABOUT</h2>
+          <div class="prf-img">
+            <img src="img/protrait.png" alt="KOKI YUMOTO">
+          </div>
+          <div class="about-logo">
+            <ul class="logo">
+              <li class="logo-twitter"><a href="https://twitter.com/yuuumbk" target="_blank"><img src="img/logo/Logo blue.svg" alt="twitter"></a></li>
+              <li><a href="https://github.com/yuuumbk" target="_blank"><img src="img/logo/github-black.png" alt="github"></a></li>
+              <!-- <li><a href="https://qiita.com/yuuumbk" target="_blank"><img src="img/logo/qiita-white.svg" alt="qiita" class="position-qiita"></a></li> -->
+              <li><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><img src="img/logo/mail-red.svg" alt="email"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="over-hidden introduction">
+          <div class="first-half floatL scroll-fadein">
+            <div class="about-name">
+              <p class="name-ja">湯本　航基</p>
+              <p class="name-en">KOKI YUMOTO</p>
+            </div>
+            <dl class="first-half floatL">
+                <dt>生年月日</dt>
+                <dd>2003年3月27日</dd>
+                <dt>年齢</dt>
+                <dd><span class="birth" data-birth="2003/03/27"></span></dd>
+                <dt>出身</dt>
+                <dd>栃木県</dd>
+                <dt>趣味</dt>
+                <dd>サイクリング</dd>
+            </dl>
+            <dl class="latter-half floatR">
+              <dt>主な資格</dt>
+              <dd>基本情報技術者試験<br>
+              実用英語技能検定 2級</dd>
+              <dt>希望職種</dt>
+              <dd>バックエンドエンジニア<br>
+              セキュリティエンジニア</dd>
+            </dl>
+          </div>
+          <p class="latter-half floatR scroll-fadein">
+            　現在、大学にてエンジニアとしての研鑽を積んでおります。<br>
+            　「<strong>社会に送るクリエイティブなサービスを作る。</strong>」という思いを胸に、友人やコミュニティの方々と日々考えております。また、社会に役立つ人物となるために<strong>自分に必要なものは何か</strong>を考え、自分自身の在り方について日々自分に問いかけることは欠きません。<br>
+            　将来を見据え、今の自分にできることをリストアップし、自身強みとなるスキルを磨いております。<strong>新技術</strong>に関する情報にも目を光らせ、積極的に取り入れます。<br>
+            　ITに関することだけでなく、あらゆる分野にも目を向け、それぞれが得意とする技術を<strong>ハイブリット</strong>した画期的なサービスを提供できたらと思い、今日も自己研鑽に励みます。
+            <span class="about-work"> - お仕事について - </span>
+            　現在は「<strong>Webアプリケーション開発</strong>」、「<strong>Webサイトコーティング</strong>」などの幅広いお仕事をお引き受けしております。クライアント様のご期待に添えるよう精一杯お手伝いさせていただきます。お仕事に関するご相談やご質問等ございましたら、<a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><strong>こちら</strong></a>からお問い合わせください。
+          </p>
+        </div>
+
+      </section>
+
+      <section id="skills" class="skills scroll-fadein">
+        <div class="container">
+          <h2>SKILLS</h2>
+          <div class="glide">
+            <div data-glide-el="track" class="glide__track">
+              <ul class="glide__slides">
+                <li class="glide__slide"><img src="img/logo/html-5.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/css-3.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/javascript.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/jquery.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/php.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/laravel.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/mysql.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/github-octocat.svg" alt=""></li>
+                <li class="glide__slide"><img src="img/logo/docker-icon.svg" alt=""></li>
+              </ul>
+            </div>
+            <div class="glide__track" data-glide-el="track"></div>
+
+              <div class="glide__arrows" data-glide-el="controls">
+                <!-- <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button> -->
+            </div>
+          </div>
+      </section>
+
+      <!-- <section id="works" class="works scroll-fadein">
+        <div class="container">
+          <h2>WORKS</h2>
+
+        </div>
+      </section> -->
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="rain">
+        <div class="content">
+          <span>
+            <small class="footer-copyright">&copy; 2021- yuuumbk</small>
+          </span>
+      </div>
+      </div>
+
+    </footer>
+  </div>
+</div>
+</body>
+</html>

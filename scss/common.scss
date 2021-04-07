@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+@import 'mixin.scss';
+
+/* =============================================
+Common
+============================================= */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html,
+body {
+  color: #000;
+  font-family: 'Roboto',
+    sans-serif;
+  height: 100%;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  // ページ内リンク対策
+  padding-top: 100px;
+}
+
+h2 {
+  font-size: 35px;
+  margin: 30px 0 10px;
+  text-align: center;
+
+  &::after {
+    @include underline;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h2 {
+
+    &::after {
+      @include underline;
+      width: 40%;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+strong {
+  position: relative;
+  background: linear-gradient(transparent 70%, #02dded 70%);
+}
+
+/* logo */
+
+.logo,
+.logo-switching {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 20px auto 10px;
+  position: relative;
+
+  li {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+  }
+
+}
+
+.logo {
+  &-desc {
+    font-size: 6px;
+  }
+
+  &-twitter {
+    margin-top: 3px;
+  }
+}
+
+
+
+/* .logo .position-qiita,
+  .logo-switching .position-qiita {
+  position: absolute;
+  top: -5px;
+  right: 100px;
+} */
+
+/* float */
+
+.float {
+  &L {
+    float: left;
+  }
+
+  &R {
+    float: right;
+  }
+}
+
+
+
+.over-hidden {
+  overflow: hidden;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.cube1,
+.cube2 {
+  background-color: #333;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* scroll-fadein */
+
+
+.scroll-fadein {
+  &.invisible {
+    opacity: 0;
+    transform: translate(0, 60px);
+  }
+
+  &.scrollin {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 1000ms;
+  }
+}
