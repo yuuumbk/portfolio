@@ -157,6 +157,15 @@ About
 
     p.latter-half {
       width: 45%;
+
+      .about-work {
+        display: inline-block;
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+      }
     }
 
     .first-half {
