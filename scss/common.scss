@@ -44,7 +44,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: orangered;
+  color: #000;
 
   &:hover {
     cursor: pointer;
@@ -115,6 +115,8 @@ strong {
     float: right;
   }
 }
+
+
 
 .over-hidden {
   overflow: hidden;

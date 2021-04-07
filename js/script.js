@@ -34,11 +34,7 @@ $(function () {
   var slideDuration = 2500;
 
   // モバイル
-<<<<<<< Updated upstream
-  if (window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches) {
-=======
   if (window.matchMedia && window.matchMedia('screen and (max-width: 599px)').matches) {
->>>>>>> Stashed changes
     $('.top .content')
       .css({
         opacity: 0,
@@ -181,4 +177,80 @@ $(function () {
       }
     });
   }
+
+
+
+  /**
+ * スライドショー
+ */
+
+  var glide = new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 1,
+    peek: {
+      before: 50,
+      after: 50
+    },
+    perView: 4,
+    breakpoints: {
+      1500: {
+        perView: 3
+      },
+      1024: {
+        perView: 2
+      },
+      599: {
+        perView: 1
+      }
+    },
+    autoplay: 3000,
+  });
+
+  glide.mount();
+
+
+
+  /**
+   * 年齢・学年自動計算
+   *
+   * data-birthにYYYY/mm/ddの形式で指定
+   */
+
+  var today = new Date();
+
+  $('.birth').each(function () {
+    //年齢
+    var birth = $(this).data('birth');
+    var birthDate = new Date(birth);
+
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var month = today.getMonth() - birthDate.getMonth();
+
+    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    age = Math.max(age, 0);
+    var value = age + '歳';
+
+    //学年
+    var graduate = new Date('2025/03/31');
+
+    if ((graduate.getFullYear() - today.getFullYear()) >= 0){
+      var grade = 4 - (graduate.getFullYear() - today.getFullYear());
+      var month = (graduate.getMonth()) - (today.getMonth());
+
+      if (month < 0 || (month === 0 && graduate.getDate() < birthDate.getDate())) {
+        grade++;
+      }
+
+      if (grade < 5) {
+        value += ' - 大学' + grade + '年生';
+      }
+    }
+
+    $(this).append(value);
+  });
+
 });
