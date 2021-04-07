@@ -34,21 +34,16 @@ $(function () {
   slideIn();
 
   //画面回転された時に再度スライドインアニメーションを発火させる
-<<<<<<< HEAD
+
   $(window).on('resize', $.throttle(50, function (obj) {
-=======
-  $(window).on('resize', $.throttle(50, function(obj) {
->>>>>>> 1be8ada28622348f0326101a167319e3761277af
+
     //すぐに透明化することで処理の遅延による表示の乱れを防ぐ
     $('.nav .list, .top .content').css({ opacity: 0 });
 
     var slideDuration = 1500;
 
-<<<<<<< HEAD
+
     if (obj.type === 'resize') {
-=======
-    if(obj.type === 'resize'){
->>>>>>> 1be8ada28622348f0326101a167319e3761277af
       // 縦画面
       if (window.matchMedia && window.matchMedia('screen and (max-width: 600px)').matches) {
         console.log('縦画面');
@@ -126,13 +121,8 @@ $(function () {
         .css({
           left: '-100%',
         }).animate({
-<<<<<<< HEAD
           left: '5%',
         }, slideDuration, 'easeInOutBack');
-=======
-        left: '5%',
-      }, slideDuration, 'easeInOutBack');
->>>>>>> 1be8ada28622348f0326101a167319e3761277af
     }
   }
 
@@ -286,8 +276,4 @@ $(function () {
   });
 
   glide.mount();
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 1be8ada28622348f0326101a167319e3761277af
