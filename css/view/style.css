@@ -334,7 +334,8 @@ Footer
   .header .pc {
     display: none;
   }
-  .header .mb .btn {
+  .header .mb .ham-btn {
+    z-index: 999;
     position: absolute;
     top: 50%;
     right: 0;
@@ -344,7 +345,7 @@ Footer
     height: 36px;
     width: 42px;
   }
-  .header .mb .btn-line {
+  .header .mb .ham-btn-line {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -354,21 +355,89 @@ Footer
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
     height: 2px;
-    background-color: #777;
     margin: 8px 0;
+    background-color: #777;
+    -webkit-transition: background-color .6s ease;
+    transition: background-color .6s ease;
   }
-  .header .mb .btn-line:nth-of-type(1) {
+  .header .mb .ham-btn-line:nth-of-type(1) {
     width: 100%;
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
   }
-  .header .mb .btn-line:nth-of-type(2) {
+  .header .mb .ham-btn-line:nth-of-type(2) {
     width: 80%;
+    -webkit-transition: -webkit-transform .8s ease;
+    transition: -webkit-transform .8s ease;
+    transition: transform .8s ease;
+    transition: transform .8s ease, -webkit-transform .8s ease;
   }
-  .header .mb .btn-line:nth-of-type(3) {
+  .header .mb .ham-btn-line:nth-of-type(3) {
     width: 60%;
+    -webkit-transition: -webkit-transform 1.2s ease;
+    transition: -webkit-transform 1.2s ease;
+    transition: transform 1.2s ease;
+    transition: transform 1.2s ease, -webkit-transform 1.2s ease;
   }
   .header .mb .list {
-    position: absolute;
-    right: -100%;
+    position: fixed;
+    top: 0%;
+    left: 100%;
+    height: 800px;
+    width: 1000px;
+    -webkit-transition: left .6s ease, -webkit-transform .6s ease;
+    transition: left .6s ease, -webkit-transform .6s ease;
+    transition: transform .6s ease, left .6s ease;
+    transition: transform .6s ease, left .6s ease, -webkit-transform .6s ease;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+  }
+  .header .mb .open.ham-btn-line {
+    background-color: #ccc;
+    -webkit-transition: background-color .6s ease;
+    transition: background-color .6s ease;
+  }
+  .header .mb .open.ham-btn-line:nth-of-type(1) {
+    width: 15px;
+    top: 8px;
+    left: -5px;
+    -webkit-transform: rotate(135deg) translateX(-5px);
+            transform: rotate(135deg) translateX(-5px);
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
+  }
+  .header .mb .open.ham-btn-line:nth-of-type(2) {
+    width: 80%;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transition: -webkit-transform .8s ease;
+    transition: -webkit-transform .8s ease;
+    transition: transform .8s ease;
+    transition: transform .8s ease, -webkit-transform .8s ease;
+  }
+  .header .mb .open.ham-btn-line:nth-of-type(3) {
+    width: 15px;
+    bottom: 8px;
+    left: -5px;
+    -webkit-transform: rotate(-135deg) translateX(-5px);
+            transform: rotate(-135deg) translateX(-5px);
+    -webkit-transition: -webkit-transform 1.2s ease;
+    transition: -webkit-transform 1.2s ease;
+    transition: transform 1.2s ease;
+    transition: transform 1.2s ease, -webkit-transform 1.2s ease;
+  }
+  .header .mb .open.list {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
+    left: 35%;
+    -webkit-transition: left .6s ease, -webkit-transform .6s ease;
+    transition: left .6s ease, -webkit-transform .6s ease;
+    transition: transform .6s ease, left .6s ease;
+    transition: transform .6s ease, left .6s ease, -webkit-transform .6s ease;
   }
   /* =============================================
   Main content
