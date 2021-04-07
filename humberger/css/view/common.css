@@ -41,7 +41,6 @@ h2::after {
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 600px) {
   h2::after {
     content: "";
@@ -55,8 +54,6 @@ h2::after {
   }
 }
 
-=======
->>>>>>> origin/main
 a {
   text-decoration: none;
   color: #000;

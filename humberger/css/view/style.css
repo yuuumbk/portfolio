@@ -153,7 +153,6 @@ About
   width: 45%;
 }
 
-<<<<<<< HEAD
 .about .introduction p.latter-half .about-work {
   display: inline-block;
   width: 100%;
@@ -163,8 +162,6 @@ About
   font-weight: bold;
 }
 
-=======
->>>>>>> origin/main
 .about .introduction .first-half .first-half,
 .about .introduction .first-half .latter-half {
   width: 100%;
@@ -213,10 +210,6 @@ About
 }
 
 .about-name {
-<<<<<<< HEAD
-=======
-  margin-bottom: 40px;
->>>>>>> origin/main
   text-align: center;
   font-size: 36px;
   padding: 10px;
