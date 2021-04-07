@@ -24,10 +24,6 @@ Header navigation
     margin-top: 5px;
     font-weight: 100;
     padding-left: 10px;
-
-    a {
-      color: #000;
-    }
   }
 
   .list {
@@ -51,7 +47,6 @@ Header navigation
   .list a {
     display: block;
     padding: 5px 15px;
-    color: #000;
 
     &:hover {
       color: #777;
@@ -89,10 +84,9 @@ Top
       font-size: 30px;
 
       &::after {
-        content: "";
-        width: 80%;
-        height: 1px;
-        background-color: #fff;
+        @include underline;
+        width: 100%;
+        background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
       }
     }
 
@@ -123,8 +117,9 @@ About
 --------------------------------------*/
 
 .about {
-  background: linear-gradient(#fff, #fff 45%, #eee 45%, #eee);
-  padding: 0 20px 40px;
+  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  padding: 0 40px 40px;
+
   position: relative;
 
   .prf-img {
@@ -139,57 +134,73 @@ About
   }
 
   &-logo {
-      width: 15%;
       position: absolute;
-      top: 50%;
-      right: 15%;
+      top: 375px;
+      right: 20%;
+
+      .logo {
+        width: 130px;
+      }
     }
 
   .introduction {
+
     .first-half,
     .latter-half {
+
       position: relative;
       width: 50%;
       box-sizing: border-box;
       padding: 0 15px;
       line-height: 2em;
-      text-decoration: dotted;
     }
 
     p.latter-half {
       width: 45%;
-      margin-top: 10px;
     }
 
-    dt,
-    dd {
-      display: inline-block;
-      vertical-align: middle;
-      box-sizing: border-box;
-      text-align: center;
-      border-bottom: #777 1px dotted;
-    }
+    .first-half {
 
-    dt {
-      width: 30%;
+      .first-half,
+      .latter-half {
+        width: 100%;
+      }
 
-      &:first-of-type {
-        border-top: #777 1px dotted;
+      dl {
+        display: flex;
+        flex-wrap: wrap;
+
+        dt,
+        dd {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-bottom: #777 1px dotted;
+          box-sizing: border-box;
+          padding: 5px;
+        }
+
+        dt {
+          width: 20%;
+        }
+
+        dd {
+          width: 80%;
+        }
+      }
+
+      .first-half {
+        dd,
+        dt {
+          &:first-of-type {
+            border-top: #777 1px dotted;
+          }
+        }
       }
     }
 
-    .latter-half dt {
-      border-top: #777 1px dotted;
-    }
 
-    dd {
-      padding-left: 5px;
-      width: 68%;
-
-      &:first-of-type {
-        border-top: #777 1px dotted;
-      }
-    }
   }
 
   &-name {
@@ -226,9 +237,9 @@ Skills
         .glide__slide {
           border-radius: 15%;
           box-shadow: 0 100px 100px -50px rgba(0, 0, 0, 0.25),
-                      0 -100px 100px -50px rgba(0, 0, 0, 0.25),
-                      20px 0 80px -50px rgba(0, 0, 0, 0.15),
-                      -20px 0 80px -50px rgba(0, 0, 0, 0.15);
+            0 -100px 100px -50px rgba(0, 0, 0, 0.25),
+            20px 0 80px -50px rgba(0, 0, 0, 0.15),
+            -20px 0 80px -50px rgba(0, 0, 0, 0.15);
           text-align: center;
           height: 300px;
           position: relative;
@@ -277,46 +288,55 @@ Footer
 
 
 /* =============================================
-タブレット用
+タブレット
 ============================================= */
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1024px) {
 
-  /* =============================================
+/* =============================================
   Main content
   ============================================= */
 
-  /*-------------------------------------
-  Top
-  --------------------------------------*/
-
-
-  /*-------------------------------------
+/*-------------------------------------
   About
   --------------------------------------*/
 
   .about {
-    background: linear-gradient(#fff, #fff 30%, #eee 30%, #eee);
-  }
 
-  .logo-upper-right {
-    width: 30%;
-    position: absolute;
-    top: 33%;
-    right: 7%;
-  }
+    .prf-img {
+      margin-bottom: 20px;
 
-  .introduction {
-    .first-half,
-    .latter-half {
-      width: 46%;
-      box-sizing: border-box;
-      padding: 0 15px;
-      line-height: 1.8em;
-      text-decoration: dotted;
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+    }
+
+    &-logo {
+      width: 100%;
+      position: static;
+    }
+
+    .introduction {
+
+      .first-half,
+      .latter-half,
+      p.latter-half {
+        width: 100%;
+      }
+
+      p.latter-half {
+        margin-top: 40px;
+      }
+    }
+
+    .latter-half dt {
+      border-top: none;
     }
   }
 }
+
 
 
 
@@ -324,7 +344,7 @@ Footer
 モバイル用
 ============================================= */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 599px) {
 
   /* =============================================
   Header navigation
@@ -361,7 +381,6 @@ Footer
   --------------------------------------*/
 
   .about {
-    background: linear-gradient(#fff, #fff 24%, #eee 24%, #eee);
 
     .prf-img {
       margin-bottom: 20px;
@@ -384,13 +403,9 @@ Footer
       p.latter-half {
         width: 100%;
       }
-
-      p.latter-half {
-        margin-top: 40px;
-      }
     }
 
-    .latter-half dd:first-of-type {
+    .latter-half dt {
       border-top: none;
     }
   }
