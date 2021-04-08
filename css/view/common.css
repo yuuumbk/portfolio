@@ -63,6 +63,10 @@ a:hover {
   cursor: pointer;
 }
 
+img {
+  max-width: 100%;
+}
+
 ul,
 ol {
   list-style: none;

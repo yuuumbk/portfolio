@@ -196,27 +196,62 @@ $(function () {
   var glide = new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
-    perView: 1,
     peek: {
       before: 50,
       after: 50
     },
     perView: 4,
+    gap: -50,
     breakpoints: {
       1500: {
-        perView: 3
+        perView: 3,
+        gap: -40,
       },
-      1024: {
-        perView: 2
+      1150: {
+        perView: 2,
+        gap: -30,
       },
-      599: {
-        perView: 1
+      700: {
+        perView: 1,
+        gap: -30,
       }
     },
     autoplay: 3000,
   });
 
   glide.mount();
+
+  // var leftSlidePos = 1 / 5,
+  //   rightSlidePos = 2 / 3
+
+  // slide();
+
+  // setInterval(slide, 3000);
+
+  // function slide() {
+  //   var windowWidth = $(window).width();
+
+  //   $('.glide__slide').each(function () {
+  //     var offset = $(this).offset().left;
+
+  //     if (offset >= 0 && offset < windowWidth * leftSlidePos) {
+  //       $(this)
+  //         .removeClass('first, second, third')
+  //         .addClass('first');
+  //       // console.log('first');
+  //     } else if (offset < windowWidth && offset > windowWidth * rightSlidePos) {
+  //       $(this)
+  //         .removeClass('first, second, third')
+  //         .addClass('third');
+  //       // console.log('third');
+  //     } else {
+  //       $(this)
+  //         .removeClass('first, second, third')
+  //         .addClass('second');
+  //       // console.log('second');
+  //     }
+  //   });
+  // }
 
 
 

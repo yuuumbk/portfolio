@@ -50,9 +50,12 @@ Header navigation
       a {
         display: block;
         padding: 5px 15px;
+        transition: transform .2s $timing-function2;
 
         &:hover {
           color: #777;
+          transform: translateY(-.2em);
+          transition: transform .2s $timing-function2;
         }
       }
     }
@@ -241,27 +244,160 @@ Skills
 
     .glide__track {
       .glide__slides {
-        justify-content: space-between;
+        display:flex;
+        align-items: center;
+        height: 750px;
 
         .glide__slide {
-          border-radius: 15%;
-          box-shadow: 0 100px 100px -50px rgba(0, 0, 0, 0.25),
-            0 -100px 100px -50px rgba(0, 0, 0, 0.25),
-            20px 0 80px -50px rgba(0, 0, 0, 0.15),
-            -20px 0 80px -50px rgba(0, 0, 0, 0.15);
+          height: 600px;
+          margin: 50px auto;
+          border-radius: 50px;
+          box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25),
+                      -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
           text-align: center;
-          height: 300px;
-          position: relative;
+          background: url(../img/skills-bg.jpg);
+          transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+          transition: transform .2s $timing-function2;
 
-          img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+          &:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+            transition: transform .2s $timing-function2;
+          }
+
+          .skill-name {
+            font-size: 40px;
+            margin-top: 15px;
+
+            &:after {
+              @include underline;
+              width: 110px;
+            }
+          }
+
+          // &.first {
+          //   transform: rotateX(25deg) rotateY(-30deg);
+          //   box-shadow: -10px -10px 25px rgba(0, 0, 0, 0.25);
+          // }
+
+          // &.second {
+          //   transform: rotateX(0) rotateY(0);
+          //   box-shadow: 10px -10px 25px rgba(0, 0, 0, 0.25);
+          // }
+
+          // &.third {
+          //   transform: rotateX(25deg) rotateY(30deg);
+          //   box-shadow: 10px -10px 25px rgba(0, 0, 0, 0.25);
+          // }
+
+          .skill-img {
+            position: relative;
             padding: 20px;
-            max-height: 100%;
+            height: 300px;
+
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+
+          .star {
+            position: relative;
+            z-index: 0;
+            display: inline-block;
+            white-space: nowrap;
+            color: #aaa;
+            font-size: 24px;
+
+            &:before,
+            &:after {
+            content: '★★★★★';
+            }
+
+            &:after {
+              position: absolute;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              color: #ffcf00;
+            }
+
+            &[star="5"]:after {
+              width: 100%;
+            }
+            &[star="4.5"]:after {
+              width: 90%;
+            }
+            &[star="4"]:after {
+              width: 80%;
+            }
+            &[star="3.5"]:after {
+              width: 70%;
+            }
+            &[star="3"]:after {
+              width: 60%;
+            }
+            &[star="2.5"]:after {
+              width: 50%;
+            }
+            &[star="2"]:after {
+              width: 40%;
+            }
+            &[star="1.5"]:after {
+              width: 30%;
+            }
+            &[star="1"]:after {
+              width: 20%;
+            }
+            &[star="0.5"]:after {
+              width: 10%;
+            }
+            &[star="0"]:after {
+              width: 0%;
+            }
+          }
+
+          hr {
+            margin: 20px auto 0;
+            width: 85%;
+          }
+
+          .sub-skill {
+            padding: 10px 30px;
+
+            &-img,
+            .desc {
+              display: inline-block;
+              vertical-align: middle;
+            }
+
+            &-img {
+              width: 40%;
+              height: 130px;
+              padding-left: 10px;
+            }
+
+            .desc {
+              width: 58%;
+            }
           }
         }
+      }
+    }
+
+    .glide__arrow {
+
+      color: #444;
+      padding: 12px;
+      background-color: rgba(0, 0, 0, 0.25);
+      border: none;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.15);
       }
     }
   }

@@ -44,10 +44,20 @@ Header navigation
 .header .pc .list a {
   display: block;
   padding: 5px 15px;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 .header .pc .list a:hover {
   color: #777;
+  -webkit-transform: translateY(-0.2em);
+          transform: translateY(-0.2em);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 .header .mb {
@@ -236,28 +246,172 @@ Skills
 }
 
 .skills .container .glide__track .glide__slides {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 750px;
 }
 
 .skills .container .glide__track .glide__slides .glide__slide {
-  border-radius: 15%;
-  -webkit-box-shadow: 0 100px 100px -50px rgba(0, 0, 0, 0.25), 0 -100px 100px -50px rgba(0, 0, 0, 0.25), 20px 0 80px -50px rgba(0, 0, 0, 0.15), -20px 0 80px -50px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 100px 100px -50px rgba(0, 0, 0, 0.25), 0 -100px 100px -50px rgba(0, 0, 0, 0.25), 20px 0 80px -50px rgba(0, 0, 0, 0.15), -20px 0 80px -50px rgba(0, 0, 0, 0.15);
+  height: 600px;
+  margin: 50px auto;
+  border-radius: 50px;
+  -webkit-box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25), -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25), -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
   text-align: center;
-  height: 300px;
-  position: relative;
+  background: url(../img/skills-bg.jpg);
+  -webkit-transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+          transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.skills .container .glide__track .glide__slides .glide__slide img {
+.skills .container .glide__track .glide__slides .glide__slide:hover {
+  -webkit-transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+          transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .skill-name {
+  font-size: 40px;
+  margin-top: 15px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .skill-name:after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  width: 110px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .skill-img {
+  position: relative;
+  padding: 20px;
+  height: 300px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .skill-img img {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  padding: 20px;
-  max-height: 100%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: nowrap;
+  color: #aaa;
+  font-size: 24px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star:before, .skills .container .glide__track .glide__slides .glide__slide .star:after {
+  content: '★★★★★';
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star:after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffcf00;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="5"]:after {
+  width: 100%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="4.5"]:after {
+  width: 90%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="4"]:after {
+  width: 80%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="3.5"]:after {
+  width: 70%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="3"]:after {
+  width: 60%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="2.5"]:after {
+  width: 50%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="2"]:after {
+  width: 40%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="1.5"]:after {
+  width: 30%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="1"]:after {
+  width: 20%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="0.5"]:after {
+  width: 10%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .star[star="0"]:after {
+  width: 0%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide hr {
+  margin: 20px auto 0;
+  width: 85%;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .sub-skill {
+  padding: 10px 30px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .sub-skill-img,
+.skills .container .glide__track .glide__slides .glide__slide .sub-skill .desc {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .sub-skill-img {
+  width: 40%;
+  height: 130px;
+  padding-left: 10px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .sub-skill .desc {
+  width: 58%;
+}
+
+.skills .container .glide__arrow {
+  color: #444;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 50%;
+}
+
+.skills .container .glide__arrow:hover {
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 /* =============================================
