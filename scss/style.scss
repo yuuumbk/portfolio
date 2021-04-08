@@ -13,7 +13,7 @@ Header navigation
   width: 100%;
   padding: 10px 0 15px 10px;
   background-color: #fff;
-  z-index: 3;
+  z-index: 5;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 
   .title {
@@ -26,6 +26,7 @@ Header navigation
     padding-left: 10px;
   }
 
+<<<<<<< Updated upstream
   .list {
     position: absolute;
     right: -100%;
@@ -40,6 +41,36 @@ Header navigation
 
       +li {
         border-left: 1px solid #aaa;
+=======
+  .pc {
+    .list {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-top: 15px;
+      /* 要素同士の隙間が開くのを防ぐ */
+      letter-spacing: -0.5em;
+
+      li {
+        display: inline-block;
+        letter-spacing: normal;
+
+        +li {
+          border-left: 1px solid #aaa;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 5px 15px;
+        transition: transform .3s $timing-function2;
+
+        &:hover {
+          transform: translateY(-0.15em);
+          transition: transform .3s $timing-function2;
+          color: #777;
+        }
+>>>>>>> Stashed changes
       }
     }
   }
@@ -357,9 +388,147 @@ Footer
   Header navigation
   ============================================= */
 
+<<<<<<< Updated upstream
   .nav {
     .list {
       right: 0;
+=======
+  // .nav {
+  //   .list {
+  //     right: 0;
+  //   }
+  // }
+
+  .header {
+
+    /**
+    * ハンバーガーメニュー
+    */
+
+    .pc {
+      display: none;
+    }
+
+    .mb {
+      display: block;
+
+      .ham-btn {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        height: 36px;
+        width: 42px;
+
+        &-line {
+          display: flex;
+          position: relative;
+          flex-direction: row-reverse;
+          height: 2px;
+          margin: 8px 0;
+          background-color: #777;
+          transition: background-color .6s $timing-function1;
+
+          &:nth-of-type(1) {
+            width: 100%;
+            transition: transform .4s $timing-function1;
+          }
+
+          &:nth-of-type(2) {
+            width: 80%;
+            transition: transform .8s $timing-function1;
+          }
+
+          &:nth-of-type(3) {
+            width: 60%;
+            transition: transform 1.2s $timing-function1;
+          }
+        }
+      }
+
+      .menu {
+        position: fixed;
+        top: 0%;
+        left: 100%;
+        height: 800px;
+        width: 1000px;
+        transition: transform .6s $snap,
+                    left .6s $snap;
+        background: rgba(0, 0, 0, 0.85);
+
+        .list {
+          position: absolute;
+          top: 35%;
+          left: 50%;
+          transform: rotate(-45deg);
+          transition: left .6s $timing-function2,
+                      top .6s $timing-function2;
+
+          .list-item {
+            a {
+              display: block;
+              padding: 20px;
+              color: #fff;
+              font-size: 27px;
+            }
+          }
+        }
+      }
+
+      .open {
+
+        &.ham-btn {
+
+          &-line {
+            background-color: #ccc;
+            transition: background-color .6s $timing-function2;
+
+            &:nth-of-type(1) {
+              width: 15px;
+              top: 8px;
+              left: -5px;
+              transform: rotate(135deg) translateX(-5px);
+              transition: transform .4s $timing-function2;
+            }
+
+            &:nth-of-type(2) {
+              width: 80%;
+              transform: rotate(180deg);
+              transition: transform .8s $timing-function2;
+            }
+
+            &:nth-of-type(3) {
+              width: 15px;
+              bottom: 8px;
+              left: -5px;
+              transform: rotate(-135deg) translateX(-5px);
+              transition: transform 1.2s $timing-function2;
+            }
+          }
+        }
+
+
+        &.menu {
+          display: flex;
+          flex-direction: column;
+          transform: rotate(45deg);
+          left: 35%;
+          transition: transform .6s $snap,
+                      left .6s $snap;
+
+          .list {
+            position: absolute;
+            top: 60%;
+            left: 10%;
+            transform: rotate(-45deg);
+            transition: left .6s $timing-function2,
+                        top .6s $timing-function2;
+          }
+        }
+      }
+>>>>>>> Stashed changes
     }
   }
 

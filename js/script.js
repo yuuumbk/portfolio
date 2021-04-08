@@ -163,7 +163,7 @@ $(function () {
       function fadeIn(delay) {
         var scrollAmount = $(window).scrollTop();
 
-        if (scrollAmount > scrollFadeInOffset - windowHeight + 50) {
+        if (scrollAmount > scrollFadeInOffset - windowHeight + 30) {
           if (delay) {
             setTimeout(function () {
               $scrollFadeIn.addClass('scrollin');

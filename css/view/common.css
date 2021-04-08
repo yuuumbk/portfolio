@@ -41,7 +41,7 @@ h2::after {
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
   h2::after {
     content: "";
     display: block;
@@ -147,8 +147,15 @@ strong {
 /* scroll-fadein */
 .scroll-fadein.invisible {
   opacity: 0;
-  -webkit-transform: translate(0, 60px);
-          transform: translate(0, 60px);
+  -webkit-transform: translate(0, 50px);
+          transform: translate(0, 50px);
+}
+
+@media screen and (max-width: 600px) {
+  .scroll-fadein.invisible {
+    -webkit-transform: translate(0, 30px);
+            transform: translate(0, 30px);
+  }
 }
 
 .scroll-fadein.scrollin {

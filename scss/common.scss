@@ -42,7 +42,7 @@ h2 {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
   h2 {
 
     &::after {
@@ -51,6 +51,7 @@ h2 {
     }
   }
 }
+
 a {
   text-decoration: none;
   color: #000;
@@ -59,7 +60,6 @@ a {
     cursor: pointer;
   }
 }
-
 
 ul,
 ol {
@@ -154,7 +154,11 @@ strong {
 .scroll-fadein {
   &.invisible {
     opacity: 0;
-    transform: translate(0, 60px);
+    transform: translate(0, 50px);
+
+    @media screen and (max-width: 600px) {
+      transform: translate(0, 30px);
+    }
   }
 
   &.scrollin {
