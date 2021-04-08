@@ -9,7 +9,7 @@ Header navigation
   width: 100%;
   padding: 10px 0 15px 10px;
   background-color: #fff;
-  z-index: 5;
+  z-index: 3;
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
@@ -44,23 +44,9 @@ Header navigation
 .nav .list a {
   display: block;
   padding: 5px 15px;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
-<<<<<<< Updated upstream
 .nav .list a:hover {
-=======
-.header .pc .list a:hover {
-  -webkit-transform: translateY(-0.15em);
-          transform: translateY(-0.15em);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
->>>>>>> Stashed changes
   color: #777;
 }
 
@@ -345,156 +331,8 @@ Footer
   /* =============================================
   Header navigation
   ============================================= */
-<<<<<<< Updated upstream
   .nav .list {
     right: 0;
-=======
-  .header {
-    /**
-    * ハンバーガーメニュー
-    */
-  }
-  .header .pc {
-    display: none;
-  }
-  .header .mb {
-    display: block;
-  }
-  .header .mb .ham-btn {
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    cursor: pointer;
-    height: 36px;
-    width: 42px;
-  }
-  .header .mb .ham-btn-line {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    height: 2px;
-    margin: 8px 0;
-    background-color: #777;
-    -webkit-transition: background-color 0.6s ease;
-    transition: background-color 0.6s ease;
-  }
-  .header .mb .ham-btn-line:nth-of-type(1) {
-    width: 100%;
-    -webkit-transition: -webkit-transform 0.4s ease;
-    transition: -webkit-transform 0.4s ease;
-    transition: transform 0.4s ease;
-    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
-  }
-  .header .mb .ham-btn-line:nth-of-type(2) {
-    width: 80%;
-    -webkit-transition: -webkit-transform 0.8s ease;
-    transition: -webkit-transform 0.8s ease;
-    transition: transform 0.8s ease;
-    transition: transform 0.8s ease, -webkit-transform 0.8s ease;
-  }
-  .header .mb .ham-btn-line:nth-of-type(3) {
-    width: 60%;
-    -webkit-transition: -webkit-transform 1.2s ease;
-    transition: -webkit-transform 1.2s ease;
-    transition: transform 1.2s ease;
-    transition: transform 1.2s ease, -webkit-transform 1.2s ease;
-  }
-  .header .mb .menu {
-    position: fixed;
-    top: 0%;
-    left: 100%;
-    height: 800px;
-    width: 1000px;
-    -webkit-transition: left 0.6s cubic-bezier(1, 0.005, 0.24, 1), -webkit-transform 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    transition: left 0.6s cubic-bezier(1, 0.005, 0.24, 1), -webkit-transform 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    transition: transform 0.6s cubic-bezier(1, 0.005, 0.24, 1), left 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    transition: transform 0.6s cubic-bezier(1, 0.005, 0.24, 1), left 0.6s cubic-bezier(1, 0.005, 0.24, 1), -webkit-transform 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    background: rgba(0, 0, 0, 0.85);
-  }
-  .header .mb .menu .list {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-    transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-  }
-  .header .mb .menu .list .list-item a {
-    display: block;
-    padding: 20px;
-    color: #fff;
-    font-size: 27px;
-  }
-  .header .mb .open.ham-btn-line {
-    background-color: #ccc;
-    -webkit-transition: background-color 0.6s ease-in-out;
-    transition: background-color 0.6s ease-in-out;
-  }
-  .header .mb .open.ham-btn-line:nth-of-type(1) {
-    width: 15px;
-    top: 8px;
-    left: -5px;
-    -webkit-transform: rotate(135deg) translateX(-5px);
-            transform: rotate(135deg) translateX(-5px);
-    -webkit-transition: -webkit-transform 0.4s ease-in-out;
-    transition: -webkit-transform 0.4s ease-in-out;
-    transition: transform 0.4s ease-in-out;
-    transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  }
-  .header .mb .open.ham-btn-line:nth-of-type(2) {
-    width: 80%;
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-    -webkit-transition: -webkit-transform 0.8s ease-in-out;
-    transition: -webkit-transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
-  }
-  .header .mb .open.ham-btn-line:nth-of-type(3) {
-    width: 15px;
-    bottom: 8px;
-    left: -5px;
-    -webkit-transform: rotate(-135deg) translateX(-5px);
-            transform: rotate(-135deg) translateX(-5px);
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition: -webkit-transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
-  }
-  .header .mb .open.menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    left: 35%;
-    -webkit-transition: left 0.6s cubic-bezier(1, 0.005, 0.24, 1), -webkit-transform 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    transition: left 0.6s cubic-bezier(1, 0.005, 0.24, 1), -webkit-transform 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    transition: transform 0.6s cubic-bezier(1, 0.005, 0.24, 1), left 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-    transition: transform 0.6s cubic-bezier(1, 0.005, 0.24, 1), left 0.6s cubic-bezier(1, 0.005, 0.24, 1), -webkit-transform 0.6s cubic-bezier(1, 0.005, 0.24, 1);
-  }
-  .header .mb .open.menu .list {
-    position: absolute;
-    top: 60%;
-    left: 10%;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-    transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
->>>>>>> Stashed changes
   }
   /* =============================================
   Main content
