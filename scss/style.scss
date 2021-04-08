@@ -58,9 +58,9 @@ Header navigation
     }
   }
 
-  // .mb {
-  //   display: none;
-  // }
+  .mb {
+    display: none;
+  }
 }
 
 
@@ -376,6 +376,7 @@ Footer
     }
 
     .mb {
+      display: block;
 
       .ham-btn {
         z-index: 999;
@@ -421,21 +422,22 @@ Footer
         width: 1000px;
         transition: transform .6s $timing-function2,
                     left .6s $timing-function2;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.85);
 
         .list {
           position: absolute;
-          top: 68%;
+          top: 35%;
           left: 50%;
           transform: rotate(-45deg);
-          transition: left .6s $timing-function2;
+          transition: left .6s $timing-function2,
+                      top .6s $timing-function2;
 
           .list-item {
-
             a {
               display: block;
               padding: 20px;
               color: #fff;
+              font-size: 27px;
             }
           }
         }
@@ -484,10 +486,11 @@ Footer
 
           .list {
             position: absolute;
-            top: 68%;
-            left: 8%;
+            top: 60%;
+            left: 10%;
             transform: rotate(-45deg);
-            transition: left .6s $timing-function2;
+            transition: left .6s $timing-function2,
+                        top .6s $timing-function2;
           }
         }
       }
