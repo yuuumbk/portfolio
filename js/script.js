@@ -61,8 +61,8 @@ $(function () {
    * ハンバーガー
    */
 
-  $('.ham-btn').on('click', function () {
-    $('.list, .ham-btn-line').toggleClass('open');
+  $('.mb .ham-btn, .mb .menu .list .list-item a').on('click', function () {
+    $('.menu, .ham-btn-line').toggleClass('open');
   });
 
 

@@ -189,11 +189,11 @@ About
 }
 
 .about .introduction .first-half dl dt {
-  width: 20%;
+  width: 30%;
 }
 
 .about .introduction .first-half dl dd {
-  width: 80%;
+  width: 70%;
 }
 
 .about .introduction .first-half .first-half dd:first-of-type,
@@ -357,22 +357,22 @@ Footer
     height: 2px;
     margin: 8px 0;
     background-color: #777;
-    -webkit-transition: background-color .6s ease;
-    transition: background-color .6s ease;
+    -webkit-transition: background-color 0.6s ease;
+    transition: background-color 0.6s ease;
   }
   .header .mb .ham-btn-line:nth-of-type(1) {
     width: 100%;
-    -webkit-transition: -webkit-transform .4s ease;
-    transition: -webkit-transform .4s ease;
-    transition: transform .4s ease;
-    transition: transform .4s ease, -webkit-transform .4s ease;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
   }
   .header .mb .ham-btn-line:nth-of-type(2) {
     width: 80%;
-    -webkit-transition: -webkit-transform .8s ease;
-    transition: -webkit-transform .8s ease;
-    transition: transform .8s ease;
-    transition: transform .8s ease, -webkit-transform .8s ease;
+    -webkit-transition: -webkit-transform 0.8s ease;
+    transition: -webkit-transform 0.8s ease;
+    transition: transform 0.8s ease;
+    transition: transform 0.8s ease, -webkit-transform 0.8s ease;
   }
   .header .mb .ham-btn-line:nth-of-type(3) {
     width: 60%;
@@ -381,23 +381,36 @@ Footer
     transition: transform 1.2s ease;
     transition: transform 1.2s ease, -webkit-transform 1.2s ease;
   }
-  .header .mb .list {
+  .header .mb .menu {
     position: fixed;
     top: 0%;
     left: 100%;
     height: 800px;
     width: 1000px;
-    -webkit-transition: left .6s ease, -webkit-transform .6s ease;
-    transition: left .6s ease, -webkit-transform .6s ease;
-    transition: transform .6s ease, left .6s ease;
-    transition: transform .6s ease, left .6s ease, -webkit-transform .6s ease;
-    background: rgba(0, 0, 0, 0.9);
+    -webkit-transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+    transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .header .mb .menu .list {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transition: left 0.6s ease-in-out;
+    transition: left 0.6s ease-in-out;
+  }
+  .header .mb .menu .list .list-item a {
+    display: block;
+    padding: 20px;
     color: #fff;
   }
   .header .mb .open.ham-btn-line {
     background-color: #ccc;
-    -webkit-transition: background-color .6s ease;
-    transition: background-color .6s ease;
+    -webkit-transition: background-color 0.6s ease-in-out;
+    transition: background-color 0.6s ease-in-out;
   }
   .header .mb .open.ham-btn-line:nth-of-type(1) {
     width: 15px;
@@ -405,19 +418,19 @@ Footer
     left: -5px;
     -webkit-transform: rotate(135deg) translateX(-5px);
             transform: rotate(135deg) translateX(-5px);
-    -webkit-transition: -webkit-transform .4s ease;
-    transition: -webkit-transform .4s ease;
-    transition: transform .4s ease;
-    transition: transform .4s ease, -webkit-transform .4s ease;
+    -webkit-transition: -webkit-transform 0.4s ease-in-out;
+    transition: -webkit-transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
   }
   .header .mb .open.ham-btn-line:nth-of-type(2) {
     width: 80%;
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
-    -webkit-transition: -webkit-transform .8s ease;
-    transition: -webkit-transform .8s ease;
-    transition: transform .8s ease;
-    transition: transform .8s ease, -webkit-transform .8s ease;
+    -webkit-transition: -webkit-transform 0.8s ease-in-out;
+    transition: -webkit-transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
   }
   .header .mb .open.ham-btn-line:nth-of-type(3) {
     width: 15px;
@@ -425,19 +438,35 @@ Footer
     left: -5px;
     -webkit-transform: rotate(-135deg) translateX(-5px);
             transform: rotate(-135deg) translateX(-5px);
-    -webkit-transition: -webkit-transform 1.2s ease;
-    transition: -webkit-transform 1.2s ease;
-    transition: transform 1.2s ease;
-    transition: transform 1.2s ease, -webkit-transform 1.2s ease;
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
   }
-  .header .mb .open.list {
-    -webkit-transform: rotate3d(0, 0, 1, 45deg);
-            transform: rotate3d(0, 0, 1, 45deg);
+  .header .mb .open.menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
     left: 35%;
-    -webkit-transition: left .6s ease, -webkit-transform .6s ease;
-    transition: left .6s ease, -webkit-transform .6s ease;
-    transition: transform .6s ease, left .6s ease;
-    transition: transform .6s ease, left .6s ease, -webkit-transform .6s ease;
+    -webkit-transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+    transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  }
+  .header .mb .open.menu .list {
+    position: absolute;
+    top: 68%;
+    left: 8%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transition: left 0.6s ease-in-out;
+    transition: left 0.6s ease-in-out;
   }
   /* =============================================
   Main content
@@ -465,7 +494,7 @@ Footer
   .about .introduction p.latter-half {
     width: 100%;
   }
-  .about .latter-half dt {
+  .about .introduction .latter-half dt {
     border-top: none;
   }
 }
