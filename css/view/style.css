@@ -72,51 +72,6 @@ Main content
 }
 
 /*-------------------------------------
-Top
---------------------------------------*/
-.top {
-  position: relative;
-  height: 500px;
-  background: url(../img/top.png) left top/cover no-repeat;
-  color: #fff;
-}
-
-.top .content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.top .content h2 {
-  letter-spacing: 7px;
-  font-size: 30px;
-}
-
-.top .content h2::after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-  width: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #fff), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
-}
-
-.top .content p {
-  text-align: center;
-  font-size: small;
-}
-
-.top .content a {
-  color: #fff;
-}
-
-/*-------------------------------------
 About
 --------------------------------------*/
 .about {
@@ -415,31 +370,6 @@ Skills
 }
 
 /* =============================================
-Footer
-============================================= */
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer .rain {
-  padding: 30px;
-  height: 20px;
-}
-
-.footer .content {
-  position: absolute;
-  text-align: center;
-  top: 67%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-  color: #fff;
-}
-
-/* =============================================
 タブレット
 ============================================= */
 @media screen and (max-width: 1024px) {
@@ -484,11 +414,6 @@ Footer
   /* =============================================
   Header navigation
   ============================================= */
-  .header {
-    /**
-    * ハンバーガーメニュー
-    */
-  }
   .header .pc {
     display: none;
   }
@@ -659,5 +584,8 @@ Footer
   .about .introduction .latter-half dt {
     border-top: none;
   }
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
 }
 /*# sourceMappingURL=style.css.map */

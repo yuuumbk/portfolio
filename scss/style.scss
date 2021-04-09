@@ -76,45 +76,6 @@ Main content
   margin-bottom: 80px;
 }
 
-/*-------------------------------------
-Top
---------------------------------------*/
-
-.top {
-  position: relative;
-  height: 500px;
-  background: url(../img/top.png) left top/cover no-repeat;
-  color: #fff;
-
-  .content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    h2 {
-      letter-spacing: 7px;
-      font-size: 30px;
-
-      &::after {
-        @include underline;
-        width: 100%;
-        background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
-      }
-    }
-
-    p {
-      text-align: center;
-      font-size: small;
-    }
-
-    a {
-      color: #fff;
-    }
-  }
-
-}
-
 
 /*-------------------------------------
 About
@@ -406,33 +367,6 @@ Skills
 
 
 /* =============================================
-Footer
-============================================= */
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-
-  .rain {
-    padding: 30px;
-    height: 20px;
-  }
-
-  .content {
-    position: absolute;
-    text-align: center;
-    top: 67%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    color: #fff;
-  }
-}
-
-
-
-/* =============================================
 タブレット
 ============================================= */
 
@@ -497,17 +431,7 @@ Footer
   Header navigation
   ============================================= */
 
-  // .nav {
-  //   .list {
-  //     right: 0;
-  //   }
-  // }
-
   .header {
-
-    /**
-    * ハンバーガーメニュー
-    */
 
     .pc {
       display: none;
@@ -636,6 +560,7 @@ Footer
   }
 
 
+
   /* =============================================
   Main content
   ============================================= */
@@ -643,6 +568,7 @@ Footer
   /*-------------------------------------
   Top
   --------------------------------------*/
+
 
 
   /*-------------------------------------
@@ -676,6 +602,22 @@ Footer
 
       .latter-half dt {
         border-top: none;
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+
+  .skills {
+
+    .glide__slide {
+
+      &:hover {
+
       }
     }
   }

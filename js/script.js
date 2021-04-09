@@ -86,53 +86,53 @@ $(function () {
 
 
 
-  /**
-   * ロゴホバー切り替え
-   */
+  // /**
+  //  * ロゴホバー切り替え
+  //  */
 
-  //twitter
-  $('.logo-switching img[alt="twitter"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', 'img/logo/Logo blue.svg');
-    },
-
-    'mouseleave': function () {
-      $(this).attr('src', 'img/logo/Logo white.svg');
-    },
-  });
-
-  //github
-  $('.logo-switching img[alt="github"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', 'img/logo/github-black.png');
-    },
-
-    'mouseleave': function () {
-      $(this).attr('src', 'img/logo/github-white.png');
-    },
-  });
-
-  //qiita
-  // $('.logo-switching img[alt="qiita"]').on({
+  // //twitter
+  // $('.logo-switching img[alt="twitter"]').on({
   //   'mouseenter': function () {
-  //     $(this).attr('src', '../img/logo/qiita.svg');
+  //     $(this).attr('src', 'img/logo/twitter-blue.svg');
   //   },
 
   //   'mouseleave': function () {
-  //     $(this).attr('src', '../img/logo/qiita-white.svg');
+  //     $(this).attr('src', 'img/logo/twitter-black.svg');
   //   },
   // });
 
-  //email
-  $('.logo-switching img[alt="email"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', 'img/logo/mail-red.svg');
-    },
+  // //github
+  // $('.logo-switching img[alt="github"]').on({
+  //   'mouseenter': function () {
+  //     $(this).attr('src', 'img/logo/github-black.png');
+  //   },
 
-    'mouseleave': function () {
-      $(this).attr('src', 'img/logo/mail-white.svg');
-    },
-  });
+  //   'mouseleave': function () {
+  //     $(this).attr('src', 'img/logo/github-white.png');
+  //   },
+  // });
+
+  // //qiita
+  // // $('.logo-switching img[alt="qiita"]').on({
+  // //   'mouseenter': function () {
+  // //     $(this).attr('src', '../img/logo/qiita.svg');
+  // //   },
+
+  // //   'mouseleave': function () {
+  // //     $(this).attr('src', '../img/logo/qiita-white.svg');
+  // //   },
+  // // });
+
+  // //email
+  // $('.logo-switching img[alt="email"]').on({
+  //   'mouseenter': function () {
+  //     $(this).attr('src', 'img/logo/mail-red.svg');
+  //   },
+
+  //   'mouseleave': function () {
+  //     $(this).attr('src', 'img/logo/mail-black.svg');
+  //   },
+  // });
 
 
 
@@ -214,6 +214,7 @@ $(function () {
       700: {
         perView: 1,
         gap: -30,
+        hoverpause: false,
       }
     },
     autoplay: 3000,
@@ -281,7 +282,7 @@ $(function () {
     //学年
     var graduate = new Date('2025/03/31');
 
-    if ((graduate.getFullYear() - today.getFullYear()) >= 0){
+    if ((graduate.getFullYear() - today.getFullYear()) >= 0) {
       var grade = 4 - (graduate.getFullYear() - today.getFullYear());
       var month = (graduate.getMonth()) - (today.getMonth());
 
