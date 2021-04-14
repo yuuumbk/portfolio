@@ -548,8 +548,9 @@ Skills
 
           .list {
             position: absolute;
-            top: 60%;
-            left: 10%;
+            //位置調整
+            top: 55%;
+            left: 12%;
             transform: rotate(-45deg);
             transition: left .6s $timing-function2,
               top .6s $timing-function2;

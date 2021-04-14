@@ -548,8 +548,8 @@ Skills
   }
   .header .mb .open.menu .list {
     position: absolute;
-    top: 60%;
-    left: 10%;
+    top: 55%;
+    left: 12%;
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
     -webkit-transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
