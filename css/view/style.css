@@ -74,6 +74,10 @@ Main content
 /*-------------------------------------
 Service
 --------------------------------------*/
+.service {
+  margin-bottom: 20px;
+}
+
 .service .service-lists {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,7 +87,6 @@ Service
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px;
 }
 
 .service .service-lists .service-list {
@@ -101,6 +104,18 @@ Service
 .service .service-lists .service-list h3 {
   font-size: 30px;
   margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.service .service-lists .service-list h3::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  width: 50%;
 }
 
 .service .service-lists .service-list .service-icon {
@@ -178,6 +193,7 @@ About
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  line-height: 2.5em;
 }
 
 .about .introduction .first-half dl dt,
@@ -209,9 +225,9 @@ About
   width: 70%;
 }
 
-.about .introduction .first-half .first-half dd:first-of-type,
-.about .introduction .first-half .first-half dt:first-of-type {
-  border-top: #777 1px dotted;
+.about .introduction .first-half .latter-half dt:last-of-type,
+.about .introduction .first-half .latter-half dd:last-of-type {
+  border-bottom: none;
 }
 
 .about-name {
@@ -220,7 +236,12 @@ About
   padding: 10px;
 }
 
-.about-name .name-ja::after {
+.about-name .name-en {
+  margin-bottom: 20px;
+  font-family: 'Bad Script', cursive;
+}
+
+.about-name .name-en::after {
   content: "";
   display: block;
   width: 20%;
@@ -230,11 +251,6 @@ About
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   width: 40%;
   margin: 8px auto;
-}
-
-.about-name .name-en {
-  padding: 0;
-  font-size: medium;
 }
 
 /*-------------------------------------
@@ -416,7 +432,7 @@ Skills
 /* =============================================
 タブレット
 ============================================= */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-width: 600px) {
   /* =============================================
   Main content
   ============================================= */
@@ -463,6 +479,8 @@ Skills
   }
   .header .mb {
     display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   .header .mb .ham-btn {
     z-index: 999;
@@ -605,6 +623,22 @@ Skills
   /*-------------------------------------
   Top
   --------------------------------------*/
+  .top .content h2 {
+    line-height: 1.2em;
+  }
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+  .service .service-lists {
+    display: block;
+  }
+  .service .service-lists .service-list {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .service .service-lists .service-list h3 {
+    font-size: 20px;
+  }
   /*-------------------------------------
   About
   --------------------------------------*/
@@ -624,6 +658,15 @@ Skills
   .about .introduction .latter-half,
   .about .introduction p.latter-half {
     width: 100%;
+  }
+  .about .introduction .first-half .first-half dt:first-of-type,
+  .about .introduction .first-half .first-half dd:first-of-type {
+    border-top: #777 1px dotted;
+  }
+  .about .introduction .first-half .latter-half dt:last-of-type,
+  .about .introduction .first-half .latter-half dd:last-of-type {
+    border-bottom: #777 1px dotted;
+    margin-bottom: 50px;
   }
   .about .introduction .latter-half dt {
     border-top: none;
