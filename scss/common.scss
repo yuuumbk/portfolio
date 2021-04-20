@@ -258,3 +258,44 @@ strong {
     }
 
   }
+
+/**
+  * トップへ戻る
+  */
+
+  .to-top {
+    background-color: rgba(135, 206, 250,0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0.7;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    a {
+      display: block;
+      background-color: red;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::after {
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        content: '\f106';
+        font-size: 25px;
+        color: #fff;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: -5px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        text-align: center;
+      }
+    }
+  }
