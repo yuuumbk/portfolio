@@ -8,10 +8,10 @@ Header navigation
   left: -10px;
   width: 100%;
   padding: 10px 0 15px 10px;
-  background-color: #fff;
+  background-color: #f5f5f5;
   z-index: 3;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .header .title {
@@ -72,55 +72,55 @@ Main content
 }
 
 /*-------------------------------------
-Top
+Service
 --------------------------------------*/
-.top {
+.service .service-lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+
+.service .service-lists .service-list {
   position: relative;
-  height: 500px;
-  background: url(../img/top.png) left top/cover no-repeat;
-  color: #fff;
-}
-
-.top .content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.top .content h2 {
-  letter-spacing: 7px;
-  font-size: 30px;
-}
-
-.top .content h2::after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-  width: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #fff), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
-}
-
-.top .content p {
+  width: 48%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   text-align: center;
-  font-size: small;
+  padding: 20px;
+  background-color: #f5f5f5;
+  -webkit-box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
 }
 
-.top .content a {
-  color: #fff;
+.service .service-lists .service-list h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.service .service-lists .service-list .service-icon {
+  width: 100%;
+}
+
+.service .service-lists .service-list .service-icon img {
+  width: 200px;
+  height: 200px;
+}
+
+.service .service-lists .service-list p {
+  margin-top: 20px;
 }
 
 /*-------------------------------------
 About
 --------------------------------------*/
 .about {
-  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  background: linear-gradient(#fff, #fff 300px, #f5f5f5 300px, #f5f5f5);
   padding: 0 40px 40px;
   position: relative;
 }
@@ -152,7 +152,6 @@ About
   width: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  line-height: 2em;
 }
 
 .about .introduction p.latter-half {
@@ -415,31 +414,6 @@ Skills
 }
 
 /* =============================================
-Footer
-============================================= */
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer .rain {
-  padding: 30px;
-  height: 20px;
-}
-
-.footer .content {
-  position: absolute;
-  text-align: center;
-  top: 67%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-  color: #fff;
-}
-
-/* =============================================
 タブレット
 ============================================= */
 @media screen and (max-width: 1024px) {
@@ -484,11 +458,6 @@ Footer
   /* =============================================
   Header navigation
   ============================================= */
-  .header {
-    /**
-    * ハンバーガーメニュー
-    */
-  }
   .header .pc {
     display: none;
   }
@@ -623,8 +592,8 @@ Footer
   }
   .header .mb .open.menu .list {
     position: absolute;
-    top: 60%;
-    left: 10%;
+    top: 55%;
+    left: 12%;
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
     -webkit-transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
@@ -659,5 +628,8 @@ Footer
   .about .introduction .latter-half dt {
     border-top: none;
   }
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
 }
 /*# sourceMappingURL=style.css.map */

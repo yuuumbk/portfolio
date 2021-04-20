@@ -15,9 +15,9 @@ Header navigation
   left: -10px;
   width: 100%;
   padding: 10px 0 15px 10px;
-  background-color: #fff;
+  background-color: #f5f5f5;
   z-index: 3;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 
   .title {
     font-family: 'Meie Script',
@@ -77,43 +77,65 @@ Main content
 }
 
 /*-------------------------------------
-Top
+Service
 --------------------------------------*/
+.service {
 
-.top {
-  position: relative;
-  height: 500px;
-  background: url(../img/top.png) left top/cover no-repeat;
-  color: #fff;
+  .service-lists {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 20px;
 
-  .content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    h2 {
-      letter-spacing: 7px;
-      font-size: 30px;
-
-      &::after {
-        @include underline;
-        width: 100%;
-        background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
-      }
-    }
-
-    p {
+    .service-list {
+      position: relative;
+      width: 48%;
+      box-sizing: border-box;
       text-align: center;
-      font-size: small;
-    }
+      padding: 20px;
+      background-color: #f5f5f5;
+      box-shadow: 0 10px 10px -6px rgba(0, 0, 0, .3),
+                  6px 0 10px -6px rgba(0, 0, 0, .3),
+                  -6px 0 10px -6px rgba(0, 0, 0, .3);
 
-    a {
-      color: #fff;
+      h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      .service-icon {
+        width: 100%;
+
+        img {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      p {
+        margin-top: 20px;
+      }
     }
   }
 
+  .service-icon {
+    // position: relative;
+    // border-radius: 50%;
+    // background-color: paleturquoise;
+    // width: 150px;
+    // height: 150px;
+    // text-align: center;
+
+    img {
+      // position: absolute;
+      // transform: translate(-50%, -50%);
+      // top: 50%;
+      // left: 50%;
+      // width: 100px;
+    }
+  }
 }
+
 
 
 /*-------------------------------------
@@ -121,7 +143,7 @@ About
 --------------------------------------*/
 
 .about {
-  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  background: linear-gradient(#fff, #fff 300px, #f5f5f5 300px, #f5f5f5);
   padding: 0 40px 40px;
 
   position: relative;
@@ -155,7 +177,6 @@ About
       position: relative;
       width: 50%;
       box-sizing: border-box;
-      line-height: 2em;
     }
 
     p.latter-half {
@@ -406,33 +427,6 @@ Skills
 
 
 /* =============================================
-Footer
-============================================= */
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-
-  .rain {
-    padding: 30px;
-    height: 20px;
-  }
-
-  .content {
-    position: absolute;
-    text-align: center;
-    top: 67%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    color: #fff;
-  }
-}
-
-
-
-/* =============================================
 タブレット
 ============================================= */
 
@@ -497,17 +491,7 @@ Footer
   Header navigation
   ============================================= */
 
-  // .nav {
-  //   .list {
-  //     right: 0;
-  //   }
-  // }
-
   .header {
-
-    /**
-    * ハンバーガーメニュー
-    */
 
     .pc {
       display: none;
@@ -624,8 +608,9 @@ Footer
 
           .list {
             position: absolute;
-            top: 60%;
-            left: 10%;
+            //位置調整
+            top: 55%;
+            left: 12%;
             transform: rotate(-45deg);
             transition: left .6s $timing-function2,
               top .6s $timing-function2;
@@ -636,6 +621,7 @@ Footer
   }
 
 
+
   /* =============================================
   Main content
   ============================================= */
@@ -643,6 +629,7 @@ Footer
   /*-------------------------------------
   Top
   --------------------------------------*/
+
 
 
   /*-------------------------------------
@@ -676,6 +663,22 @@ Footer
 
       .latter-half dt {
         border-top: none;
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+
+  .skills {
+
+    .glide__slide {
+
+      &:hover {
+
       }
     }
   }

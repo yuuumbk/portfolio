@@ -25,38 +25,6 @@ $(function () {
 
 
 
-  // /**
-  //  * コンテンツのスライドイン
-  //  */
-
-
-  // var slideDuration = 2500;
-
-  // // モバイル
-  // if (window.matchMedia && window.matchMedia('screen and (max-width: 599px)').matches) {
-  //   $('.top .content')
-  //     .css({
-  //       opacity: 0,
-  //     })
-  //     .animate({
-  //       opacity: 1,
-  //       top: '50%',
-  //     }, slideDuration, 'easeInOutBack');
-  // }
-
-  // // タブレット・PC
-  // else {
-  //   $('.nav .list').animate({
-  //     right: 0,
-  //   }, slideDuration, 'easeInOutBack');
-
-  //   $('.top .content').animate({
-  //     left: '5%',
-  //   }, slideDuration, 'easeInOutBack');
-  // }
-
-
-
   /**
    * ハンバーガー
    */
@@ -82,56 +50,6 @@ $(function () {
     canvasHeight: 100,
     positionBottom: 0,
     positionLeft: 0
-  });
-
-
-
-  /**
-   * ロゴホバー切り替え
-   */
-
-  //twitter
-  $('.logo-switching img[alt="twitter"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', 'img/logo/Logo blue.svg');
-    },
-
-    'mouseleave': function () {
-      $(this).attr('src', 'img/logo/Logo white.svg');
-    },
-  });
-
-  //github
-  $('.logo-switching img[alt="github"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', 'img/logo/github-black.png');
-    },
-
-    'mouseleave': function () {
-      $(this).attr('src', 'img/logo/github-white.png');
-    },
-  });
-
-  //qiita
-  // $('.logo-switching img[alt="qiita"]').on({
-  //   'mouseenter': function () {
-  //     $(this).attr('src', '../img/logo/qiita.svg');
-  //   },
-
-  //   'mouseleave': function () {
-  //     $(this).attr('src', '../img/logo/qiita-white.svg');
-  //   },
-  // });
-
-  //email
-  $('.logo-switching img[alt="email"]').on({
-    'mouseenter': function () {
-      $(this).attr('src', 'img/logo/mail-red.svg');
-    },
-
-    'mouseleave': function () {
-      $(this).attr('src', 'img/logo/mail-white.svg');
-    },
   });
 
 
@@ -196,6 +114,7 @@ $(function () {
   var glide = new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
+    hoverpause: false,
     peek: {
       before: 50,
       after: 50
@@ -220,38 +139,6 @@ $(function () {
   });
 
   glide.mount();
-
-  // var leftSlidePos = 1 / 5,
-  //   rightSlidePos = 2 / 3
-
-  // slide();
-
-  // setInterval(slide, 3000);
-
-  // function slide() {
-  //   var windowWidth = $(window).width();
-
-  //   $('.glide__slide').each(function () {
-  //     var offset = $(this).offset().left;
-
-  //     if (offset >= 0 && offset < windowWidth * leftSlidePos) {
-  //       $(this)
-  //         .removeClass('first, second, third')
-  //         .addClass('first');
-  //       // console.log('first');
-  //     } else if (offset < windowWidth && offset > windowWidth * rightSlidePos) {
-  //       $(this)
-  //         .removeClass('first, second, third')
-  //         .addClass('third');
-  //       // console.log('third');
-  //     } else {
-  //       $(this)
-  //         .removeClass('first, second, third')
-  //         .addClass('second');
-  //       // console.log('second');
-  //     }
-  //   });
-  // }
 
 
 
@@ -281,7 +168,7 @@ $(function () {
     //学年
     var graduate = new Date('2025/03/31');
 
-    if ((graduate.getFullYear() - today.getFullYear()) >= 0){
+    if ((graduate.getFullYear() - today.getFullYear()) >= 0) {
       var grade = 4 - (graduate.getFullYear() - today.getFullYear());
       var month = (graduate.getMonth()) - (today.getMonth());
 
@@ -296,5 +183,58 @@ $(function () {
 
     $(this).append(value);
   });
+
+
+
+  /**
+   * Topに戻るボタンの表示管理
+   */
+
+  // ボタンを隠す
+  var $toTop = $('.to-top');
+  $toTop.hide();
+  // windowの高さを取得
+  var windowHeight = $(window).height();
+
+  $(window).on('scroll', $.throttle(200, function () {
+    if ($(this).scrollTop() > windowHeight) {
+      $toTop.fadeIn('fast');
+    } else {
+      $toTop.fadeOut('fast');
+    }
+  }));
+
+
+
+  /**
+   * スムーズスクロール
+   */
+
+  // スムーズスクロールをする要素を指定
+  var smoothList = [
+    '.to-top',
+    '.to-service',
+    '.to-about',
+    '.to-skills',
+    '.to-works',
+  ];
+
+  $.each(smoothList, function(i, val) {
+    smoothScroll(val);
+  })
+
+  function smoothScroll(target, duration = 800, easing = 'easeOutCubic') {
+    $(target).find('a').on('click', function(e){
+      e.preventDefault();
+
+      var target = this.hash;
+      var $target = $(target);
+
+      $('html, body').animate({
+        'scrollTop' : $target.offset().top,
+      }, duration, easing);
+    });
+
+  }
 
 });
