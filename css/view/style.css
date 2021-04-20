@@ -80,20 +80,22 @@ Service
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 20px;
 }
 
 .service .service-lists .service-list {
+  position: relative;
   width: 48%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
-  background: #87CEFA;
+  padding: 20px;
+  background-color: #f5f5f5;
+  -webkit-box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
 }
 
 .service .service-lists .service-list h3 {
@@ -118,7 +120,7 @@ Service
 About
 --------------------------------------*/
 .about {
-  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  background: linear-gradient(#fff, #fff 300px, #f5f5f5 300px, #f5f5f5);
   padding: 0 40px 40px;
   position: relative;
 }
@@ -150,7 +152,6 @@ About
   width: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  line-height: 2em;
 }
 
 .about .introduction p.latter-half {

@@ -84,14 +84,19 @@ Service
   .service-lists {
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
     justify-content: space-between;
+    padding: 20px;
 
     .service-list {
+      position: relative;
       width: 48%;
       box-sizing: border-box;
       text-align: center;
-      background: #87CEFA;
+      padding: 20px;
+      background-color: #f5f5f5;
+      box-shadow: 0 10px 10px -6px rgba(0, 0, 0, .3),
+                  6px 0 10px -6px rgba(0, 0, 0, .3),
+                  -6px 0 10px -6px rgba(0, 0, 0, .3);
 
       h3 {
         font-size: 30px;
@@ -138,7 +143,7 @@ About
 --------------------------------------*/
 
 .about {
-  background: linear-gradient(#fff, #fff 300px, #eee 300px, #eee);
+  background: linear-gradient(#fff, #fff 300px, #f5f5f5 300px, #f5f5f5);
   padding: 0 40px 40px;
 
   position: relative;
@@ -172,7 +177,6 @@ About
       position: relative;
       width: 50%;
       box-sizing: border-box;
-      line-height: 2em;
     }
 
     p.latter-half {
