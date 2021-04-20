@@ -17,13 +17,82 @@ body {
   font-family: 'Roboto',
     sans-serif;
   height: 100%;
+  line-height: 2em;
 }
 
 .wrapper {
-  position: relative;
-  min-height: 100vh;
+  height: 100%;
   padding-bottom: 20px;
+  position: relative;
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  .top {
+    position: relative;
+    height: 100%;
+    // color: #fad700;
+
+    .content {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      h2 {
+        letter-spacing: 7px;
+        font-size: 50px;
+
+        &::after {
+          @include underline;
+          width: 100%;
+          // background: linear-gradient(90deg, transparent 0%, #fad700 50%, transparent 100%);
+        }
+      }
+
+      p {
+        text-align: center;
+        font-size: small;
+        font-size: 25px;
+      }
+
+      li {
+        width: 45px;
+        height: 45px;
+      }
+
+      // a {
+      //   color: #fad700;
+      // }
+    }
+  }
 }
+
+/* =============================================
+  Footer
+  ============================================= */
+
+.footer {
+  width: 100%;
+
+  .rain {
+    padding: 30px;
+    height: 20px;
+  }
+
+  .content {
+    position: absolute;
+    text-align: center;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #fff;
+  }
+}
+
+
 
 .container {
   width: 90%;
@@ -94,6 +163,12 @@ strong {
     width: 35px;
     height: 35px;
     display: inline-block;
+    transition: transform .2s $timing-function2;
+  }
+
+  li:hover{
+    transform: translateY(-5px);
+    transition: transform .2s $timing-function2;
   }
 
 }
@@ -171,3 +246,58 @@ strong {
     transition: all 1000ms;
   }
 }
+
+/**
+  * パララックス
+  */
+
+  .parallax {
+    background: left top/cover no-repeat fixed;
+    height: 100%;
+
+    &.top {
+      background-image: url(../img/top.jpg);
+    }
+
+  }
+
+/**
+  * トップへ戻る
+  */
+
+  .to-top {
+    background-color: rgba(135, 206, 250,0.8);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0.7;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    a {
+      display: block;
+      background-color: red;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::after {
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        content: '\f106';
+        font-size: 25px;
+        color: #fff;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: -5px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        text-align: center;
+      }
+    }
+  }
