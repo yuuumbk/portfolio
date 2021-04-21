@@ -1,69 +1,10 @@
 @charset "UTF-8";
-/* =============================================
-Header navigation
-============================================= */
-.header {
-  position: fixed;
-  top: 0;
-  left: -10px;
-  width: 100%;
-  padding: 10px 0 15px 10px;
-  background-color: #f5f5f5;
-  z-index: 3;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.header .title {
-  font-family: 'Meie Script', cursive;
-  font-size: 25px;
-  margin: 0;
-  margin-top: 5px;
-  font-weight: 100;
-  padding-left: 10px;
-}
-
-.header .pc .list {
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin-top: 15px;
-  /* 要素同士の隙間が開くのを防ぐ */
-  letter-spacing: -0.5em;
-}
-
-.header .pc .list li {
-  display: inline-block;
-  letter-spacing: normal;
-}
-
-.header .pc .list li + li {
-  border-left: 1px solid #aaa;
-}
-
-.header .pc .list a {
-  display: block;
-  padding: 5px 15px;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-}
-
-.header .pc .list a:hover {
-  color: #777;
-  -webkit-transform: translateY(-0.2em);
-          transform: translateY(-0.2em);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-}
-
-.header .mb {
-  display: none;
-}
-
+/**
+ * 見出しのアンダーライン
+ */
+/**
+ * イージングを指定
+ */
 /* =============================================
 Main content
 ============================================= */
@@ -76,6 +17,10 @@ Service
 --------------------------------------*/
 .service {
   margin-bottom: 20px;
+}
+
+.service h2 {
+  margin-top: 15px;
 }
 
 .service .service-lists {
@@ -120,6 +65,7 @@ Service
 
 .service .service-lists .service-list .service-icon {
   width: 100%;
+  margin: 10px auto;
 }
 
 .service .service-lists .service-list .service-icon img {
@@ -128,7 +74,8 @@ Service
 }
 
 .service .service-lists .service-list p {
-  margin-top: 20px;
+  text-indent: 1em;
+  text-align: left;
 }
 
 /*-------------------------------------
@@ -439,6 +386,23 @@ Skills
   /*-------------------------------------
   Top
   --------------------------------------*/
+  .top .content h2,
+  .top .content p {
+    line-height: 1.2em;
+  }
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+  .service .service-lists {
+    display: block;
+  }
+  .service .service-lists .service-list {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .service .service-lists .service-list h3 {
+    font-size: 24px;
+  }
   /*-------------------------------------
   About
   --------------------------------------*/
@@ -472,158 +436,13 @@ Skills
 ============================================= */
 @media screen and (max-width: 599px) {
   /* =============================================
-  Header navigation
-  ============================================= */
-  .header .pc {
-    display: none;
-  }
-  .header .mb {
-    display: block;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  .header .mb .ham-btn {
-    z-index: 999;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    cursor: pointer;
-    height: 36px;
-    width: 42px;
-  }
-  .header .mb .ham-btn-line {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    height: 2px;
-    margin: 8px 0;
-    background-color: #777;
-    -webkit-transition: background-color 0.6s ease;
-    transition: background-color 0.6s ease;
-  }
-  .header .mb .ham-btn-line:nth-of-type(1) {
-    width: 100%;
-    -webkit-transition: -webkit-transform 0.4s ease;
-    transition: -webkit-transform 0.4s ease;
-    transition: transform 0.4s ease;
-    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
-  }
-  .header .mb .ham-btn-line:nth-of-type(2) {
-    width: 80%;
-    -webkit-transition: -webkit-transform 0.8s ease;
-    transition: -webkit-transform 0.8s ease;
-    transition: transform 0.8s ease;
-    transition: transform 0.8s ease, -webkit-transform 0.8s ease;
-  }
-  .header .mb .ham-btn-line:nth-of-type(3) {
-    width: 60%;
-    -webkit-transition: -webkit-transform 1.2s ease;
-    transition: -webkit-transform 1.2s ease;
-    transition: transform 1.2s ease;
-    transition: transform 1.2s ease, -webkit-transform 1.2s ease;
-  }
-  .header .mb .menu {
-    position: fixed;
-    top: 0%;
-    left: 100%;
-    height: 800px;
-    width: 1000px;
-    -webkit-transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-    transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-    background: rgba(0, 0, 0, 0.85);
-  }
-  .header .mb .menu .list {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-    transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-  }
-  .header .mb .menu .list .list-item a {
-    display: block;
-    padding: 20px;
-    color: #fff;
-    font-size: 27px;
-  }
-  .header .mb .open.ham-btn-line {
-    background-color: #ccc;
-    -webkit-transition: background-color 0.6s ease-in-out;
-    transition: background-color 0.6s ease-in-out;
-  }
-  .header .mb .open.ham-btn-line:nth-of-type(1) {
-    width: 15px;
-    top: 8px;
-    left: -5px;
-    -webkit-transform: rotate(135deg) translateX(-5px);
-            transform: rotate(135deg) translateX(-5px);
-    -webkit-transition: -webkit-transform 0.4s ease-in-out;
-    transition: -webkit-transform 0.4s ease-in-out;
-    transition: transform 0.4s ease-in-out;
-    transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  }
-  .header .mb .open.ham-btn-line:nth-of-type(2) {
-    width: 80%;
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-    -webkit-transition: -webkit-transform 0.8s ease-in-out;
-    transition: -webkit-transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
-  }
-  .header .mb .open.ham-btn-line:nth-of-type(3) {
-    width: 15px;
-    bottom: 8px;
-    left: -5px;
-    -webkit-transform: rotate(-135deg) translateX(-5px);
-            transform: rotate(-135deg) translateX(-5px);
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition: -webkit-transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
-  }
-  .header .mb .open.menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    left: 35%;
-    -webkit-transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-    transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-  }
-  .header .mb .open.menu .list {
-    position: absolute;
-    top: 55%;
-    left: 12%;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-    transition: left 0.6s ease-in-out, top 0.6s ease-in-out;
-  }
-  /* =============================================
   Main content
   ============================================= */
   /*-------------------------------------
   Top
   --------------------------------------*/
-  .top .content h2 {
+  .top .content h2,
+  .top .content p {
     line-height: 1.2em;
   }
   /*-------------------------------------
@@ -637,7 +456,7 @@ Skills
     margin-bottom: 20px;
   }
   .service .service-lists .service-list h3 {
-    font-size: 20px;
+    font-size: 24px;
   }
   /*-------------------------------------
   About

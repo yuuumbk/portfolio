@@ -1,12 +1,18 @@
+/**
+ * 見出しのアンダーライン
+ */
 @mixin underline {
   content: "";
   display: block;
   width: 20%;
   height: 1px;
   margin: 8px auto 20px;
-  background: linear-gradient(90deg,transparent 0%, #000 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
 }
 
+/**
+ * イージングを指定
+ */
 $timing-function1: ease;
 $timing-function2: ease-in-out;
 $snap: cubic-bezier(1.000, 0.005, 0.240, 1.000);
