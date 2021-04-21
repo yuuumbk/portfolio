@@ -98,7 +98,7 @@ $(function () {
           } else {
             $scrollFadeIn.addClass('scrollin');
           }
-        } else {
+        } else if(scrollAmount <= scrollFadeInOffset - windowHeight) {
           $scrollFadeIn.removeClass('scrollin');
         }
       }
@@ -198,9 +198,9 @@ $(function () {
 
   $(window).on('scroll', $.throttle(200, function () {
     if ($(this).scrollTop() > windowHeight) {
-      $toTop.fadeIn('fast');
+      $toTop.fadeIn(500);
     } else {
-      $toTop.fadeOut('fast');
+      $toTop.fadeOut(500);
     }
   }));
 
