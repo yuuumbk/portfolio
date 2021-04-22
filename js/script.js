@@ -217,6 +217,7 @@ $(function () {
     '.to-about',
     '.to-skills',
     '.to-works',
+    '.down-allow',
   ];
 
   $.each(smoothList, function(i, val) {
@@ -234,7 +235,6 @@ $(function () {
         'scrollTop' : $target.offset().top,
       }, duration, easing);
     });
-
   }
 
 });

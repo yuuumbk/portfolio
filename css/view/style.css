@@ -49,7 +49,7 @@ Service
 .service .service-lists .service-list h3 {
   font-size: 30px;
   margin-bottom: 20px;
-  font-weight: normal;
+  font-family: serif;
 }
 
 .service .service-lists .service-list h3::after {
@@ -100,7 +100,7 @@ About
 
 .about-logo {
   position: absolute;
-  top: 375px;
+  top: 400px;
   right: 20%;
 }
 
@@ -114,19 +114,6 @@ About
   width: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.about .introduction p.latter-half {
-  width: 45%;
-}
-
-.about .introduction p.latter-half .about-work {
-  display: inline-block;
-  width: 100%;
-  margin: 10px 0;
-  text-align: center;
-  font-size: large;
-  font-weight: bold;
 }
 
 .about .introduction .first-half .first-half,
@@ -175,6 +162,11 @@ About
 .about .introduction .first-half .latter-half dt:last-of-type,
 .about .introduction .first-half .latter-half dd:last-of-type {
   border-bottom: none;
+}
+
+.about .introduction .sentence {
+  width: 45%;
+  margin-top: 80px;
 }
 
 .about-name {
@@ -243,8 +235,11 @@ Skills
 }
 
 .skills .container .glide__track .glide__slides .glide__slide .skill-name {
+  position: relative;
   font-size: 40px;
   margin-top: 15px;
+  letter-spacing: .15em;
+  font-family: 'Bad Script', cursive;
 }
 
 .skills .container .glide__track .glide__slides .glide__slide .skill-name:after {
@@ -256,6 +251,11 @@ Skills
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   width: 110px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .skill-name .num-pos {
+  position: absolute;
+  top: -17px;
 }
 
 .skills .container .glide__track .glide__slides .glide__slide .skill-img {
@@ -398,7 +398,7 @@ Skills
   }
   .service .service-lists .service-list {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   .service .service-lists .service-list h3 {
     font-size: 24px;
@@ -419,12 +419,16 @@ Skills
     position: static;
   }
   .about .introduction .first-half,
-  .about .introduction .latter-half,
-  .about .introduction p.latter-half {
+  .about .introduction .latter-half {
     width: 100%;
   }
-  .about .introduction p.latter-half {
-    margin-top: 40px;
+  .about .introduction .first-half .latter-half dt:last-of-type,
+  .about .introduction .first-half .latter-half dd:last-of-type {
+    border-bottom: #777 1px dotted;
+    margin-bottom: 50px;
+  }
+  .about .introduction .sentence {
+    margin-top: 20px;
   }
   .about .latter-half dt {
     border-top: none;
@@ -474,18 +478,16 @@ Skills
     position: static;
   }
   .about .introduction .first-half,
-  .about .introduction .latter-half,
-  .about .introduction p.latter-half {
+  .about .introduction .latter-half {
     width: 100%;
-  }
-  .about .introduction .first-half .first-half dt:first-of-type,
-  .about .introduction .first-half .first-half dd:first-of-type {
-    border-top: #777 1px dotted;
   }
   .about .introduction .first-half .latter-half dt:last-of-type,
   .about .introduction .first-half .latter-half dd:last-of-type {
     border-bottom: #777 1px dotted;
     margin-bottom: 50px;
+  }
+  .about .introduction .sentence {
+    margin-top: 20px;
   }
   .about .introduction .latter-half dt {
     border-top: none;

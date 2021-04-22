@@ -266,7 +266,7 @@ Header navigation
   display: block;
   width: 20%;
   height: 1px;
-  margin: 15px auto 20px;
+  margin: 8px auto 20px;
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   width: 100%;
@@ -282,6 +282,74 @@ Header navigation
 .wrapper .top .content li {
   width: 45px;
   height: 45px;
+}
+
+.wrapper .top .down-allow {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  -webkit-animation-name: down-allow;
+          animation-name: down-allow;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes down-allow {
+  0% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 35px;
+  }
+}
+
+@keyframes down-allow {
+  0% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 35px;
+  }
+}
+
+.wrapper .top .down-allow a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper .top .down-allow a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  -webkit-transform: translateX(50%) rotate(135deg);
+          transform: translateX(50%) rotate(135deg);
+}
+
+.wrapper .top .down-allow a:hover {
+  cursor: pointer;
+}
+
+.wrapper .top .down-allow a:hover::after {
+  border-color: #00a1e9;
 }
 
 /* =============================================
@@ -324,7 +392,7 @@ h2::after {
   display: block;
   width: 20%;
   height: 1px;
-  margin: 15px auto 20px;
+  margin: 8px auto 20px;
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
 }
@@ -335,7 +403,7 @@ h2::after {
     display: block;
     width: 20%;
     height: 1px;
-    margin: 15px auto 20px;
+    margin: 8px auto 20px;
     background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
     background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
     width: 40%;
@@ -473,11 +541,14 @@ strong {
   * パララックス
   */
 .parallax {
-  background: left top/cover no-repeat fixed;
-  height: 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .parallax.top {
+  background-position: 20% top;
   background-image: url(../img/top.jpg);
 }
 
@@ -491,8 +562,8 @@ strong {
   border-radius: 40% 40% 50% 40%/50% 50% 50% 50%;
   opacity: 0.7;
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 40px;
+  bottom: 40px;
 }
 
 .to-top a {
@@ -508,7 +579,7 @@ strong {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   content: '\f106';
-  font-size: 25px;
+  font-size: 32px;
   color: #fff;
   position: absolute;
   width: 25px;

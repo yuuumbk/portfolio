@@ -45,7 +45,7 @@ Service
       h3 {
         font-size: 30px;
         margin-bottom: 20px;
-        font-weight: normal;
+        font-family: serif;
 
         &::after {
           @include underline;
@@ -113,7 +113,7 @@ About
 
   &-logo {
     position: absolute;
-    top: 375px;
+    top: 400px;
     right: 20%;
 
     .logo {
@@ -129,19 +129,6 @@ About
       position: relative;
       width: 50%;
       box-sizing: border-box;
-    }
-
-    p.latter-half {
-      width: 45%;
-
-      .about-work {
-        display: inline-block;
-        width: 100%;
-        margin: 10px 0;
-        text-align: center;
-        font-size: large;
-        font-weight: bold;
-      }
     }
 
     .first-half {
@@ -188,6 +175,11 @@ About
       }
     }
 
+    .sentence {
+      width: 45%;
+      // sentenceの位置を調整。文章を変更するごとに都度修正すると良い
+      margin-top: 80px;
+    }
 
   }
 
@@ -252,12 +244,21 @@ Skills
           }
 
           .skill-name {
+            position: relative;
             font-size: 40px;
             margin-top: 15px;
+            letter-spacing: .15em;
+            font-family: 'Bad Script',
+            cursive;
 
             &:after {
               @include underline;
               width: 110px;
+            }
+
+            .num-pos {
+              position: absolute;
+              top: -17px;
             }
           }
 
@@ -430,7 +431,7 @@ Skills
 
       .service-list {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
 
         h3 {
           font-size: 24px;
@@ -465,13 +466,27 @@ Skills
     .introduction {
 
       .first-half,
-      .latter-half,
-      p.latter-half {
+      .latter-half {
         width: 100%;
       }
 
-      p.latter-half {
-        margin-top: 40px;
+      .first-half {
+
+        .latter-half {
+
+          dt,
+          dd {
+
+            &:last-of-type {
+              border-bottom: #777 1px dotted;
+              margin-bottom: 50px;
+            }
+          }
+        }
+      }
+
+      .sentence {
+        margin-top: 20px;
       }
     }
 
@@ -555,22 +570,11 @@ Skills
     .introduction {
 
       .first-half,
-      .latter-half,
-      p.latter-half {
+      .latter-half {
         width: 100%;
       }
 
       .first-half {
-
-        .first-half {
-
-          dt,
-          dd {
-            &:first-of-type {
-              border-top: #777 1px dotted;
-            }
-          }
-        }
 
         .latter-half {
 
@@ -583,6 +587,10 @@ Skills
             }
           }
         }
+      }
+
+      .sentence {
+        margin-top: 20px;
       }
 
       .latter-half dt {
