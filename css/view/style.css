@@ -49,7 +49,7 @@ Service
 .service .service-lists .service-list h3 {
   font-size: 30px;
   margin-bottom: 20px;
-  font-weight: normal;
+  font-family: serif;
 }
 
 .service .service-lists .service-list h3::after {
@@ -235,8 +235,11 @@ Skills
 }
 
 .skills .container .glide__track .glide__slides .glide__slide .skill-name {
+  position: relative;
   font-size: 40px;
   margin-top: 15px;
+  letter-spacing: .15em;
+  font-family: 'Bad Script', cursive;
 }
 
 .skills .container .glide__track .glide__slides .glide__slide .skill-name:after {
@@ -248,6 +251,11 @@ Skills
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   width: 110px;
+}
+
+.skills .container .glide__track .glide__slides .glide__slide .skill-name .num-pos {
+  position: absolute;
+  top: -17px;
 }
 
 .skills .container .glide__track .glide__slides .glide__slide .skill-img {

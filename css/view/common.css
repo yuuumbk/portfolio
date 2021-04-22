@@ -562,8 +562,8 @@ strong {
   border-radius: 40% 40% 50% 40%/50% 50% 50% 50%;
   opacity: 0.7;
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 40px;
+  bottom: 40px;
 }
 
 .to-top a {

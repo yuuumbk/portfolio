@@ -45,7 +45,7 @@ Service
       h3 {
         font-size: 30px;
         margin-bottom: 20px;
-        font-weight: normal;
+        font-family: serif;
 
         &::after {
           @include underline;
@@ -244,12 +244,21 @@ Skills
           }
 
           .skill-name {
+            position: relative;
             font-size: 40px;
             margin-top: 15px;
+            letter-spacing: .15em;
+            font-family: 'Bad Script',
+            cursive;
 
             &:after {
               @include underline;
               width: 110px;
+            }
+
+            .num-pos {
+              position: absolute;
+              top: -17px;
             }
           }
 
