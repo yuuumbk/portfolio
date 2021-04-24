@@ -113,11 +113,22 @@ About
 
   &-logo {
     position: absolute;
-    top: 400px;
+    top: 450px;
     right: 20%;
 
     .logo {
       width: 130px;
+    }
+  }
+
+  .about-name {
+
+    &.pc {
+      display: block;
+    }
+
+    &.mb {
+      display: none;
     }
   }
 
@@ -221,171 +232,172 @@ Skills
   .container {
     width: 100%;
 
-    .glide__track {
-      .glide__slides {
-        display:flex;
-        align-items: center;
-        height: 750px;
+    .pc,
+    .mb {
 
-        .glide__slide {
-          height: 600px;
-          margin: 50px auto;
-          border-radius: 50px;
-          box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25),
-                      -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
-          text-align: center;
-          background: url(../img/skills-bg.jpg);
-          transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
-          transition: transform .2s $timing-function2;
+      .skill-name {
+        position: relative;
+        font-size: 40px;
+        margin-top: 25px;
+        letter-spacing: .15em;
+        font-family: 'Bad Script',
+          cursive;
 
-          &:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
-            transition: transform .2s $timing-function2;
-          }
+        &:after {
+          @include underline;
+          width: 110px;
+        }
 
-          .skill-name {
-            position: relative;
-            font-size: 40px;
-            margin-top: 15px;
-            letter-spacing: .15em;
-            font-family: 'Bad Script',
-            cursive;
+        .num-pos {
+          position: absolute;
+          top: -17px;
+        }
+      }
 
-            &:after {
-              @include underline;
-              width: 110px;
-            }
+      .skill-img {
+        position: relative;
+        padding: 20px;
+        height: 300px;
 
-            .num-pos {
-              position: absolute;
-              top: -17px;
-            }
-          }
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
 
-          // &.first {
-          //   transform: rotateX(25deg) rotateY(-30deg);
-          //   box-shadow: -10px -10px 25px rgba(0, 0, 0, 0.25);
-          // }
+      .star {
+        position: relative;
+        z-index: 0;
+        display: inline-block;
+        white-space: nowrap;
+        color: #aaa;
+        font-size: 24px;
 
-          // &.second {
-          //   transform: rotateX(0) rotateY(0);
-          //   box-shadow: 10px -10px 25px rgba(0, 0, 0, 0.25);
-          // }
+        &:before,
+        &:after {
+          content: '★★★★★';
+        }
 
-          // &.third {
-          //   transform: rotateX(25deg) rotateY(30deg);
-          //   box-shadow: 10px -10px 25px rgba(0, 0, 0, 0.25);
-          // }
+        &:after {
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          color: #ffcf00;
+        }
 
-          .skill-img {
-            position: relative;
-            padding: 20px;
-            height: 300px;
+        &[star="5"]:after {
+          width: 100%;
+        }
 
-            img {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-          }
+        &[star="4.5"]:after {
+          width: 90%;
+        }
 
-          .star {
-            position: relative;
-            z-index: 0;
-            display: inline-block;
-            white-space: nowrap;
-            color: #aaa;
-            font-size: 24px;
+        &[star="4"]:after {
+          width: 80%;
+        }
 
-            &:before,
-            &:after {
-            content: '★★★★★';
-            }
+        &[star="3.5"]:after {
+          width: 70%;
+        }
 
-            &:after {
-              position: absolute;
-              z-index: 1;
-              top: 0;
-              left: 0;
-              overflow: hidden;
-              white-space: nowrap;
-              color: #ffcf00;
-            }
+        &[star="3"]:after {
+          width: 60%;
+        }
 
-            &[star="5"]:after {
-              width: 100%;
-            }
-            &[star="4.5"]:after {
-              width: 90%;
-            }
-            &[star="4"]:after {
-              width: 80%;
-            }
-            &[star="3.5"]:after {
-              width: 70%;
-            }
-            &[star="3"]:after {
-              width: 60%;
-            }
-            &[star="2.5"]:after {
-              width: 50%;
-            }
-            &[star="2"]:after {
-              width: 40%;
-            }
-            &[star="1.5"]:after {
-              width: 30%;
-            }
-            &[star="1"]:after {
-              width: 20%;
-            }
-            &[star="0.5"]:after {
-              width: 10%;
-            }
-            &[star="0"]:after {
-              width: 0%;
-            }
-          }
+        &[star="2.5"]:after {
+          width: 50%;
+        }
 
-          hr {
-            margin: 20px auto 0;
-            width: 85%;
-          }
+        &[star="2"]:after {
+          width: 40%;
+        }
 
-          .sub-skill {
-            padding: 10px 30px;
+        &[star="1.5"]:after {
+          width: 30%;
+        }
 
-            &-img,
-            .desc {
-              display: inline-block;
-              vertical-align: middle;
-            }
+        &[star="1"]:after {
+          width: 20%;
+        }
 
-            &-img {
-              width: 40%;
-              height: 130px;
-              padding-left: 10px;
-            }
+        &[star="0.5"]:after {
+          width: 10%;
+        }
 
-            .desc {
-              width: 58%;
-            }
-          }
+        &[star="0"]:after {
+          width: 0%;
+        }
+      }
+
+      hr {
+        margin: 20px auto 0;
+        width: 85%;
+      }
+
+      .sub-skill {
+        padding: 10px 30px;
+
+        &-img,
+        .desc {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &-img {
+          width: 40%;
+          height: 130px;
+          padding-left: 10px;
+        }
+
+        .desc {
+          width: 58%;
         }
       }
     }
 
-    .glide__arrow {
+    .pc {
+      .glide__track {
+        .glide__slides {
+          display: flex;
+          align-items: center;
+          height: 750px;
 
-      color: #444;
-      padding: 12px;
-      background-color: rgba(0, 0, 0, 0.25);
-      border: none;
-      border-radius: 50%;
+          .glide__slide {
+            height: 600px;
+            margin: 50px auto;
+            border-radius: 50px;
+            box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25),
+              -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            background: url(../img/skills-bg.jpg);
+            transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+            transition: transform .2s $timing-function2;
 
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.15);
+            &:hover {
+              transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+              transition: transform .2s $timing-function2;
+            }
+          }
+        }
+      }
+
+      .glide__arrow {
+
+        color: #444;
+        padding: 12px;
+        background-color: rgba(0, 0, 0, 0.25);
+        border: none;
+        border-radius: 50%;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.15);
+        }
       }
     }
   }
@@ -458,6 +470,17 @@ Skills
       }
     }
 
+    .about-name {
+
+      &.pc {
+        display: none;
+      }
+
+      &.mb {
+        display: block;
+      }
+    }
+
     &-logo {
       width: 100%;
       position: static;
@@ -471,6 +494,7 @@ Skills
       }
 
       .first-half {
+        margin-top: 20px;
 
         .latter-half {
 
@@ -567,6 +591,17 @@ Skills
       position: static;
     }
 
+    .about-name {
+
+      &.pc {
+        display: none;
+      }
+
+      &.mb {
+        display: block;
+      }
+    }
+
     .introduction {
 
       .first-half,
@@ -575,6 +610,7 @@ Skills
       }
 
       .first-half {
+        margin-top: 20px;
 
         .latter-half {
 
@@ -607,11 +643,13 @@ Skills
 
   .skills {
 
-    .glide__slide {
+    .container {
 
-      &:hover {
-
+      .pc {
+        display: none;
       }
+
+
     }
   }
 }

@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import 'mixin.scss';
+
+.skills {
+  .mb {
+    .skill-lists {
+
+      .skill-list {
+        background-color: blue;
+        height: 200px;
+
+        .skill-name {
+          background-color: #ffcf00;
+          position: relative;
+          font-size: 20px;
+          margin-top: 25px;
+          letter-spacing: .15em;
+          font-family: 'Bad Script',
+            cursive;
+          text-align: center;
+
+          &:after {
+            @include underline;
+            width: 110px;
+          }
+
+          .num-pos {
+            position: absolute;
+            top: -8px;
+          }
+        }
+
+        .skill-img {
+          position: relative;
+          padding: 20px;
+          height: auto;
+          max-width: 100px;
+          width: 30%;
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+          }
+        }
+
+        .star {
+          position: relative;
+          z-index: 0;
+          display: inline-block;
+          white-space: nowrap;
+          color: #aaa;
+          font-size: 24px;
+          background-color: green;
+
+          &:before,
+          &:after {
+            content: '★★★★★';
+          }
+
+          &:after {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #ffcf00;
+          }
+        }
+      }
+    }
+  }
+}

@@ -100,12 +100,20 @@ About
 
 .about-logo {
   position: absolute;
-  top: 400px;
+  top: 450px;
   right: 20%;
 }
 
 .about-logo .logo {
   width: 130px;
+}
+
+.about .about-name.pc {
+  display: block;
+}
+
+.about .about-name.mb {
+  display: none;
 }
 
 .about .introduction .first-half,
@@ -199,7 +207,163 @@ Skills
   width: 100%;
 }
 
-.skills .container .glide__track .glide__slides {
+.skills .container .pc .skill-name,
+.skills .container .mb .skill-name {
+  position: relative;
+  font-size: 40px;
+  margin-top: 25px;
+  letter-spacing: .15em;
+  font-family: 'Bad Script', cursive;
+}
+
+.skills .container .pc .skill-name:after,
+.skills .container .mb .skill-name:after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  width: 110px;
+}
+
+.skills .container .pc .skill-name .num-pos,
+.skills .container .mb .skill-name .num-pos {
+  position: absolute;
+  top: -17px;
+}
+
+.skills .container .pc .skill-img,
+.skills .container .mb .skill-img {
+  position: relative;
+  padding: 20px;
+  height: 300px;
+}
+
+.skills .container .pc .skill-img img,
+.skills .container .mb .skill-img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.skills .container .pc .star,
+.skills .container .mb .star {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: nowrap;
+  color: #aaa;
+  font-size: 24px;
+}
+
+.skills .container .pc .star:before, .skills .container .pc .star:after,
+.skills .container .mb .star:before,
+.skills .container .mb .star:after {
+  content: '★★★★★';
+}
+
+.skills .container .pc .star:after,
+.skills .container .mb .star:after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffcf00;
+}
+
+.skills .container .pc .star[star="5"]:after,
+.skills .container .mb .star[star="5"]:after {
+  width: 100%;
+}
+
+.skills .container .pc .star[star="4.5"]:after,
+.skills .container .mb .star[star="4.5"]:after {
+  width: 90%;
+}
+
+.skills .container .pc .star[star="4"]:after,
+.skills .container .mb .star[star="4"]:after {
+  width: 80%;
+}
+
+.skills .container .pc .star[star="3.5"]:after,
+.skills .container .mb .star[star="3.5"]:after {
+  width: 70%;
+}
+
+.skills .container .pc .star[star="3"]:after,
+.skills .container .mb .star[star="3"]:after {
+  width: 60%;
+}
+
+.skills .container .pc .star[star="2.5"]:after,
+.skills .container .mb .star[star="2.5"]:after {
+  width: 50%;
+}
+
+.skills .container .pc .star[star="2"]:after,
+.skills .container .mb .star[star="2"]:after {
+  width: 40%;
+}
+
+.skills .container .pc .star[star="1.5"]:after,
+.skills .container .mb .star[star="1.5"]:after {
+  width: 30%;
+}
+
+.skills .container .pc .star[star="1"]:after,
+.skills .container .mb .star[star="1"]:after {
+  width: 20%;
+}
+
+.skills .container .pc .star[star="0.5"]:after,
+.skills .container .mb .star[star="0.5"]:after {
+  width: 10%;
+}
+
+.skills .container .pc .star[star="0"]:after,
+.skills .container .mb .star[star="0"]:after {
+  width: 0%;
+}
+
+.skills .container .pc hr,
+.skills .container .mb hr {
+  margin: 20px auto 0;
+  width: 85%;
+}
+
+.skills .container .pc .sub-skill,
+.skills .container .mb .sub-skill {
+  padding: 10px 30px;
+}
+
+.skills .container .pc .sub-skill-img,
+.skills .container .pc .sub-skill .desc,
+.skills .container .mb .sub-skill-img,
+.skills .container .mb .sub-skill .desc {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.skills .container .pc .sub-skill-img,
+.skills .container .mb .sub-skill-img {
+  width: 40%;
+  height: 130px;
+  padding-left: 10px;
+}
+
+.skills .container .pc .sub-skill .desc,
+.skills .container .mb .sub-skill .desc {
+  width: 58%;
+}
+
+.skills .container .pc .glide__track .glide__slides {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -209,7 +373,7 @@ Skills
   height: 750px;
 }
 
-.skills .container .glide__track .glide__slides .glide__slide {
+.skills .container .pc .glide__track .glide__slides .glide__slide {
   height: 600px;
   margin: 50px auto;
   border-radius: 50px;
@@ -225,7 +389,7 @@ Skills
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.skills .container .glide__track .glide__slides .glide__slide:hover {
+.skills .container .pc .glide__track .glide__slides .glide__slide:hover {
   -webkit-transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
           transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
@@ -234,137 +398,7 @@ Skills
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.skills .container .glide__track .glide__slides .glide__slide .skill-name {
-  position: relative;
-  font-size: 40px;
-  margin-top: 15px;
-  letter-spacing: .15em;
-  font-family: 'Bad Script', cursive;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .skill-name:after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-  width: 110px;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .skill-name .num-pos {
-  position: absolute;
-  top: -17px;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .skill-img {
-  position: relative;
-  padding: 20px;
-  height: 300px;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .skill-img img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star {
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  white-space: nowrap;
-  color: #aaa;
-  font-size: 24px;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star:before, .skills .container .glide__track .glide__slides .glide__slide .star:after {
-  content: '★★★★★';
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star:after {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  color: #ffcf00;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="5"]:after {
-  width: 100%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="4.5"]:after {
-  width: 90%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="4"]:after {
-  width: 80%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="3.5"]:after {
-  width: 70%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="3"]:after {
-  width: 60%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="2.5"]:after {
-  width: 50%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="2"]:after {
-  width: 40%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="1.5"]:after {
-  width: 30%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="1"]:after {
-  width: 20%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="0.5"]:after {
-  width: 10%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .star[star="0"]:after {
-  width: 0%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide hr {
-  margin: 20px auto 0;
-  width: 85%;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .sub-skill {
-  padding: 10px 30px;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .sub-skill-img,
-.skills .container .glide__track .glide__slides .glide__slide .sub-skill .desc {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .sub-skill-img {
-  width: 40%;
-  height: 130px;
-  padding-left: 10px;
-}
-
-.skills .container .glide__track .glide__slides .glide__slide .sub-skill .desc {
-  width: 58%;
-}
-
-.skills .container .glide__arrow {
+.skills .container .pc .glide__arrow {
   color: #444;
   padding: 12px;
   background-color: rgba(0, 0, 0, 0.25);
@@ -372,7 +406,7 @@ Skills
   border-radius: 50%;
 }
 
-.skills .container .glide__arrow:hover {
+.skills .container .pc .glide__arrow:hover {
   background-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -414,6 +448,12 @@ Skills
     height: 200px;
     border-radius: 50%;
   }
+  .about .about-name.pc {
+    display: none;
+  }
+  .about .about-name.mb {
+    display: block;
+  }
   .about-logo {
     width: 100%;
     position: static;
@@ -421,6 +461,9 @@ Skills
   .about .introduction .first-half,
   .about .introduction .latter-half {
     width: 100%;
+  }
+  .about .introduction .first-half {
+    margin-top: 20px;
   }
   .about .introduction .first-half .latter-half dt:last-of-type,
   .about .introduction .first-half .latter-half dd:last-of-type {
@@ -477,9 +520,18 @@ Skills
     width: 100%;
     position: static;
   }
+  .about .about-name.pc {
+    display: none;
+  }
+  .about .about-name.mb {
+    display: block;
+  }
   .about .introduction .first-half,
   .about .introduction .latter-half {
     width: 100%;
+  }
+  .about .introduction .first-half {
+    margin-top: 20px;
   }
   .about .introduction .first-half .latter-half dt:last-of-type,
   .about .introduction .first-half .latter-half dd:last-of-type {
@@ -495,5 +547,8 @@ Skills
   /*-------------------------------------
   Skills
   --------------------------------------*/
+  .skills .container .pc {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */
