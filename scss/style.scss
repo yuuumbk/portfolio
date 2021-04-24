@@ -38,9 +38,7 @@ Service
       text-align: center;
       padding: 20px;
       background-color: #f5f5f5;
-      box-shadow: 0 10px 10px -6px rgba(0, 0, 0, .3),
-                  6px 0 10px -6px rgba(0, 0, 0, .3),
-                  -6px 0 10px -6px rgba(0, 0, 0, .3);
+      @include card-shadow;
 
       h3 {
         font-size: 30px;
@@ -64,26 +62,8 @@ Service
       }
 
       p {
-        text-indent: 1em;
         text-align: left;
       }
-    }
-  }
-
-  .service-icon {
-    // position: relative;
-    // border-radius: 50%;
-    // background-color: paleturquoise;
-    // width: 150px;
-    // height: 150px;
-    // text-align: center;
-
-    img {
-      // position: absolute;
-      // transform: translate(-50%, -50%);
-      // top: 50%;
-      // left: 50%;
-      // width: 100px;
     }
   }
 }
@@ -269,7 +249,6 @@ Skills
 
       .star {
         position: relative;
-        z-index: 0;
         display: inline-block;
         white-space: nowrap;
         color: #aaa;
@@ -372,10 +351,14 @@ Skills
             height: 600px;
             margin: 50px auto;
             border-radius: 50px;
-            box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25),
-              -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 10px 10px 20px 2px rgba(0, 0, 0, 0.25),
+              -10px 10px 10px 2px rgba(0, 0, 0, 0.25);
             text-align: center;
-            background: url(../img/skills-bg.jpg);
+
+            //背景
+            background-image: url(../img/skills-bg.jpg);
+            // background-color: #f5f5f5;
+
             transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
             transition: transform .2s $timing-function2;
 
@@ -406,10 +389,10 @@ Skills
 
 
 /* =============================================
-タブレット
+タブレット&モバイル共通
 ============================================= */
 
-@media screen and (max-width: 1024px) and (min-width: 600px) {
+@media screen and (max-width: 1024px) {
 
   /* =============================================
   Main content
@@ -444,122 +427,6 @@ Skills
       .service-list {
         width: 100%;
         margin-bottom: 40px;
-
-        h3 {
-          font-size: 24px;
-        }
-      }
-    }
-  }
-
-
-
-  /*-------------------------------------
-  About
-  --------------------------------------*/
-
-  .about {
-
-    .prf-img {
-      margin-bottom: 20px;
-
-      img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-      }
-    }
-
-    .about-name {
-
-      &.pc {
-        display: none;
-      }
-
-      &.mb {
-        display: block;
-      }
-    }
-
-    &-logo {
-      width: 100%;
-      position: static;
-    }
-
-    .introduction {
-
-      .first-half,
-      .latter-half {
-        width: 100%;
-      }
-
-      .first-half {
-        margin-top: 20px;
-
-        .latter-half {
-
-          dt,
-          dd {
-
-            &:last-of-type {
-              border-bottom: #777 1px dotted;
-              margin-bottom: 50px;
-            }
-          }
-        }
-      }
-
-      .sentence {
-        margin-top: 20px;
-      }
-    }
-
-    .latter-half dt {
-      border-top: none;
-    }
-  }
-}
-
-
-/* =============================================
-モバイル用
-============================================= */
-
-@media screen and (max-width: 599px) {
-
-  /* =============================================
-  Main content
-  ============================================= */
-
-  /*-------------------------------------
-  Top
-  --------------------------------------*/
-
-  .top {
-
-    .content {
-
-      h2,
-      p {
-        line-height: 1.2em;
-      }
-    }
-  }
-
-
-
-  /*-------------------------------------
-  Service
-  --------------------------------------*/
-
-  .service {
-
-    .service-lists {
-      display: block;
-
-      .service-list {
-        width: 100%;
-        margin-bottom: 20px;
 
         h3 {
           font-size: 24px;
@@ -635,8 +502,6 @@ Skills
     }
   }
 
-
-
   /*-------------------------------------
   Skills
   --------------------------------------*/
@@ -644,12 +509,78 @@ Skills
   .skills {
 
     .container {
+      width: 90%;
 
       .pc {
         display: none;
       }
 
+      .mb {
+        display: block;
 
+        .skill-lists {
+
+          .skill-list {
+            width: 100%;
+            margin: 10px auto;
+            height: 200px;
+          }
+        }
+      }
     }
   }
+}
+
+
+
+/* =============================================
+タブレット
+============================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+}
+
+
+/* =============================================
+モバイル用
+============================================= */
+
+@media screen and (max-width: 599px) {
+
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+
 }

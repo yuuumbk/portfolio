@@ -1,10 +1,12 @@
 'use strict';
 
-/**
- * ローディング画面
- */
+
 
 $(function () {
+
+  /**
+   * ローディング画面
+   */
   changeDisplay();
 
   //ローディング画面と通常画面を切り替える
@@ -13,15 +15,6 @@ $(function () {
     $('.is-loading').delay(1400).fadeOut(800);
     $('.loading').delay(1000).fadeOut(300);
   }
-
-
-
-  /**
-   * ヘッダー分コンテンツを下げる
-   */
-
-  var height = $('.nav').outerHeight();
-  $('.main').css('margin-top', height);
 
 
 
@@ -224,7 +217,7 @@ $(function () {
     smoothScroll(val);
   })
 
-  function smoothScroll(target, duration = 800, easing = 'easeOutCubic') {
+  function smoothScroll(target, duration = 800, easing = 'easeInOutCirc') {
     $(target).find('a').on('click', function(e){
       e.preventDefault();
 
@@ -236,5 +229,15 @@ $(function () {
       }, duration, easing);
     });
   }
+
+
+
+  /**
+   * SKILLSの名前で数字を含むもののみアンダーラインの幅調整
+   */
+
+  $('.skill-name:has(.num-pos)').each(function(){
+    $(this).addClass('has-num-pos');
+  });
 
 });

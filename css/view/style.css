@@ -3,6 +3,9 @@
  * 見出しのアンダーライン
  */
 /**
+ * カード
+ */
+/**
  * イージングを指定
  */
 /* =============================================
@@ -74,7 +77,6 @@ Service
 }
 
 .service .service-lists .service-list p {
-  text-indent: 1em;
   text-align: left;
 }
 
@@ -253,7 +255,6 @@ Skills
 .skills .container .pc .star,
 .skills .container .mb .star {
   position: relative;
-  z-index: 0;
   display: inline-block;
   white-space: nowrap;
   color: #aaa;
@@ -377,10 +378,10 @@ Skills
   height: 600px;
   margin: 50px auto;
   border-radius: 50px;
-  -webkit-box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25), -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 10px 10px 35px 5px rgba(0, 0, 0, 0.25), -10px 10px 10px 5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 10px 10px 20px 2px rgba(0, 0, 0, 0.25), -10px 10px 10px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 20px 2px rgba(0, 0, 0, 0.25), -10px 10px 10px 2px rgba(0, 0, 0, 0.25);
   text-align: center;
-  background: url(../img/skills-bg.jpg);
+  background-image: url(../img/skills-bg.jpg);
   -webkit-transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
           transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
@@ -411,9 +412,9 @@ Skills
 }
 
 /* =============================================
-タブレット
+タブレット&モバイル共通
 ============================================= */
-@media screen and (max-width: 1024px) and (min-width: 600px) {
+@media screen and (max-width: 1024px) {
   /* =============================================
   Main content
   ============================================= */
@@ -433,74 +434,6 @@ Skills
   .service .service-lists .service-list {
     width: 100%;
     margin-bottom: 40px;
-  }
-  .service .service-lists .service-list h3 {
-    font-size: 24px;
-  }
-  /*-------------------------------------
-  About
-  --------------------------------------*/
-  .about .prf-img {
-    margin-bottom: 20px;
-  }
-  .about .prf-img img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
-  .about .about-name.pc {
-    display: none;
-  }
-  .about .about-name.mb {
-    display: block;
-  }
-  .about-logo {
-    width: 100%;
-    position: static;
-  }
-  .about .introduction .first-half,
-  .about .introduction .latter-half {
-    width: 100%;
-  }
-  .about .introduction .first-half {
-    margin-top: 20px;
-  }
-  .about .introduction .first-half .latter-half dt:last-of-type,
-  .about .introduction .first-half .latter-half dd:last-of-type {
-    border-bottom: #777 1px dotted;
-    margin-bottom: 50px;
-  }
-  .about .introduction .sentence {
-    margin-top: 20px;
-  }
-  .about .latter-half dt {
-    border-top: none;
-  }
-}
-
-/* =============================================
-モバイル用
-============================================= */
-@media screen and (max-width: 599px) {
-  /* =============================================
-  Main content
-  ============================================= */
-  /*-------------------------------------
-  Top
-  --------------------------------------*/
-  .top .content h2,
-  .top .content p {
-    line-height: 1.2em;
-  }
-  /*-------------------------------------
-  Service
-  --------------------------------------*/
-  .service .service-lists {
-    display: block;
-  }
-  .service .service-lists .service-list {
-    width: 100%;
-    margin-bottom: 20px;
   }
   .service .service-lists .service-list h3 {
     font-size: 24px;
@@ -547,8 +480,58 @@ Skills
   /*-------------------------------------
   Skills
   --------------------------------------*/
+  .skills .container {
+    width: 90%;
+  }
   .skills .container .pc {
     display: none;
   }
+  .skills .container .mb {
+    display: block;
+  }
+  .skills .container .mb .skill-lists .skill-list {
+    width: 100%;
+    margin: 10px auto;
+    height: 200px;
+  }
+}
+
+/* =============================================
+タブレット
+============================================= */
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+  /* =============================================
+  Main content
+  ============================================= */
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+}
+
+/* =============================================
+モバイル用
+============================================= */
+@media screen and (max-width: 599px) {
+  /* =============================================
+  Main content
+  ============================================= */
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
 }
 /*# sourceMappingURL=style.css.map */

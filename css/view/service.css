@@ -3,45 +3,55 @@
  * 見出しのアンダーライン
  */
 /**
+ * カード
+ */
+/**
  * イージングを指定
  */
+.skills .container {
+  width: 90%;
+}
+
+.skills .mb .skill-lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .skills .mb .skill-lists .skill-list {
-  background-color: blue;
-  height: 200px;
-}
-
-.skills .mb .skill-lists .skill-list .skill-name {
-  background-color: #ffcf00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   position: relative;
-  font-size: 20px;
-  margin-top: 25px;
-  letter-spacing: .15em;
-  font-family: 'Bad Script', cursive;
-  text-align: center;
-}
-
-.skills .mb .skill-lists .skill-list .skill-name:after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-  width: 110px;
-}
-
-.skills .mb .skill-lists .skill-list .skill-name .num-pos {
-  position: absolute;
-  top: -8px;
+  background-color: #f5f5f5;
+  -webkit-box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
+  width: 48%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0.5%;
+  height: 200px;
 }
 
 .skills .mb .skill-lists .skill-list .skill-img {
   position: relative;
-  padding: 20px;
   height: auto;
-  max-width: 100px;
-  width: 30%;
+  width: 80px;
 }
 
 .skills .mb .skill-lists .skill-list .skill-img img {
@@ -50,23 +60,25 @@
   left: 20px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  max-width: 100%;
 }
 
-.skills .mb .skill-lists .skill-list .star {
-  position: relative;
-  z-index: 0;
+.skills .mb .skill-lists .skill-list .skill-img .star {
+  position: absolute;
+  bottom: 5px;
+  left: 40px;
   display: inline-block;
   white-space: nowrap;
   color: #aaa;
-  font-size: 24px;
-  background-color: green;
+  font-size: 16px;
+  margin: auto;
 }
 
-.skills .mb .skill-lists .skill-list .star:before, .skills .mb .skill-lists .skill-list .star:after {
+.skills .mb .skill-lists .skill-list .skill-img .star:before, .skills .mb .skill-lists .skill-list .skill-img .star:after {
   content: '★★★★★';
 }
 
-.skills .mb .skill-lists .skill-list .star:after {
+.skills .mb .skill-lists .skill-list .skill-img .star:after {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -74,5 +86,51 @@
   overflow: hidden;
   white-space: nowrap;
   color: #ffcf00;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc {
+  position: absolute;
+  left: 160px;
+  margin: 0 20px;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc .skill-name {
+  position: relative;
+  font-size: 20px;
+  margin-top: 25px;
+  letter-spacing: .15em;
+  font-family: 'Bad Script', cursive;
+  text-align: center;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc .skill-name:after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  width: 50%;
+  margin: 0 auto;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc .skill-name:has(.num-pos):after {
+  width: 60%;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc .skill-name.has-num-pos:after {
+  width: 60%;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc .skill-name .num-pos {
+  position: absolute;
+  top: -8px;
+}
+
+.skills .mb .skill-lists .skill-list .skill-desc p {
+  font-size: 14px;
+  line-height: 1.4em;
+  padding: 20px 10px;
 }
 /*# sourceMappingURL=service.css.map */

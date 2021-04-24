@@ -14,12 +14,31 @@ Common
 html,
 body {
   color: #000;
-  font-family: 'Roboto',
-    sans-serif;
   height: 100%;
   line-height: 2em;
 }
 
+.container {
+  width: 90%;
+  margin: auto;
+  // ページ内リンク対策
+  padding-top: 140px;
+}
+
+h2 {
+  font-family: 'Bad Script',
+    cursive;
+  font-size: 35px;
+  text-align: center;
+
+  &::after {
+    @include underline;
+  }
+}
+
+p {
+  text-indent: 1em;
+}
 
 
 /*-------------------------------------
@@ -69,7 +88,7 @@ Header navigation
         padding: 5px 15px;
         transition: transform .2s $timing-function2;
         font-family: 'Bubbler One',
-          sans-serif;
+        sans-serif;
         font-weight: bold;
 
 
@@ -160,6 +179,8 @@ Header navigation
               padding: 20px;
               color: #fff;
               font-size: 27px;
+              font-family: 'Bubbler One',
+              sans-serif;
             }
           }
         }
@@ -353,24 +374,6 @@ Header navigation
 }
 
 
-
-.container {
-  width: 90%;
-  margin: auto;
-  // ページ内リンク対策
-  padding-top: 140px;
-}
-
-h2 {
-  font-family: 'Bad Script',
-  cursive;
-  font-size: 35px;
-  text-align: center;
-
-  &::after {
-    @include underline;
-  }
-}
 
 @media screen and (max-width: 599px) {
   h2 {

@@ -3,6 +3,9 @@
  * 見出しのアンダーライン
  */
 /**
+ * カード
+ */
+/**
  * イージングを指定
  */
 /* =============================================
@@ -16,9 +19,34 @@ Common
 html,
 body {
   color: #000;
-  font-family: 'Roboto', sans-serif;
   height: 100%;
   line-height: 2em;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding-top: 140px;
+}
+
+h2 {
+  font-family: 'Bad Script', cursive;
+  font-size: 35px;
+  text-align: center;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+}
+
+p {
+  text-indent: 1em;
 }
 
 /*-------------------------------------
@@ -170,6 +198,7 @@ Header navigation
     padding: 20px;
     color: #fff;
     font-size: 27px;
+    font-family: 'Bubbler One', sans-serif;
   }
   .header .mb .open.ham-btn-line {
     background-color: #ccc;
@@ -373,28 +402,6 @@ Header navigation
           transform: translate(-50%, -50%);
   z-index: 1;
   color: #fff;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
-  padding-top: 140px;
-}
-
-h2 {
-  font-family: 'Bad Script', cursive;
-  font-size: 35px;
-  text-align: center;
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
 }
 
 @media screen and (max-width: 599px) {

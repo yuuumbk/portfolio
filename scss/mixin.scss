@@ -11,6 +11,15 @@
 }
 
 /**
+ * カード
+ */
+@mixin card-shadow {
+  box-shadow: 0 10px 10px -6px rgba(0, 0, 0, .3),
+  6px 0 10px -6px rgba(0, 0, 0, .3),
+  -6px 0 10px -6px rgba(0, 0, 0, .3);
+}
+
+/**
  * イージングを指定
  */
 $timing-function1: ease;
