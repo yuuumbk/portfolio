@@ -1,10 +1,12 @@
 'use strict';
 
-/**
- * ローディング画面
- */
+
 
 $(function () {
+
+  /**
+   * ローディング画面
+   */
   changeDisplay();
 
   //ローディング画面と通常画面を切り替える
@@ -13,15 +15,6 @@ $(function () {
     $('.is-loading').delay(1400).fadeOut(800);
     $('.loading').delay(1000).fadeOut(300);
   }
-
-
-
-  /**
-   * ヘッダー分コンテンツを下げる
-   */
-
-  var height = $('.nav').outerHeight();
-  $('.main').css('margin-top', height);
 
 
 
@@ -207,24 +200,95 @@ $(function () {
 
 
   /**
+   * スキル一覧の表示
+   * PCの時のみ
+   */
+
+  if (window.matchMedia('(min-width: 1025px)').matches) {
+
+    var $list = $('.mb .skill-lists'),
+      $moreBtn = $('.skill-more-btn'),
+      $skillBtn = $('a[href^="#skill"]'),
+      $closeBtn = $('.skill-close-btn'),
+      defaultNum = 2;// 初期表示数
+
+    $('.skill-more-btn').show();
+
+    // defaultNum分以外は非表示
+    $list.find('li:not(:lt(' + defaultNum + '))').hide();
+    $list.addClass('has-skill-btn');
+
+    // スキルボタン・詳細ボタンが押された時の挙動
+    $skillBtn.add($moreBtn).on('click', function () {
+      $list.removeClass('has-skill-btn');
+      $list.find('li').fadeIn();
+      $moreBtn.hide();
+      $closeBtn.fadeIn();
+    });
+
+    // 閉じるボタンが押された時の挙動
+    $closeBtn.on('click', function () {
+      $list.addClass('has-skill-btn');
+      $list.find('li:not(:lt(' + defaultNum + '))').fadeOut();
+      $closeBtn.hide();
+      $moreBtn.fadeIn();
+    });
+  }
+
+
+
+  /**
    * スムーズスクロール
    */
 
   // スムーズスクロールをする要素を指定
-  var smoothList = [
-    '.to-top',
-    '.to-service',
-    '.to-about',
-    '.to-skills',
-    '.to-works',
-    '.down-allow',
+  // クラス名
+
+  // all
+  var smooth = [
+    'down-allow',
+  ]
+
+  // to-
+  var smoothTo = [
+    'top',
+    'service',
+    'about',
+    'skills',
+    'works',
   ];
 
-  $.each(smoothList, function(i, val) {
-    smoothScroll(val);
-  })
+  // to-skill-
+  var smoothToSkill = [
+    'HTML5',
+    'CSS3',
+    'Sass',
+    'JavaScript',
+    'jQuery',
+    'PHP',
+    'Laravel',
+    'Ruby',
+    'Python',
+    'MySQL',
+    'GitHub',
+    'Docker',
+  ];
 
-  function smoothScroll(target, duration = 800, easing = 'easeOutCubic') {
+  $.each(smooth, function(i, val){
+    smoothScroll('.' + val);
+  });
+
+  $.each(smoothTo, function(i, val) {
+    smoothScroll('.to-' + val);
+  });
+
+  $.each(smoothToSkill, function (i, val) {
+    var offset = 65;
+    // リストが完全表示されていない時にスクロールしようとするとエラーとなるのを防ぐ
+    setTimeout(smoothScroll('.to-skill-' + val, offset), 100);
+  });
+
+  function smoothScroll(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
     $(target).find('a').on('click', function(e){
       e.preventDefault();
 
@@ -232,9 +296,27 @@ $(function () {
       var $target = $(target);
 
       $('html, body').animate({
-        'scrollTop' : $target.offset().top,
+        'scrollTop' : $target.offset().top - offset,
       }, duration, easing);
     });
   }
 
+
+  /**
+   * SKILLSの名前で数字を含むもののみアンダーラインの調整
+   */
+
+  $('.skill-name:has(.num-pos)').each(function () {
+    $(this).addClass('has-num-pos');
+  });
+
+
+
+  /**
+   * SKILLSでサブスキルを持たないスキルのリンクの大きさを調整
+   */
+
+  $('.glide__slide:not(:has(.sub-skill))').each(function () {
+    $(this).addClass('not-has-sub-skill');
+  });
 });

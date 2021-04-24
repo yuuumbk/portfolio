@@ -3,22 +3,82 @@
  * 見出しのアンダーライン
  */
 /**
+ * カード
+ */
+/**
  * イージングを指定
  */
 /* =============================================
 Common
 ============================================= */
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
   color: #000;
-  font-family: 'Roboto', sans-serif;
   height: 100%;
   line-height: 2em;
+  letter-spacing: .1em;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+h2 {
+  font-family: 'Bad Script', cursive;
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: .1em;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+}
+
+p {
+  text-indent: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+strong {
+  position: relative;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(60%, #fff352));
+  background: linear-gradient(transparent 60%, #fff352 60%);
 }
 
 /*-------------------------------------
@@ -72,6 +132,7 @@ Header navigation
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   font-family: 'Bubbler One', sans-serif;
   font-weight: bold;
+  letter-spacing: .2em;
 }
 
 .header .pc .list a:hover {
@@ -170,6 +231,7 @@ Header navigation
     padding: 20px;
     color: #fff;
     font-size: 27px;
+    font-family: 'Bubbler One', sans-serif;
   }
   .header .mb .open.ham-btn-line {
     background-color: #ccc;
@@ -326,8 +388,8 @@ Header navigation
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  height: 200%;
+  width: 150%;
 }
 
 .wrapper .top .down-allow a::after {
@@ -338,10 +400,14 @@ Header navigation
   right: 50%;
   width: 25px;
   height: 25px;
-  border-top: 2px solid #000;
-  border-right: 2px solid #000;
+  border-top: 2px solid #37a34a;
+  border-right: 2px solid #4496d3;
   -webkit-transform: translateX(50%) rotate(135deg);
           transform: translateX(50%) rotate(135deg);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .wrapper .top .down-allow a:hover {
@@ -349,7 +415,12 @@ Header navigation
 }
 
 .wrapper .top .down-allow a:hover::after {
-  border-color: #00a1e9;
+  -webkit-transform: translateX(50%) rotate(225deg) rotateY(180deg);
+          transform: translateX(50%) rotate(225deg) rotateY(180deg);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 /* =============================================
@@ -375,28 +446,6 @@ Header navigation
   color: #fff;
 }
 
-.container {
-  width: 90%;
-  margin: auto;
-  padding-top: 100px;
-}
-
-h2 {
-  font-family: 'Bad Script', cursive;
-  font-size: 35px;
-  text-align: center;
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 20%;
-  height: 1px;
-  margin: 8px auto 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
-  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-}
-
 @media screen and (max-width: 599px) {
   h2::after {
     content: "";
@@ -408,35 +457,6 @@ h2::after {
     background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
     width: 40%;
   }
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-img {
-  max-width: 100%;
-}
-
-ul,
-ol {
-  list-style: none;
-  padding-left: 0;
-}
-
-img {
-  max-width: 100%;
-}
-
-strong {
-  position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #02dded));
-  background: linear-gradient(transparent 70%, #02dded 70%);
 }
 
 /* logo */

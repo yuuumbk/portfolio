@@ -7,19 +7,68 @@ Common
 ============================================= */
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
   color: #000;
-  font-family: 'Roboto',
-    sans-serif;
   height: 100%;
   line-height: 2em;
+  letter-spacing: .1em;
 }
 
+.container {
+  width: 90%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+h2 {
+  font-family: 'Bad Script',
+    cursive;
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: .1em;
+
+  &::after {
+    @include underline;
+  }
+}
+
+p {
+  text-indent: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+strong {
+  position: relative;
+  background: linear-gradient(transparent 60%, #fff352 60%);
+}
 
 
 /*-------------------------------------
@@ -69,9 +118,9 @@ Header navigation
         padding: 5px 15px;
         transition: transform .2s $timing-function2;
         font-family: 'Bubbler One',
-          sans-serif;
+        sans-serif;
         font-weight: bold;
-
+        letter-spacing: .2em;
 
         &:hover {
           color: #777;
@@ -144,7 +193,7 @@ Header navigation
         width: 1000px;
         transition: transform .6s $timing-function2,
           left .6s $timing-function2;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, .85);
 
         .list {
           position: absolute;
@@ -160,6 +209,8 @@ Header navigation
               padding: 20px;
               color: #fff;
               font-size: 27px;
+              font-family: 'Bubbler One',
+              sans-serif;
             }
           }
         }
@@ -265,10 +316,6 @@ Header navigation
         width: 45px;
         height: 45px;
       }
-
-      // a {
-      //   color: #fad700;
-      // }
     }
 
     .down-allow {
@@ -299,8 +346,9 @@ Header navigation
         position: absolute;
         top: 0;
         left: 0;
-        height:100%;
-        width: 100%;
+        // アニメーション時にホバーが外れないように調整
+        height:200%;
+        width: 150%;
 
         &::after {
           content: "";
@@ -310,18 +358,21 @@ Header navigation
           right: 50%;
           width: 25px;
           height: 25px;
-          border-top: 2px solid #000;
-          border-right: 2px solid #000;
+          border-top: 2px solid #37a34a;
+          border-right: 2px solid #4496d3;
           transform: translateX(50%) rotate(135deg);
+          transition: transform 1s ease-in-out;
         }
 
         &:hover {
         cursor: pointer;
 
         &::after {
-          border-color: #00a1e9;
+          transform: translateX(50%) rotate(225deg) rotateY(180deg);
+          transition: transform 1s ease-in-out;
         }
-      }
+
+        }
       }
 
     }
@@ -354,24 +405,6 @@ Header navigation
 
 
 
-.container {
-  width: 90%;
-  margin: auto;
-  // ページ内リンク対策
-  padding-top: 100px;
-}
-
-h2 {
-  font-family: 'Bad Script',
-  cursive;
-  font-size: 35px;
-  text-align: center;
-
-  &::after {
-    @include underline;
-  }
-}
-
 @media screen and (max-width: 599px) {
   h2 {
 
@@ -380,34 +413,6 @@ h2 {
       width: 40%;
     }
   }
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-img {
-  max-width: 100%;
-}
-
-ul,
-ol {
-  list-style: none;
-  padding-left: 0;
-}
-
-img {
-  max-width: 100%;
-}
-
-strong {
-  position: relative;
-  background: linear-gradient(transparent 70%, #02dded 70%);
 }
 
 /* logo */
