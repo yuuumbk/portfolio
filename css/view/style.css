@@ -84,7 +84,7 @@ Service
 About
 --------------------------------------*/
 .about {
-  background: linear-gradient(#fff, #fff 300px, #f5f5f5 300px, #f5f5f5);
+  background: linear-gradient(#fff, #fff 180px, #f5f5f5 180px, #f5f5f5);
   padding: 0 40px 40px;
   position: relative;
 }
@@ -102,7 +102,7 @@ About
 
 .about-logo {
   position: absolute;
-  top: 450px;
+  top: 330px;
   right: 20%;
 }
 
@@ -186,6 +186,7 @@ About
 }
 
 .about-name .name-en {
+  text-indent: 0;
   margin-bottom: 20px;
   font-family: 'Bad Script', cursive;
 }
@@ -375,6 +376,7 @@ Skills
 }
 
 .skills .container .pc .glide__track .glide__slides .glide__slide {
+  position: relative;
   height: 600px;
   margin: 50px auto;
   border-radius: 50px;
@@ -397,6 +399,14 @@ Skills
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.skills .container .pc .glide__track .glide__slides .glide__slide.not-has-sub-skill a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .skills .container .pc .glide__arrow {
@@ -458,6 +468,9 @@ Skills
   }
   .about .about-name.mb {
     display: block;
+  }
+  .about .about-name.mb .name-en {
+    margin-bottom: 0;
   }
   .about .introduction .first-half,
   .about .introduction .latter-half {

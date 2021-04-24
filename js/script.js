@@ -128,7 +128,7 @@ $(function () {
         gap: -30,
       }
     },
-    autoplay: 3000,
+    autoplay: false,//3000
   });
 
   glide.mount();
@@ -204,20 +204,52 @@ $(function () {
    */
 
   // スムーズスクロールをする要素を指定
-  var smoothList = [
-    '.to-top',
-    '.to-service',
-    '.to-about',
-    '.to-skills',
-    '.to-works',
-    '.down-allow',
+  // クラス名
+
+  // all
+  var smooth = [
+    'down-allow',
+  ]
+
+  // to-
+  var smoothTo = [
+    'top',
+    'service',
+    'about',
+    'skills',
+    'works',
   ];
 
-  $.each(smoothList, function(i, val) {
-    smoothScroll(val);
-  })
+  // to-skill-
+  var smoothToSkill = [
+    'HTML5',
+    'CSS3',
+    'Sass',
+    'JavaScript',
+    'jQuery',
+    'PHP',
+    'Laravel',
+    'Ruby',
+    'Python',
+    'MySQL',
+    'GitHub',
+    'Docker',
+  ];
 
-  function smoothScroll(target, duration = 800, easing = 'easeInOutCirc') {
+  $.each(smooth, function(i, val){
+    smoothScroll('.' + val);
+  });
+
+  $.each(smoothTo, function(i, val) {
+    smoothScroll('.to-' + val);
+  });
+
+  $.each(smoothToSkill, function (i, val) {
+    var offset = 65;
+    smoothScroll('.to-skill-' + val, offset);
+  });
+
+  function smoothScroll(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
     $(target).find('a').on('click', function(e){
       e.preventDefault();
 
@@ -225,19 +257,28 @@ $(function () {
       var $target = $(target);
 
       $('html, body').animate({
-        'scrollTop' : $target.offset().top,
+        'scrollTop' : $target.offset().top - offset,
       }, duration, easing);
     });
   }
 
 
-
   /**
-   * SKILLSの名前で数字を含むもののみアンダーラインの幅調整
+   * SKILLSの名前で数字を含むもののみアンダーラインの調整
    */
 
-  $('.skill-name:has(.num-pos)').each(function(){
+  $('.skill-name:has(.num-pos)').each(function () {
     $(this).addClass('has-num-pos');
+  });
+
+
+
+  /**
+   *  SKILLSでサブスキルを持たないスキルのリンクの大きさを調整
+   */
+
+  $('.glide__slide:not(:has(.sub-skill))').each(function () {
+    $(this).addClass('not-has-sub-skill');
   });
 
 });

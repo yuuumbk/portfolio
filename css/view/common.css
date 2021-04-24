@@ -26,13 +26,14 @@ body {
 .container {
   width: 90%;
   margin: auto;
-  padding-top: 140px;
+  margin-top: 100px;
 }
 
 h2 {
   font-family: 'Bad Script', cursive;
   font-size: 35px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 h2::after {
@@ -367,18 +368,14 @@ Header navigation
   right: 50%;
   width: 25px;
   height: 25px;
-  border-top: 2px solid #000;
-  border-right: 2px solid #000;
+  border-top: 2px solid #00a1e9;
+  border-right: 2px solid #00a1e9;
   -webkit-transform: translateX(50%) rotate(135deg);
           transform: translateX(50%) rotate(135deg);
 }
 
 .wrapper .top .down-allow a:hover {
   cursor: pointer;
-}
-
-.wrapper .top .down-allow a:hover::after {
-  border-color: #00a1e9;
 }
 
 /* =============================================
