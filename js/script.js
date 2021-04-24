@@ -128,7 +128,7 @@ $(function () {
         gap: -30,
       }
     },
-    autoplay: false,//3000
+    autoplay: 3000,
   });
 
   glide.mount();

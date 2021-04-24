@@ -321,13 +321,7 @@ Skills
       }
 
       .sub-skill {
-        // position: absolute;
-        // bottom: 0;
-        // left: 0;
-        // width: 100%;
-        // height: 100%;
         padding: 10px 30px;
-        // border-color: green;
 
         &-img,
         .desc {
@@ -338,11 +332,10 @@ Skills
         &-img {
           width: 40%;
           height: 130px;
-          padding-left: 10px;
         }
 
         .desc {
-          width: 58%;
+          width: 56%;
         }
       }
     }
@@ -375,15 +368,6 @@ Skills
               transition: transform .2s $timing-function2;
             }
 
-            a {
-              // position: absolute;
-              // top: 0;
-              // left: 0;
-              // width: 100%;
-              // height: 100%;
-              // background-color: blue;
-            }
-
             &.not-has-sub-skill {
 
               a {
@@ -408,6 +392,155 @@ Skills
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+
+    .mb {
+      .skill-lists {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .skill-list {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          position: relative;
+
+          background-color: #f5f5f5;
+          @include card-shadow;
+          width: 48%;
+          box-sizing: border-box;
+          margin: 0.5%;
+          height: 100%;
+          min-height: 200px;
+
+          .skill-img {
+            position: relative;
+            height: auto;
+            width: 80px;
+
+            img {
+              position: absolute;
+              top: 50%;
+              left: 20px;
+              transform: translateY(-50%);
+              max-width: 100%;
+            }
+
+            .star {
+              position: absolute;
+              //位置を微調整
+              bottom: 5px;
+              left: 40px;
+              display: inline-block;
+              white-space: nowrap;
+              color: #aaa;
+              font-size: 16px;
+              margin: auto;
+
+              &:before,
+              &:after {
+                content: '★★★★★';
+              }
+
+              &:after {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                color: #ffcf00;
+              }
+            }
+          }
+
+          .skill-desc {
+            // absoluteにすると要素の高さが失われ、flex boxの影響により文章がはみ出してしまう。
+            position: relative;
+            left: 40px;
+            margin: 0 20px;
+            width: 65%;
+
+            .skill-name {
+              position: relative;
+              font-size: 20px;
+              margin-top: 25px;
+              letter-spacing: .15em;
+              font-family: 'Bad Script',
+                cursive;
+              text-align: center;
+
+              &:after {
+                @include underline;
+                width: 50%;
+                margin: 0 auto;
+              }
+
+              //数字を含むスキル名のアンダーラインの長さを調整
+              //CSS4以降で指定可能
+              &:has(.num-pos):after {
+                width: 60%;
+              }
+
+              &.has-num-pos:after {
+                width: 60%;
+              }
+
+              .num-pos {
+                position: absolute;
+                top: -8px;
+              }
+            }
+
+            p {
+              font-size: 14px;
+              line-height: 1.4em;
+              padding: 20px 10px;
+            }
+          }
+
+          // pcのみ
+          @media screen and (min-width: 1024px) {
+
+            //要素の数が奇数の時のみ最後の要素を100％に
+            &:last-child:nth-child(odd) {
+              width: 100%;
+
+              .skill-name {
+
+                &:after {
+                  width: 23%;
+                }
+              }
+
+              .skill-img {
+                position: absolute;
+                left: 20%;
+                top: 50%;
+                transform: translateY(-50%);
+                // margin-left: 15%;
+              }
+
+              .star {
+                position: absolute;
+                //位置を微調整
+                bottom: -60px;
+                left: 30px;
+              }
+
+              .skill-desc {
+                position: relative;
+                left: 5%;
+                margin: 0 auto 20px;
+                //画像と説明が重なるのを防ぐ
+                max-width: 40%;
+              }
+            }
+          }
         }
       }
     }
