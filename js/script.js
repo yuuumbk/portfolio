@@ -200,6 +200,44 @@ $(function () {
 
 
   /**
+   * スキル一覧の表示
+   * PCの時のみ
+   */
+
+  if (window.matchMedia('(min-width: 1025px)').matches) {
+
+    var $list = $('.mb .skill-lists'),
+      $moreBtn = $('.skill-more-btn'),
+      $skillBtn = $('a[href^="#skill"]'),
+      $closeBtn = $('.skill-close-btn'),
+      defaultNum = 2;// 初期表示数
+
+    $('.skill-more-btn').show();
+
+    // defaultNum分以外は非表示
+    $list.find('li:not(:lt(' + defaultNum + '))').hide();
+    $list.addClass('has-skill-btn');
+
+    // スキルボタン・詳細ボタンが押された時の挙動
+    $skillBtn.add($moreBtn).on('click', function () {
+      $list.removeClass('has-skill-btn');
+      $list.find('li').fadeIn();
+      $moreBtn.hide();
+      $closeBtn.fadeIn();
+    });
+
+    // 閉じるボタンが押された時の挙動
+    $closeBtn.on('click', function () {
+      $list.addClass('has-skill-btn');
+      $list.find('li:not(:lt(' + defaultNum + '))').fadeOut();
+      $closeBtn.hide();
+      $moreBtn.fadeIn();
+    });
+  }
+
+
+
+  /**
    * スムーズスクロール
    */
 
@@ -246,7 +284,8 @@ $(function () {
 
   $.each(smoothToSkill, function (i, val) {
     var offset = 65;
-    smoothScroll('.to-skill-' + val, offset);
+    // リストが完全表示されていない時にスクロールしようとするとエラーとなるのを防ぐ
+    setTimeout(smoothScroll('.to-skill-' + val, offset), 100);
   });
 
   function smoothScroll(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
@@ -274,11 +313,10 @@ $(function () {
 
 
   /**
-   *  SKILLSでサブスキルを持たないスキルのリンクの大きさを調整
+   * SKILLSでサブスキルを持たないスキルのリンクの大きさを調整
    */
 
   $('.glide__slide:not(:has(.sub-skill))').each(function () {
     $(this).addClass('not-has-sub-skill');
   });
-
 });
