@@ -53,6 +53,7 @@ Service
   font-size: 30px;
   margin-bottom: 20px;
   font-family: serif;
+  font-weight: normal;
 }
 
 .service .service-lists .service-list h3::after {
@@ -576,13 +577,16 @@ Skills
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   position: relative;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   background-color: #f5f5f5;
   -webkit-box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
           box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
   width: 48%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin: 0.5%;
+  margin: 15px .5%;
   height: 100%;
   min-height: 200px;
 }
@@ -604,8 +608,8 @@ Skills
 
 .skills .container .mb .skill-lists .skill-list .skill-img .star {
   position: absolute;
-  bottom: 5px;
-  left: 40px;
+  bottom: 25px;
+  left: 15px;
   display: inline-block;
   white-space: nowrap;
   color: #aaa;
@@ -628,10 +632,8 @@ Skills
 }
 
 .skills .container .mb .skill-lists .skill-list .skill-desc {
-  position: relative;
-  left: 40px;
-  margin: 0 20px;
-  width: 65%;
+  padding: 10px;
+  margin-left: 40px;
 }
 
 .skills .container .mb .skill-lists .skill-list .skill-desc .skill-name {
@@ -669,7 +671,6 @@ Skills
 }
 
 .skills .container .mb .skill-lists .skill-list .skill-desc p {
-  font-size: 14px;
   line-height: 1.4em;
   padding: 20px 10px;
 }
@@ -695,7 +696,7 @@ Skills
   }
   .skills .container .mb .skill-lists .skill-list:last-child:nth-child(odd) .skill-desc {
     position: relative;
-    left: 5%;
+    left: 40px;
     margin: 0 auto 20px;
     max-width: 40%;
   }
@@ -784,8 +785,6 @@ Skills
   }
   .skills .container .mb .skill-lists .skill-list {
     width: 100%;
-    margin: 10px auto;
-    height: 200px;
   }
 }
 
@@ -805,6 +804,21 @@ Skills
   /*-------------------------------------
   About
   --------------------------------------*/
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+  .skills .container .mb .skill-lists .skill-list {
+    height: 200px;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-img {
+    width: 80px;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-img .star {
+    position: absolute;
+    bottom: 30px;
+    left: 17px;
+    font-size: 14px;
+  }
 }
 
 /* =============================================
@@ -826,5 +840,42 @@ Skills
   /*-------------------------------------
   Skills
   --------------------------------------*/
+  .skills .container .mb .skill-lists .skill-list {
+    height: 250px;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-img {
+    width: 80px;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-img img {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    max-width: 100%;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-img .star {
+    position: absolute;
+    bottom: 60px;
+    left: 15px;
+    font-size: 12px;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-desc .skill-name {
+    margin-top: 10px;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-desc .skill-name:after {
+    content: "";
+    display: block;
+    width: 20%;
+    height: 1px;
+    margin: 8px auto 20px;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+    background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+    width: 50%;
+    margin: 0 auto;
+  }
+  .skills .container .mb .skill-lists .skill-list .skill-desc p {
+    font-size: 14px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
