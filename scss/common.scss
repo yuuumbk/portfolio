@@ -69,7 +69,7 @@ img {
 
 strong {
   position: relative;
-  background: linear-gradient(transparent 60%, #fff352 60%);
+  background: linear-gradient(transparent 70%, #02dded 70%);
 }
 
 
@@ -195,7 +195,10 @@ Header navigation
         width: 1000px;
         transition: transform .6s $timing-function2,
           left .6s $timing-function2;
-        background: rgba(0, 0, 0, .85);
+        background-image: url(../img/hum-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: .97;
 
         .list {
           position: absolute;
@@ -294,7 +297,7 @@ Header navigation
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-47%, -50%);
 
       h2 {
         letter-spacing: 7px;
@@ -302,6 +305,7 @@ Header navigation
 
         &::after {
           @include underline;
+          margin: 15px auto 0;
           width: 100%;
         }
       }
@@ -324,14 +328,14 @@ Header navigation
       position: absolute;
       bottom: 50px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-48%);
       width: 30px;
       height: 30px;
 
       //animation
       animation-name: down-allow;
       animation-iteration-count: infinite;
-      animation-duration: 1s;
+      animation-duration: .8s;
       animation-timing-function: linear;
       animation-direction: alternate;
 
@@ -363,7 +367,7 @@ Header navigation
           border-top: 2px solid #37a34a;
           border-right: 2px solid #4496d3;
           transform: translateX(50%) rotate(135deg);
-          transition: transform 1s ease-in-out;
+          transition: transform .3s ease-in-out;
         }
 
         &:hover {
@@ -371,7 +375,7 @@ Header navigation
 
         &::after {
           transform: translateX(50%) rotate(225deg) rotateY(180deg);
-          transition: transform 1s ease-in-out;
+          transition: transform .3s ease-in-out;
         }
 
         }
@@ -397,6 +401,7 @@ Header navigation
   .content {
     position: absolute;
     text-align: center;
+    width: 100%;
     top: 67%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -457,6 +462,13 @@ Header navigation
     &::after {
       @include underline;
       width: 40%;
+    }
+  }
+
+  .top {
+    .down-allow {
+      //位置の微調整
+      transform: translateX(-48%);
     }
   }
 

@@ -22,8 +22,21 @@ $(function () {
    * ハンバーガー
    */
 
-  $('.mb .ham-btn, .mb .menu .list .list-item a').on('click', function () {
+  var humBtn = '.mb .ham-btn',
+    link = '.mb .menu .list .list-item a',
+    navMb = 'nav.mb';
+
+  $(humBtn).add(link).on('click', function () {
     $('.menu, .ham-btn-line').toggleClass('open');
+  });
+
+  //　ナビゲーションの外側がタップされた時、ナビゲーションを閉じる
+  $(document).on('click', function (e) {
+    var $target = $(e.target);
+
+    if(!$target.closest(navMb).length){//外側
+      $('.menu, .ham-btn-line').removeClass('open');
+    }
   });
 
 
@@ -100,7 +113,7 @@ $(function () {
           } else {
             $scrollFadeIn.addClass('scrollin');
           }
-        } else if(scrollAmount <= scrollFadeInOffset - windowHeight) {
+        } else if (scrollAmount <= scrollFadeInOffset - windowHeight) {
           $scrollFadeIn.removeClass('scrollin');
         }
       }
@@ -137,7 +150,7 @@ $(function () {
         gap: -30,
       }
     },
-    autoplay: false,
+    autoplay: 3000,
   });
 
   glide.mount();
@@ -286,11 +299,11 @@ $(function () {
     'Docker',
   ];
 
-  $.each(smooth, function(i, val){
+  $.each(smooth, function (i, val) {
     smoothScroll('.' + val);
   });
 
-  $.each(smoothTo, function(i, val) {
+  $.each(smoothTo, function (i, val) {
     smoothScroll('.to-' + val);
   });
 
@@ -310,14 +323,14 @@ $(function () {
    */
 
   function smoothScroll(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
-    $(target).find('a').on('click', function(e){
+    $(target).find('a').on('click', function (e) {
       e.preventDefault();
 
       var target = this.hash,
         $target = $(target);
 
       $('html, body').animate({
-        'scrollTop' : $target.offset().top - offset,
+        'scrollTop': $target.offset().top - offset,
       }, duration, easing);
     });
   }
@@ -326,7 +339,7 @@ $(function () {
 
   /**
    * スキルのスライド
-   * clickを促すボタンのアニメーション、スクロール処理
+   * clickを促すボタンのスクロール処理
    */
 
   $.each(smoothToSkill, function (i, val) {
@@ -380,7 +393,8 @@ $(function () {
    * 処理が終わり次第、再度非表示にする
    */
   function getMaxHeight() {
-    var maxHeight;
+    var maxHeight,
+      $list = $('.mb .skill-lists');//エラーが出る場合があるため、こちらでも指定
 
     $list.find(hiddenList).show();
 
