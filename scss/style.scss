@@ -380,6 +380,23 @@ Skills
               sans-serif;
               letter-spacing: .4em;
 
+              //animation
+              animation-name: slide-click;
+              animation-iteration-count: infinite;
+              animation-duration: .5s;
+              animation-timing-function: linear;
+              animation-direction: alternate;
+
+              @keyframes slide-click {
+                0% {
+                  top: -70px;
+                }
+
+                100% {
+                  top: -65px;
+                }
+              }
+
               &::after {
                 content: "";
                 display: block;
@@ -616,6 +633,7 @@ Skills
             p {
               line-height: 1.4em;
               padding: 20px 10px;
+              word-wrap: break-word;
             }
           }
 
@@ -852,7 +870,7 @@ Skills
 
             .skill-img {
               //画像の大きさを調節する
-              width: 80px;
+              width: 100px;
 
               .star {
                 position: absolute;
@@ -889,6 +907,22 @@ Skills
   Service
   --------------------------------------*/
 
+  .service {
+
+    .service-lists {
+
+      .service-list {
+
+        h3 {
+          // 折り返されるのを防ぐ
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+
+
   /*-------------------------------------
   About
   --------------------------------------*/
@@ -907,11 +941,12 @@ Skills
 
           .skill-list {
             //高さを調整する
-            height: 250px;
+            height: 100%;
+            min-height: 280px;
 
             .skill-img {
               //画像の大きさを調節する
-              width: 80px;
+              width: 150px;
 
               img {
                 position: absolute;
@@ -925,7 +960,7 @@ Skills
                 position: absolute;
                 //位置を微調整
                 bottom: 60px;
-                left: 15px;
+                left: 16px;
                 font-size: 12px;
               }
             }
@@ -944,6 +979,9 @@ Skills
 
               p {
                 font-size: 14px;
+                line-height: 1.6em;
+                letter-spacing: .2em;
+                padding: 10px 10px;
               }
             }
           }
