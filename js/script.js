@@ -220,12 +220,13 @@ $(function () {
       $skillBtn = $('a[href^="#skill"]'),
       $clickBtn = $('.skill-click'),
       $closeBtn = $('.skill-close-btn'),
-      defaultNum = 2;// 初期表示数
+      defaultNum = 2,// 初期表示数
+      hiddenList = 'li:not(:lt(' + defaultNum + '))';
 
     $('.skill-more-btn').show();
 
     // defaultNum分以外は非表示
-    $list.find('li:not(:lt(' + defaultNum + '))').hide();
+    $list.find(hiddenList).hide();
     $list.addClass('has-skill-btn');
 
     // スキルボタン・クリックボタン・詳細ボタンが押された時の挙動
@@ -356,6 +357,42 @@ $(function () {
       }, duration, easing);
     });
   }
+
+
+
+  /**
+   * スキルリストの高さを最も高いものに合わせる
+   * flex boxとpositionの影響により、自動的に高さが合わないためjsで指定する
+   */
+
+  //最も高いスキルリストの高さ
+  var maxHeight = getMaxHeight();
+  $('.skill-list').each(function () {
+    $(this).css({
+      height: maxHeight,
+    });
+  });
+
+  /**
+   * 最も高いスキルリストの高さを返す
+   * pcの場合、スキルリストはdisplay:noneとなっており、
+   * 高さを取得できないため、この処理の間のみ、リストを表示する
+   * 処理が終わり次第、再度非表示にする
+   */
+  function getMaxHeight() {
+    var maxHeight;
+
+    $list.find(hiddenList).show();
+
+    $('.skill-list').each(function () {
+      maxHeight = $(this).outerHeight();
+    });
+
+    $list.find(hiddenList).hide();
+
+    return maxHeight;
+  }
+
 
 
   /**
