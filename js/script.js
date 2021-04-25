@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 $(function () {
 
   /**
@@ -9,7 +7,9 @@ $(function () {
    */
   changeDisplay();
 
-  //ローディング画面と通常画面を切り替える
+  /**
+   * ローディング画面と通常画面を切り替える
+   */
   function changeDisplay() {
     $('.wrapper').css({ display: 'block' });
     $('.is-loading').delay(1400).fadeOut(800);
@@ -73,6 +73,11 @@ $(function () {
     scroll();
   }));
 
+  /**
+   * スクロール処理
+   * @param {*} delay
+   */
+
   function scroll(delay = false) {
     $('.scroll-fadein').each(function () {
       var $scrollFadeIn = $(this),
@@ -80,6 +85,10 @@ $(function () {
 
       fadeIn(delay);
 
+      /**
+       * スクロール時のフェードイン処理
+       * @param {*} delay
+       */
       function fadeIn(delay) {
         var scrollAmount = $(window).scrollTop();
 
@@ -128,7 +137,7 @@ $(function () {
         gap: -30,
       }
     },
-    autoplay: 3000,
+    autoplay: false,
   });
 
   glide.mount();
@@ -209,6 +218,7 @@ $(function () {
     var $list = $('.mb .skill-lists'),
       $moreBtn = $('.skill-more-btn'),
       $skillBtn = $('a[href^="#skill"]'),
+      $clickBtn = $('.skill-click'),
       $closeBtn = $('.skill-close-btn'),
       defaultNum = 2;// 初期表示数
 
@@ -218,8 +228,8 @@ $(function () {
     $list.find('li:not(:lt(' + defaultNum + '))').hide();
     $list.addClass('has-skill-btn');
 
-    // スキルボタン・詳細ボタンが押された時の挙動
-    $skillBtn.add($moreBtn).on('click', function () {
+    // スキルボタン・クリックボタン・詳細ボタンが押された時の挙動
+    $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
       $list.removeClass('has-skill-btn');
       $list.find('li').fadeIn();
       $moreBtn.hide();
@@ -269,6 +279,7 @@ $(function () {
     'Laravel',
     'Ruby',
     'Python',
+    'DB',
     'MySQL',
     'GitHub',
     'Docker',
@@ -284,19 +295,64 @@ $(function () {
 
   $.each(smoothToSkill, function (i, val) {
     var offset = 65;
+
     // リストが完全表示されていない時にスクロールしようとするとエラーとなるのを防ぐ
-    setTimeout(smoothScroll('.to-skill-' + val, offset), 100);
+    setTimeout(smoothScroll('.to-skill-' + val, offset), 200);
   });
+
+  /**
+   * スムーズスクロール
+   * @param {*} target 対象要素を指定
+   * @param {*} offset スクロール時に上に指定分余白を開ける（ナビゲーションと重ならないようにするため）
+   * @param {*} duration アニメーション時間
+   * @param {*} easing アニメーション緩急
+   */
 
   function smoothScroll(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
     $(target).find('a').on('click', function(e){
       e.preventDefault();
 
-      var target = this.hash;
-      var $target = $(target);
+      var target = this.hash,
+        $target = $(target);
 
       $('html, body').animate({
         'scrollTop' : $target.offset().top - offset,
+      }, duration, easing);
+    });
+  }
+
+
+
+  /**
+   * スキルのスライド
+   * clickを促すボタンのアニメーション、スクロール処理
+   */
+
+  $.each(smoothToSkill, function (i, val) {
+    var offset = 65;
+
+    // リストが完全表示されていない時にスクロールしようとするとエラーとなるのを防ぐ
+    setTimeout(smoothScrollSkillClick('.to-skill-' + val + ' .skill-click', offset), 200);
+  });
+
+  /**
+   * スムーズスクロール　スキルクリック限定版
+   * パラメータはスライドのスムーズスクロールと同期している。
+   * @param {*} target 対象要素を指定
+   * @param {*} offset スクロール時に上に指定分余白を開ける（ナビゲーションと重ならないようにするため）
+   * @param {*} duration アニメーション時間
+   * @param {*} easing アニメーション緩急
+   */
+
+  function smoothScrollSkillClick(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
+    $(target).on('click', function (e) {
+      e.preventDefault();
+
+      var target = $(this).next().attr("href"),//スライドのaリンクを参照
+        $target = $(target);
+
+      $('html, body').animate({
+        'scrollTop': $target.offset().top - offset,
       }, duration, easing);
     });
   }

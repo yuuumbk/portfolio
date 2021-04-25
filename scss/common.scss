@@ -17,6 +17,8 @@ body {
   height: 100%;
   line-height: 2em;
   letter-spacing: .1em;
+  font-family: 'Kosugi',
+  sans-serif;
 }
 
 .container {
@@ -405,16 +407,6 @@ Header navigation
 
 
 
-@media screen and (max-width: 599px) {
-  h2 {
-
-    &::after {
-      @include underline;
-      width: 40%;
-    }
-  }
-}
-
 /* logo */
 
 .logo {
@@ -456,6 +448,25 @@ Header navigation
   top: -5px;
   right: 100px;
 } */
+
+
+
+@media screen and (max-width: 599px) {
+  h2 {
+
+    &::after {
+      @include underline;
+      width: 40%;
+    }
+  }
+
+  .logo {
+
+    li:hover {
+      transform: translateY(0);
+    }
+  }
+}
 
 /* float */
 

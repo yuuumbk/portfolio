@@ -4,6 +4,7 @@
 
 $timing-function1: ease;
 $timing-function2: ease-in-out;
+$easeInOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
 
 
@@ -210,6 +211,7 @@ Skills
 --------------------------------------*/
 
 .skills {
+
   .container {
     width: 100%;
 
@@ -341,7 +343,9 @@ Skills
     }
 
     .pc {
+
       .glide__track {
+
         .glide__slides {
           display: flex;
           align-items: center;
@@ -363,9 +367,44 @@ Skills
             transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
             transition: transform .2s $timing-function2;
 
+            .skill-click {
+              position: absolute;
+              top: -70px;
+              left: 53%;
+
+              transform: rotateX(-5deg) rotateY(20deg) rotateZ(8deg) translateX(-50%);
+              transition: transform .2s $timing-function2;
+
+              font-family: 'Bubbler One',
+              sans-serif;
+              letter-spacing: .4em;
+
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 75%;
+                left: 35%;
+                width: 8px;
+                height: 8px;
+                border-top: solid 1px #444;
+                border-right: solid 1px #444;
+                transform: rotate(135deg);
+              }
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
             &:hover {
               transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
               transition: transform .2s $timing-function2;
+
+              .skill-click {
+                transform: translateX(-50%) translateY(20px) rotateX(-5deg) rotateY(20deg) rotateZ(8deg);
+                transition: transform .2s $timing-function2;
+              }
             }
 
             &.not-has-sub-skill {
@@ -404,7 +443,7 @@ Skills
         justify-content: center;
         align-items: center;
 
-        // js向こうの時は非表示
+        // js無効時は非表示
         .skill-more-btn,
         .skill-close-btn {
           display: none;
@@ -419,9 +458,7 @@ Skills
           color: #666;
           border: 1px solid #545454;
           background-color: #f5f5f5;
-          // box-shadow: 0 2px #00608d,
-          // 0 -1px #00608d;
-          transition: all .3s $timing-function2;
+          transition: all .3s $easeInOutBack;
 
           &::before,
           &::after {
@@ -433,7 +470,7 @@ Skills
             border-style: solid;
             width: 1em;
             height: 1em;
-            transition: all .3s $timing-function2;
+            transition: all .3s $easeInOutBack;
           }
 
           &::before {
@@ -451,8 +488,8 @@ Skills
           }
 
           &:hover {
-            transform: scale(1.1);
-            transition: .3s transform $timing-function2;
+            transform: scale(1.05);
+            transition: all .3s $easeInOutBack;
 
             &::before,
             &::after {
@@ -476,6 +513,7 @@ Skills
           left: 0;
           content: "";
           width: 100%;
+          // close時に表示する高さ
           height: 200px;
           z-index: 1;
           background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 50%, #fff 100%);
