@@ -52,8 +52,7 @@ Service
 .service .service-lists .service-list h3 {
   font-size: 30px;
   margin-bottom: 20px;
-  font-family: serif;
-  font-weight: normal;
+  font-weight: lighter;
 }
 
 .service .service-lists .service-list h3::after {
@@ -184,6 +183,7 @@ About
   text-align: center;
   font-size: 36px;
   padding: 10px;
+  line-height: 1.2em;
 }
 
 .about-name .name-en {
@@ -699,9 +699,9 @@ Skills
 }
 
 .skills .container .mb .skill-lists .skill-list .skill-desc p {
-  line-height: 1.4em;
+  line-height: 1.5em;
   padding: 20px 10px;
-  word-wrap: break-word;
+  text-align: justify;
 }
 
 @media screen and (min-width: 1024px) {
@@ -909,7 +909,7 @@ Skills
   }
   .skills .container .mb .skill-lists .skill-list .skill-desc p {
     font-size: 14px;
-    line-height: 1.6em;
+    line-height: 1.5em;
     letter-spacing: .2em;
     padding: 10px 10px;
   }

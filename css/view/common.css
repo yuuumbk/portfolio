@@ -14,15 +14,17 @@ Common
 * {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html,
 body {
   color: #000;
   height: 100%;
-  line-height: 2em;
+  line-height: 1.8em;
   letter-spacing: .1em;
-  font-family: 'Kosugi', sans-serif;
+  font-family: Helvetica, '游ゴシック', 'Yu Gothic', YuGothic, HiraKakuProN-W3, 'メイリオ', Meiryo, sans-serif;
+  color: #333;
 }
 
 .container {
@@ -36,6 +38,7 @@ h2 {
   font-size: 35px;
   text-align: center;
   margin-bottom: 40px;
+  line-height: 1.2em;
   letter-spacing: .1em;
 }
 
@@ -78,8 +81,10 @@ img {
 
 strong {
   position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #02dded));
-  background: linear-gradient(transparent 70%, #02dded 70%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #fff462));
+  background: linear-gradient(transparent 70%, #fff462 70%);
+  color: #333;
+  font-weight: normal;
 }
 
 /*-------------------------------------
@@ -499,6 +504,13 @@ Header navigation
   right: 100px;
 } */
 @media screen and (max-width: 599px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+  h2 {
+    font-weight: normal;
+  }
   h2::after {
     content: "";
     display: block;

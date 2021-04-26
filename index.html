@@ -20,6 +20,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@yuuumbk">
 
+  <!-- Style Sheet CSS -->
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/common.min.css">
   <link rel="stylesheet" href="css/glide.core.min.css">
@@ -27,9 +28,8 @@
   <link rel="stylesheet" href="css/loading-animation.min.css">
   <link rel="stylesheet" href="css/style.min.css">
 
+  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <!-- 本文 -->
-  <link href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap" rel="stylesheet">
   <!-- Portfolio -->
   <link href="https://fonts.googleapis.com/css2?family=Meie+Script&display=swap" rel="stylesheet">
   <!-- 見出し -->
@@ -39,12 +39,8 @@
   <!-- to top button -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
+  <!-- jQuery -->
   <script src="js/vendor/jquery-3.6.0.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
-  <script src="js/vendor/glide.min.js"></script>
-  <script src="js/vendor/raindrops.js"></script>
-  <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -56,12 +52,9 @@
         <div class="cube2"></div>
       </div>
     </div>
-    <script>
-      var $window = $(window);
-      $(".is-loading, .loading").css({ display: 'block' });
-      $(".wrapper").css({ display: 'none' });
-    </script>
   </div>
+  <!-- ローディング設定 JavaScript -->
+  <script src="js/loading.js"></script>
 
   <!-- コンテンツ -->
   <div class="wrapper">
@@ -181,7 +174,7 @@
             </p>
             <br>
             <p>
-              ITに関することだけでなく、あらゆる分野にも目を向け、それぞれが得意とする技術を<strong>ハイブリット</strong>した画期的なサービスを提供を目指し、今日も自己研鑽に励みます。
+              ITに関することだけでなく、あらゆる分野にも目を向け、それぞれが得意とする技術を<strong>ハイブリット</strong>した画期的なサービスの提供を目指し、今日も自己研鑽に励みます。
             </p>
           </div>
           <div class="first-half floatL">
@@ -388,7 +381,7 @@
               <li id="skill-HTML5" class="skill-list">
                 <div class="skill-img">
                   <img src="img/skills/html-5.svg" alt="HTML5">
-                  <div class="star" star="4"></div>
+                  <div class="star" star="5"></div>
                 </div>
                 <div class="skill-desc">
                   <h3 class="skill-name">HTML<span class="num-pos">5</span></h3>
@@ -399,7 +392,7 @@
               <li id="skill-CSS3" class="skill-list">
                 <div class="skill-img">
                   <img src="img/skills/css-3.svg" alt="CSS3">
-                  <div class="star" star="4"></div>
+                  <div class="star" star="5"></div>
                 </div>
                 <div class="skill-desc">
                   <h3 class="skill-name">CSS<span class="num-pos">3</span></h3>
@@ -413,7 +406,7 @@
                 </div>
                 <div class="skill-desc">
                   <h3 class="skill-name">Sass</h3>
-                  <p>Sassを用いて、より効率的に制作を進めることができます。積極的に共通部分を纏めることで、全体の見通しの良い、保守性の高いコードを目指します。</p>
+                  <p>Sassを用いて、より効率的に制作します。積極的に共通部分を纏めることで、全体の見通しの良い、保守性の高いコードを目指します。また、ブラウザ間の互換性も確保します。</p>
                 </div>
               </li>
               <li id="skill-JavaScript" class="skill-list">
@@ -423,7 +416,7 @@
                 </div>
                 <div class="skill-desc">
                   <h3 class="skill-name">JavaScript</h3>
-                  <p>CSSのみでは表現できないものを表現します。現在製作中です。完成まで今しばらくお待ちください。ご意見等はCONTACTよりお願いいたします。</p>
+                  <p>CSSのみでは表現できないスライドショーや複雑なアニメーションなどを実装し、モダンなサイトを提供します。アプリケーション開発においては、入力に対するリアルタイム表示やAjaxなどを実装し、機能の幅を広げます。</p>
                 </div>
               </li>
               <li id="skill-jQuery" class="skill-list">
@@ -433,7 +426,7 @@
                 </div>
                 <div class="skill-desc">
                   <h3 class="skill-name">jQuery</h3>
-                  <p>様々なライブラリを用いて、高機能な動きを素早く実装します。部品ごとの実装もお任せください。現在製作中です。完成まで今しばらくお待ちください。ご意見等はCONTACTよりお願いいたします。</p>
+                  <p>様々なライブラリを用いて、高機能な動きを素早く実装します。実行速度を意識し、モバイル端末でも素早く表示されるサイトを目指します。部品ごとの実装もお任せください。</p>
                 </div>
               </li>
               <li id="skill-PHP" class="skill-list">
@@ -443,7 +436,7 @@
                 </div>
                 <div class="skill-desc">
                   <h3 class="skill-name">PHP</h3>
-                  <p>現在製作中です。完成まで今しばらくお待ちください。ご意見等はCONTACTよりお願いいたします。現在製作中です。完成まで今しばらくお待ちください。ご意見等はCONTACTよりお願いいたします。</p>
+                  <p>私の原点となる言語です。</p>
                 </div>
               </li>
               <li id="skill-Laravel" class="skill-list">
@@ -539,5 +532,12 @@
       <a href="#top"></a>
     </div>
   </div>
+
+  <!-- JavaScript -->
+  <script src="js/vendor/jquery-ui.min.js"></script>
+  <script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
+  <script src="js/vendor/glide.min.js"></script>
+  <script src="js/vendor/raindrops.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

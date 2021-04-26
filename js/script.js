@@ -3,22 +3,6 @@
 $(function () {
 
   /**
-   * ローディング画面
-   */
-  changeDisplay();
-
-  /**
-   * ローディング画面と通常画面を切り替える
-   */
-  function changeDisplay() {
-    $('.wrapper').css({ display: 'block' });
-    $('.is-loading').delay(1400).fadeOut(800);
-    $('.loading').delay(1000).fadeOut(300);
-  }
-
-
-
-  /**
    * ハンバーガー
    */
 
@@ -72,47 +56,33 @@ $(function () {
   //ウィンドウの高さを取得
   var windowHeight = $(window).height();
 
-  //最初のビューでのフェードインさせるものがあれば
-  $(document).ready(function () {
-    scroll(true);
-  });
-
   //1秒間に5回までイベントを発生
   $(window).on('scroll', $.throttle(200, function () {
-    /**
-     *  ある程度スクロールされた後、リロードされると
-     *  上のscrollだけでなく、こちらのscrollも動いてしまう
-     */
     scroll();
-  }));
+  }))
+  .delay(600).trigger('scroll');// 画面途中でリロードされた場合も対象要素をフェードインさせる
 
   /**
    * スクロール処理
    * @param {*} delay
    */
 
-  function scroll(delay = false) {
+  function scroll() {
     $('.scroll-fadein').each(function () {
       var $scrollFadeIn = $(this),
         scrollFadeInOffset = $scrollFadeIn.offset().top;
 
-      fadeIn(delay);
+      fadeIn();
 
       /**
        * スクロール時のフェードイン処理
        * @param {*} delay
        */
-      function fadeIn(delay) {
+      function fadeIn() {
         var scrollAmount = $(window).scrollTop();
 
         if (scrollAmount > scrollFadeInOffset - windowHeight + 30) {
-          if (delay) {
-            setTimeout(function () {
-              $scrollFadeIn.addClass('scrollin');
-            }, 2500);
-          } else {
             $scrollFadeIn.addClass('scrollin');
-          }
         } else if (scrollAmount <= scrollFadeInOffset - windowHeight) {
           $scrollFadeIn.removeClass('scrollin');
         }

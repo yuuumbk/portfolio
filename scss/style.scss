@@ -44,8 +44,7 @@ Service
       h3 {
         font-size: 30px;
         margin-bottom: 20px;
-        font-family: serif;
-        font-weight: normal;
+        font-weight: lighter;
 
         &::after {
           @include underline;
@@ -180,6 +179,7 @@ About
     text-align: center;
     font-size: 36px;
     padding: 10px;
+    line-height: 1.2em;
 
     // .name-ja::after {
     //   @include underline;
@@ -631,9 +631,10 @@ Skills
             }
 
             p {
-              line-height: 1.4em;
+              line-height: 1.5em;
               padding: 20px 10px;
-              word-wrap: break-word;
+              // 文章の両端を揃える
+              text-align: justify;
             }
           }
 
@@ -979,7 +980,7 @@ Skills
 
               p {
                 font-size: 14px;
-                line-height: 1.6em;
+                line-height: 1.5em;
                 letter-spacing: .2em;
                 padding: 10px 10px;
               }
