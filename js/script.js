@@ -196,31 +196,58 @@ $(function () {
    */
 
   // 初期表示数
-  if (window.matchMedia('(min-width: 1025px)').matches) { // PC
-    var defaultNum = 2;
-  } else { // モバイル
-    var defaultNum = 4;
-  }
+  // if (window.matchMedia('(min-width: 1025px)').matches) { // PC
+  //   var defaultNum = 2;
+  // } else { // モバイル
+  //   var defaultNum = 4;
+  // }
 
-  var $list = $('.mb .skill-lists'),
+  var $mb = $('.skills .mb'),
+    $list = $mb.find('.skill-lists'),
     $moreBtn = $('.skill-more-btn'),
     $skillBtn = $('a[href^="#skill"]'),
     $clickBtn = $('.skill-click'),
     $closeBtn = $('.skill-close-btn'),
+    defaultNum = 4,// 初期表示数
     hiddenList = 'li:not(:lt(' + defaultNum + '))';
 
   // defaultNum分以外は非表示
   $list.find(hiddenList).hide();
   $list.addClass('has-skill-btn');
 
-  if (window.matchMedia('(min-width: 1025px)').matches){ // PC
-    $moreBtn.filter('.pc').show();
-    clickBtn('pc');
-    closeBtn('pc');
-  } else { // モバイル
-    $moreBtn.filter('.mb').show()
-    clickBtn('mb');
-    closeBtn('mb');
+  skillBtn();
+
+  // ウィンドウ幅が変更されたら実行
+  $(window).resize(function (){
+    skillBtn();
+  });
+
+  /**
+   * ウィンドウ幅に応じて表示するボタンを変える
+   */
+
+  function skillBtn() {
+    if (window.matchMedia('(min-width: 1025px)').matches) { // PC
+      $moreBtn.show();
+      // $moreBtn.filter('.pc').show();
+      if (!$list.filter('.has-skill-btn').length) {
+        $moreBtn.hide();
+      }
+      // $moreBtn.filter('.mb').hide();
+
+      clickBtn('pc');
+      closeBtn('pc');
+    } else { // モバイル
+      $moreBtn.show();
+      // $moreBtn.filter('.mb').show();
+      if(!$list.filter('.has-skill-btn').length){
+        $moreBtn.hide();
+      }
+      // $moreBtn.filter('.pc').hide();
+
+      clickBtn('mb');
+      closeBtn('mb');
+    }
   }
 
   /**
@@ -228,12 +255,14 @@ $(function () {
    * @param {*} device pc|mb
    */
 
-  function clickBtn(device = 'pc') {
+  function clickBtn() {
     $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
+      $mb.css({ marginBottom: 0 });
       $list.removeClass('has-skill-btn');
       $list.find('li').fadeIn();
       // ボタンの表示設定
-      $moreBtn.filter('.' + device).hide();
+      // $moreBtn.filter('.' + device).hide();
+      $moreBtn.hide();
       $closeBtn.fadeIn();
     });
   }
@@ -243,14 +272,18 @@ $(function () {
    * @param {*} device　pc|mb
    */
   function closeBtn(device = 'pc') {
-      $closeBtn.on('click', function () {
+    $closeBtn.on('click', function () {
+      $mb.css({ marginBottom: 160 });
       $list.addClass('has-skill-btn');
       $list.find('li:not(:lt(' + defaultNum + '))').fadeOut();
       //ボタンの表示設定
       $closeBtn.hide();
-      $moreBtn.filter('.' + device).fadeIn();
+      // $moreBtn.hide();
+      $moreBtn.show();
+      // $moreBtn.filter('.' + device).fadeIn();
     });
   }
+
 
 
 

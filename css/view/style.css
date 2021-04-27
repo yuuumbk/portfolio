@@ -493,6 +493,7 @@ Skills
 .skills .container .mb {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 160px;
 }
 
 .skills .container .mb .skill-index {
@@ -576,9 +577,9 @@ Skills
   height: calc(80% + 6px);
 }
 
-.skills .container .mb .skill-btn .skill-more-btn.mb {
+.skills .container .mb .skill-btn .skill-more-btn.bottom {
   position: absolute;
-  bottom: 40px;
+  bottom: -100px;
   width: 176px;
   z-index: 1;
 }
@@ -863,6 +864,9 @@ Skills
     display: block;
     content: "";
   }
+  .skills .container .mb .skill-btn .skill-more-btn.bottom {
+    bottom: -100px;
+  }
   .skills .container .mb .skill-btn {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -891,8 +895,8 @@ Skills
   }
   .skills .container .mb .skill-lists.has-skill-btn::after {
     height: 400px;
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(20%, rgba(255, 255, 255, 0.3)), color-stop(60%, #fff));
-    background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 20%, #fff 60%);
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, rgba(255, 255, 255, 0.3)), to(#fff));
+    background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, #fff 100%);
   }
   .skills .container .mb .skill-lists .skill-list {
     width: 100%;

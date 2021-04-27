@@ -456,6 +456,7 @@ Skills
     .mb {
       width: 90%;
       margin: 0 auto;
+      margin-bottom: 160px;
 
       .skill-index {
         display: none;
@@ -524,9 +525,9 @@ Skills
         }
 
         // Learn More ボタンはグラデーションさせないように、絶対配置させて独立させる。
-        .skill-more-btn.mb {
+        .skill-more-btn.bottom {
           position: absolute;
-          bottom: 40px;
+          bottom: -100px;
           width: 176px;
           z-index: 1;
         }
@@ -860,6 +861,13 @@ Skills
         }
 
         .skill-btn {
+
+          .skill-more-btn.bottom {
+            bottom: -100px;
+          }
+        }
+
+        .skill-btn {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -888,7 +896,7 @@ Skills
             // close時に表示する高さ
             height: 400px;
             // 最後のリストはだんだん透明にしていく
-            background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 20%, #fff 60%);
+            background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 50%, #fff 100%);
           }
 
           .skill-list {
@@ -1039,7 +1047,6 @@ Skills
             }
           }
         }
-
 
         .skill-lists {
           margin-top: 40px;
