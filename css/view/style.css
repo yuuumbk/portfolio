@@ -967,6 +967,9 @@ Skills
     padding: 5px;
     padding-top: 15px;
   }
+  .skills .container .mb .skill-lists {
+    margin-top: 40px;
+  }
   .skills .container .mb .skill-lists .skill-list {
     height: 100%;
     min-height: 280px;

@@ -237,7 +237,7 @@ Header navigation
   }
   .header .mb .menu .list .list-item a {
     display: block;
-    padding: 20px;
+    padding: 20px 10px;
     color: #fff;
     font-size: 27px;
     font-family: 'Bubbler One', sans-serif;
@@ -590,12 +590,12 @@ Header navigation
   background-repeat: no-repeat;
   background-position: left top;
   background-attachment: fixed;
-  background-size: cover;
 }
 
 .parallax.top {
   background-position: 20% top;
   background-image: url(../img/top.pc.jpg);
+  background-size: cover;
 }
 
 @media screen and (max-width: 599px) {

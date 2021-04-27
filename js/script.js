@@ -7,18 +7,17 @@ $(function () {
    */
 
   var humBtn = '.mb .ham-btn',
-    link = '.mb .menu .list .list-item a',
-    navMb = 'nav.mb';
+    link = '.mb .menu .list .list-item a';
 
   $(humBtn).add(link).on('click', function () {
     $('.menu, .ham-btn-line').toggleClass('open');
   });
 
-  //　ナビゲーションの外側がタップされた時、ナビゲーションを閉じる
+  // //　ナビゲーションの外側がタップされた時、ナビゲーションを閉じる→タップされた場所に限らず時は閉じるように変更
   $(document).on('click', function (e) {
     var $target = $(e.target);
 
-    if(!$target.closest(navMb).length){//外側
+    if(!$target.closest(humBtn).length){
       $('.menu, .ham-btn-line').removeClass('open');
     }
   });
