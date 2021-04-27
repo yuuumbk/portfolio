@@ -36,11 +36,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
   <!-- 小見出し -->
   <link href="https://fonts.googleapis.com/css2?family=Bubbler+One&display=swap" rel="stylesheet">
-  <!-- to top button -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
   <!-- jQuery -->
   <script src="js/vendor/jquery-3.6.0.min.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DB9Y1G5BGX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DB9Y1G5BGX');
+</script>
 </head>
 
 <body>
@@ -88,7 +96,7 @@
     </header>
 
     <section id="top" class="parallax top">
-      <div class="content">
+      <div class="content to-about">
         <h2><a href="#about">KOKI YUMOTO</a></h2>
         <p>Web Engineer</p>
         <ul class="logo">
@@ -367,8 +375,25 @@
           </div>
 
           <div class="mb">
+            <div class="skill-index">
+              <ul>
+                <li class="to-skill-HTML5"><a href="#skill-HTML5"><img src="img/skills/html-5.svg" alt="HTML5"></a></li>
+                <li class="to-skill-CSS3"><a href="#skill-CSS3"><img src="img/skills/css-3.svg" alt="CSS3"></a></li>
+                <li class="to-skill-Sass"><a href="#skill-Sass"><img src="img/skills/sass.svg" alt="Sass"></a></li>
+                <li class="to-skill-JavaScript"><a href="#skill-JavaScript"><img src="img/skills/javascript.svg" alt="JavaScript"></a></li>
+                <li class="to-skill-jQuery"><a href="#skill-jQuery"><img src="img/skills/jquery.svg" alt="jQuery"></a></li>
+                <li class="to-skill-PHP"><a href="#skill-PHP"><img src="img/skills/php.svg" alt="PHP"></a></li>
+                <li class="to-skill-Laravel"><a href="#skill-Laravel"><img src="img/skills/laravel.svg" alt="Laravel"></a></li>
+                <!-- <li class="to-skill-HTML5"><a href="#skill-HTML5"><img src="img/skills/ruby.svg" alt="Ruby"></a></li> -->
+                <li class="to-skill-Python"><a href="#skill-Python"><img src="img/skills/python.svg" alt="Python"></a></li>
+                <li class="to-skill-MySQL"><a href="#skill-MySQL"><img src="img/skills/mysql.svg" alt="MySQL"></a></li>
+                <li class="to-skill-GitHub"><a href="#skill-GitHub"><img src="img/skills/github-octocat.svg" alt="GitHub"></a></li>
+                <li class="to-skill-Docker"><a href="#skill-Docker"><img src="img/skills/docker-icon.svg" alt="Docker"></a></li>
+              </ul>
+            </div>
+
             <div class="skill-btn">
-              <div class="skill-more-btn">
+              <div class="skill-more-btn pc">
                 <div class="top"><span>Learn More</span></div>
               </div>
             </div>
@@ -377,6 +402,7 @@
                 <div class="top"><span>Close</span></div>
               </div>
             </div>
+
             <ul class="skill-lists">
               <li id="skill-HTML5" class="skill-list">
                 <div class="skill-img">
@@ -501,6 +527,11 @@
               </li>
             </ul>
             <div class="skill-btn">
+              <div class="skill-more-btn mb">
+                <div class="top"><span>Learn More</span></div>
+              </div>
+            </div>
+            <div class="skill-btn">
               <div class="skill-close-btn">
                 <div class="top"><span>Close</span></div>
               </div>
@@ -538,6 +569,6 @@
   <script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
   <script src="js/vendor/glide.min.js"></script>
   <script src="js/vendor/raindrops.min.js"></script>
-  <script src="js/script.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

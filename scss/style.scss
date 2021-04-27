@@ -454,7 +454,12 @@ Skills
     }
 
     .mb {
-      // スキルリストのボタン表示設定
+      width: 90%;
+      margin: 0 auto;
+
+      .skill-index {
+        display: none;
+      }
 
       .skill-btn {
         display: flex;
@@ -471,7 +476,8 @@ Skills
           padding: 8px 12px;
           font-size: 20px;
           font-family: 'Bubbler One',
-          sans-serif;
+            sans-serif;
+          text-align: center;
           letter-spacing: 0.4em;
           color: #666;
           border: 1px solid #545454;
@@ -498,7 +504,7 @@ Skills
             z-index: 1;
           }
 
-          &::after{
+          &::after {
             bottom: -6px;
             right: -6px;
             border-width: 0 1px 1px 0;
@@ -515,6 +521,14 @@ Skills
               height: calc(80% + 6px);
             }
           }
+        }
+
+        // Learn More ボタンはグラデーションさせないように、絶対配置させて独立させる。
+        .skill-more-btn.mb {
+          position: absolute;
+          bottom: 40px;
+          width: 176px;
+          z-index: 1;
         }
       }
 
@@ -534,6 +548,7 @@ Skills
           // close時に表示する高さ
           height: 200px;
           z-index: 1;
+          // 最後のリストはだんだん透明にしていく
           background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 50%, #fff 100%);
         }
 
@@ -818,7 +833,63 @@ Skills
       .mb {
         display: block;
 
+        .skill-index {
+          display: block;
+
+          ul {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li {
+              display: flex;
+              // 画像を中央に
+              align-items: center;
+              text-align: center;
+              box-sizing: border-box;
+              box-shadow: rgba(0, 0, 0, .2) 0 2px 4px 0 inset;
+            }
+
+            // 最後の列を左寄せに
+            &:after {
+              display: block;
+              content: "";
+            }
+          }
+        }
+
+        .skill-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          // js無効時は非表示
+          .skill-more-btn.mb {
+            display: none;
+            border: none;
+            margin: 20px;
+            position: relative;
+            padding: 8px 12px;
+            font-size: 20px;
+            font-family: 'Bubbler One',
+              sans-serif;
+            letter-spacing: 0.4em;
+            color: #666;
+            border: 1px solid #545454;
+            background-color: #f5f5f5;
+            transition: all .3s $easeInOutBack;
+          }
+        }
+
         .skill-lists {
+
+          &.has-skill-btn::after {
+            // close時に表示する高さ
+            height: 400px;
+            // 最後のリストはだんだん透明にしていく
+            background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 20%, #fff 60%);
+          }
 
           .skill-list {
             width: 100%;
@@ -863,11 +934,27 @@ Skills
 
       .mb {
 
+        .skill-index {
+
+          ul {
+
+            li,
+            &:after {
+              // 画像の大きさを端末ごとに設定
+              width: 9%;
+              margin: 0;
+              padding: 5px;
+              padding-top: 10px;
+            }
+          }
+        }
+
         .skill-lists {
 
           .skill-list {
             //高さを調整する
-            height: 200px;
+            height: 100%;
+            min-height: 200px;
 
             .skill-img {
               //画像の大きさを調節する
@@ -938,6 +1025,22 @@ Skills
 
       .mb {
 
+        .skill-index {
+
+          ul {
+
+            li,
+            &:after {
+              // 画像の大きさを端末ごとに設定
+              width: 24%;
+              margin: 10px auto;
+              padding: 5px;
+              padding-top: 15px;
+            }
+          }
+        }
+
+
         .skill-lists {
 
           .skill-list {
@@ -952,7 +1055,7 @@ Skills
               img {
                 position: absolute;
                 top: 50%;
-                left: 20px;
+                left: 22px;
                 transform: translateY(-50%);
                 max-width: 100%;
               }
@@ -961,7 +1064,7 @@ Skills
                 position: absolute;
                 //位置を微調整
                 bottom: 60px;
-                left: 16px;
+                left: 20px;
                 font-size: 12px;
               }
             }
