@@ -589,18 +589,18 @@ Header navigation
 .parallax {
   background-repeat: no-repeat;
   background-position: left top;
+  background-size: cover;
   background-attachment: fixed;
 }
 
 .parallax.top {
   background-image: url(../img/top.pc.jpg);
-  background-size: cover;
 }
 
 @media screen and (max-width: 599px) {
   .parallax.top {
     background-image: url(../img/top.mb.jpg);
-    background-size: cover;
+    background-attachment: unset;
   }
 }
 
