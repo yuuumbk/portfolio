@@ -585,21 +585,26 @@ Header navigation
 
 /**
   * パララックス
+  * iOSではパララックス未対応のためパララックスを無効にする
   */
-.parallax {
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.parallax.top {
-  background-image: url(../img/top.pc.jpg);
+@media screen and (min-width: 1025px) {
+  .parallax {
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .parallax.top {
+    background-image: url(../img/top.pc.jpg);
+  }
 }
 
 @media screen and (max-width: 599px) {
-  .parallax.top {
+  .top {
     background-image: url(../img/top.mb.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
     background-attachment: unset;
   }
 }
