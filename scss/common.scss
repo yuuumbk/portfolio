@@ -566,12 +566,12 @@ Header navigation
     background-attachment: fixed;
 
     &.top {
-      background-position: 20% top;
       background-image: url(../img/top.pc.jpg);
       background-size: cover;
 
       @media screen and (max-width: 599px) {
         background-image: url(../img/top.mb.jpg);
+        background-size: cover;
       }
     }
 

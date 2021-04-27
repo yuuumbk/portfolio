@@ -593,7 +593,6 @@ Header navigation
 }
 
 .parallax.top {
-  background-position: 20% top;
   background-image: url(../img/top.pc.jpg);
   background-size: cover;
 }
@@ -601,6 +600,7 @@ Header navigation
 @media screen and (max-width: 599px) {
   .parallax.top {
     background-image: url(../img/top.mb.jpg);
+    background-size: cover;
   }
 }
 
