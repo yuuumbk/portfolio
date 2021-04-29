@@ -483,9 +483,10 @@ $(function () {
       $work = $(work),
       $dilCloseBtn = $('.dil-close'),
       $overlay = $('.overlay'),
+      $hidden = $('.hidden'),
       detailView = 'detail-view';
-      
-    if (window.matchMedia('(min-width: 1025px)').matches) { // PC
+
+    if (window.matchMedia('(min-width: 600px)').matches) { // PC・タブレット
 
       $work.on('click', function () {
         // ポップアップを表示
@@ -494,7 +495,7 @@ $(function () {
 
         // オーバーレイを表示し、後ろを暗くする
         $overlay.addClass(detailView).css({
-          top: $(window).scrollTop() - headerHeight * 2,
+          top: $(window).scrollTop() - 80,
         });
 
         // スクロールを禁止させる
@@ -507,6 +508,12 @@ $(function () {
 
         // スクロール禁止を解除
         $('html').css({ overflow: 'auto' });
+      });
+
+      // 親要素（overlay）のclick継承されて、期待通りの動作をしないため、
+      // stopPropagation()で親要素のイベントの発火を抑える
+      $hidden.on('click', function(e){
+        e.stopPropagation();
       });
 
     // // ポップアップされた要素外をクリックしした場合、ポップアップを閉じる

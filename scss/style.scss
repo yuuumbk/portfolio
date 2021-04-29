@@ -200,8 +200,29 @@ About
 
       &::after {
         @include underline;
-        width: 40%;
+        width: 50%;
         margin: 8px auto;
+
+        //animation
+        animation-name: underline-about-name;
+        animation-iteration-count: infinite;
+        animation-duration: 1.4s;
+        animation-timing-function: ease;
+        animation-direction: alternate;
+
+        @keyframes underline-about-name {
+          0% {
+            width: 20%;
+          }
+
+          80% {
+            width: 50%;
+          }
+
+          100% {
+            width: 50%;
+          }
+        }
       }
     }
   }
@@ -230,6 +251,27 @@ Skills
         &:after {
           @include underline;
           width: 110px;
+
+          // animation
+          animation-name: underline-skill;
+          animation-iteration-count: infinite;
+          animation-duration: 1.4s;
+          animation-timing-function: ease;
+          animation-direction: alternate;
+
+          @keyframes underline-skill {
+            0% {
+              width: 60px;
+            }
+
+            80% {
+              width: 110px;
+            }
+
+            100% {
+              width: 110px;
+            }
+          }
         }
 
         .num-pos {
@@ -740,7 +782,6 @@ Works
         img {
           width:100%;
           height:100%;
-
         }
       }
 
@@ -859,8 +900,6 @@ Overlay
         overflow-y: scroll;
         background-color: #f5f5f5;
 
-
-
         &-thumbnail {
           display: flex;
           justify-content: space-around;
@@ -870,6 +909,8 @@ Overlay
 
           img {
             width: 50%;
+            // safari対策
+            height: 100%;
 
             &.not-detail-view-content {
               display: none;
@@ -882,19 +923,37 @@ Overlay
         }
 
         &-description {
-          padding: 10px;
+          padding: 20px;
 
           h3 {
+            text-align: center;
             font-weight: normal;
+            font-size: 22px;
             margin: 10px auto;
 
             &::after {
-              content: "";
-              display: block;
-              width: 0%;
-              height: 1px;
-              background-color: #000;
-              transition: width .4s $timing-function2;
+              @include underline;
+
+              // animation
+              animation-name: underline-work;
+              animation-iteration-count: infinite;
+              animation-duration: 1.4s;
+              animation-timing-function: ease;
+              animation-direction: alternate;
+
+              @keyframes underline-work {
+                0% {
+                  width: 10%;
+                }
+
+                80% {
+                  width: 20%;
+                }
+
+                100% {
+                  width: 20%;
+                }
+              }
             }
           }
 
@@ -904,6 +963,21 @@ Overlay
 
             &:hover {
               opacity: .7;
+            }
+          }
+
+          .work-url {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            dt {
+              width: 20%;
+            }
+
+            dd {
+              width: 80%;
             }
           }
 
@@ -1202,6 +1276,19 @@ Works
             // bottom: 30px;
             transform: translateY(30px);
             transition: transform .2s $timing-function2;
+          }
+        }
+
+        &:hover {
+          transform: translateY(0);
+          transition: none;
+
+          .work-description {
+
+            h3::after {
+              width: 0;
+              transition: none;
+            }
           }
         }
       }

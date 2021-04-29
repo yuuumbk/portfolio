@@ -49,6 +49,27 @@ h2 {
 
   &::after {
     @include underline;
+
+    //animation
+    animation-name: underline;
+    animation-iteration-count: infinite;
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+
+    @keyframes underline {
+      0% {
+        width: 10%;
+      }
+
+      80% {
+        width: 20%;
+      }
+
+      100% {
+        width: 20%;
+      }
+    }
   }
 }
 
@@ -112,6 +133,7 @@ Header navigation
   }
 
   .pc {
+
     .list {
       position: absolute;
       right: 0;
@@ -149,6 +171,27 @@ Header navigation
 
   .mb {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  // タッチデバイスでタップした時に、アニメーションが起こらないように修正
+  .header {
+
+    .pc {
+
+      .list {
+
+        a {
+          transition: none;
+
+          &:hover {
+            transform: translateY(0);
+            transition: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -322,6 +365,27 @@ Header navigation
           @include underline;
           margin: 15px auto 0;
           width: 100%;
+
+          // animation
+          animation-name: underline-top;
+          animation-iteration-count: infinite;
+          animation-duration: 1.4s;
+          animation-timing-function: ease;
+          animation-direction: alternate;
+
+          @keyframes underline-top {
+            0% {
+              width: 60%;
+            }
+
+            80% {
+              width: 100%;
+            }
+
+            100% {
+              width: 100%;
+            }
+          }
         }
       }
 
@@ -451,16 +515,12 @@ Header navigation
 }
 
 .logo {
-  &-desc {
-    font-size: 6px;
-  }
 
   &-twitter {
+    // 位置の微調整
     margin-top: 3px;
   }
 }
-
-
 
 /* .logo .position-qiita,
   .logo-switching .position-qiita {
@@ -470,6 +530,21 @@ Header navigation
 } */
 
 
+// header以外、全般のレスポンシブ対応
+
+@media screen and (max-width: 1024px) {
+  .logo {
+    // タッチデバイスでタップした時に、アニメーションが起こらないように修正
+    li {
+      transition: none;
+
+      &:hover {
+        transform: translateY(0);
+        transition: none;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 599px) {
 
@@ -493,13 +568,6 @@ Header navigation
       transform: translateX(-48%);
     }
   }
-
-  .logo {
-
-    li:hover {
-      transform: translateY(0);
-    }
-  }
 }
 
 /* float */
@@ -513,8 +581,6 @@ Header navigation
     float: right;
   }
 }
-
-
 
 .over-hidden {
   overflow: hidden;
@@ -589,12 +655,12 @@ Header navigation
 
   }
 
-/**
+  /**
   * トップへ戻る
   */
 
   .to-top {
-    background-color: rgba(135, 206, 250,0.8);
+    background-color: rgba(135, 206, 250, .8);
     width: 50px;
     height: 50px;
     border-radius: 40% 40% 50% 40%/50% 50% 50% 50%;
@@ -603,8 +669,17 @@ Header navigation
     right: 40px;
     bottom: 40px;
 
+    &:hover {
+      background-color: rgba(135, 206, 250, .6);
+    }
+
     a {
       display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
 
       &:hover {
         cursor: pointer;
@@ -618,8 +693,8 @@ Header navigation
         top: 60%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(-45deg);
-        border-top: 3px solid #f0f0f0;
-        border-right: 3px solid #f0f0f0;
+        border-top: 3px solid #fff;
+        border-right: 3px solid #fff;
       }
     }
   }

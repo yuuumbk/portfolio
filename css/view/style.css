@@ -200,8 +200,42 @@ About
   margin: 8px auto 20px;
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-  width: 40%;
+  width: 50%;
   margin: 8px auto;
+  -webkit-animation-name: underline-about-name;
+          animation-name: underline-about-name;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline-about-name {
+  0% {
+    width: 20%;
+  }
+  80% {
+    width: 50%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes underline-about-name {
+  0% {
+    width: 20%;
+  }
+  80% {
+    width: 50%;
+  }
+  100% {
+    width: 50%;
+  }
 }
 
 /*-------------------------------------
@@ -230,6 +264,40 @@ Skills
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   width: 110px;
+  -webkit-animation-name: underline-skill;
+          animation-name: underline-skill;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline-skill {
+  0% {
+    width: 60px;
+  }
+  80% {
+    width: 110px;
+  }
+  100% {
+    width: 110px;
+  }
+}
+
+@keyframes underline-skill {
+  0% {
+    width: 60px;
+  }
+  80% {
+    width: 110px;
+  }
+  100% {
+    width: 110px;
+  }
 }
 
 .skills .container .pc .skill-name .num-pos,
@@ -931,6 +999,7 @@ Overlay
 
 .overlay.detail-view .hidden .work-thumbnail img {
   width: 50%;
+  height: 100%;
 }
 
 .overlay.detail-view .hidden .work-thumbnail img.not-detail-view-content {
@@ -942,22 +1011,58 @@ Overlay
 }
 
 .overlay.detail-view .hidden .work-description {
-  padding: 10px;
+  padding: 20px;
 }
 
 .overlay.detail-view .hidden .work-description h3 {
+  text-align: center;
   font-weight: normal;
+  font-size: 22px;
   margin: 10px auto;
 }
 
 .overlay.detail-view .hidden .work-description h3::after {
   content: "";
   display: block;
-  width: 0%;
+  width: 20%;
   height: 1px;
-  background-color: #000;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+  margin: 8px auto 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  -webkit-animation-name: underline-work;
+          animation-name: underline-work;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline-work {
+  0% {
+    width: 10%;
+  }
+  80% {
+    width: 20%;
+  }
+  100% {
+    width: 20%;
+  }
+}
+
+@keyframes underline-work {
+  0% {
+    width: 10%;
+  }
+  80% {
+    width: 20%;
+  }
+  100% {
+    width: 20%;
+  }
 }
 
 .overlay.detail-view .hidden .work-description a {
@@ -967,6 +1072,28 @@ Overlay
 
 .overlay.detail-view .hidden .work-description a:hover {
   opacity: .7;
+}
+
+.overlay.detail-view .hidden .work-description .work-url {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.overlay.detail-view .hidden .work-description .work-url dt {
+  width: 20%;
+}
+
+.overlay.detail-view .hidden .work-description .work-url dd {
+  width: 80%;
 }
 
 .overlay.detail-view .hidden .work-description .work-genres {
@@ -1171,6 +1298,17 @@ Works
     transition: -webkit-transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  }
+  .works-library .work:hover {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: none;
+    transition: none;
+  }
+  .works-library .work:hover .work-description h3::after {
+    width: 0;
+    -webkit-transition: none;
+    transition: none;
   }
   /*-------------------------------------
 Overlay

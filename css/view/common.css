@@ -50,6 +50,40 @@ h2::after {
   margin: 8px auto 20px;
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  -webkit-animation-name: underline;
+          animation-name: underline;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline {
+  0% {
+    width: 10%;
+  }
+  80% {
+    width: 20%;
+  }
+  100% {
+    width: 20%;
+  }
+}
+
+@keyframes underline {
+  0% {
+    width: 10%;
+  }
+  80% {
+    width: 20%;
+  }
+  100% {
+    width: 20%;
+  }
 }
 
 p {
@@ -153,6 +187,19 @@ Header navigation
 
 .header .mb {
   display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .header .pc .list a {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .header .pc .list a:hover {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: none;
+    transition: none;
+  }
 }
 
 @media screen and (max-width: 599px) {
@@ -342,6 +389,40 @@ Header navigation
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   margin: 15px auto 0;
   width: 100%;
+  -webkit-animation-name: underline-top;
+          animation-name: underline-top;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline-top {
+  0% {
+    width: 60%;
+  }
+  80% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes underline-top {
+  0% {
+    width: 60%;
+  }
+  80% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 .wrapper .top .content p {
@@ -489,10 +570,6 @@ Header navigation
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.logo-desc {
-  font-size: 6px;
-}
-
 .logo-twitter {
   margin-top: 3px;
 }
@@ -503,6 +580,19 @@ Header navigation
   top: -5px;
   right: 100px;
 } */
+@media screen and (max-width: 1024px) {
+  .logo li {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .logo li:hover {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
 @media screen and (max-width: 599px) {
   html,
   body {
@@ -524,10 +614,6 @@ Header navigation
   .top .down-allow {
     -webkit-transform: translateX(-48%);
             transform: translateX(-48%);
-  }
-  .logo li:hover {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
   }
 }
 
@@ -624,8 +710,17 @@ Header navigation
   bottom: 40px;
 }
 
+.to-top:hover {
+  background-color: rgba(135, 206, 250, 0.6);
+}
+
 .to-top a {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .to-top a:hover {
@@ -641,7 +736,7 @@ Header navigation
   left: 50%;
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
-  border-top: 3px solid #f0f0f0;
-  border-right: 3px solid #f0f0f0;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
 }
 /*# sourceMappingURL=common.css.map */
