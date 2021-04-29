@@ -584,7 +584,7 @@ Skills
   z-index: 1;
 }
 
-.skills .container .mb .skill-lists {
+.skills .container .mb .skill-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -599,7 +599,7 @@ Skills
       flex-wrap: wrap;
 }
 
-.skills .container .mb .skill-lists.has-skill-btn::after {
+.skills .container .mb .skill-list.has-skill-btn::after {
   display: block;
   position: absolute;
   bottom: 0;
@@ -608,11 +608,11 @@ Skills
   width: 100%;
   height: 200px;
   z-index: 1;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, rgba(255, 255, 255, 0.3)), to(#fff));
-  background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, #fff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fff));
+  background: linear-gradient(to bottom, transparent 0%, #fff 100%);
 }
 
-.skills .container .mb .skill-lists .skill-list {
+.skills .container .mb .skill-list .skill-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -637,13 +637,13 @@ Skills
   min-height: 200px;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-img {
+.skills .container .mb .skill-list .skill-item .skill-img {
   position: relative;
   height: auto;
   width: 80px;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-img img {
+.skills .container .mb .skill-list .skill-item .skill-img img {
   position: absolute;
   top: 50%;
   left: 20px;
@@ -652,7 +652,7 @@ Skills
   max-width: 100%;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-img .star {
+.skills .container .mb .skill-list .skill-item .skill-img .star {
   position: absolute;
   bottom: 25px;
   left: 15px;
@@ -663,11 +663,11 @@ Skills
   margin: auto;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-img .star:before, .skills .container .mb .skill-lists .skill-list .skill-img .star:after {
+.skills .container .mb .skill-list .skill-item .skill-img .star:before, .skills .container .mb .skill-list .skill-item .skill-img .star:after {
   content: '★★★★★';
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-img .star:after {
+.skills .container .mb .skill-list .skill-item .skill-img .star:after {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -677,12 +677,12 @@ Skills
   color: #ffcf00;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc {
+.skills .container .mb .skill-list .skill-item .skill-desc {
   padding: 10px;
   margin-left: 40px;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc .skill-name {
+.skills .container .mb .skill-list .skill-item .skill-desc .skill-name {
   position: relative;
   font-size: 20px;
   margin-top: 25px;
@@ -691,7 +691,7 @@ Skills
   text-align: center;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc .skill-name:after {
+.skills .container .mb .skill-list .skill-item .skill-desc .skill-name:after {
   content: "";
   display: block;
   width: 20%;
@@ -703,45 +703,45 @@ Skills
   margin: 0 auto;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc .skill-name:has(.num-pos):after {
+.skills .container .mb .skill-list .skill-item .skill-desc .skill-name:has(.num-pos):after {
   width: 60%;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc .skill-name.has-num-pos:after {
+.skills .container .mb .skill-list .skill-item .skill-desc .skill-name.has-num-pos:after {
   width: 60%;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc .skill-name .num-pos {
+.skills .container .mb .skill-list .skill-item .skill-desc .skill-name .num-pos {
   position: absolute;
   top: -8px;
 }
 
-.skills .container .mb .skill-lists .skill-list .skill-desc p {
+.skills .container .mb .skill-list .skill-item .skill-desc p {
   line-height: 1.5em;
   padding: 20px 10px;
   text-align: justify;
 }
 
 @media screen and (min-width: 1024px) {
-  .skills .container .mb .skill-lists .skill-list:last-child:nth-child(odd) {
+  .skills .container .mb .skill-list .skill-item:last-child:nth-child(odd) {
     width: 100%;
   }
-  .skills .container .mb .skill-lists .skill-list:last-child:nth-child(odd) .skill-name:after {
+  .skills .container .mb .skill-list .skill-item:last-child:nth-child(odd) .skill-name:after {
     width: 23%;
   }
-  .skills .container .mb .skill-lists .skill-list:last-child:nth-child(odd) .skill-img {
+  .skills .container .mb .skill-list .skill-item:last-child:nth-child(odd) .skill-img {
     position: absolute;
     left: 20%;
     top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
   }
-  .skills .container .mb .skill-lists .skill-list:last-child:nth-child(odd) .star {
+  .skills .container .mb .skill-list .skill-item:last-child:nth-child(odd) .star {
     position: absolute;
     bottom: -60px;
     left: 30px;
   }
-  .skills .container .mb .skill-lists .skill-list:last-child:nth-child(odd) .skill-desc {
+  .skills .container .mb .skill-list .skill-item:last-child:nth-child(odd) .skill-desc {
     position: relative;
     left: 40px;
     margin: 0 auto 20px;
@@ -887,21 +887,14 @@ Overlay
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 55px);
   background: rgba(100, 100, 100, 0.5);
   z-index: 11;
-  /*-------------------------------------
-    Works
-    --------------------------------------*/
 }
 
-.overlay.detail-view .work {
-  border-radius: 20px;
-  overflow-wrap: hidden;
-  overflow-y: scroll;
-  background-color: #f5f5f5;
-  -webkit-box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.3), 6px 0 10px -6px rgba(0, 0, 0, 0.3), -6px 0 10px -6px rgba(0, 0, 0, 0.3);
+.overlay.detail-view .hidden {
+  overflow: hidden;
+  border-radius: 30px;
   position: absolute;
   width: 80%;
   height: 80vh;
@@ -910,9 +903,18 @@ Overlay
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  /*-------------------------------------
+      Works
+      --------------------------------------*/
 }
 
-.overlay.detail-view .work-thumbnail {
+.overlay.detail-view .hidden .work {
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #f5f5f5;
+}
+
+.overlay.detail-view .hidden .work-thumbnail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -927,24 +929,28 @@ Overlay
   height: auto;
 }
 
-.overlay.detail-view .work-thumbnail img {
+.overlay.detail-view .hidden .work-thumbnail img {
   width: 50%;
 }
 
-.overlay.detail-view .work-thumbnail img.not-detail-view-content {
+.overlay.detail-view .hidden .work-thumbnail img.not-detail-view-content {
   display: none;
 }
 
-.overlay.detail-view .work-description {
+.overlay.detail-view .hidden .work-thumbnail video {
+  width: 100%;
+}
+
+.overlay.detail-view .hidden .work-description {
   padding: 10px;
 }
 
-.overlay.detail-view .work-description h3 {
+.overlay.detail-view .hidden .work-description h3 {
   font-weight: normal;
   margin: 10px auto;
 }
 
-.overlay.detail-view .work-description h3::after {
+.overlay.detail-view .hidden .work-description h3::after {
   content: "";
   display: block;
   width: 0%;
@@ -954,31 +960,17 @@ Overlay
   transition: width 0.4s ease-in-out;
 }
 
-.overlay.detail-view .work-description a {
+.overlay.detail-view .hidden .work-description a {
   color: #ed6d35;
   text-decoration: underline;
 }
 
-.overlay.detail-view .work-description a:hover {
+.overlay.detail-view .hidden .work-description a:hover {
   opacity: .7;
 }
 
-.overlay.detail-view .work-description .work-genres {
-  position: absolute;
-  bottom: 45%;
-  right: 10px;
-}
-
-.overlay.detail-view .work-description .work-genres .work-genre {
-  display: inline-block;
-  color: #aaa;
-  font-size: 14px;
-  line-height: 0.8em;
-}
-
-.overlay.detail-view .work-description .work-genres .work-genre + .work-genre {
-  border-left: 1px solid #aaa;
-  padding: 0 7px;
+.overlay.detail-view .hidden .work-description .work-genres {
+  display: none;
 }
 
 /* =============================================
@@ -1125,12 +1117,12 @@ Overlay
     -webkit-transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
-  .skills .container .mb .skill-lists.has-skill-btn::after {
+  .skills .container .mb .skill-list.has-skill-btn::after {
     height: 400px;
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, rgba(255, 255, 255, 0.3)), to(#fff));
-    background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, #fff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fff));
+    background: linear-gradient(to bottom, transparent 0%, #fff 100%);
   }
-  .skills .container .mb .skill-lists .skill-list {
+  .skills .container .mb .skill-list .skill-item {
     width: 100%;
   }
   /*-------------------------------------
@@ -1185,10 +1177,10 @@ Overlay
 --------------------------------------*/
   .overlay.detail-view {
     /*-------------------------------------
-    Works
-    --------------------------------------*/
+      Works
+      --------------------------------------*/
   }
-  .overlay.detail-view .work-thumbnail {
+  .overlay.detail-view .hidden .work-thumbnail {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1203,10 +1195,10 @@ Overlay
     height: auto;
     margin: 20px;
   }
-  .overlay.detail-view .work-thumbnail img {
-    width: 90%;
+  .overlay.detail-view .hidden .work-thumbnail img {
+    width: 100%;
   }
-  .overlay.detail-view .work-description .work-genres {
+  .overlay.detail-view .hidden .work-description .work-genres {
     position: absolute;
     bottom: 45%;
     right: 10px;
@@ -1238,14 +1230,14 @@ Overlay
     padding: 5px;
     padding-top: 10px;
   }
-  .skills .container .mb .skill-lists .skill-list {
+  .skills .container .mb .skill-list .skill-item {
     height: 100%;
     min-height: 200px;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-img {
+  .skills .container .mb .skill-list .skill-item .skill-img {
     width: 100px;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-img .star {
+  .skills .container .mb .skill-list .skill-item .skill-img .star {
     position: absolute;
     bottom: 30px;
     left: 17px;
@@ -1294,17 +1286,17 @@ Overlay
             align-items: center;
     text-align: center;
   }
-  .skills .container .mb .skill-lists {
+  .skills .container .mb .skill-list {
     margin-top: 40px;
   }
-  .skills .container .mb .skill-lists .skill-list {
+  .skills .container .mb .skill-list .skill-item {
     height: 100%;
     min-height: 280px;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-img {
+  .skills .container .mb .skill-list .skill-item .skill-img {
     width: 150px;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-img img {
+  .skills .container .mb .skill-list .skill-item .skill-img img {
     position: absolute;
     top: 50%;
     left: 22px;
@@ -1312,16 +1304,16 @@ Overlay
             transform: translateY(-50%);
     max-width: 100%;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-img .star {
+  .skills .container .mb .skill-list .skill-item .skill-img .star {
     position: absolute;
     bottom: 60px;
     left: 20px;
     font-size: 12px;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-desc .skill-name {
+  .skills .container .mb .skill-list .skill-item .skill-desc .skill-name {
     margin-top: 10px;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-desc .skill-name:after {
+  .skills .container .mb .skill-list .skill-item .skill-desc .skill-name:after {
     content: "";
     display: block;
     width: 20%;
@@ -1332,7 +1324,7 @@ Overlay
     width: 50%;
     margin: 0 auto;
   }
-  .skills .container .mb .skill-lists .skill-list .skill-desc p {
+  .skills .container .mb .skill-list .skill-item .skill-desc p {
     font-size: 14px;
     line-height: 1.5em;
     letter-spacing: .2em;
@@ -1389,11 +1381,21 @@ Overlay
 Overlay
 --------------------------------------*/
   .overlay.detail-view {
-    /*-------------------------------------
-  Works
-  --------------------------------------*/
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background: transparent;
+    z-index: 1;
   }
-  .overlay.detail-view .work-thumbnail {
+  .overlay.detail-view .hidden {
+    /*-------------------------------------
+        Works
+        --------------------------------------*/
+  }
+  .overlay.detail-view .hidden .work-thumbnail {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1408,10 +1410,10 @@ Overlay
     height: auto;
     margin: 20px;
   }
-  .overlay.detail-view .work-thumbnail img {
+  .overlay.detail-view .hidden .work-thumbnail img {
     width: 90%;
   }
-  .overlay.detail-view .work-description .work-genres {
+  .overlay.detail-view .hidden .work-description .work-genres {
     position: absolute;
     bottom: 45%;
     right: 10px;

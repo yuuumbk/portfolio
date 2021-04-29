@@ -533,7 +533,7 @@ Skills
         }
       }
 
-      .skill-lists {
+      .skill-list {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -550,10 +550,10 @@ Skills
           height: 200px;
           z-index: 1;
           // 最後のリストはだんだん透明にしていく
-          background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 50%, #fff 100%);
+          background: linear-gradient(to bottom, transparent 0%, #fff 100%);
         }
 
-        .skill-list {
+        .skill-item {
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
@@ -835,20 +835,13 @@ Overlay
     // JavaScriptで動的に指定
     top: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 55px);
     background: rgba(100, 100, 100, .5);
     z-index: 11;
 
-    /*-------------------------------------
-    Works
-    --------------------------------------*/
-    .work {
-      border-radius: 20px;
-      overflow-wrap: hidden;
-      overflow-y: scroll;
-      background-color: #f5f5f5;
-      @include card-shadow;
-
+    .hidden {
+      overflow: hidden;
+      border-radius: 30px;
       position: absolute;
       width: 80%;
       height: 80vh;
@@ -857,98 +850,98 @@ Overlay
       left: 50%;
       transform: translate(-50%, -50%);
 
-      &-thumbnail {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        flex-wrap: wrap;
-        height: auto;
+      /*-------------------------------------
+      Works
+      --------------------------------------*/
 
-        img {
-          width: 50%;
+      .work {
+        height: 100%;
+        overflow-y: scroll;
+        background-color: #f5f5f5;
 
-          &.not-detail-view-content {
+
+
+        &-thumbnail {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: auto;
+
+          img {
+            width: 50%;
+
+            &.not-detail-view-content {
+              display: none;
+            }
+          }
+
+          video {
+            width: 100%;
+          }
+        }
+
+        &-description {
+          padding: 10px;
+
+          h3 {
+            font-weight: normal;
+            margin: 10px auto;
+
+            &::after {
+              content: "";
+              display: block;
+              width: 0%;
+              height: 1px;
+              background-color: #000;
+              transition: width .4s $timing-function2;
+            }
+          }
+
+          a {
+            color: #ed6d35;
+            text-decoration: underline;
+
+            &:hover {
+              opacity: .7;
+            }
+          }
+
+          .work-genres {
             display: none;
           }
         }
+
+        //   // 閉じるボタン
+
+        //   .dil-close {
+        //     margin: 0 20px 0 7px;
+        //     padding: 0;
+        //     width: 4px;
+        //     height: 20px;
+        //     background: #000;
+        //     transform: rotate(45deg);
+
+        //     position: absolute;
+        //     right: 10px;
+        //     bottom: 18px;
+        //     cursor: pointer;
+        //     z-index: 5;
+
+        //     &::before {
+        //       display: block;
+        //       content: "";
+        //       position: absolute;
+        //       top: 50%;
+        //       left: -8px;
+        //       width: 20px;
+        //       height: 4px;
+        //       margin-top: -2px;
+        //       background: #000;
+        //       z-index: -1;
+        //     }
+        //   }
       }
-
-      &-description {
-        padding: 10px;
-
-        h3 {
-          font-weight: normal;
-          margin: 10px auto;
-
-          &::after {
-            content: "";
-            display: block;
-            width: 0%;
-            height: 1px;
-            background-color: #000;
-            transition: width .4s $timing-function2;
-          }
-        }
-
-        a {
-          color: #ed6d35;
-          text-decoration: underline;
-
-          &:hover {
-            opacity: .7;
-          }
-        }
-
-        .work-genres {
-          position: absolute;
-          bottom: 45%;
-          right: 10px;
-
-          .work-genre {
-            // 横並び
-            display: inline-block;
-            color: #aaa;
-            font-size: 14px;
-            // 区切りの棒の長さを調節
-            line-height: 0.8em;
-
-            &+.work-genre {
-              border-left: 1px solid #aaa;
-              padding: 0 7px;
-            }
-          }
-        }
-      }
-
-    //   // 閉じるボタン
-
-    //   .dil-close {
-    //     margin: 0 20px 0 7px;
-    //     padding: 0;
-    //     width: 4px;
-    //     height: 20px;
-    //     background: #000;
-    //     transform: rotate(45deg);
-
-    //     position: absolute;
-    //     right: 10px;
-    //     bottom: 18px;
-    //     cursor: pointer;
-    //     z-index: 5;
-
-    //     &::before {
-    //       display: block;
-    //       content: "";
-    //       position: absolute;
-    //       top: 50%;
-    //       left: -8px;
-    //       width: 20px;
-    //       height: 4px;
-    //       margin-top: -2px;
-    //       background: #000;
-    //       z-index: -1;
-    //     }
-    //   }
     }
   }
 }
@@ -1145,16 +1138,16 @@ Overlay
           }
         }
 
-        .skill-lists {
+        .skill-list {
 
           &.has-skill-btn::after {
             // close時に表示する高さ
             height: 400px;
             // 最後のリストはだんだん透明にしていく
-            background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, .3) 50%, #fff 100%);
+            background: linear-gradient(to bottom, transparent 0%, #fff 100%);
           }
 
-          .skill-list {
+          .skill-item {
             width: 100%;
           }
         }
@@ -1225,29 +1218,32 @@ Overlay
     &.detail-view {
 
       /*-------------------------------------
-    Works
-    --------------------------------------*/
-      .work {
+      Works
+      --------------------------------------*/
+      .hidden {
 
-        &-thumbnail {
-          display: flex;
-          justify-content: space-around;
-          flex-direction: row;
-          flex-wrap: wrap;
-          height: auto;
-          margin: 20px;
+        .work {
 
-          img {
-            width: 90%;
+          &-thumbnail {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            margin: 20px;
+
+            img {
+              width: 100%;
+            }
           }
-        }
 
-        &-description {
+          &-description {
 
-          .work-genres {
-            position: absolute;
-            bottom: 45%;
-            right: 10px;
+            .work-genres {
+              position: absolute;
+              bottom: 45%;
+              right: 10px;
+            }
           }
         }
       }
@@ -1304,9 +1300,9 @@ Overlay
           }
         }
 
-        .skill-lists {
+        .skill-list {
 
-          .skill-list {
+          .skill-item {
             //高さを調整する
             height: 100%;
             min-height: 200px;
@@ -1405,10 +1401,10 @@ Overlay
           }
         }
 
-        .skill-lists {
+        .skill-list {
           margin-top: 40px;
 
-          .skill-list {
+          .skill-item {
             //高さを調整する
             height: 100%;
             min-height: 280px;
@@ -1522,31 +1518,42 @@ Overlay
   .overlay {
 
     &.detail-view {
+      display: block;
+      position: absolute;
+      left: 0;
+      // JavaScriptで動的に指定
+      top: 0;
+      width: 0;
+      height: 0;
+      background: transparent;
+      z-index: 1;
 
-      /*-------------------------------------
-  Works
-  --------------------------------------*/
-      .work {
+      .hidden {
+        /*-------------------------------------
+        Works
+        --------------------------------------*/
+        .work {
 
-        &-thumbnail {
-          display: flex;
-          justify-content: space-around;
-          flex-direction: row;
-          flex-wrap: wrap;
-          height: auto;
-          margin: 20px;
+          &-thumbnail {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            margin: 20px;
 
-          img {
-            width: 90%;
+            img {
+              width: 90%;
+            }
           }
-        }
 
-        &-description {
+          &-description {
 
-          .work-genres {
-            position: absolute;
-            bottom: 45%;
-            right: 10px;
+            .work-genres {
+              position: absolute;
+              bottom: 45%;
+              right: 10px;
+            }
           }
         }
       }

@@ -3,6 +3,17 @@
 $(function () {
 
   /**
+   * ヘッダー分コンテンツを下げる
+   */
+
+  var headerHeight = $('#header').outerHeight();
+  $('#top').css({
+    marginTop: headerHeight,
+  });
+
+
+
+  /**
    * ハンバーガー
    */
 
@@ -203,7 +214,7 @@ $(function () {
   // }
 
   var $mb = $('.skills .mb'),
-    $list = $mb.find('.skill-lists'),
+    $list = $mb.find('.skill-list'),
     $moreBtn = $('.skill-more-btn'),
     $skillBtn = $('a[href^="#skill"]'),
     $clickBtn = $('.skill-click'),
@@ -407,7 +418,7 @@ $(function () {
   //最も高いスキルリストの高さ
   var maxHeight = getMaxHeight();
 
-  $('.skill-list').each(function () {
+  $('.skill-item').each(function () {
     $(this).css({
       height: maxHeight,
     });
@@ -421,11 +432,11 @@ $(function () {
    */
   function getMaxHeight() {
     var maxHeight,
-      $list = $('.mb .skill-lists');//エラーが出る場合があるため、こちらでも指定
+      $list = $('.mb .skill-list');//エラーが出る場合があるため、こちらでも指定
 
     $list.find(hiddenList).show();
 
-    $('.skill-list').each(function () {
+    $('.skill-item').each(function () {
       maxHeight = $(this).outerHeight();
     });
 
@@ -460,69 +471,74 @@ $(function () {
    * workのポップアップ
    */
 
-  var work = '.works-library .work',
-    $work = $(work),
-    $dilCloseBtn = $('.dil-close'),
-    $overlay = $('.overlay'),
-    detailView = 'detail-view';
+    workPopUp();
 
-  $work.on('click', function () {
-    // ポップアップを表示
-    var clone = $(this).clone();
-    $overlay.append(clone);
-
-    // オーバーレイを表示し、後ろを暗くする
-    $overlay.addClass(detailView).css({
-      top: $(window).scrollTop(),
-    });
-
-    // スクロールを禁止させる
-    $('html').css({overflow: 'hidden'});
+  // ウィンドウ幅が変更されたら再度実行
+  $(window).resize(function () {
+      workPopUp();
   });
 
-  // 閉じるボタンが押された時の処理
-  $dilCloseBtn.on('click', function () {
-    console.log('close');
-    $work.each(function(){
-      console.log('each');
-      $(this).removeClass(detailView);
-    });
-  });
+  function workPopUp(){
+    var work = '.works-library .work',
+      $work = $(work),
+      $dilCloseBtn = $('.dil-close'),
+      $overlay = $('.overlay'),
+      detailView = 'detail-view';
+      
+    if (window.matchMedia('(min-width: 1025px)').matches) { // PC
 
-  $overlay.on('click', function(){
-    // オーバーレイを非表示にする
-    $overlay.removeClass(detailView).empty();
+      $work.on('click', function () {
+        // ポップアップを表示
+        var clone = $(this).clone();
+        $overlay.find('.hidden').append(clone);
 
-    // スクロール禁止を解除
-    $('html').css({ overflow: 'auto' });
-  });
+        // オーバーレイを表示し、後ろを暗くする
+        $overlay.addClass(detailView).css({
+          top: $(window).scrollTop() - headerHeight * 2,
+        });
 
-  // // ポップアップされた要素外をクリックしした場合、ポップアップを閉じる
-  // $(document).on('click', function (e) {
-  //   var $target = $(e.target);
+        // スクロールを禁止させる
+        $('html').css({ overflow: 'hidden' });
+      });
 
-  //   if (hasDetailViewClass()) {
-  //     if (!$target.closest($overlay).find('work').length) {
-  //       console.log('ok');
-  //       $overlay.filter('.detail-view').remove();
-  //     }
-  //   }else{
-  //     console.log('false');
-  //   }
-  // });
+      $overlay.on('click', function () {
+        // オーバーレイを非表示にする
+        $overlay.removeClass(detailView).find('.hidden').empty();
 
-  // /**
-  //    * ポップアップが表示されているか
-  //    * @returns bool
-  //    */
+        // スクロール禁止を解除
+        $('html').css({ overflow: 'auto' });
+      });
 
-  // function hasDetailViewClass() {
-  //   if ($('.detail-view').length) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
+    // // ポップアップされた要素外をクリックしした場合、ポップアップを閉じる
+    // $(document).on('click', function (e) {
+    //   var $target = $(e.target);
 
+    //   if (hasDetailViewClass()) {
+    //     if (!$target.closest($overlay).find('work').length) {
+    //       console.log('ok');
+    //       $overlay.filter('.detail-view').remove();
+    //     }
+    //   }else{
+    //     console.log('false');
+    //   }
+    // });
 
+    // /**
+    //    * ポップアップが表示されているか
+    //    * @returns bool
+    //    */
 
+    // function hasDetailViewClass() {
+    //   if ($('.detail-view').length) {
+    //     return true;
+    //   }
+    //   return false;
+    // }
+    }else { // mb
+      $work.off();
+      $overlay.off();
+      // スクロール禁止を解除
+      $('html').css({ overflow: 'auto' });
+    }
+  }
 });

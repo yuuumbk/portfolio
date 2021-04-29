@@ -18,7 +18,7 @@ $(function () {
   $(document).on('click', function (e) {
     var $target = $(e.target);
 
-    if(!$target.closest(navMb).length){//外側
+    if (!$target.closest(navMb).length) {//外側
       $('.menu, .ham-btn-line').removeClass('open');
     }
   });
@@ -60,7 +60,7 @@ $(function () {
   $(window).on('scroll', $.throttle(200, function () {
     scroll();
   }))
-  .delay(600).trigger('scroll');// 画面途中でリロードされた場合も対象要素をフェードインさせる
+    .delay(600).trigger('scroll');// 画面途中でリロードされた場合も対象要素をフェードインさせる
 
   /**
    * スクロール処理
@@ -82,7 +82,7 @@ $(function () {
         var scrollAmount = $(window).scrollTop();
 
         if (scrollAmount > scrollFadeInOffset - windowHeight + 30) {
-            $scrollFadeIn.addClass('scrollin');
+          $scrollFadeIn.addClass('scrollin');
         } else if (scrollAmount <= scrollFadeInOffset - windowHeight) {
           $scrollFadeIn.removeClass('scrollin');
         }
@@ -198,7 +198,7 @@ $(function () {
 
   if (window.matchMedia('(min-width: 1025px)').matches) {
 
-    var $list = $('.mb .skill-lists'),
+    var $list = $('.mb .skill-list'),
       $moreBtn = $('.skill-more-btn'),
       $skillBtn = $('a[href^="#skill"]'),
       $clickBtn = $('.skill-click'),
@@ -350,7 +350,7 @@ $(function () {
 
   //最も高いスキルリストの高さ
   var maxHeight = getMaxHeight();
-  $('.skill-list').each(function () {
+  $('.skill-item').each(function () {
     $(this).css({
       height: maxHeight,
     });
@@ -364,11 +364,11 @@ $(function () {
    */
   function getMaxHeight() {
     var maxHeight,
-      $list = $('.mb .skill-lists');//エラーが出る場合があるため、こちらでも指定
+      $list = $('.mb .skill-list');//エラーが出る場合があるため、こちらでも指定
 
     $list.find(hiddenList).show();
 
-    $('.skill-list').each(function () {
+    $('.skill-item').each(function () {
       maxHeight = $(this).outerHeight();
     });
 
