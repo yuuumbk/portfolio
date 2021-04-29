@@ -362,7 +362,7 @@ Skills
             text-align: center;
 
             //背景
-            background-image: url(../img/skills-bg.jpg);
+            background-image: url(../img/parts/skills-bg.jpg);
             // background-color: #f5f5f5;
 
             transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
@@ -472,7 +472,7 @@ Skills
         .skill-close-btn {
           display: none;
           border: none;
-          margin: 20px;
+          margin: 20px auto;
           position: relative;
           padding: 8px 12px;
           font-size: 20px;
@@ -700,6 +700,261 @@ Skills
 
 
 
+/*-------------------------------------
+Works
+--------------------------------------*/
+
+.works {
+
+  &-library {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &::after,
+    .work {
+      width: 30%;
+      margin: 20px 0.5%;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    .work {
+      height: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      @include card-shadow;
+      cursor: pointer;
+
+      transition: transform .2s $timing-function2;
+
+      &-thumbnail {
+        height: 210px;
+        width: 100%;
+
+        img {
+          width:100%;
+          height:100%;
+
+        }
+      }
+
+      &-description {
+        padding: 10px;
+
+        h3 {
+          font-weight: normal;
+          margin: 10px auto;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 1px;
+            background-color: #000;
+            transition: width .4s $timing-function2;
+          }
+        }
+
+        p {
+          text-indent: 0;
+          // 二行まで
+          // work-genresの位置調整のため
+          height: 56px;
+        }
+
+        a {
+          color: #ed6d35;
+          text-decoration: underline;
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+
+        .work-genres {
+          // absoluteの場合、transformが効かない。
+          // position: absolute;
+          // bottom: 30px;
+          transform: translateY(30px);
+          transition: transform .2s $timing-function2;
+
+          .work-genre {
+            // 横並び
+            display: inline-block;
+            color: #aaa;
+            font-size: 14px;
+            // 区切りの棒の長さを調節
+            line-height: 0.8em;
+
+            &+.work-genre {
+              border-left: 1px solid #aaa;
+              padding: 0 7px;
+            }
+          }
+        }
+      }
+
+      .detail-view-content {
+        display: none;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+        transition: transform .2s $timing-function2;
+
+        .work-description {
+
+          h3::after {
+            width: 70%;
+            transition: width .4s $timing-function2;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*-------------------------------------
+Overlay
+--------------------------------------*/
+.overlay {
+  display: none;
+
+  &.detail-view {
+    display: block;
+    position: absolute;
+    left: 0;
+    // JavaScriptで動的に指定
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 100, 100, .5);
+    z-index: 11;
+
+    /*-------------------------------------
+    Works
+    --------------------------------------*/
+    .work {
+      border-radius: 20px;
+      overflow-wrap: hidden;
+      overflow-y: scroll;
+      background-color: #f5f5f5;
+      @include card-shadow;
+
+      position: absolute;
+      width: 80%;
+      height: 80vh;
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &-thumbnail {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+
+        img {
+          width: 50%;
+
+          &.not-detail-view-content {
+            display: none;
+          }
+        }
+      }
+
+      &-description {
+        padding: 10px;
+
+        h3 {
+          font-weight: normal;
+          margin: 10px auto;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 1px;
+            background-color: #000;
+            transition: width .4s $timing-function2;
+          }
+        }
+
+        a {
+          color: #ed6d35;
+          text-decoration: underline;
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+
+        .work-genres {
+          position: absolute;
+          bottom: 45%;
+          right: 10px;
+
+          .work-genre {
+            // 横並び
+            display: inline-block;
+            color: #aaa;
+            font-size: 14px;
+            // 区切りの棒の長さを調節
+            line-height: 0.8em;
+
+            &+.work-genre {
+              border-left: 1px solid #aaa;
+              padding: 0 7px;
+            }
+          }
+        }
+      }
+
+    //   // 閉じるボタン
+
+    //   .dil-close {
+    //     margin: 0 20px 0 7px;
+    //     padding: 0;
+    //     width: 4px;
+    //     height: 20px;
+    //     background: #000;
+    //     transform: rotate(45deg);
+
+    //     position: absolute;
+    //     right: 10px;
+    //     bottom: 18px;
+    //     cursor: pointer;
+    //     z-index: 5;
+
+    //     &::before {
+    //       display: block;
+    //       content: "";
+    //       position: absolute;
+    //       top: 50%;
+    //       left: -8px;
+    //       width: 20px;
+    //       height: 4px;
+    //       margin-top: -2px;
+    //       background: #000;
+    //       z-index: -1;
+    //     }
+    //   }
+    }
+  }
+}
+
+
+
 /* =============================================
 タブレット&モバイル共通
 ============================================= */
@@ -906,6 +1161,98 @@ Skills
       }
     }
   }
+
+  /*-------------------------------------
+Works
+--------------------------------------*/
+
+  .works {
+
+    &-library {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &::after,
+      .work {
+        width: 45%;
+        margin: 20px 0.5%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+      }
+
+      .work {
+        height: 400px;
+
+        &-thumbnail {
+          height: 210px;
+          width: 100%;
+        }
+
+        &-description {
+          padding: 10px;
+
+          p {
+            text-indent: 0;
+            // 二行まで
+            // work-genresの位置調整のため
+            height: 56px;
+          }
+
+          .work-genres {
+            // absoluteの場合、transformが効かない。
+            // position: absolute;
+            // bottom: 30px;
+            transform: translateY(30px);
+            transition: transform .2s $timing-function2;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+Overlay
+--------------------------------------*/
+  .overlay {
+
+    &.detail-view {
+
+      /*-------------------------------------
+    Works
+    --------------------------------------*/
+      .work {
+
+        &-thumbnail {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: auto;
+          margin: 20px;
+
+          img {
+            width: 90%;
+          }
+        }
+
+        &-description {
+
+          .work-genres {
+            position: absolute;
+            bottom: 45%;
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -1041,9 +1388,19 @@ Skills
             &:after {
               // 画像の大きさを端末ごとに設定
               width: 24%;
-              margin: 10px auto;
+              margin: 10px 0;
               padding: 5px;
               padding-top: 15px;
+            }
+
+            &:after {
+              content: "";
+              box-shadow: rgba(0, 0, 0, .2) 0 2px 4px 0 inset;
+              width: 22%;
+              display: flex;
+              // 画像を中央に
+              align-items: center;
+              text-align: center;
             }
           }
         }
@@ -1096,6 +1453,100 @@ Skills
                 padding: 10px 10px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Works
+  --------------------------------------*/
+
+  .works {
+
+    &-library {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &::after,
+      .work {
+        width: 100%;
+        margin: 20px 0.5%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+      }
+
+      .work {
+        height: 400px;
+
+        &-thumbnail {
+          height: 210px;
+          width: 100%;
+        }
+
+        &-description {
+          padding: 10px;
+
+          p {
+            text-indent: 0;
+            // 二行まで
+            // work-genresの位置調整のため
+            height: 56px;
+          }
+
+          .work-genres {
+            // absoluteの場合、transformが効かない。
+            // position: absolute;
+            // bottom: 30px;
+            transform: translateY(30px);
+            transition: transform .2s $timing-function2;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+Overlay
+--------------------------------------*/
+  .overlay {
+
+    &.detail-view {
+
+      /*-------------------------------------
+  Works
+  --------------------------------------*/
+      .work {
+
+        &-thumbnail {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: auto;
+          margin: 20px;
+
+          img {
+            width: 90%;
+          }
+        }
+
+        &-description {
+
+          .work-genres {
+            position: absolute;
+            bottom: 45%;
+            right: 10px;
           }
         }
       }

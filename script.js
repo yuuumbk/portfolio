@@ -7,17 +7,18 @@ $(function () {
    */
 
   var humBtn = '.mb .ham-btn',
-    link = '.mb .menu .list .list-item a';
+    link = '.mb .menu .list .list-item a',
+    navMb = 'nav.mb';
 
   $(humBtn).add(link).on('click', function () {
     $('.menu, .ham-btn-line').toggleClass('open');
   });
 
-  // ナビゲーションの外側がタップされた時、ナビゲーションを閉じる→タップされた場所に限らず時は閉じるように変更
+  //　ナビゲーションの外側がタップされた時、ナビゲーションを閉じる
   $(document).on('click', function (e) {
     var $target = $(e.target);
 
-    if (!$target.closest(humBtn).length) {
+    if(!$target.closest(navMb).length){//外側
       $('.menu, .ham-btn-line').removeClass('open');
     }
   });
@@ -59,7 +60,7 @@ $(function () {
   $(window).on('scroll', $.throttle(200, function () {
     scroll();
   }))
-    .delay(600).trigger('scroll');// 画面途中でリロードされた場合も対象要素をフェードインさせる
+  .delay(600).trigger('scroll');// 画面途中でリロードされた場合も対象要素をフェードインさせる
 
   /**
    * スクロール処理
@@ -75,13 +76,13 @@ $(function () {
 
       /**
        * スクロール時のフェードイン処理
+       * @param {*} delay
        */
-
       function fadeIn() {
         var scrollAmount = $(window).scrollTop();
 
         if (scrollAmount > scrollFadeInOffset - windowHeight + 30) {
-          $scrollFadeIn.addClass('scrollin');
+            $scrollFadeIn.addClass('scrollin');
         } else if (scrollAmount <= scrollFadeInOffset - windowHeight) {
           $scrollFadeIn.removeClass('scrollin');
         }
@@ -195,95 +196,38 @@ $(function () {
    * PCの時のみ
    */
 
-  // 初期表示数
-  // if (window.matchMedia('(min-width: 1025px)').matches) { // PC
-  //   var defaultNum = 2;
-  // } else { // モバイル
-  //   var defaultNum = 4;
-  // }
+  if (window.matchMedia('(min-width: 1025px)').matches) {
 
-  var $mb = $('.skills .mb'),
-    $list = $mb.find('.skill-lists'),
-    $moreBtn = $('.skill-more-btn'),
-    $skillBtn = $('a[href^="#skill"]'),
-    $clickBtn = $('.skill-click'),
-    $closeBtn = $('.skill-close-btn'),
-    defaultNum = 4,// 初期表示数
-    hiddenList = 'li:not(:lt(' + defaultNum + '))';
+    var $list = $('.mb .skill-lists'),
+      $moreBtn = $('.skill-more-btn'),
+      $skillBtn = $('a[href^="#skill"]'),
+      $clickBtn = $('.skill-click'),
+      $closeBtn = $('.skill-close-btn'),
+      defaultNum = 2,// 初期表示数
+      hiddenList = 'li:not(:lt(' + defaultNum + '))';
 
-  // defaultNum分以外は非表示
-  $list.find(hiddenList).hide();
-  $list.addClass('has-skill-btn');
+    $('.skill-more-btn').show();
 
-  skillBtn();
+    // defaultNum分以外は非表示
+    $list.find(hiddenList).hide();
+    $list.addClass('has-skill-btn');
 
-  // ウィンドウ幅が変更されたら実行
-  $(window).resize(function () {
-    skillBtn();
-  });
-
-  /**
-   * ウィンドウ幅に応じて表示するボタンを変える
-   */
-
-  function skillBtn() {
-    if (window.matchMedia('(min-width: 1025px)').matches) { // PC
-      $moreBtn.show();
-      // $moreBtn.filter('.pc').show();
-      if (!$list.filter('.has-skill-btn').length) {
-        $moreBtn.hide();
-      }
-      // $moreBtn.filter('.mb').hide();
-
-      clickBtn('pc');
-      closeBtn('pc');
-    } else { // モバイル
-      $moreBtn.show();
-      // $moreBtn.filter('.mb').show();
-      if (!$list.filter('.has-skill-btn').length) {
-        $moreBtn.hide();
-      }
-      // $moreBtn.filter('.pc').hide();
-
-      clickBtn('mb');
-      closeBtn('mb');
-    }
-  }
-
-  /**
-   * スキルボタン・クリックボタン・詳細ボタンが押された時の処理
-   * @param {*} device pc|mb
-   */
-
-  function clickBtn() {
+    // スキルボタン・クリックボタン・詳細ボタンが押された時の挙動
     $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
-      $mb.css({ marginBottom: 0 });
       $list.removeClass('has-skill-btn');
       $list.find('li').fadeIn();
-      // ボタンの表示設定
-      // $moreBtn.filter('.' + device).hide();
       $moreBtn.hide();
       $closeBtn.fadeIn();
     });
-  }
 
-  /**
-   * 閉じるボタンが押された時の処理
-   * @param {*} device　pc|mb
-   */
-  function closeBtn(device = 'pc') {
+    // 閉じるボタンが押された時の挙動
     $closeBtn.on('click', function () {
-      $mb.css({ marginBottom: 160 });
       $list.addClass('has-skill-btn');
       $list.find('li:not(:lt(' + defaultNum + '))').fadeOut();
-      //ボタンの表示設定
       $closeBtn.hide();
-      // $moreBtn.hide();
-      $moreBtn.show();
-      // $moreBtn.filter('.' + device).fadeIn();
+      $moreBtn.fadeIn();
     });
   }
-
 
 
 
@@ -406,7 +350,6 @@ $(function () {
 
   //最も高いスキルリストの高さ
   var maxHeight = getMaxHeight();
-
   $('.skill-list').each(function () {
     $(this).css({
       height: maxHeight,
@@ -453,76 +396,4 @@ $(function () {
   $('.glide__slide:not(:has(.sub-skill))').each(function () {
     $(this).addClass('not-has-sub-skill');
   });
-
-
-
-  /**
-   * workのポップアップ
-   */
-
-  var work = '.works-library .work',
-    $work = $(work),
-    $dilCloseBtn = $('.dil-close'),
-    $overlay = $('.overlay'),
-    detailView = 'detail-view';
-
-  $work.on('click', function () {
-    // ポップアップを表示
-    var clone = $(this).clone();
-    $overlay.append(clone);
-
-    // オーバーレイを表示し、後ろを暗くする
-    $overlay.addClass(detailView).css({
-      top: $(window).scrollTop(),
-    });
-
-    // スクロールを禁止させる
-    $('html').css({overflow: 'hidden'});
-  });
-
-  // 閉じるボタンが押された時の処理
-  $dilCloseBtn.on('click', function () {
-    console.log('close');
-    $work.each(function(){
-      console.log('each');
-      $(this).removeClass(detailView);
-    });
-  });
-
-  $overlay.on('click', function(){
-    // オーバーレイを非表示にする
-    $overlay.removeClass(detailView).empty();
-
-    // スクロール禁止を解除
-    $('html').css({ overflow: 'auto' });
-  });
-
-  // // ポップアップされた要素外をクリックしした場合、ポップアップを閉じる
-  // $(document).on('click', function (e) {
-  //   var $target = $(e.target);
-
-  //   if (hasDetailViewClass()) {
-  //     if (!$target.closest($overlay).find('work').length) {
-  //       console.log('ok');
-  //       $overlay.filter('.detail-view').remove();
-  //     }
-  //   }else{
-  //     console.log('false');
-  //   }
-  // });
-
-  // /**
-  //    * ポップアップが表示されているか
-  //    * @returns bool
-  //    */
-
-  // function hasDetailViewClass() {
-  //   if ($('.detail-view').length) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
-
-
 });

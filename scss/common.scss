@@ -209,7 +209,7 @@ Header navigation
         width: 1000px;
         transition: transform .6s $timing-function2,
           left .6s $timing-function2;
-        background-image: url(../img/hum-bg.jpg);
+        background-image: url(../img/parts/hum-bg.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         opacity: .97;
@@ -568,7 +568,7 @@ Header navigation
     background-attachment: fixed;
 
     &.top {
-      background-image: url(../img/top.pc.jpg);
+      background-image: url(../img/parts/top.pc.jpg);
     }
   }
 
@@ -581,7 +581,7 @@ Header navigation
       .parallax {
 
         &.top {
-          background-image: url(../img/top.mb.jpg);
+          background-image: url(../img/parts/top.mb.jpg);
         }
       }
     }
