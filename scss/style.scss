@@ -409,6 +409,7 @@ Skills
     .pc {
 
       .glide__track {
+        display: none;
 
         .glide__slides {
           display: flex;
@@ -503,6 +504,7 @@ Skills
       }
 
       .glide__arrow {
+        display: none;
 
         color: #444;
         padding: 12px;

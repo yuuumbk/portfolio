@@ -200,6 +200,15 @@ $(function () {
   }));
 
 
+  /**
+   * スキルスライドショーjs有効であれば表示
+   */
+
+  $('.glide__track, .glide__arrow').css({
+    display: 'block',
+  });
+
+
 
   /**
    * スキル一覧の表示
