@@ -63,7 +63,41 @@ Service
   margin: 8px auto 20px;
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
-  width: 50%;
+  width: 70%;
+  -webkit-animation-name: underline-work;
+          animation-name: underline-work;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline-work {
+  0% {
+    width: 50%;
+  }
+  80% {
+    width: 70%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+
+@keyframes underline-work {
+  0% {
+    width: 50%;
+  }
+  80% {
+    width: 70%;
+  }
+  100% {
+    width: 70%;
+  }
 }
 
 .service .service-lists .service-list .service-icon {
@@ -676,8 +710,8 @@ Skills
   width: 100%;
   height: 200px;
   z-index: 1;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fff));
-  background: linear-gradient(to bottom, transparent 0%, #fff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(80%, #fff));
+  background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);
 }
 
 .skills .container .mb .skill-list .skill-item {
@@ -955,7 +989,7 @@ Overlay
   left: 0;
   top: 0;
   width: 100%;
-  height: calc(100% + 55px);
+  height: 100vh;
   background: rgba(100, 100, 100, 0.5);
   z-index: 11;
 }
@@ -1041,18 +1075,6 @@ Overlay
           animation-direction: alternate;
 }
 
-@-webkit-keyframes underline-work {
-  0% {
-    width: 10%;
-  }
-  80% {
-    width: 20%;
-  }
-  100% {
-    width: 20%;
-  }
-}
-
 @keyframes underline-work {
   0% {
     width: 10%;
@@ -1086,14 +1108,15 @@ Overlay
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .overlay.detail-view .hidden .work-description .work-url dt {
-  width: 20%;
+  width: 25%;
 }
 
 .overlay.detail-view .hidden .work-description .work-url dd {
-  width: 80%;
+  width: 75%;
 }
 
 .overlay.detail-view .hidden .work-description .work-genres {
@@ -1246,15 +1269,13 @@ Overlay
   }
   .skills .container .mb .skill-list.has-skill-btn::after {
     height: 400px;
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fff));
-    background: linear-gradient(to bottom, transparent 0%, #fff 100%);
   }
   .skills .container .mb .skill-list .skill-item {
     width: 100%;
   }
   /*-------------------------------------
-Works
---------------------------------------*/
+  Works
+  --------------------------------------*/
   .works-library {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1310,37 +1331,6 @@ Works
     -webkit-transition: none;
     transition: none;
   }
-  /*-------------------------------------
-Overlay
---------------------------------------*/
-  .overlay.detail-view {
-    /*-------------------------------------
-      Works
-      --------------------------------------*/
-  }
-  .overlay.detail-view .hidden .work-thumbnail {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    height: auto;
-    margin: 20px;
-  }
-  .overlay.detail-view .hidden .work-thumbnail img {
-    width: 100%;
-  }
-  .overlay.detail-view .hidden .work-description .work-genres {
-    position: absolute;
-    bottom: 45%;
-    right: 10px;
-  }
 }
 
 /* =============================================
@@ -1380,6 +1370,43 @@ Overlay
     bottom: 30px;
     left: 17px;
     font-size: 14px;
+  }
+  /*-------------------------------------
+  Overlay
+  --------------------------------------*/
+  .overlay.detail-view {
+    /*-------------------------------------
+    Works
+    --------------------------------------*/
+  }
+  .overlay.detail-view .hidden .work-thumbnail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: auto;
+    margin: 20px;
+  }
+  .overlay.detail-view .hidden .work-thumbnail img {
+    width: 100%;
+  }
+  .overlay.detail-view .hidden .work-description .work-url dt {
+    width: 25%;
+  }
+  .overlay.detail-view .hidden .work-description .work-url dd {
+    width: 75%;
+  }
+  .overlay.detail-view .hidden .work-description .work-genres {
+    position: absolute;
+    bottom: 45%;
+    right: 10px;
   }
 }
 
@@ -1494,7 +1521,7 @@ Overlay
     display: block;
   }
   .works-library .work {
-    height: 400px;
+    height: auto;
   }
   .works-library .work-thumbnail {
     height: 210px;
@@ -1505,7 +1532,7 @@ Overlay
   }
   .works-library .work-description p {
     text-indent: 0;
-    height: 56px;
+    height: auto;
   }
   .works-library .work-description .work-genres {
     -webkit-transform: translateY(30px);
@@ -1514,6 +1541,181 @@ Overlay
     transition: -webkit-transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  }
+  .works-library .work .work-allow-more {
+    position: relative;
+    bottom: 5px;
+    left: 48%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    -webkit-animation-name: work-down-allow;
+            animation-name: work-down-allow;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-duration: .5s;
+            animation-duration: .5s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+  }
+  @-webkit-keyframes work-down-allow {
+    0% {
+      bottom: 10px;
+    }
+    100% {
+      bottom: 5px;
+    }
+  }
+  @keyframes work-down-allow {
+    0% {
+      bottom: 10px;
+    }
+    100% {
+      bottom: 5px;
+    }
+  }
+  .works-library .work .work-allow-more .btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200%;
+    width: 150%;
+  }
+  .works-library .work .work-allow-more .btn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid #aaa;
+    border-right: 2px solid #aaa;
+    -webkit-transform: translateX(50%) rotate(135deg);
+            transform: translateX(50%) rotate(135deg);
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  }
+  .works-library .work .work-allow-more .btn:hover {
+    cursor: pointer;
+  }
+  .works-library .work .work-allow-more .btn:hover::after {
+    -webkit-transform: translateX(50%) rotate(225deg) rotateY(180deg);
+            transform: translateX(50%) rotate(225deg) rotateY(180deg);
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  }
+  .works-library .work .work-allow-more .down-allow-more-btn::after,
+  .works-library .work .work-allow-more .upp-allow-close-btn::after {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .works-library .work .work-allow-more .down-allow-more-btn:hover::after,
+  .works-library .work .work-allow-more .upp-allow-close-btn:hover::after {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .works-library .work .work-allow-more .down-allow-more-btn::after {
+    -webkit-transform: translateX(50%) rotate(135deg);
+            transform: translateX(50%) rotate(135deg);
+  }
+  .works-library .work .work-allow-more .down-allow-more-btn:hover::after {
+    -webkit-transform: translateX(50%) rotate(135deg);
+            transform: translateX(50%) rotate(135deg);
+  }
+  .works-library .work .work-allow-more .upp-allow-close-btn::after {
+    -webkit-transform: translateX(48%) rotate(-45deg);
+            transform: translateX(48%) rotate(-45deg);
+  }
+  .works-library .work .work-allow-more .upp-allow-close-btn:hover::after {
+    -webkit-transform: translateX(48%) rotate(-45deg);
+            transform: translateX(48%) rotate(-45deg);
+  }
+  .works-library .work.detail-view .detail-view-content {
+    display: block;
+  }
+  .works-library .work.detail-view .not-detail-view-content {
+    display: none;
+  }
+  .works-library .work.detail-view .work-thumbnail {
+    height: auto;
+  }
+  .works-library .work.detail-view .work-thumbnail video {
+    width: 100%;
+  }
+  .works-library .work.detail-view .work-thumbnail .not-detail-view-content {
+    display: none;
+  }
+  .works-library .work.detail-view .work-description {
+    padding: 20px;
+  }
+  .works-library .work.detail-view .work-description h3 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    margin: 10px auto;
+  }
+  .works-library .work.detail-view .work-description h3::after {
+    content: "";
+    display: block;
+    width: 20%;
+    height: 1px;
+    margin: 8px auto 20px;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
+    background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+    -webkit-animation-name: underline-work;
+            animation-name: underline-work;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-duration: 1.4s;
+            animation-duration: 1.4s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+  }
+  @-webkit-keyframes underline-work {
+    0% {
+      width: 65%;
+    }
+    80% {
+      width: 80%;
+    }
+    100% {
+      width: 80%;
+    }
+  }
+  @keyframes underline-work {
+    0% {
+      width: 65%;
+    }
+    80% {
+      width: 80%;
+    }
+    100% {
+      width: 80%;
+    }
+  }
+  .works-library .work.detail-view .work-description p {
+    height: auto;
+  }
+  .works-library .work.detail-view .work-description a {
+    color: #ed6d35;
+    text-decoration: underline;
+  }
+  .works-library .work.detail-view .work-description a:hover {
+    opacity: 1;
+  }
+  .works-library .work.detail-view .work-description .work-url {
+    display: block;
+    margin-top: 20px;
   }
   /*-------------------------------------
 Overlay

@@ -348,8 +348,8 @@ Header navigation
   .top {
     position: relative;
     // ヘッダー分下げる
-    height: calc(100vh - 55px);
-    // color: #fad700;
+    // height: calc(100vh - 55px);
+    height: 100%;
 
     .content {
       position: absolute;

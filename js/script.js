@@ -6,10 +6,10 @@ $(function () {
    * ヘッダー分コンテンツを下げる
    */
 
-  var headerHeight = $('#header').outerHeight();
-  $('#top').css({
-    marginTop: headerHeight,
-  });
+  // var headerHeight = $('#header').outerHeight();
+  // $('#top').css({
+  //   marginTop: headerHeight,
+  // });
 
 
 
@@ -471,20 +471,27 @@ $(function () {
    * workのポップアップ
    */
 
-    workPopUp();
+  var work = '.works-library .work',
+    $work = $(work),
+    $overlay = $('.overlay'),
+    $hidden = $('.hidden'),
+    detailView = 'detail-view';
+
+  workPopUp();
 
   // ウィンドウ幅が変更されたら再度実行
   $(window).resize(function () {
-      workPopUp();
+    workPopUp();
+  })
+  .scroll(function () {
+    workPopUp();
   });
 
-  function workPopUp(){
-    var work = '.works-library .work',
-      $work = $(work),
-      $dilCloseBtn = $('.dil-close'),
-      $overlay = $('.overlay'),
-      $hidden = $('.hidden'),
-      detailView = 'detail-view';
+  /**
+   * workのポップアップ処理
+   */
+
+  function workPopUp() {
 
     if (window.matchMedia('(min-width: 600px)').matches) { // PC・タブレット
 
@@ -494,12 +501,15 @@ $(function () {
         $overlay.find('.hidden').append(clone);
 
         // オーバーレイを表示し、後ろを暗くする
-        $overlay.addClass(detailView).css({
-          top: $(window).scrollTop() - 80,
-        });
+        $overlay.addClass(detailView);
 
         // スクロールを禁止させる
         $('html').css({ overflow: 'hidden' });
+      });
+
+      $overlay.css({
+        top: $(window).scrollTop() - 48,
+        height: ' calc(100vh + 48px)',
       });
 
       $overlay.on('click', function () {
@@ -512,40 +522,46 @@ $(function () {
 
       // 親要素（overlay）のclick継承されて、期待通りの動作をしないため、
       // stopPropagation()で親要素のイベントの発火を抑える
-      $hidden.on('click', function(e){
+      $hidden.on('click', function (e) {
         e.stopPropagation();
       });
-
-    // // ポップアップされた要素外をクリックしした場合、ポップアップを閉じる
-    // $(document).on('click', function (e) {
-    //   var $target = $(e.target);
-
-    //   if (hasDetailViewClass()) {
-    //     if (!$target.closest($overlay).find('work').length) {
-    //       console.log('ok');
-    //       $overlay.filter('.detail-view').remove();
-    //     }
-    //   }else{
-    //     console.log('false');
-    //   }
-    // });
-
-    // /**
-    //    * ポップアップが表示されているか
-    //    * @returns bool
-    //    */
-
-    // function hasDetailViewClass() {
-    //   if ($('.detail-view').length) {
-    //     return true;
-    //   }
-    //   return false;
-    // }
-    }else { // mb
+    } else { // mb
       $work.off();
       $overlay.off();
       // スクロール禁止を解除
       $('html').css({ overflow: 'auto' });
+    }
+  }
+
+
+
+  /**
+   * Works スマートフォン用more&closeボタン
+   * 押されたボタンを含むworkのみを対象とする
+   */
+
+  var $workMoreBtn = $('.work-allow-more');
+
+  workLearnMore();
+
+  // ウィンドウ幅が変更されたら再度実行
+  $(window).resize(function () {
+    workLearnMore();
+  });
+
+  function workLearnMore(){
+    if (window.matchMedia('(min-width: 600px)').matches) { // PC・タブレット
+      $workMoreBtn.off();
+    }else { // mb
+      $workMoreBtn.on('click', function () {
+        if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
+          $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
+          $(this).parent().addClass(detailView);
+        } else {// closeボタンが押された時
+          $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
+          $(this).parent().removeClass(detailView);
+        }
+      });
     }
   }
 });

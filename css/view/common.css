@@ -363,7 +363,7 @@ Header navigation
 
 .wrapper .top {
   position: relative;
-  height: calc(100vh - 55px);
+  height: 100%;
 }
 
 .wrapper .top .content {
