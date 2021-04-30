@@ -25,6 +25,7 @@ body {
   letter-spacing: .1em;
   font-family: Helvetica, '游ゴシック', 'Yu Gothic', YuGothic, HiraKakuProN-W3, 'メイリオ', Meiryo, sans-serif;
   color: #333;
+  overscroll-behavior-y: none;
 }
 
 .container {

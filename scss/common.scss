@@ -30,6 +30,8 @@ body {
   Meiryo,
   sans-serif;
   color: #333;
+  // バウンススクロールを抑制
+  overscroll-behavior-y: none;
 }
 
 .container {

@@ -542,26 +542,21 @@ $(function () {
 
   var $workMoreBtn = $('.work-allow-more');
 
-  workLearnMore();
+  workMoreAndCloseBtn();
 
-  // ウィンドウ幅が変更されたら再度実行
-  $(window).resize(function () {
-    workLearnMore();
-  });
+  /**
+   * work more close ボタン関係の処理
+   */
 
-  function workLearnMore(){
-    if (window.matchMedia('(min-width: 600px)').matches) { // PC・タブレット
-      $workMoreBtn.off();
-    }else { // mb
-      $workMoreBtn.on('click', function () {
-        if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
-          $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
-          $(this).parent().addClass(detailView);
-        } else {// closeボタンが押された時
-          $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
-          $(this).parent().removeClass(detailView);
-        }
-      });
-    }
+  function workMoreAndCloseBtn(){
+    $workMoreBtn.on('click', function () {
+      if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
+        $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
+        $(this).parent().addClass(detailView);
+      } else {// closeボタンが押された時
+        $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
+        $(this).parent().removeClass(detailView);
+      }
+    });
   }
 });
