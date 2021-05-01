@@ -13,7 +13,7 @@ Main content
 ============================================= */
 
 .main {
-  margin-bottom: 80px;
+  // margin-bottom: 80px;
 }
 
 /*-------------------------------------
@@ -1047,6 +1047,114 @@ Overlay
 
 
 
+/*-------------------------------------
+Contact
+--------------------------------------*/
+.contact {
+  background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
+
+  .container {
+    width: 90%;
+    padding: 60px 0 50px;
+
+    .contact-form {
+      margin: 0 auto;
+      padding: 30px;
+
+      &-wrapper {
+        width: 100%;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      &-left,
+      &-right {
+        width: 50%;
+      }
+
+
+      &-label {
+        text-align: left;
+      }
+
+      &-underline {
+
+        &:after {
+          content: "";
+          display: block;
+          width: 70%;
+          height: 1px;
+          background-color: #aaa;
+          margin-bottom: 5px;
+        }
+      }
+
+      &-name,
+      &-email,
+      &-type,
+      &-content {
+        border: 1px solid #bcc7d7;
+
+        &-error {
+          height: 1em;
+          margin-bottom: 20px;
+          color: #ea5550;
+        }
+      }
+
+      &-name,
+      &-email,
+      &-content {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #aaa;
+        border-radius: 10px;
+        line-height: 1.5em;
+
+        &:focus {
+          outline: none;
+          // background-color: #f0f0f0;
+        }
+      }
+
+      &-type {
+        background-color: #fff;
+      }
+
+      &-content {
+        width: 90%;
+        height: 90%;
+        // 右下の印を消す
+        resize: none;
+      }
+
+      &-submit {
+        width: 100px;
+        margin-top: 60px;
+        padding: 10px 20px;
+        background-color: #fff;
+        border: 1px solid #aaa;
+        border-radius: 20px;
+
+        &:hover {
+          opacity: .7;
+          cursor: pointer;
+        }
+      }
+
+      &-submit-center {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+
 /* =============================================
 タブレット&モバイル共通
 ============================================= */
@@ -1820,8 +1928,8 @@ Overlay
 
 
   /*-------------------------------------
-Overlay
---------------------------------------*/
+  Overlay
+  --------------------------------------*/
   .overlay {
 
     &.detail-view {
@@ -1862,6 +1970,65 @@ Overlay
               right: 10px;
             }
           }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Contact
+  --------------------------------------*/
+  .contact {
+    background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
+
+    .container {
+      width: 90%;
+      padding: 60px 0 50px;
+
+      .contact-form {
+        margin: 0 auto;
+        padding: 30px;
+
+        &-left,
+        &-right {
+          width: 100%;
+        }
+
+
+        &-label {
+          text-align: left;
+        }
+
+        &-name,
+        &-email,
+        &-type,
+        &-content {
+
+          &-error {
+            font-size: 10px;
+            margin-bottom: 30px;
+          }
+        }
+
+        &-name,
+        &-email,
+        &-content {
+          width: 90%;
+          padding: 10px;
+          border: 1px solid #aaa;
+          border-radius: 10px;
+          line-height: 1.5em;
+        }
+
+        &-content {
+          width: 90%;
+          height: 280%;
+        }
+
+        &-submit {
+          margin-top: 360px;
         }
       }
     }

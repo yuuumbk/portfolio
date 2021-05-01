@@ -11,10 +11,6 @@
 /* =============================================
 Main content
 ============================================= */
-.main {
-  margin-bottom: 80px;
-}
-
 /*-------------------------------------
 Service
 --------------------------------------*/
@@ -1128,6 +1124,106 @@ Overlay
   display: none;
 }
 
+/*-------------------------------------
+Contact
+--------------------------------------*/
+.contact {
+  background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
+}
+
+.contact .container {
+  width: 90%;
+  padding: 60px 0 50px;
+}
+
+.contact .container .contact-form {
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.contact .container .contact-form-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contact .container .contact-form-left, .contact .container .contact-form-right {
+  width: 50%;
+}
+
+.contact .container .contact-form-label {
+  text-align: left;
+}
+
+.contact .container .contact-form-underline:after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 1px;
+  background-color: #aaa;
+  margin-bottom: 5px;
+}
+
+.contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-type, .contact .container .contact-form-content {
+  border: 1px solid #bcc7d7;
+}
+
+.contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
+  height: 1em;
+  margin-bottom: 20px;
+  color: #ea5550;
+}
+
+.contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  line-height: 1.5em;
+}
+
+.contact .container .contact-form-name:focus, .contact .container .contact-form-email:focus, .contact .container .contact-form-content:focus {
+  outline: none;
+}
+
+.contact .container .contact-form-type {
+  background-color: #fff;
+}
+
+.contact .container .contact-form-content {
+  width: 90%;
+  height: 90%;
+  resize: none;
+}
+
+.contact .container .contact-form-submit {
+  width: 100px;
+  margin-top: 60px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+}
+
+.contact .container .contact-form-submit:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.contact .container .contact-form-submit-center {
+  text-align: center;
+}
+
 /* =============================================
 タブレット&モバイル共通
 ============================================= */
@@ -1723,8 +1819,8 @@ Overlay
     margin-top: 20px;
   }
   /*-------------------------------------
-Overlay
---------------------------------------*/
+  Overlay
+  --------------------------------------*/
   .overlay.detail-view {
     display: block;
     position: absolute;
@@ -1762,6 +1858,44 @@ Overlay
     position: absolute;
     bottom: 45%;
     right: 10px;
+  }
+  /*-------------------------------------
+  Contact
+  --------------------------------------*/
+  .contact {
+    background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
+  }
+  .contact .container {
+    width: 90%;
+    padding: 60px 0 50px;
+  }
+  .contact .container .contact-form {
+    margin: 0 auto;
+    padding: 30px;
+  }
+  .contact .container .contact-form-left, .contact .container .contact-form-right {
+    width: 100%;
+  }
+  .contact .container .contact-form-label {
+    text-align: left;
+  }
+  .contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
+    font-size: 10px;
+    margin-bottom: 30px;
+  }
+  .contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    line-height: 1.5em;
+  }
+  .contact .container .contact-form-content {
+    width: 90%;
+    height: 280%;
+  }
+  .contact .container .contact-form-submit {
+    margin-top: 360px;
   }
 }
 /*# sourceMappingURL=style.css.map */

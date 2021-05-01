@@ -21,7 +21,7 @@
   <meta name="twitter:site" content="@yuuumbk">
 
   <!-- Icon -->
-  <link rel="icon" href="img/favicons/favicon.ico">
+  <link rel="shortcut icon" href="img/favicons/favicon.ico">
   <link rel="apple-touch-icon" type="image/png" href="img/favicons/apple-touch-icon-180x180.png">
   <link rel="icon" type="image/png" href="img/favicons/icon-192x192.png">
 
@@ -86,7 +86,7 @@
             <li class="list-item to-about"><a href="#about">ABOUT</a></li>
             <li class="list-item to-skills"><a href="#skills">SKILLS</a></li>
             <li class="list-item to-works"><a href="#works">WORKS</a></li>
-            <li class="list-item"><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank">CONTACT</a></li>
+            <li class="list-item to-contact"><a href="#contact">CONTACT</a></li>
           </ul>
         </div>
       </nav>
@@ -96,7 +96,7 @@
           <li class="list-item to-about"><a href="#about">ABOUT</a></li>
           <li class="list-item to-skills"><a href="#skills">SKILLS</a></li>
           <li class="list-item to-works"><a href="#works">WORKS</a></li>
-          <li class="list-item"><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank">CONTACT</a></li>
+          <li class="list-item to-contact"><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
     </header>
@@ -127,12 +127,12 @@
                 <img src="img/parts/prg.svg" alt="Webアプリケーション開発">
               </div>
               <p>
-                ご要望から適切に機能を抽出し、効率的なアルゴリズムを考え、<strong>どこよりも素早い</strong>アプリケーションを開発します。
+                ご要望から適切に機能を抽出し、効率的なアルゴリズムを考え、<strong>どこよりも早くバグの少ない</strong>アプリケーションを開発します。
               </p>
               <p>
                 <strong>セキュリティ</strong>を考慮したコーディングを心がけております。また、定期的に脆弱性テストを実施し、悪意のある攻撃を確実に防ぎます。
               </p>
-              <p>複数人開発にも対応可能です。まずは<a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><strong>こちら</strong></a>からお気軽にご相談ください。</p>
+              <p class="to-contact">複数人開発にも対応可能です。まずは<a href="#contact"><strong>こちら</strong></a>からお気軽にご相談ください。</p>
             </div>
 
             <div class="service-list">
@@ -622,6 +622,74 @@
         </div>
       </section>
 
+      <section id="contact" class="contact scroll-fadein">
+        <div class="container">
+          <h2>CONTACT</h2>
+          <!-- <form action="https://formspree.io/f/xknkorgp" method="POST" class="contanct-form"> -->
+          <form action="#" method="POST" class="contact-form">
+            <div class="contact-form-wrapper">
+              <div class="contact-form-left">
+                <div class="contact-form-label">
+                  <label for="#contact-form-name">お名前</label>
+                </div>
+                <input type="text" name="name" id="contact-form-name" class="contact-form-name" data-error_placement=".contact-form-name-error" placeholder="山田 太郎" required>
+                <div class="contact-form-name-error"></div>
+
+                <div class="contact-form-label">
+                  <label for="#contact-form-email">メールアドレス</label>
+                </div>
+                <input type="email" name="email" id="contact-form-email" class="contact-form-email" data-error_placement=".contact-form-email-error" placeholder="sample@example.com" required>
+                <div class="contact-form-email-error"></div>
+
+                <div class="contact-form-label contact-form-underline">
+                  お問い合わせ種別
+                </div>
+                <label>
+                  &#9660;お仕事について<br>
+              　<label>
+                  <input type="radio" name="type" value="Webアプリケーション開発" data-error_placement=".contact-form-type-error" required>
+                  Webアプリケーション開発
+                </label><br>
+              　<label>
+                  <input type="radio" name="type" value="Webサイトコーディング">
+                    Webサイトコーディング
+                </label><br>
+              　<label>
+                  <input type="radio" name="type" value="その他（お仕事について）">
+                    その他
+                </label><br>
+                <label>
+                  <input type="radio" name="type" value="ポートフォリオについて">
+                  <span class="outside">
+                    <span class="inside"></span>
+                  </span>
+                  ポートフォリオについて
+                </label><br>
+                <label>
+                  <input type="radio" name="type" value="その他">
+                  <span class="outside">
+                    <span class="inside"></span>
+                  </span>
+                  その他
+                </label>
+                <div class="contact-form-type-error"></div>
+              </div>
+
+              <div class="contact-form-right">
+                <div class="contact-form-label">
+                  <label for="#contact-form-content">お問い合わせ内容</label>
+                </div>
+                <textarea name="content" id="contact-form-content" class="contact-form-content" data-error_placement=".contact-form-content-error"></textarea>
+                <div class="contact-form-content-error"></div>
+              </div>
+            </div>
+            <div class="contact-form-submit-center">
+              <input type="submit" value="送信" class="contact-form-submit">
+            </div>
+          </form>
+        </div>
+      </section>
+
     </main>
 
     <footer id="footer" class="footer parallax">
@@ -647,6 +715,7 @@
   <script src="js/vendor/jquery-ui.min.js"></script>
   <script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
   <script src="js/vendor/glide.min.js"></script>
+  <script src="js/vendor/jquery.validate.min.js"></script>
   <script src="js/vendor/raindrops.min.js"></script>
   <script src="js/script.js"></script>
 </body>

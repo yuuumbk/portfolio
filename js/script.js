@@ -326,6 +326,7 @@ $(function () {
     'about',
     'skills',
     'works',
+    'contact',
   ];
 
   // to-skill-
@@ -568,4 +569,171 @@ $(function () {
       }
     });
   }
+
+  /**
+   * メールフォーム
+   */
+
+  /**
+   * validation
+   */
+
+  // verification options
+
+  var verificationOptions = {
+    rules: {
+      name: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      type: {
+        required: true,
+      },
+      content: {
+        required: true,
+      }
+    },
+    messages: {
+      name: {
+        required: 'お名前が入力されていません。',
+      },
+      email: {
+        required: 'メールアドレスが入力されていません。',
+        email: 'メールアドレスの形式が正しくありません。',
+      },
+      type: {
+        required: 'お問い合わせ種別が選択されていません。',
+      },
+      content: {
+        required: 'お問い合わせ内容が入力されていません。',
+      }
+    },
+    errorPlacement: function(error, element){
+      error.appendTo(element.data('error_placement'));
+    }
+  }
+
+  // コンタクトフォームのinputオブジェクト
+  var $contactFormName = $('#contact-form-name'),
+    $contactFormEmail= $('#contact-form-email'),
+    $contactFormType = $('#contact-form-type'),
+    $contactFormContent = $('#contact-form-content'),
+    $contactFormSubmit = $('.contact-form-submit');
+
+  // フォーカスが外れた時にバリデーション
+  $('.contact-form').validate(verificationOptions);
+
+  // バリデーションOKだった場合は枠を緑色にする。
+  //          NGだった場合は枠を赤色にする。
+
+  // name, content
+  $contactFormName.add($contactFormContent).each(function(){
+    // キーが離された時
+    $(this).keyup(function(){
+      if($(this).valid()){
+        $(this).css({
+          border: '1px solid #65ab31',
+        });
+      }else {
+        $(this).css({
+          border: '1px solid #ea5550',
+        });
+      }
+    });
+
+    // フォーカスが外れた時
+    $(this).blur(function () {
+      if ($(this).valid()) {
+        $(this).css({
+          border: '1px solid #65ab31',
+        });
+      } else {
+        $(this).css({
+          border: '1px solid #ea5550',
+        });
+      }
+    });
+  });
+
+  //email
+  $contactFormEmail.each(function(){
+    $(this).blur(function(){
+      if ($(this).valid()) {
+        $(this).css({
+          border: '1px solid #65ab31',
+        });
+      } else {
+        $(this).css({
+          border: '1px solid #ea5550',
+        });
+      }
+    });
+  });
+
+  $contactFormSubmit.on('click', function(e){
+    e.preventDefault();
+
+    // ボタンが押された時にバリデーション
+    $('.contact-form').validate(verificationOptions);
+
+    // バリデーションでエラーが出たら送信しない
+    var flag = true;
+
+    // name
+    if(!$contactFormName.valid()){
+      $contactFormName.css({
+        border: '1px solid #ea5550',
+      });
+      flag = false;
+    }
+    // email
+    if (!$contactFormEmail.valid()) {
+      $contactFormEmail.css({
+        border: '1px solid #ea5550',
+      });
+      flag = false;
+    }
+    // content
+    if (!$contactFormContent.valid()) {
+      $contactFormContent.css({
+        border: '1px solid #ea5550',
+      });
+      flag = false;
+    }
+    // その他radioなど
+    if (!$('.contact-form').valid()){
+      flag = false;
+    }
+
+    if (!flag){
+      return;
+    }
+
+    // 送信内容
+    var name = $contactFormName.val(),
+      email = $contactFormEmail.val(),
+      type = $('#contact-form-type:checked').val(),
+      message = $contactFormContent.val();
+
+    //debug
+    // console.log(name);
+    // console.log(email);
+    // console.log(type);
+    // console.log(message);
+
+    // $.ajax({
+    //   url: "https://formspree.io/f/xknkorgp",
+    //   method: "POST",
+    //   dataType: "json",
+    //   data: {
+    //     お名前: name,
+    //     メールアドレス: email,
+    //     お問い合わせ種別: type,
+    //     お問い合わせ内容: message,
+    //   }
+    // });
+  });
 });
