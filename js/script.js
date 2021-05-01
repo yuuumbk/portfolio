@@ -224,6 +224,7 @@ $(function () {
 
   var $mb = $('.skills .mb'),
     $list = $mb.find('.skill-list'),
+    $item = $list.find('.skill-item'),
     $moreBtn = $('.skill-more-btn'),
     $skillBtn = $('a[href^="#skill"]'),
     $clickBtn = $('.skill-click'),
@@ -277,7 +278,7 @@ $(function () {
       // 下部のグラデーションを消し要素を完全に表示
       $list.removeClass('has-skill-btn');
       // 全ての要素を表示
-      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('invisible').addClass('visible').fadeIn();
+      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('invisible').addClass('visible').show();
       // 上部のcloseボタンの位置の調節
       $('.skill-close-btn-height').css({ height: 0 });
       // ボタンの表示設定
@@ -296,14 +297,23 @@ $(function () {
       // 下部にグラデーションをつけてだんだん非表示にする
       $list.addClass('has-skill-btn');
       // defaultNum分以外の要素を非表示に
-      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('visible').addClass('invisible').fadeOut();
-      // Safariで下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
-      $(window).scrollTop($list.offset().top - 65);
+      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('visible').addClass('invisible').hide();
       // 上部のcloseボタンの位置の調節
       $('.skill-close-btn-height').css({ height: '86px' });
       //ボタンの表示設定
       $closeBtn.hide();
       $moreBtn.show();
+
+      // Safariで下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
+      // まず、defaultNumの一番下の要素の位置に移動する
+      $('html, body').scrollTop($item.eq(defaultNum - 1).offset().top);
+      // 次に、一番上の要素までduration秒でスクロールする
+      var duration = 300,
+        easing = 'swing';
+
+      $('html, body').animate({
+        scrollTop: $list.offset().top - 65,
+      }, duration, easing);
     });
   }
 
@@ -586,7 +596,12 @@ $(function () {
         // ※470は調整のため
         // display:flex;の関係か、意図した位置を取得できていないため、
         // workOffsetsは相対位置として利用する
-        $(window).scrollTop(workOffsets[index] - 470);
+        var duration = 300,
+          easing = 'easeInOutCirc';
+
+        $('html, body').animate({
+          scrollTop: workOffsets[index] - 450,
+        }, duration, easing);
       }
     });
   }
