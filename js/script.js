@@ -224,7 +224,6 @@ $(function () {
 
   var $mb = $('.skills .mb'),
     $list = $mb.find('.skill-list'),
-    $item = $mb.find('.skill-item'),
     $moreBtn = $('.skill-more-btn'),
     $skillBtn = $('a[href^="#skill"]'),
     $clickBtn = $('.skill-click'),
@@ -269,17 +268,19 @@ $(function () {
 
   /**
    * スキルボタン・クリックボタン・詳細ボタンが押された時の処理
-   * @param {*} device pc|mb
    */
 
   function clickBtn() {
     $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
+      // 余白を調整
       $mb.css({ marginBottom: 0 });
+      // 下部のグラデーションを消し要素を完全に表示
       $list.removeClass('has-skill-btn');
+      // 全ての要素を表示
       $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('invisible').addClass('visible').fadeIn();
-      $('.skill-close-btn-height').css({height: 0});
+      // 上部のcloseボタンの位置の調節
+      $('.skill-close-btn-height').css({ height: 0 });
       // ボタンの表示設定
-      // $moreBtn.filter('.' + device).hide();
       $moreBtn.hide();
       $closeBtn.fadeIn();
     });
@@ -287,19 +288,24 @@ $(function () {
 
   /**
    * 閉じるボタンが押された時の処理
-   * @param {*} device　pc|mb
    */
-  function closeBtn(device = 'pc') {
+  function closeBtn() {
     $closeBtn.on('click', function () {
+      // 余白を調整
       $mb.css({ marginBottom: 160 });
+      // 下部にグラデーションをつけてだんだん非表示にする
       $list.addClass('has-skill-btn');
+      // モバイル端末で下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
+      var windowScrollNow = $(window).scrollTop();
+      // defaultNum分以外の要素を非表示に
       $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('visible').addClass('invisible').fadeOut();
-      $('.skill-close-btn-height').css({ height: '46px' });
+      // 元の場所にスクロールさせる
+      $(window).scrollTop(windowScrollNow);
+      // 上部のcloseボタンの位置の調節
+      $('.skill-close-btn-height').css({ height: '86px' });
       //ボタンの表示設定
       $closeBtn.hide();
-      // $moreBtn.hide();
       $moreBtn.show();
-      // $moreBtn.filter('.' + device).fadeIn();
     });
   }
 
@@ -492,9 +498,9 @@ $(function () {
   $(window).resize(function () {
     workPopUp();
   })
-  .scroll(function () {
-    workPopUp();
-  });
+    .scroll(function () {
+      workPopUp();
+    });
 
   /**
    * workのポップアップ処理
@@ -557,7 +563,7 @@ $(function () {
    * work more close ボタン関係の処理
    */
 
-  function workMoreAndCloseBtn(){
+  function workMoreAndCloseBtn() {
     $workMoreBtn.on('click', function () {
       if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
         $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
@@ -610,14 +616,14 @@ $(function () {
         required: 'お問い合わせ内容が未入力です。',
       }
     },
-    errorPlacement: function(error, element){
+    errorPlacement: function (error, element) {
       error.appendTo(element.data('error_placement'));
     }
   }
 
   // コンタクトフォームのinputオブジェクト
   var $contactFormName = $('#contact-form-name'),
-    $contactFormEmail= $('#contact-form-email'),
+    $contactFormEmail = $('#contact-form-email'),
     $contactFormType = $('.contact-form-type'),
     $contactFormContent = $('#contact-form-content'),
     $contactFormSubmit = $('.contact-form-submit');
@@ -629,14 +635,14 @@ $(function () {
   //          NGだった場合は枠を赤色にする。
 
   // name, content
-  $contactFormName.add($contactFormContent).each(function(){
+  $contactFormName.add($contactFormContent).each(function () {
     // キーが離された時
-    $(this).keyup(function(){
-      if($(this).valid()){
+    $(this).keyup(function () {
+      if ($(this).valid()) {
         $(this).css({
           border: '1px solid #65ab31',
         });
-      }else {
+      } else {
         $(this).css({
           border: '1px solid #ea5550',
         });
@@ -658,8 +664,8 @@ $(function () {
   });
 
   // email
-  $contactFormEmail.each(function(){
-    $(this).blur(function(){
+  $contactFormEmail.each(function () {
+    $(this).blur(function () {
       if ($(this).valid()) {
         $(this).css({
           border: '1px solid #65ab31',
@@ -675,15 +681,15 @@ $(function () {
   // type
   // 変更されたことがある（=何かしらにチェックが入っている）かのフラグ
   var typeChanged = false;
-  $contactFormType.each(function(){
-    $(this).change(function(){
+  $contactFormType.each(function () {
+    $(this).change(function () {
       // 擬似要素はjsからは変更できないため、styleに直接記述する
       $('style').html('.contact-form-underline:after {background-color: #65ab31 !important;}');
       typeChanged = true;
     });
   });
 
-  $contactFormSubmit.on('click', function(e){
+  $contactFormSubmit.on('click', function (e) {
     e.preventDefault();
 
     // ボタンが押された時にバリデーション
@@ -693,7 +699,7 @@ $(function () {
     var flag = true;
 
     // name
-    if(!$contactFormName.valid()){
+    if (!$contactFormName.valid()) {
       $contactFormName.css({
         border: '1px solid #ea5550',
       });
@@ -714,16 +720,16 @@ $(function () {
       flag = false;
     }
     // radio(only style)
-    if(!typeChanged){
+    if (!typeChanged) {
       // 擬似要素はjsからは変更できないため、styleに直接記述する
       $('style').html('.contact-form-underline:after {background-color: #ea5550 !important;}');
     }
     // その他radioなど
-    if (!$('.contact-form').valid()){
+    if (!$('.contact-form').valid()) {
       flag = false;
     }
 
-    if (!flag){
+    if (!flag) {
       return;
     }
 
