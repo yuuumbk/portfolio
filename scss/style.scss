@@ -589,8 +589,15 @@ Skills
           }
         }
 
+        // 上の閉じるボタン分の高さを保持
+        // 閉じるボタンはdisplay:none;で高さが聞かないため、こちらで代用
+        // もっと見るボタンが押された場合は高さを0にする
+        .skill-close-btn-height {
+          height: 46px;
+        }
+
         // Learn More ボタンはグラデーションさせないように、絶対配置させて独立させる。
-        .skill-more-btn.bottom {
+        .skill-more-btn.bottom-btn {
           position: absolute;
           bottom: -100px;
           width: 176px;
@@ -603,6 +610,7 @@ Skills
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
+        // overflow: hidden;
 
         &.has-skill-btn::after {
           display: block;
@@ -613,6 +621,7 @@ Skills
           width: 100%;
           // close時に表示する高さ
           height: 200px;
+          // overflow: hidden;
           z-index: 1;
           // 最後のリストはだんだん透明にしていく
           background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);
@@ -633,6 +642,39 @@ Skills
           height: 100%;
           min-height: 200px;
 
+          &.visible {
+            // animation
+            animation-name: skill-scroll-down;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+
+            @keyframes skill-scroll-down {
+              0% {
+                transform: translateY(-20px);
+              }
+
+              100% {
+                transform: translateY(0);
+              }
+            }
+          }
+
+          &.invisible {
+            // animation
+            animation-name: skill-scroll-upp;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+
+            @keyframes skill-scroll-upp {
+              0% {
+                transform: translateY(0);
+              }
+
+              100% {
+                transform: translateY(-20px);
+              }
+            }
+          }
           .skill-img {
             position: relative;
             // display: inline-block;
@@ -1122,6 +1164,13 @@ Contact
         }
       }
 
+      &-type {
+
+        &.type-work {
+          margin-left: 1em;
+        }
+      }
+
       &-content {
         width: 90%;
         height: 90%;
@@ -1131,15 +1180,24 @@ Contact
 
       &-submit {
         width: 100px;
+        height: 44px;
         margin-top: 60px;
         padding: 10px 20px;
-        background-color: #fff;
+        background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
         border: 1px solid #aaa;
+
+        border-bottom: 5px solid rgba(0, 0, 0, 0.3);
         border-radius: 20px;
 
         &:hover {
-          opacity: .7;
+          // opacity: .7;
           cursor: pointer;
+        }
+
+        &:active {
+          border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+          margin-top: 63px;
+          height: 41px;
         }
       }
 
@@ -2047,6 +2105,10 @@ Contact
 
         &-submit {
           margin-top: 360px;
+
+          &:active {
+            margin-top: 363px;
+          }
         }
       }
     }

@@ -680,7 +680,11 @@ Skills
   height: calc(80% + 6px);
 }
 
-.skills .container .mb .skill-btn .skill-more-btn.bottom {
+.skills .container .mb .skill-btn .skill-close-btn-height {
+  height: 46px;
+}
+
+.skills .container .mb .skill-btn .skill-more-btn.bottom-btn {
   position: absolute;
   bottom: -100px;
   width: 176px;
@@ -738,6 +742,68 @@ Skills
   margin: 15px .5%;
   height: 100%;
   min-height: 200px;
+}
+
+.skills .container .mb .skill-list .skill-item.visible {
+  -webkit-animation-name: skill-scroll-down;
+          animation-name: skill-scroll-down;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+@-webkit-keyframes skill-scroll-down {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes skill-scroll-down {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.skills .container .mb .skill-list .skill-item.invisible {
+  -webkit-animation-name: skill-scroll-upp;
+          animation-name: skill-scroll-upp;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+@-webkit-keyframes skill-scroll-upp {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
+@keyframes skill-scroll-upp {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
 }
 
 .skills .container .mb .skill-list .skill-item .skill-img {
@@ -1197,6 +1263,10 @@ Contact
   outline: none;
 }
 
+.contact .container .contact-form-type.type-work {
+  margin-left: 1em;
+}
+
 .contact .container .contact-form-content {
   width: 90%;
   height: 90%;
@@ -1205,16 +1275,24 @@ Contact
 
 .contact .container .contact-form-submit {
   width: 100px;
+  height: 44px;
   margin-top: 60px;
   padding: 10px 20px;
-  background-color: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
   border: 1px solid #aaa;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
   border-radius: 20px;
 }
 
 .contact .container .contact-form-submit:hover {
-  opacity: .7;
   cursor: pointer;
+}
+
+.contact .container .contact-form-submit:active {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+  margin-top: 63px;
+  height: 41px;
 }
 
 .contact .container .contact-form-submit-center {
@@ -1893,6 +1971,9 @@ Contact
   }
   .contact .container .contact-form-submit {
     margin-top: 360px;
+  }
+  .contact .container .contact-form-submit:active {
+    margin-top: 363px;
   }
 }
 /*# sourceMappingURL=style.css.map */

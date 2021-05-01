@@ -224,6 +224,7 @@ $(function () {
 
   var $mb = $('.skills .mb'),
     $list = $mb.find('.skill-list'),
+    $item = $mb.find('.skill-item'),
     $moreBtn = $('.skill-more-btn'),
     $skillBtn = $('a[href^="#skill"]'),
     $clickBtn = $('.skill-click'),
@@ -249,21 +250,17 @@ $(function () {
   function skillBtn() {
     if (window.matchMedia('(min-width: 1025px)').matches) { // PC
       $moreBtn.show();
-      // $moreBtn.filter('.pc').show();
       if (!$list.filter('.has-skill-btn').length) {
         $moreBtn.hide();
       }
-      // $moreBtn.filter('.mb').hide();
 
       clickBtn('pc');
       closeBtn('pc');
     } else { // モバイル
       $moreBtn.show();
-      // $moreBtn.filter('.mb').show();
       if (!$list.filter('.has-skill-btn').length) {
         $moreBtn.hide();
       }
-      // $moreBtn.filter('.pc').hide();
 
       clickBtn('mb');
       closeBtn('mb');
@@ -279,7 +276,8 @@ $(function () {
     $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
       $mb.css({ marginBottom: 0 });
       $list.removeClass('has-skill-btn');
-      $list.find('li').fadeIn();
+      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('invisible').addClass('visible').fadeIn();
+      $('.skill-close-btn-height').css({height: 0});
       // ボタンの表示設定
       // $moreBtn.filter('.' + device).hide();
       $moreBtn.hide();
@@ -295,7 +293,8 @@ $(function () {
     $closeBtn.on('click', function () {
       $mb.css({ marginBottom: 160 });
       $list.addClass('has-skill-btn');
-      $list.find('li:not(:lt(' + defaultNum + '))').fadeOut();
+      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('visible').addClass('invisible').fadeOut();
+      $('.skill-close-btn-height').css({ height: '46px' });
       //ボタンの表示設定
       $closeBtn.hide();
       // $moreBtn.hide();
@@ -598,17 +597,17 @@ $(function () {
     },
     messages: {
       name: {
-        required: 'お名前が入力されていません。',
+        required: 'お名前が未入力です。',
       },
       email: {
-        required: 'メールアドレスが入力されていません。',
-        email: 'メールアドレスの形式が正しくありません。',
+        required: 'メールアドレスが未入力です。',
+        email: 'メールアドレスが正しくありません。',
       },
       type: {
-        required: 'お問い合わせ種別が選択されていません。',
+        required: 'お問い合わせ種別が未選択です。',
       },
       content: {
-        required: 'お問い合わせ内容が入力されていません。',
+        required: 'お問い合わせ内容が未入力です。',
       }
     },
     errorPlacement: function(error, element){
