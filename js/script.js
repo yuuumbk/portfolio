@@ -295,12 +295,10 @@ $(function () {
       $mb.css({ marginBottom: 160 });
       // 下部にグラデーションをつけてだんだん非表示にする
       $list.addClass('has-skill-btn');
-      // モバイル端末で下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
-      var windowScrollNow = $(window).scrollTop();
       // defaultNum分以外の要素を非表示に
       $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('visible').addClass('invisible').fadeOut();
-      // 元の場所にスクロールさせる
-      $(window).scrollTop(windowScrollNow);
+      // Safariで下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
+      $(window).scrollTop($list.offset().top - 65);
       // 上部のcloseボタンの位置の調節
       $('.skill-close-btn-height').css({ height: '86px' });
       //ボタンの表示設定
@@ -564,13 +562,31 @@ $(function () {
    */
 
   function workMoreAndCloseBtn() {
+
+    // ボタンが押されたworkのoffsetを格納
+    var workOffsets = [];
+
+    $workMoreBtn.each(function(){
+      var index = $(this).parent().index(),// 何番目のworkか取得
+        workOffset = $(this).offset().top;// 要素のスクロール量を取得
+      // スクロール量を対応する場所に格納
+      workOffsets[index] = workOffset;
+    });
+
     $workMoreBtn.on('click', function () {
+      var index = $(this).parent().index();// 何番目のworkか取得
+
       if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
         $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
         $(this).parent().addClass(detailView);
       } else {// closeボタンが押された時
         $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
         $(this).parent().removeClass(detailView);
+        // スクロール料を配列から取り出し、その位置にスクロールさせる
+        // ※470は調整のため
+        // display:flex;の関係か、意図した位置を取得できていないため、
+        // workOffsetsは相対位置として利用する
+        $(window).scrollTop(workOffsets[index] - 470);
       }
     });
   }
