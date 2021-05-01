@@ -1196,10 +1196,6 @@ Contact
   outline: none;
 }
 
-.contact .container .contact-form-type {
-  background-color: #fff;
-}
-
 .contact .container .contact-form-content {
   width: 90%;
   height: 90%;
@@ -1477,8 +1473,8 @@ Contact
   --------------------------------------*/
   .overlay.detail-view {
     /*-------------------------------------
-    Works
-    --------------------------------------*/
+      Works
+      --------------------------------------*/
   }
   .overlay.detail-view .hidden .work-thumbnail {
     display: -webkit-box;
@@ -1508,6 +1504,13 @@ Contact
     position: absolute;
     bottom: 45%;
     right: 10px;
+  }
+  /*-------------------------------------
+  Contact
+  --------------------------------------*/
+  .contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
+    font-size: 14px;
+    margin-bottom: 30px;
   }
 }
 
@@ -1862,9 +1865,6 @@ Contact
   /*-------------------------------------
   Contact
   --------------------------------------*/
-  .contact {
-    background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
-  }
   .contact .container {
     width: 90%;
     padding: 60px 0 50px;
@@ -1880,15 +1880,11 @@ Contact
     text-align: left;
   }
   .contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 30px;
   }
   .contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
     width: 90%;
-    padding: 10px;
-    border: 1px solid #aaa;
-    border-radius: 10px;
-    line-height: 1.5em;
   }
   .contact .container .contact-form-content {
     width: 90%;

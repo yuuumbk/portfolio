@@ -1121,10 +1121,6 @@ Contact
         }
       }
 
-      &-type {
-        background-color: #fff;
-      }
-
       &-content {
         width: 90%;
         height: 90%;
@@ -1506,54 +1502,80 @@ Contact
   /*-------------------------------------
   Overlay
   --------------------------------------*/
-.overlay {
+  .overlay {
 
-  &.detail-view {
+    &.detail-view {
 
-    /*-------------------------------------
-    Works
-    --------------------------------------*/
+      /*-------------------------------------
+      Works
+      --------------------------------------*/
 
-    .hidden {
+      .hidden {
 
-      .work {
+        .work {
 
-        &-thumbnail {
-          display: flex;
-          justify-content: space-around;
-          flex-direction: row;
-          flex-wrap: wrap;
-          height: auto;
-          margin: 20px;
+          &-thumbnail {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            margin: 20px;
 
-          img {
-            width: 100%;
-          }
-        }
-
-        &-description {
-
-          .work-url {
-
-            dt {
-              width: 25%;
-            }
-
-            dd {
-              width: 75%;
+            img {
+              width: 100%;
             }
           }
 
-          .work-genres {
-            position: absolute;
-            bottom: 45%;
-            right: 10px;
+          &-description {
+
+            .work-url {
+
+              dt {
+                width: 25%;
+              }
+
+              dd {
+                width: 75%;
+              }
+            }
+
+            .work-genres {
+              position: absolute;
+              bottom: 45%;
+              right: 10px;
+            }
           }
         }
       }
     }
   }
-}
+
+
+
+  /*-------------------------------------
+  Contact
+  --------------------------------------*/
+  .contact {
+
+    .container {
+
+      .contact-form {
+
+        &-name,
+        &-email,
+        &-type,
+        &-content {
+
+          &-error {
+            // エラーメッセージの大きさを調整
+            font-size: 14px;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -1981,7 +2003,6 @@ Contact
   Contact
   --------------------------------------*/
   .contact {
-    background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
 
     .container {
       width: 90%;
@@ -2007,7 +2028,7 @@ Contact
         &-content {
 
           &-error {
-            font-size: 10px;
+            font-size: 12px;
             margin-bottom: 30px;
           }
         }
@@ -2016,10 +2037,6 @@ Contact
         &-email,
         &-content {
           width: 90%;
-          padding: 10px;
-          border: 1px solid #aaa;
-          border-radius: 10px;
-          line-height: 1.5em;
         }
 
         &-content {

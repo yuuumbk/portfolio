@@ -619,7 +619,7 @@ $(function () {
   // コンタクトフォームのinputオブジェクト
   var $contactFormName = $('#contact-form-name'),
     $contactFormEmail= $('#contact-form-email'),
-    $contactFormType = $('#contact-form-type'),
+    $contactFormType = $('.contact-form-type'),
     $contactFormContent = $('#contact-form-content'),
     $contactFormSubmit = $('.contact-form-submit');
 
@@ -658,7 +658,7 @@ $(function () {
     });
   });
 
-  //email
+  // email
   $contactFormEmail.each(function(){
     $(this).blur(function(){
       if ($(this).valid()) {
@@ -670,6 +670,17 @@ $(function () {
           border: '1px solid #ea5550',
         });
       }
+    });
+  });
+
+  // type
+  // 変更されたことがある（=何かしらにチェックが入っている）かのフラグ
+  var typeChanged = false;
+  $contactFormType.each(function(){
+    $(this).change(function(){
+      // 擬似要素はjsからは変更できないため、styleに直接記述する
+      $('style').html('.contact-form-underline:after {background-color: #65ab31 !important;}');
+      typeChanged = true;
     });
   });
 
@@ -702,6 +713,11 @@ $(function () {
         border: '1px solid #ea5550',
       });
       flag = false;
+    }
+    // radio(only style)
+    if(!typeChanged){
+      // 擬似要素はjsからは変更できないため、styleに直接記述する
+      $('style').html('.contact-form-underline:after {background-color: #ea5550 !important;}');
     }
     // その他radioなど
     if (!$('.contact-form').valid()){
