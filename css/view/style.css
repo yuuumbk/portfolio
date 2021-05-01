@@ -1134,6 +1134,7 @@ Contact
 .contact .container {
   width: 90%;
   padding: 60px 0 50px;
+  margin-top: 0;
 }
 
 .contact .container .contact-form {
