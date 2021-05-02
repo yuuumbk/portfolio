@@ -1216,6 +1216,8 @@ Contact
           border-bottom: 3px solid rgba(0, 0, 0, 0.3);
           margin-top: 63px;
           height: 41px;
+          // safariで文字が白くなる問題を解決
+          color: #000;
         }
       }
 

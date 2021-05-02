@@ -775,37 +775,6 @@ Skills
   }
 }
 
-.skills .container .mb .skill-list .skill-item.invisible {
-  -webkit-animation-name: skill-scroll-upp;
-          animation-name: skill-scroll-upp;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
-}
-
-@-webkit-keyframes skill-scroll-upp {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
-  }
-}
-
-@keyframes skill-scroll-upp {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
-  }
-}
-
 .skills .container .mb .skill-list .skill-item .skill-img {
   position: relative;
   height: auto;
@@ -1316,6 +1285,7 @@ Contact
   border-bottom: 3px solid rgba(0, 0, 0, 0.3);
   margin-top: 63px;
   height: 41px;
+  color: #000;
 }
 
 .contact .container .contact-form-submit-center {

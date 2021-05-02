@@ -271,6 +271,9 @@ $(function () {
    * スキルボタン・クリックボタン・詳細ボタンが押された時の処理
    */
 
+  var WorkListOffset = $list.offset().top,
+    defaultNumWorkOffset = $item.eq(defaultNum - 1).offset().top;
+
   function clickBtn() {
     $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
       // 余白を調整
@@ -306,13 +309,13 @@ $(function () {
 
       // Safariで下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
       // まず、defaultNumの一番下の要素の位置に移動する
-      $('html, body').scrollTop($item.eq(defaultNum - 1).offset().top);
+      $('html, body').scrollTop(defaultNumWorkOffset);
       // 次に、一番上の要素までduration秒でスクロールする
       var duration = 300,
         easing = 'swing';
 
-      $('html, body').animate({
-        scrollTop: $list.offset().top - 65,
+      $('html, body').stop().animate({
+        scrollTop: WorkListOffset - 65,
       }, duration, easing);
     });
   }
@@ -389,7 +392,7 @@ $(function () {
       var target = this.hash,
         $target = $(target);
 
-      $('html, body').animate({
+      $('html, body').stop().animate({
         'scrollTop': $target.offset().top - offset,
       }, duration, easing);
     });
