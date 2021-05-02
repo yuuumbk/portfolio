@@ -35,7 +35,7 @@ body {
 }
 
 h2 {
-  font-family: 'Bad Script', cursive;
+  font-family: 'Bad Script', Helvetica, cursive;
   font-weight: normal;
   font-size: 35px;
   text-align: center;
@@ -551,9 +551,17 @@ Contact
 }
 
 .contact .container .contact-form-left, .contact .container .contact-form-right {
-  width: 50%;
   margin-bottom: 35px;
   min-height: 585px;
+}
+
+.contact .container .contact-form-left {
+  width: 50%;
+}
+
+.contact .container .contact-form-right {
+  width: 45%;
+  margin-left: 5%;
 }
 
 .contact .container .contact-form-label {
@@ -597,7 +605,7 @@ Contact
 }
 
 .contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
-  width: 80%;
+  width: 84%;
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 10px;
@@ -614,6 +622,10 @@ Contact
 
 .contact .container .contact-form-type.type-work {
   margin-left: 1em;
+}
+
+.contact .container .contact-form-type-name {
+  margin-top: 20px;
 }
 
 .contact .container .contact-form-content {
@@ -681,6 +693,7 @@ Contact
   .contact .container .contact-form-left, .contact .container .contact-form-right {
     width: 100%;
     min-height: auto;
+    margin-left: 0;
   }
   .contact .container .contact-form-label {
     text-align: left;

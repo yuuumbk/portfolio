@@ -72,7 +72,7 @@
   <!-- コンテンツ -->
   <div class="wrapper">
     <header id="header" class="header">
-      <h1 class="title"><a href="index.html">Portfolio</a></h1>
+      <h1 class="title"><a href="https://yuuumbk.github.io/portfolio/">Portfolio</a></h1>
       <nav class="mb">
         <div class="ham-btn">
           <span class="ham-btn-line"></span>
@@ -81,20 +81,20 @@
         </div>
         <div class="menu">
           <ul class="list">
-            <li class="list-item to-service"><a href="index.html#service">SERVICE</a></li>
-            <li class="list-item to-about"><a href="index.html#about">ABOUT</a></li>
-            <li class="list-item to-skills"><a href="index.html#skills">SKILLS</a></li>
-            <li class="list-item to-works"><a href="index.html#works">WORKS</a></li>
+            <li class="list-item to-service"><a href="index.html#service" class="external-page">SERVICE</a></li>
+            <li class="list-item to-about"><a href="index.html#about" class="external-page">ABOUT</a></li>
+            <li class="list-item to-skills"><a href="index.html#skills" class="external-page">SKILLS</a></li>
+            <li class="list-item to-works"><a href="index.html#works" class="external-page">WORKS</a></li>
             <li class="list-item to-contact"><a href="index.html#contact">CONTACT</a></li>
           </ul>
         </div>
       </nav>
       <nav class="pc">
         <ul class="list">
-          <li class="list-item to-service"><a href="index.html#service">SERVICE</a></li>
-          <li class="list-item to-about"><a href="index.html#about">ABOUT</a></li>
-          <li class="list-item to-skills"><a href="index.html#skills">SKILLS</a></li>
-          <li class="list-item to-works"><a href="index.html#works">WORKS</a></li>
+          <li class="list-item to-service"><a href="index.html#service" class="external-page">SERVICE</a></li>
+          <li class="list-item to-about"><a href="index.html#about" class="external-page">ABOUT</a></li>
+          <li class="list-item to-skills"><a href="index.html#skills" class="external-page">SKILLS</a></li>
+          <li class="list-item to-works"><a href="index.html#works" class="external-page">WORKS</a></li>
           <li class="list-item to-contact"><a href="index.html#contact">CONTACT</a></li>
         </ul>
       </nav>
@@ -111,10 +111,11 @@
           <li><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><img src="img/logo/mail-red.svg" alt="email"></a></li>
         </ul>
       </div>
-      <div class="down-allow"><a href="#main"></a></div>
+      <div class="down-allow"><a href="#first-section"></a></div>
     </section>
 
     <main id="main" class="main">
+      <div id="first-section"></div>
       <section id="privacy-policy" class="privacy-policy scroll-fadein">
         <div class="container">
           <h2>プライバシーポリシー</h2>
@@ -221,24 +222,40 @@
                 <div class="contact-form-label contact-form-underline">
                   お問い合わせ種別
                 </div>
+                <div class="contact-form-type-name">
+                  &#9660;お仕事について
+                </div>
                 <div class="over-hidden">
-                  &#9660;お仕事について<br>
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="Webアプリケーション開発" id="contact-form-type" class="contact-form-type type-work" data-error_placement=".contact-form-type-error" required>
                       Webアプリケーション開発
                   </label><br>
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="Webサイトコーディング" class="contact-form-type type-work">
                       Webサイトコーディング
                   </label><br>
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="その他（お仕事について）" class="contact-form-type type-work">
                       その他
                   </label><br>
+                </div>
+                <div class="contact-form-type-name">
+                  &#9660;ポートフォリオについて
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="ポートフォリオについて" class="contact-form-type">
                     ポートフォリオについて
                   </label><br>
+                </div>
+                <div class="contact-form-type-name">
+                  &#9660;その他
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="その他" class="contact-form-type">
                     その他

@@ -43,6 +43,7 @@ body {
 
 h2 {
   font-family: 'Bad Script',
+    Helvetica,
     cursive;
   font-weight: normal;
   font-size: 35px;
@@ -498,10 +499,21 @@ Contact
 
       &-left,
       &-right {
-        width: 50%;
         margin-bottom: 35px;
         min-height: 585px;
       }
+
+      &-left {
+        width: 50%;
+      }
+
+      &-right {
+        width: 45%;
+        margin-left: 5%;
+      }
+
+      // typeの種類ごとの間隔をあける
+
 
       &-label {
         text-align: left;
@@ -551,7 +563,7 @@ Contact
       &-name,
       &-email,
       &-content {
-        width: 80%;
+        width: 84%;
         padding: 10px;
         border: 1px solid #aaa;
         border-radius: 10px;
@@ -569,6 +581,10 @@ Contact
         &.type-work {
           margin-left: 1em;
         }
+      }
+
+      &-type-name {
+        margin-top: 20px;
       }
 
       &-content {
@@ -668,8 +684,8 @@ Contact
         &-right {
           width: 100%;
           min-height: auto;
+          margin-left: 0;
         }
-
 
         &-label {
           text-align: left;

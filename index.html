@@ -85,9 +85,9 @@
         <div class="menu">
           <ul class="list">
             <li class="list-item to-service"><a href="#service">SERVICE</a></li>
-            <li class="list-item to-about"><a href="#about">ABOUT</a></li>
+            <li class="list-item to-about"><a href="#about" class="this-page">ABOUT</a></li>
             <li class="list-item to-skills"><a href="#skills">SKILLS</a></li>
-            <li class="list-item to-works"><a href="#works">WORKS</a></li>
+            <li class="list-item to-works"><a href="#works" class="this-page">WORKS</a></li>
             <li class="list-item to-contact"><a href="#contact">CONTACT</a></li>
           </ul>
         </div>
@@ -95,9 +95,9 @@
       <nav class="pc">
         <ul class="list">
           <li class="list-item to-service"><a href="#service">SERVICE</a></li>
-          <li class="list-item to-about"><a href="#about">ABOUT</a></li>
-          <li class="list-item to-skills"><a href="#skills">SKILLS</a></li>
-          <li class="list-item to-works"><a href="#works">WORKS</a></li>
+          <li class="list-item to-about"><a href="#about" class="this-page">ABOUT</a></li>
+          <li class="list-item to-skills"><a href="#skills" class="this-page">SKILLS</a></li>
+          <li class="list-item to-works"><a href="#works" class="this-page">WORKS</a></li>
           <li class="list-item to-contact"><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
@@ -114,11 +114,11 @@
           <li><a href="mailto:misharv.y@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%EF%BC%89&body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%80%91%0D%0A%0D%0A%0D%0A%E3%80%90%E5%BE%A1%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A" target="_blank"><img src="img/logo/mail-red.svg" alt="email"></a></li>
         </ul>
       </div>
-      <div class="down-allow"><a href="#main"></a></div>
+      <div class="down-allow"><a href="#first-section"></a></div>
     </section>
 
     <main id="main" class="main">
-
+      <div id="first-section"></div>
       <section id="service" class="service scroll-fadein">
         <div class="container">
           <h2>SERVICE</h2>
@@ -129,7 +129,7 @@
                 <img src="img/parts/prg.svg" alt="Webアプリケーション開発">
               </div>
               <p>
-                ご要望から適切に機能を抽出し、効率的なアルゴリズムを考え、<strong>どこよりも早くバグの少ない</strong>アプリケーションを開発します。
+                ご要望から適切に機能を抽出し、効率的なアルゴリズムを考え、<strong>どこよりも早くバグのない</strong>アプリケーションを開発します。
               </p>
               <p>
                 <strong>セキュリティ</strong>を考慮したコーディングを心がけております。また、定期的に脆弱性テストを実施し、悪意のある攻撃を確実に防ぎます。
@@ -647,24 +647,40 @@
                 <div class="contact-form-label contact-form-underline">
                   お問い合わせ種別
                 </div>
+                <div class="contact-form-type-name">
+                  &#9660;お仕事について
+                </div>
                 <div class="over-hidden">
-                  &#9660;お仕事について<br>
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="Webアプリケーション開発" id="contact-form-type" class="contact-form-type type-work" data-error_placement=".contact-form-type-error" required>
                       Webアプリケーション開発
                   </label><br>
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="Webサイトコーディング" class="contact-form-type type-work">
                       Webサイトコーディング
                   </label><br>
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="その他（お仕事について）" class="contact-form-type type-work">
                       その他
                   </label><br>
+                </div>
+                <div class="contact-form-type-name">
+                  &#9660;ポートフォリオについて
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="ポートフォリオについて" class="contact-form-type">
                     ポートフォリオについて
                   </label><br>
+                </div>
+                <div class="contact-form-type-name">
+                  &#9660;その他
+                </div>
+                <div class="over-hidden">
                   <label class="contact-form-label-type">
                     <input type="radio" name="type" value="その他" class="contact-form-type">
                     その他

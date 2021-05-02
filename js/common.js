@@ -137,7 +137,6 @@ $(function () {
 
   // to-
   var smoothTo = [
-    'main',
     'top',
     'service',
     'about',
@@ -188,7 +187,13 @@ $(function () {
    */
 
   function smoothScroll(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
+
     $(target).find('a').on('click', function (e) {
+      // 外部ページなら
+      if ($(this).filter('.external-page').length){
+        return;
+      }
+
       e.preventDefault();
 
       var target = this.hash,
