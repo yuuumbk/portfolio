@@ -946,20 +946,44 @@ Overlay
     background: rgba(100, 100, 100, .5);
     z-index: 11;
 
+    /*-------------------------------------
+    Works
+    --------------------------------------*/
+
     .hidden {
-      overflow: hidden;
       border-radius: 30px;
       position: absolute;
+      overflow: hidden;
       width: 80%;
       height: 80vh;
       margin: auto;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transform-origin: center center;
 
-      /*-------------------------------------
-      Works
-      --------------------------------------*/
+      //animation
+      animation-name: work-popup;
+      animation-duration: .8s;
+      animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+
+      @keyframes work-popup {
+        0% {
+          width: 0%;
+          height: 0vh;
+          top: 80%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        100% {
+          width: 80%;
+          height: 80vh;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
 
       .work {
         height: 100%;
@@ -1049,39 +1073,22 @@ Overlay
           }
 
           .work-genres {
-            display: none;
+            // 横並び
+            display: inline-block;
+            color: #aaa;
+            font-size: 14px;
+            // 区切りの棒の長さを調節
+            line-height: 0.8em;
+            // 左下に配置
+            position: absolute;
+            bottom: 20px;
+
+            &+.work-genre {
+              border-left: 1px solid #aaa;
+              padding: 0 7px;
+            }
           }
         }
-
-        //   // 閉じるボタン
-
-        //   .dil-close {
-        //     margin: 0 20px 0 7px;
-        //     padding: 0;
-        //     width: 4px;
-        //     height: 20px;
-        //     background: #000;
-        //     transform: rotate(45deg);
-
-        //     position: absolute;
-        //     right: 10px;
-        //     bottom: 18px;
-        //     cursor: pointer;
-        //     z-index: 5;
-
-        //     &::before {
-        //       display: block;
-        //       content: "";
-        //       position: absolute;
-        //       top: 50%;
-        //       left: -8px;
-        //       width: 20px;
-        //       height: 4px;
-        //       margin-top: -2px;
-        //       background: #000;
-        //       z-index: -1;
-        //     }
-        //   }
       }
     }
   }
@@ -1206,6 +1213,8 @@ Contact
 
         border-bottom: 5px solid rgba(0, 0, 0, 0.3);
         border-radius: 20px;
+        // ボタンをクリックした時の枠線を消す
+        outline: none;
 
         &:hover {
           // opacity: .7;

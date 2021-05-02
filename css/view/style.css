@@ -775,6 +775,37 @@ Skills
   }
 }
 
+.skills .container .mb .skill-list .skill-item.invisible {
+  -webkit-animation-name: skill-scroll-upp;
+          animation-name: skill-scroll-upp;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+@-webkit-keyframes skill-scroll-upp {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
+@keyframes skill-scroll-upp {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
 .skills .container .mb .skill-list .skill-item .skill-img {
   position: relative;
   height: auto;
@@ -1028,12 +1059,15 @@ Overlay
   height: 100vh;
   background: rgba(100, 100, 100, 0.5);
   z-index: 11;
+  /*-------------------------------------
+    Works
+    --------------------------------------*/
 }
 
 .overlay.detail-view .hidden {
-  overflow: hidden;
   border-radius: 30px;
   position: absolute;
+  overflow: hidden;
   width: 80%;
   height: 80vh;
   margin: auto;
@@ -1041,9 +1075,52 @@ Overlay
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  /*-------------------------------------
-      Works
-      --------------------------------------*/
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-animation-name: work-popup;
+          animation-name: work-popup;
+  -webkit-animation-duration: .8s;
+          animation-duration: .8s;
+  -webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+          animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@-webkit-keyframes work-popup {
+  0% {
+    width: 0%;
+    height: 0vh;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 80%;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes work-popup {
+  0% {
+    width: 0%;
+    height: 0vh;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 80%;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
 }
 
 .overlay.detail-view .hidden .work {
@@ -1156,7 +1233,17 @@ Overlay
 }
 
 .overlay.detail-view .hidden .work-description .work-genres {
-  display: none;
+  display: inline-block;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 0.8em;
+  position: absolute;
+  bottom: 20px;
+}
+
+.overlay.detail-view .hidden .work-description .work-genres + .work-genre {
+  border-left: 1px solid #aaa;
+  padding: 0 7px;
 }
 
 /*-------------------------------------
@@ -1275,6 +1362,7 @@ Contact
   border: 1px solid #aaa;
   border-bottom: 5px solid rgba(0, 0, 0, 0.3);
   border-radius: 20px;
+  outline: none;
 }
 
 .contact .container .contact-form-submit:hover {

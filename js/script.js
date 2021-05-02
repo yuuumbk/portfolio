@@ -314,6 +314,8 @@ $(function () {
       var duration = 300,
         easing = 'swing';
 
+      // モバイル端末にて、スクロール後スクロールが効かなくなることがある他、え
+      // stop()で対応
       $('html, body').stop().animate({
         scrollTop: WorkListOffset - 65,
       }, duration, easing);
