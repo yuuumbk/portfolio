@@ -389,21 +389,21 @@ $(function () {
     // 送信内容
     var name = $contactFormName.val(),
       email = $contactFormEmail.val(),
-      type = $('#contact-form-type:checked').val(),
+      type = $('.contact-form-type:checked').val(),
       message = $contactFormContent.val();
 
-    // 送信処理
-    $.ajax({
-      url: "https://formspree.io/f/xknkorgp",
-      method: "POST",
-      dataType: "json",
-      data: {
-        お名前: name,
-        メールアドレス: email,
-        お問い合わせ種別: type,
-        お問い合わせ内容: message,
-      }
-    });
+    //送信処理
+    // $.ajax({
+    //   url: "https://formspree.io/f/xknkorgp",
+    //   method: "POST",
+    //   dataType: "json",
+    //   data: {
+    //     お名前: name,
+    //     メールアドレス: email,
+    //     お問い合わせ種別: type,
+    //     お問い合わせ内容: message,
+    //   }
+    // });
 
     // 送信をしたのでフラグをtrueにして、同内容の複数送信を防ぐ。
     submitFlag = true;
@@ -412,6 +412,6 @@ $(function () {
     $contactFormSubmitMessage.css({
       opacity: 1,
     })
-    .html('お問い合わせありがとうございます。');
+    .html('送信が完了しました。<br>お問い合わせありがとうございます。');
   });
 });
