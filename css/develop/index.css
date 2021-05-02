@@ -8,6 +8,10 @@
 /**
  * イージングを指定
  */
+h2 {
+  font-family: 'Bad Script', cursive;
+}
+
 /* =============================================
 Main content
 ============================================= */
@@ -891,7 +895,7 @@ Skills
   text-align: justify;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .skills .container .mb .skill-list .skill-item:last-child:nth-child(odd) {
     width: 100%;
   }
@@ -1051,7 +1055,6 @@ Overlay
 }
 
 .overlay.detail-view {
-  display: block;
   position: absolute;
   left: 0;
   top: 0;

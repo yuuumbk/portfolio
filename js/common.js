@@ -18,17 +18,18 @@ $(function () {
    */
 
   var humBtn = '.mb .ham-btn',
-    link = '.mb .menu .list .list-item a';
+    $link = $('.mb .menu .list .list-item a');
 
-  $(humBtn).add(link).on('click', function () {
+  $(humBtn).on('click', function () {
     $('.menu, .ham-btn-line').toggleClass('open');
   });
 
-  // ナビゲーションの外側がタップされた時、ナビゲーションを閉じる→タップされた場所に限らず時は閉じるように変更
+  // ナビゲーションの外側または内部リンクがタップされた時、ナビゲーションを閉じる
+  // 外部リンクだった場合は、アニメーションのバグが発生する場合があるため控える
   $(document).on('click', function (e) {
     var $target = $(e.target);
 
-    if (!$target.closest(humBtn).length) {
+    if (!$target.closest(humBtn).length && !$target.filter('.external-page').length) {
       $('.menu, .ham-btn-line').removeClass('open');
     }
   });
@@ -114,7 +115,7 @@ $(function () {
   var windowHeight = $(window).height();
 
   $(window).on('scroll', $.throttle(200, function () {
-    if ($(this).scrollTop() > windowHeight) {
+    if ($(this).scrollTop() >= windowHeight) {
       $toTop.fadeIn(500);
     } else {
       $toTop.fadeOut(500);
@@ -258,7 +259,8 @@ $(function () {
     $contactFormEmail = $('#contact-form-email'),
     $contactFormType = $('.contact-form-type'),
     $contactFormContent = $('#contact-form-content'),
-    $contactFormSubmit = $('.contact-form-submit');
+    $contactFormSubmit = $('.contact-form-submit'),
+    $contactFormSubmitMessage = $contactFormSubmit.next();
 
   // フォーカスが外れた時にバリデーション
   $('.contact-form').validate(verificationOptions);
@@ -313,6 +315,7 @@ $(function () {
   // type
   // 変更されたことがある（=何かしらにチェックが入っている）かのフラグ
   var typeChanged = false;
+
   $contactFormType.each(function () {
     $(this).change(function () {
       // 擬似要素はjsからは変更できないため、styleに直接記述する
@@ -321,6 +324,10 @@ $(function () {
     });
   });
 
+  // 送信は一回のみ
+  // チャタリングなどで、どう内容が送信されるのを防ぐ
+  var submitFlag = false;
+
   $contactFormSubmit.on('click', function (e) {
     e.preventDefault();
 
@@ -328,28 +335,28 @@ $(function () {
     $('.contact-form').validate(verificationOptions);
 
     // バリデーションでエラーが出たら送信しない
-    var flag = true;
+    var validationFlag = true;
 
     // name
     if (!$contactFormName.valid()) {
       $contactFormName.css({
         border: '1px solid #ea5550',
       });
-      flag = false;
+      validationFlag = false;
     }
     // email
     if (!$contactFormEmail.valid()) {
       $contactFormEmail.css({
         border: '1px solid #ea5550',
       });
-      flag = false;
+      validationFlag = false;
     }
     // content
     if (!$contactFormContent.valid()) {
       $contactFormContent.css({
         border: '1px solid #ea5550',
       });
-      flag = false;
+      validationFlag = false;
     }
     // radio(only style)
     if (!typeChanged) {
@@ -358,10 +365,22 @@ $(function () {
     }
     // その他radioなど
     if (!$('.contact-form').valid()) {
-      flag = false;
+      validationFlag = false;
     }
 
-    if (!flag) {
+    if(submitFlag){
+      // エラーメッセージ
+      $contactFormSubmitMessage.css({
+        opacity: 1,
+      })
+      .html('一度に複数のお問い合わせはお控えください。');
+      return;
+    } else if (!validationFlag) {
+      // エラーメッセージ
+      $contactFormSubmitMessage.css({
+        opacity: 1,
+      })
+      .html('入力内容を確認してもう一度送信してください。');
       return;
     }
 
@@ -373,16 +392,26 @@ $(function () {
       type = $('#contact-form-type:checked').val(),
       message = $contactFormContent.val();
 
-    // $.ajax({
-    //   url: "https://formspree.io/f/xknkorgp",
-    //   method: "POST",
-    //   dataType: "json",
-    //   data: {
-    //     お名前: name,
-    //     メールアドレス: email,
-    //     お問い合わせ種別: type,
-    //     お問い合わせ内容: message,
-    //   }
-    // });
+    // 送信処理
+    $.ajax({
+      url: "https://formspree.io/f/xknkorgp",
+      method: "POST",
+      dataType: "json",
+      data: {
+        お名前: name,
+        メールアドレス: email,
+        お問い合わせ種別: type,
+        お問い合わせ内容: message,
+      }
+    });
+
+    // 送信をしたのでフラグをtrueにして、同内容の複数送信を防ぐ。
+    submitFlag = true;
+
+    // 完了メッセージ
+    $contactFormSubmitMessage.css({
+      opacity: 1,
+    })
+    .html('お問い合わせありがとうございます。');
   });
 });

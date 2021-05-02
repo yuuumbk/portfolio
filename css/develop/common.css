@@ -35,7 +35,7 @@ body {
 }
 
 h2 {
-  font-family: 'Bad Script', Helvetica, cursive;
+  font-family: 'Bad Script', Helvetica, '游ゴシック', 'Yu Gothic', YuGothic, HiraKakuProN-W3, 'メイリオ', Meiryo, sans-serif;
   font-weight: normal;
   font-size: 35px;
   text-align: center;
@@ -637,7 +637,7 @@ Contact
 .contact .container .contact-form-submit {
   width: 100px;
   height: 44px;
-  margin-top: 60px;
+  margin-top: 10px;
   padding: 10px 20px;
   background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
   background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
@@ -653,13 +653,42 @@ Contact
 
 .contact .container .contact-form-submit:active {
   border-bottom: 3px solid rgba(0, 0, 0, 0.3);
-  margin-top: 63px;
+  margin-top: 13px;
   height: 41px;
   color: #000;
 }
 
 .contact .container .contact-form-submit-center {
   text-align: center;
+}
+
+.contact .container .contact-form-submit-center .contact-form-submit-message {
+  display: table;
+  position: relative;
+  margin: 20px auto 0;
+  padding: 15px 15px 10px;
+  min-height: 2em;
+  background-color: #fdede4;
+  border-radius: 40px;
+  -webkit-box-shadow: 0 3px 2px 2px #e6bfab;
+          box-shadow: 0 3px 2px 2px #e6bfab;
+  letter-spacing: 0;
+  opacity: 0;
+}
+
+.contact .container .contact-form-submit-center .contact-form-submit-message::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #fdede4;
+  border-left: 15px solid transparent;
 }
 
 /* =============================================

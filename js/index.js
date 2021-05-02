@@ -348,7 +348,10 @@ $(function () {
         $overlay.find('.hidden').append(clone);
 
         // オーバーレイを表示し、後ろを暗くする
-        $overlay.addClass(detailView);
+        $overlay.css({
+          display: 'block',
+        })
+        .addClass(detailView);
 
         // スクロールを禁止させる
         $('html').css({ overflow: 'hidden' });
@@ -361,7 +364,11 @@ $(function () {
 
       $overlay.on('click', function () {
         // オーバーレイを非表示にする
-        $overlay.removeClass(detailView).find('.hidden').empty();
+        $overlay.css({
+          display: 'none',
+        })
+        .removeClass(detailView).find('.hidden').empty();
+        console.log('overlay');
 
         // スクロール禁止を解除
         $('html').css({ overflow: 'auto' });

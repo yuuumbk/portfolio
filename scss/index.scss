@@ -6,15 +6,18 @@ $timing-function1: ease;
 $timing-function2: ease-in-out;
 $easeInOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
-
+h2 {
+  font-family: 'Bad Script',
+  cursive;
+}
 
 /* =============================================
 Main content
 ============================================= */
 
-.main {
+// .main {
   // margin-bottom: 80px;
-}
+// }
 
 /*-------------------------------------
 Service
@@ -762,7 +765,7 @@ Skills
           }
 
           // pcのみ
-          @media screen and (min-width: 1024px) {
+          @media screen and (min-width: 1025px) {
 
             //要素の数が奇数の時のみ最後の要素を100％に
             &:last-child:nth-child(odd) {
@@ -935,7 +938,7 @@ Overlay
   display: none;
 
   &.detail-view {
-    display: block;
+    // display: block;
     position: absolute;
     left: 0;
     // JavaScriptで動的に指定
