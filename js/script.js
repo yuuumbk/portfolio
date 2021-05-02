@@ -580,7 +580,8 @@ $(function () {
       var index = $(this).parent().index(),// 何番目のworkか取得
         workOffset = $(this).offset().top;// 要素のスクロール量を取得
       // スクロール量を対応する場所に格納
-      workOffsets[index] = workOffset;
+      // ※470は調整のため
+      workOffsets[index] = workOffset - 470;
     });
 
     $workMoreBtn.on('click', function () {
@@ -592,17 +593,17 @@ $(function () {
       } else {// closeボタンが押された時
         $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
         $(this).parent().removeClass(detailView);
-        // スクロール料を配列から取り出し、その位置にスクロールさせる
-        // ※470は調整のため
-        // display:flex;の関係か、意図した位置を取得できていないため、
-        // workOffsetsは相対位置として利用する
-        var duration = 300,
-          easing = 'easeInOutCirc';
-
-        $('html, body').animate({
-          scrollTop: workOffsets[index] - 450,
-        }, duration, easing);
       }
+
+      // スクロール料を配列から取り出し、その位置にスクロールさせる
+      // display:flex;の関係か、意図した位置を取得できていないため、
+      // workOffsetsは相対位置として利用する
+      var duration = 300,
+        easing = 'easeInOutCirc';
+
+      $('html, body').animate({
+        scrollTop: workOffsets[index],
+      }, duration, easing);
     });
   }
 

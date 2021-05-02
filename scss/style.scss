@@ -1117,11 +1117,28 @@ Contact
       &-left,
       &-right {
         width: 50%;
+        margin-bottom: 35px;
+        min-height: 585px;
       }
-
 
       &-label {
         text-align: left;
+      }
+
+      label {
+        cursor: pointer;
+        display: block;
+        float: left;
+        width: 90%;
+
+        &.contact-form-label-type {
+          width: 85%;
+          margin: 5px auto;
+          padding: 5px;
+          padding-left: 10px;
+          box-shadow: 0 0 3px 3px #eee;
+          background-color: #efefef;
+        }
       }
 
       &-underline {
@@ -1129,7 +1146,7 @@ Contact
         &:after {
           content: "";
           display: block;
-          width: 70%;
+          width: 88%;
           height: 1px;
           background-color: #aaa;
           margin-bottom: 5px;
@@ -1143,7 +1160,7 @@ Contact
         border: 1px solid #bcc7d7;
 
         &-error {
-          height: 1em;
+          height: 2em;
           margin-bottom: 20px;
           color: #ea5550;
         }
@@ -1165,6 +1182,7 @@ Contact
       }
 
       &-type {
+        overflow: hidden;
 
         &.type-work {
           margin-left: 1em;
@@ -2075,11 +2093,27 @@ Contact
         &-left,
         &-right {
           width: 100%;
+          min-height: auto;
         }
 
 
         &-label {
           text-align: left;
+        }
+
+        label {
+          width: 90%;
+
+          &.contact-form-label-type {
+            width: 90%;
+          }
+        }
+
+        &-underline {
+
+          &:after {
+            width: 95%;
+          }
         }
 
         &-name,
@@ -2108,7 +2142,9 @@ Contact
           margin-top: 360px;
 
           &:active {
+            border-bottom: 3px solid rgba(0, 0, 0, 0.3);
             margin-top: 363px;
+            height: 41px;
           }
         }
       }

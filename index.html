@@ -213,6 +213,7 @@
               実用英語技能検定 2級</dd>
               <dt>希望職種</dt>
               <dd>バックエンドエンジニア<br>
+                フロントエンドエンジニア<br>
               セキュリティエンジニア</dd>
             </dl>
           </div>
@@ -605,7 +606,7 @@
               <div class="work-description">
                 <h3>お花屋さんLP</h3>
                 <p>LPの模写コーティングです。<span  class="detail-view-content">現在製作中です。完成まで今しばらくお待ちください。ご意見等はCONTACTよりお願いいたします。現在製作中です。完成まで今しばらくお待ちください。ご意見等はCONTACTよりお願いいたします。</span></p>
-                <dl class="detail-view-content">
+                <dl class="work-url detail-view-content">
                   <dt>URL</dt>
                   <!-- <dd><a href="https://yuuumbk.github.io/portfolio/" target="_blank">https://yuuumbk.github.io/portfolio/</a></dd> -->
                   <dd>Under Construction...</dd>
@@ -633,13 +634,13 @@
             <div class="contact-form-wrapper">
               <div class="contact-form-left">
                 <div class="contact-form-label">
-                  <label for="#contact-form-name">お名前</label>
+                  <label for="contact-form-name">お名前</label>
                 </div>
                 <input type="text" name="name" id="contact-form-name" class="contact-form-name" data-error_placement=".contact-form-name-error" placeholder="山田 太郎" required>
                 <div class="contact-form-name-error"></div>
 
                 <div class="contact-form-label">
-                  <label for="#contact-form-email">メールアドレス</label>
+                  <label for="contact-form-email">メールアドレス</label>
                 </div>
                 <input type="email" name="email" id="contact-form-email" class="contact-form-email" data-error_placement=".contact-form-email-error" placeholder="sample@example.com" required>
                 <div class="contact-form-email-error"></div>
@@ -647,40 +648,42 @@
                 <div class="contact-form-label contact-form-underline">
                   お問い合わせ種別
                 </div>
-                &#9660;お仕事について<br>
-                <label>
-                  <input type="radio" name="type" value="Webアプリケーション開発" id="contact-form-type" class="contact-form-type type-work" data-error_placement=".contact-form-type-error" required>
-                    Webアプリケーション開発
-                </label><br>
-                <label>
-                  <input type="radio" name="type" value="Webサイトコーディング" class="contact-form-type type-work">
-                    Webサイトコーディング
-                </label><br>
-                <label>
-                  <input type="radio" name="type" value="その他（お仕事について）" class="contact-form-type type-work">
+                <div class="over-hidden">
+                  &#9660;お仕事について<br>
+                  <label class="contact-form-label-type">
+                    <input type="radio" name="type" value="Webアプリケーション開発" id="contact-form-type" class="contact-form-type type-work" data-error_placement=".contact-form-type-error" required>
+                      Webアプリケーション開発
+                  </label><br>
+                  <label class="contact-form-label-type">
+                    <input type="radio" name="type" value="Webサイトコーディング" class="contact-form-type type-work">
+                      Webサイトコーディング
+                  </label><br>
+                  <label class="contact-form-label-type">
+                    <input type="radio" name="type" value="その他（お仕事について）" class="contact-form-type type-work">
+                      その他
+                  </label><br>
+                  <label class="contact-form-label-type">
+                    <input type="radio" name="type" value="ポートフォリオについて" class="contact-form-type">
+                    ポートフォリオについて
+                  </label><br>
+                  <label class="contact-form-label-type">
+                    <input type="radio" name="type" value="その他" class="contact-form-type">
                     その他
-                </label><br>
-                <label>
-                  <input type="radio" name="type" value="ポートフォリオについて" class="contact-form-type">
-                  ポートフォリオについて
-                </label><br>
-                <label>
-                  <input type="radio" name="type" value="その他" class="contact-form-type">
-                  その他
-                </label>
+                  </label>
+                </div>
                 <div class="contact-form-type-error"></div>
               </div>
 
               <div class="contact-form-right">
                 <div class="contact-form-label">
-                  <label for="#contact-form-content">お問い合わせ内容</label>
+                  <label for="contact-form-content">お問い合わせ内容</label>
                 </div>
                 <textarea name="content" id="contact-form-content" class="contact-form-content" data-error_placement=".contact-form-content-error"></textarea>
                 <div class="contact-form-content-error"></div>
               </div>
             </div>
             <div class="contact-form-submit-center">
-              <input type="submit" value="送信" class="contact-form-submit">
+              <input type="submit" value="送信" ontouchstart="" class="contact-form-submit">
             </div>
           </form>
         </div>
