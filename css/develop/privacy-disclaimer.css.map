@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA;;yCAEyC;AAEzC,AAAA,EAAE,CAAC;EACD,MAAM,EAAE,MAAM;CACf",
+    "sources": [
+        "../../scss/privacy-disclaimer.scss"
+    ],
+    "names": [],
+    "file": "privacy-disclaimer.css"
+}

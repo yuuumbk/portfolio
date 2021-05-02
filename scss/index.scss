@@ -960,30 +960,37 @@ Overlay
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transform-origin: center center;
+      // transform-origin: center center;
 
-      //animation
-      animation-name: work-popup;
-      animation-duration: .8s;
-      animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+      /**
+       * 重いため却下
+       */
+      // //animation
+      // animation-name: work-popup;
+      // animation-duration: .8s;
+      // animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 
-      @keyframes work-popup {
-        0% {
-          width: 0%;
-          height: 0vh;
-          top: 80%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
+      // @keyframes work-popup {
+      //   0% {
+      //     // width: 0%;
+      //     // height: 0vh;
+      //     // top: 80%;
+      //     // left: 50%;
+      //     // transform: translate(-50%, -50%);
+      //     transform: translateY(20px);
+      //     opacity: 0;
+      //   }
 
-        100% {
-          width: 80%;
-          height: 80vh;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-      }
+      //   100% {
+      //     // width: 80%;
+      //     // height: 80vh;
+      //     // top: 50%;
+      //     // left: 50%;
+      //     // transform: translate(-50%, -50%);
+      //     transform: translateY(0px);
+      //     opacity: 1;
+      //   }
+      // }
 
       .work {
         height: 100%;
@@ -1094,148 +1101,6 @@ Overlay
   }
 }
 
-
-
-/*-------------------------------------
-Contact
---------------------------------------*/
-.contact {
-  background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
-
-  .container {
-    width: 90%;
-    padding: 60px 0 50px;
-    margin-top: 0;
-
-    .contact-form {
-      margin: 0 auto;
-      padding: 30px;
-
-      &-wrapper {
-        width: 100%;
-        margin: 0 auto;
-
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      &-left,
-      &-right {
-        width: 50%;
-        margin-bottom: 35px;
-        min-height: 585px;
-      }
-
-      &-label {
-        text-align: left;
-      }
-
-      label {
-        cursor: pointer;
-        display: block;
-        float: left;
-        width: 90%;
-
-        &.contact-form-label-type {
-          width: 85%;
-          margin: 5px auto;
-          padding: 5px;
-          padding-left: 10px;
-          box-shadow: 0 0 3px 3px #eee;
-          background-color: #efefef;
-        }
-      }
-
-      &-underline {
-
-        &:after {
-          content: "";
-          display: block;
-          width: 88%;
-          height: 1px;
-          background-color: #aaa;
-          margin-bottom: 5px;
-        }
-      }
-
-      &-name,
-      &-email,
-      &-type,
-      &-content {
-        border: 1px solid #bcc7d7;
-
-        &-error {
-          height: 2em;
-          margin-bottom: 20px;
-          color: #ea5550;
-        }
-      }
-
-      &-name,
-      &-email,
-      &-content {
-        width: 80%;
-        padding: 10px;
-        border: 1px solid #aaa;
-        border-radius: 10px;
-        line-height: 1.5em;
-
-        &:focus {
-          outline: none;
-          // background-color: #f0f0f0;
-        }
-      }
-
-      &-type {
-        overflow: hidden;
-
-        &.type-work {
-          margin-left: 1em;
-        }
-      }
-
-      &-content {
-        width: 90%;
-        height: 90%;
-        // 右下の印を消す
-        resize: none;
-      }
-
-      &-submit {
-        width: 100px;
-        height: 44px;
-        margin-top: 60px;
-        padding: 10px 20px;
-        background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
-        border: 1px solid #aaa;
-
-        border-bottom: 5px solid rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        // ボタンをクリックした時の枠線を消す
-        outline: none;
-
-        &:hover {
-          // opacity: .7;
-          cursor: pointer;
-        }
-
-        &:active {
-          border-bottom: 3px solid rgba(0, 0, 0, 0.3);
-          margin-top: 63px;
-          height: 41px;
-          // safariで文字が白くなる問題を解決
-          color: #000;
-        }
-      }
-
-      &-submit-center {
-        text-align: center;
-      }
-    }
-  }
-}
 
 
 
@@ -1630,35 +1495,8 @@ Contact
 
             .work-genres {
               position: absolute;
-              bottom: 45%;
-              right: 10px;
+              top: 20px;
             }
-          }
-        }
-      }
-    }
-  }
-
-
-
-  /*-------------------------------------
-  Contact
-  --------------------------------------*/
-  .contact {
-
-    .container {
-
-      .contact-form {
-
-        &-name,
-        &-email,
-        &-type,
-        &-content {
-
-          &-error {
-            // エラーメッセージの大きさを調整
-            font-size: 14px;
-            margin-bottom: 30px;
           }
         }
       }
@@ -2080,82 +1918,6 @@ Contact
               bottom: 45%;
               right: 10px;
             }
-          }
-        }
-      }
-    }
-  }
-
-
-
-  /*-------------------------------------
-  Contact
-  --------------------------------------*/
-  .contact {
-
-    .container {
-      width: 90%;
-      padding: 60px 0 50px;
-
-      .contact-form {
-        margin: 0 auto;
-        padding: 30px;
-
-        &-left,
-        &-right {
-          width: 100%;
-          min-height: auto;
-        }
-
-
-        &-label {
-          text-align: left;
-        }
-
-        label {
-          width: 90%;
-
-          &.contact-form-label-type {
-            width: 90%;
-          }
-        }
-
-        &-underline {
-
-          &:after {
-            width: 95%;
-          }
-        }
-
-        &-name,
-        &-email,
-        &-type,
-        &-content {
-
-          &-error {
-            font-size: 12px;
-            margin-bottom: 30px;
-          }
-        }
-
-        &-name,
-        &-email,
-        &-content {
-          width: 90%;
-        }
-
-        &-content {
-          width: 90%;
-          height: 280%;
-        }
-
-        &-submit {
-          margin-top: 360px;
-
-          &:active {
-            border-bottom: 3px solid rgba(0, 0, 0, 0.3);
-            margin-top: 363px;
-            height: 41px;
           }
         }
       }

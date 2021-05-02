@@ -25,6 +25,7 @@ body {
   letter-spacing: .1em;
   font-family: Helvetica, '游ゴシック', 'Yu Gothic', YuGothic, HiraKakuProN-W3, 'メイリオ', Meiryo, sans-serif;
   color: #333;
+  overscroll-behavior-y: none;
 }
 
 .container {
@@ -35,6 +36,7 @@ body {
 
 h2 {
   font-family: 'Bad Script', cursive;
+  font-weight: normal;
   font-size: 35px;
   text-align: center;
   margin-bottom: 40px;
@@ -50,6 +52,40 @@ h2::after {
   margin: 8px auto 20px;
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, #000), to(transparent));
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  -webkit-animation-name: underline;
+          animation-name: underline;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline {
+  0% {
+    width: 10%;
+  }
+  80% {
+    width: 20%;
+  }
+  100% {
+    width: 20%;
+  }
+}
+
+@keyframes underline {
+  0% {
+    width: 10%;
+  }
+  80% {
+    width: 20%;
+  }
+  100% {
+    width: 20%;
+  }
 }
 
 p {
@@ -155,6 +191,19 @@ Header navigation
   display: none;
 }
 
+@media screen and (max-width: 1024px) {
+  .header .pc .list a {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .header .pc .list a:hover {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
 @media screen and (max-width: 599px) {
   .header .pc {
     display: none;
@@ -221,7 +270,7 @@ Header navigation
     transition: left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out, left 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-    background-image: url(../img/hum-bg.jpg);
+    background-image: url(../img/parts/hum-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     opacity: .97;
@@ -237,7 +286,7 @@ Header navigation
   }
   .header .mb .menu .list .list-item a {
     display: block;
-    padding: 20px;
+    padding: 20px 10px;
     color: #fff;
     font-size: 27px;
     font-family: 'Bubbler One', sans-serif;
@@ -342,6 +391,40 @@ Header navigation
   background: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
   margin: 15px auto 0;
   width: 100%;
+  -webkit-animation-name: underline-top;
+          animation-name: underline-top;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes underline-top {
+  0% {
+    width: 60%;
+  }
+  80% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes underline-top {
+  0% {
+    width: 60%;
+  }
+  80% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 .wrapper .top .content p {
@@ -433,11 +516,213 @@ Header navigation
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
+/*-------------------------------------
+Contact
+--------------------------------------*/
+.contact {
+  background: linear-gradient(#fff, #fff 140px, #f5f5f5 140px, #f5f5f5);
+}
+
+.contact .container {
+  width: 90%;
+  padding: 60px 0 50px;
+  margin-top: 0;
+}
+
+.contact .container .contact-form {
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.contact .container .contact-form-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contact .container .contact-form-left, .contact .container .contact-form-right {
+  width: 50%;
+  margin-bottom: 35px;
+  min-height: 585px;
+}
+
+.contact .container .contact-form-label {
+  text-align: left;
+}
+
+.contact .container .contact-form label {
+  cursor: pointer;
+  display: block;
+  float: left;
+  width: 90%;
+}
+
+.contact .container .contact-form label.contact-form-label-type {
+  width: 85%;
+  margin: 5px auto;
+  padding: 5px;
+  padding-left: 10px;
+  -webkit-box-shadow: 0 0 3px 3px #eee;
+          box-shadow: 0 0 3px 3px #eee;
+  background-color: #efefef;
+}
+
+.contact .container .contact-form-underline:after {
+  content: "";
+  display: block;
+  width: 88%;
+  height: 1px;
+  background-color: #aaa;
+  margin-bottom: 5px;
+}
+
+.contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-type, .contact .container .contact-form-content {
+  border: 1px solid #bcc7d7;
+}
+
+.contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
+  height: 2em;
+  margin-bottom: 20px;
+  color: #ea5550;
+}
+
+.contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  line-height: 1.5em;
+}
+
+.contact .container .contact-form-name:focus, .contact .container .contact-form-email:focus, .contact .container .contact-form-content:focus {
+  outline: none;
+}
+
+.contact .container .contact-form-type {
+  overflow: hidden;
+}
+
+.contact .container .contact-form-type.type-work {
+  margin-left: 1em;
+}
+
+.contact .container .contact-form-content {
+  width: 90%;
+  height: 90%;
+  resize: none;
+}
+
+.contact .container .contact-form-submit {
+  width: 100px;
+  height: 44px;
+  margin-top: 60px;
+  padding: 10px 20px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  border: 1px solid #aaa;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  outline: none;
+}
+
+.contact .container .contact-form-submit:hover {
+  cursor: pointer;
+}
+
+.contact .container .contact-form-submit:active {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+  margin-top: 63px;
+  height: 41px;
+  color: #000;
+}
+
+.contact .container .contact-form-submit-center {
+  text-align: center;
+}
+
+/* =============================================
+タブレット
+============================================= */
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+  /*-------------------------------------
+  Contact
+  --------------------------------------*/
+  .contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}
+
+/* =============================================
+モバイル用
+============================================= */
+@media screen and (max-width: 599px) {
+  /*-------------------------------------
+  Contact
+  --------------------------------------*/
+  .contact .container {
+    width: 90%;
+    padding: 60px 0 50px;
+  }
+  .contact .container .contact-form {
+    margin: 0 auto;
+    padding: 30px;
+  }
+  .contact .container .contact-form-left, .contact .container .contact-form-right {
+    width: 100%;
+    min-height: auto;
+  }
+  .contact .container .contact-form-label {
+    text-align: left;
+  }
+  .contact .container .contact-form label {
+    width: 90%;
+  }
+  .contact .container .contact-form label.contact-form-label-type {
+    width: 90%;
+  }
+  .contact .container .contact-form-underline:after {
+    width: 95%;
+  }
+  .contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
+    font-size: 12px;
+    margin-bottom: 30px;
+  }
+  .contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
+    width: 90%;
+  }
+  .contact .container .contact-form-content {
+    width: 90%;
+    height: 280%;
+  }
+  .contact .container .contact-form-submit {
+    margin-top: 360px;
+  }
+  .contact .container .contact-form-submit:active {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    margin-top: 363px;
+    height: 41px;
+  }
+}
+
 /* =============================================
   Footer
   ============================================= */
 .footer {
   width: 100%;
+  background-color: #f5f5f5;
+  position: relative;
+  height: 90px;
 }
 
 .footer .rain {
@@ -449,12 +734,18 @@ Header navigation
   position: absolute;
   text-align: center;
   width: 100%;
-  top: 67%;
+  bottom: -60px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 1;
   color: #fff;
+  background-color: #444;
+  height: 60px;
+}
+
+.footer .content .footer-link-list .footer-link-item a {
+  color: #fff;
+  font-size: 14px;
 }
 
 /* logo */
@@ -489,10 +780,6 @@ Header navigation
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.logo-desc {
-  font-size: 6px;
-}
-
 .logo-twitter {
   margin-top: 3px;
 }
@@ -503,6 +790,19 @@ Header navigation
   top: -5px;
   right: 100px;
 } */
+@media screen and (max-width: 1024px) {
+  .logo li {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .logo li:hover {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
 @media screen and (max-width: 599px) {
   html,
   body {
@@ -524,10 +824,6 @@ Header navigation
   .top .down-allow {
     -webkit-transform: translateX(-48%);
             transform: translateX(-48%);
-  }
-  .logo li:hover {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
   }
 }
 
@@ -568,7 +864,7 @@ Header navigation
           transform: translate(0, 50px);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
   .scroll-fadein.invisible {
     -webkit-transform: translate(0, 30px);
             transform: translate(0, 30px);
@@ -585,17 +881,29 @@ Header navigation
 
 /**
   * パララックス
+  * iOSではパララックス未対応のためパララックスを無効にする
   */
 .parallax {
   background-repeat: no-repeat;
   background-position: left top;
-  background-attachment: fixed;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .parallax.top {
-  background-position: 20% top;
-  background-image: url(../img/top.jpg);
+  background-image: url(../img/parts/top.pc.jpg);
+}
+
+@media screen and (max-width: 1024px) {
+  .parallax {
+    background-attachment: unset;
+  }
+}
+
+@media screen and (max-width: 1024px) and (max-width: 599px) {
+  .parallax.top {
+    background-image: url(../img/parts/top.mb.jpg);
+  }
 }
 
 /**
@@ -610,11 +918,20 @@ Header navigation
   position: fixed;
   right: 40px;
   bottom: 40px;
+  z-index: 1;
+}
+
+.to-top:hover {
+  background-color: rgba(135, 206, 250, 0.6);
 }
 
 .to-top a {
   display: block;
-  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .to-top a:hover {
@@ -622,21 +939,15 @@ Header navigation
 }
 
 .to-top a::after {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: '\f106';
-  font-size: 32px;
-  color: #fff;
+  content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
-  top: 65%;
+  width: 15px;
+  height: 15px;
+  top: 60%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  text-align: center;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
 }
 /*# sourceMappingURL=common.css.map */

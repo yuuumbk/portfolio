@@ -3,22 +3,32 @@
 $(function () {
 
   /**
+   * ヘッダー分コンテンツを下げる
+   */
+
+  // var headerHeight = $('#header').outerHeight();
+  // $('#top').css({
+  //   marginTop: headerHeight,
+  // });
+
+
+
+  /**
    * ハンバーガー
    */
 
   var humBtn = '.mb .ham-btn',
-    link = '.mb .menu .list .list-item a',
-    navMb = 'nav.mb';
+    link = '.mb .menu .list .list-item a';
 
   $(humBtn).add(link).on('click', function () {
     $('.menu, .ham-btn-line').toggleClass('open');
   });
 
-  //　ナビゲーションの外側がタップされた時、ナビゲーションを閉じる
+  // ナビゲーションの外側がタップされた時、ナビゲーションを閉じる→タップされた場所に限らず時は閉じるように変更
   $(document).on('click', function (e) {
     var $target = $(e.target);
 
-    if (!$target.closest(navMb).length) {//外側
+    if (!$target.closest(humBtn).length) {
       $('.menu, .ham-btn-line').removeClass('open');
     }
   });
@@ -37,7 +47,7 @@ $(function () {
     density: 0,
     rippleSpeed: 0.002,
     canvasWidth: 2000,
-    canvasHeight: 100,
+    canvasHeight: 150,
     positionBottom: 0,
     positionLeft: 0
   });
@@ -76,8 +86,8 @@ $(function () {
 
       /**
        * スクロール時のフェードイン処理
-       * @param {*} delay
        */
+
       function fadeIn() {
         var scrollAmount = $(window).scrollTop();
 
@@ -190,44 +200,128 @@ $(function () {
   }));
 
 
+  /**
+   * スキルスライドショーjs有効であれば表示
+   */
+
+  $('.glide__track, .glide__arrow').css({
+    display: 'block',
+  });
+
+
 
   /**
    * スキル一覧の表示
    * PCの時のみ
    */
 
-  if (window.matchMedia('(min-width: 1025px)').matches) {
+  // 初期表示数
+  // if (window.matchMedia('(min-width: 1025px)').matches) { // PC
+  //   var defaultNum = 2;
+  // } else { // モバイル
+  //   var defaultNum = 4;
+  // }
 
-    var $list = $('.mb .skill-list'),
-      $moreBtn = $('.skill-more-btn'),
-      $skillBtn = $('a[href^="#skill"]'),
-      $clickBtn = $('.skill-click'),
-      $closeBtn = $('.skill-close-btn'),
-      defaultNum = 2,// 初期表示数
-      hiddenList = 'li:not(:lt(' + defaultNum + '))';
+  var $mb = $('.skills .mb'),
+    $list = $mb.find('.skill-list'),
+    $item = $list.find('.skill-item'),
+    $moreBtn = $('.skill-more-btn'),
+    $skillBtn = $('a[href^="#skill"]'),
+    $clickBtn = $('.skill-click'),
+    $closeBtn = $('.skill-close-btn'),
+    defaultNum = 4,// 初期表示数
+    hiddenList = 'li:not(:lt(' + defaultNum + '))';
 
-    $('.skill-more-btn').show();
+  // defaultNum分以外は非表示
+  $list.find(hiddenList).hide();
+  $list.addClass('has-skill-btn');
 
-    // defaultNum分以外は非表示
-    $list.find(hiddenList).hide();
-    $list.addClass('has-skill-btn');
+  skillBtn();
 
-    // スキルボタン・クリックボタン・詳細ボタンが押された時の挙動
+  // ウィンドウ幅が変更されたら実行
+  $(window).resize(function () {
+    skillBtn();
+  });
+
+  /**
+   * ウィンドウ幅に応じて表示するボタンを変える
+   */
+
+  function skillBtn() {
+    if (window.matchMedia('(min-width: 1025px)').matches) { // PC
+      $moreBtn.show();
+      if (!$list.filter('.has-skill-btn').length) {
+        $moreBtn.hide();
+      }
+
+      clickBtn('pc');
+      closeBtn('pc');
+    } else { // モバイル
+      $moreBtn.show();
+      if (!$list.filter('.has-skill-btn').length) {
+        $moreBtn.hide();
+      }
+
+      clickBtn('mb');
+      closeBtn('mb');
+    }
+  }
+
+  /**
+   * スキルボタン・クリックボタン・詳細ボタンが押された時の処理
+   */
+
+  var WorkListOffset = $list.offset().top,
+    defaultNumWorkOffset = $item.eq(defaultNum - 1).offset().top;
+
+  function clickBtn() {
     $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
+      // 余白を調整
+      $mb.css({ marginBottom: 0 });
+      // 下部のグラデーションを消し要素を完全に表示
       $list.removeClass('has-skill-btn');
-      $list.find('li').fadeIn();
+      // 全ての要素を表示
+      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('invisible').addClass('visible').show();
+      // 上部のcloseボタンの位置の調節
+      $('.skill-close-btn-height').css({ height: 0 });
+      // ボタンの表示設定
       $moreBtn.hide();
       $closeBtn.fadeIn();
     });
+  }
 
-    // 閉じるボタンが押された時の挙動
+  /**
+   * 閉じるボタンが押された時の処理
+   */
+  function closeBtn() {
     $closeBtn.on('click', function () {
+      // 余白を調整
+      $mb.css({ marginBottom: 160 });
+      // 下部にグラデーションをつけてだんだん非表示にする
       $list.addClass('has-skill-btn');
-      $list.find('li:not(:lt(' + defaultNum + '))').fadeOut();
+      // defaultNum分以外の要素を非表示に
+      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('visible').addClass('invisible').hide();
+      // 上部のcloseボタンの位置の調節
+      $('.skill-close-btn-height').css({ height: '86px' });
+      //ボタンの表示設定
       $closeBtn.hide();
-      $moreBtn.fadeIn();
+      $moreBtn.show();
+
+      // Safariで下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
+      // まず、defaultNumの一番下の要素の位置に移動する
+      $('html, body').scrollTop(defaultNumWorkOffset);
+      // 次に、一番上の要素までduration秒でスクロールする
+      var duration = 300,
+        easing = 'swing';
+
+      // モバイル端末にて、スクロール後スクロールが効かなくなることがある他、え
+      // stop()で対応
+      $('html, body').stop().animate({
+        scrollTop: WorkListOffset - 65,
+      }, duration, easing);
     });
   }
+
 
 
 
@@ -250,6 +344,7 @@ $(function () {
     'about',
     'skills',
     'works',
+    'contact',
   ];
 
   // to-skill-
@@ -299,7 +394,7 @@ $(function () {
       var target = this.hash,
         $target = $(target);
 
-      $('html, body').animate({
+      $('html, body').stop().animate({
         'scrollTop': $target.offset().top - offset,
       }, duration, easing);
     });
@@ -350,6 +445,7 @@ $(function () {
 
   //最も高いスキルリストの高さ
   var maxHeight = getMaxHeight();
+
   $('.skill-item').each(function () {
     $(this).css({
       height: maxHeight,
@@ -395,5 +491,307 @@ $(function () {
 
   $('.glide__slide:not(:has(.sub-skill))').each(function () {
     $(this).addClass('not-has-sub-skill');
+  });
+
+
+
+  /**
+   * workのポップアップ
+   */
+
+  var work = '.works-library .work',
+    $work = $(work),
+    $overlay = $('.overlay'),
+    $hidden = $('.hidden'),
+    detailView = 'detail-view';
+
+  workPopUp();
+
+  // ウィンドウ幅が変更されたら再度実行
+  $(window).resize(function () {
+    workPopUp();
+  })
+    .scroll(function () {
+      workPopUp();
+    });
+
+  /**
+   * workのポップアップ処理
+   */
+
+  function workPopUp() {
+
+    if (window.matchMedia('(min-width: 600px)').matches) { // PC・タブレット
+
+      $work.on('click', function () {
+        // ポップアップを表示
+        var clone = $(this).clone();
+        $overlay.find('.hidden').append(clone);
+
+        // オーバーレイを表示し、後ろを暗くする
+        $overlay.addClass(detailView);
+
+        // スクロールを禁止させる
+        $('html').css({ overflow: 'hidden' });
+      });
+
+      $overlay.css({
+        top: $(window).scrollTop() - 48,
+        height: ' calc(100vh + 48px)',
+      });
+
+      $overlay.on('click', function () {
+        // オーバーレイを非表示にする
+        $overlay.removeClass(detailView).find('.hidden').empty();
+
+        // スクロール禁止を解除
+        $('html').css({ overflow: 'auto' });
+      });
+
+      // 親要素（overlay）のclick継承されて、期待通りの動作をしないため、
+      // stopPropagation()で親要素のイベントの発火を抑える
+      $hidden.on('click', function (e) {
+        e.stopPropagation();
+      });
+    } else { // mb
+      $work.off();
+      $overlay.off();
+      // スクロール禁止を解除
+      $('html').css({ overflow: 'auto' });
+    }
+  }
+
+
+
+  /**
+   * Works スマートフォン用more&closeボタン
+   * 押されたボタンを含むworkのみを対象とする
+   */
+
+  var $workMoreBtn = $('.work-allow-more');
+
+  workMoreAndCloseBtn();
+
+  /**
+   * work more close ボタン関係の処理
+   */
+
+  function workMoreAndCloseBtn() {
+
+    // ボタンが押されたworkのoffsetを格納
+    var workOffsets = [];
+
+    $workMoreBtn.each(function () {
+      var index = $(this).parent().index(),// 何番目のworkか取得
+        workOffset = $(this).offset().top;// 要素のスクロール量を取得
+      // スクロール量を対応する場所に格納
+      // ※470は調整のため
+      workOffsets[index] = workOffset - 470;
+    });
+
+    $workMoreBtn.on('click', function () {
+      var index = $(this).parent().index();// 何番目のworkか取得
+
+      if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
+        $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
+        $(this).parent().addClass(detailView);
+      } else {// closeボタンが押された時
+        $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
+        $(this).parent().removeClass(detailView);
+      }
+
+      // スクロール料を配列から取り出し、その位置にスクロールさせる
+      // display:flex;の関係か、意図した位置を取得できていないため、
+      // workOffsetsは相対位置として利用する
+      var duration = 300,
+        easing = 'easeInOutCirc';
+
+      $('html, body').animate({
+        scrollTop: workOffsets[index],
+      }, duration, easing);
+    });
+  }
+
+  /**
+   * メールフォーム
+   */
+
+  /**
+   * validation
+   */
+
+  // verification options
+
+  var verificationOptions = {
+    rules: {
+      name: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      type: {
+        required: true,
+      },
+      content: {
+        required: true,
+      }
+    },
+    messages: {
+      name: {
+        required: 'お名前が未入力です。',
+      },
+      email: {
+        required: 'メールアドレスが未入力です。',
+        email: 'メールアドレスが正しくありません。',
+      },
+      type: {
+        required: 'お問い合わせ種別が未選択です。',
+      },
+      content: {
+        required: 'お問い合わせ内容が未入力です。',
+      }
+    },
+    errorPlacement: function (error, element) {
+      error.appendTo(element.data('error_placement'));
+    }
+  }
+
+  // コンタクトフォームのinputオブジェクト
+  var $contactFormName = $('#contact-form-name'),
+    $contactFormEmail = $('#contact-form-email'),
+    $contactFormType = $('.contact-form-type'),
+    $contactFormContent = $('#contact-form-content'),
+    $contactFormSubmit = $('.contact-form-submit');
+
+  // フォーカスが外れた時にバリデーション
+  $('.contact-form').validate(verificationOptions);
+
+  // バリデーションOKだった場合は枠を緑色にする。
+  //          NGだった場合は枠を赤色にする。
+
+  // name, content
+  $contactFormName.add($contactFormContent).each(function () {
+    // キーが離された時
+    $(this).keyup(function () {
+      if ($(this).valid()) {
+        $(this).css({
+          border: '1px solid #65ab31',
+        });
+      } else {
+        $(this).css({
+          border: '1px solid #ea5550',
+        });
+      }
+    });
+
+    // フォーカスが外れた時
+    $(this).blur(function () {
+      if ($(this).valid()) {
+        $(this).css({
+          border: '1px solid #65ab31',
+        });
+      } else {
+        $(this).css({
+          border: '1px solid #ea5550',
+        });
+      }
+    });
+  });
+
+  // email
+  $contactFormEmail.each(function () {
+    $(this).blur(function () {
+      if ($(this).valid()) {
+        $(this).css({
+          border: '1px solid #65ab31',
+        });
+      } else {
+        $(this).css({
+          border: '1px solid #ea5550',
+        });
+      }
+    });
+  });
+
+  // type
+  // 変更されたことがある（=何かしらにチェックが入っている）かのフラグ
+  var typeChanged = false;
+  $contactFormType.each(function () {
+    $(this).change(function () {
+      // 擬似要素はjsからは変更できないため、styleに直接記述する
+      $('style').html('.contact-form-underline:after {background-color: #65ab31 !important;}');
+      typeChanged = true;
+    });
+  });
+
+  $contactFormSubmit.on('click', function (e) {
+    e.preventDefault();
+
+    // ボタンが押された時にバリデーション
+    $('.contact-form').validate(verificationOptions);
+
+    // バリデーションでエラーが出たら送信しない
+    var flag = true;
+
+    // name
+    if (!$contactFormName.valid()) {
+      $contactFormName.css({
+        border: '1px solid #ea5550',
+      });
+      flag = false;
+    }
+    // email
+    if (!$contactFormEmail.valid()) {
+      $contactFormEmail.css({
+        border: '1px solid #ea5550',
+      });
+      flag = false;
+    }
+    // content
+    if (!$contactFormContent.valid()) {
+      $contactFormContent.css({
+        border: '1px solid #ea5550',
+      });
+      flag = false;
+    }
+    // radio(only style)
+    if (!typeChanged) {
+      // 擬似要素はjsからは変更できないため、styleに直接記述する
+      $('style').html('.contact-form-underline:after {background-color: #ea5550 !important;}');
+    }
+    // その他radioなど
+    if (!$('.contact-form').valid()) {
+      flag = false;
+    }
+
+    if (!flag) {
+      return;
+    }
+
+    // 送信内容
+    var name = $contactFormName.val(),
+      email = $contactFormEmail.val(),
+      type = $('#contact-form-type:checked').val(),
+      message = $contactFormContent.val();
+
+    //debug
+    // console.log(name);
+    // console.log(email);
+    // console.log(type);
+    // console.log(message);
+
+    // $.ajax({
+    //   url: "https://formspree.io/f/xknkorgp",
+    //   method: "POST",
+    //   dataType: "json",
+    //   data: {
+    //     お名前: name,
+    //     メールアドレス: email,
+    //     お問い合わせ種別: type,
+    //     お問い合わせ内容: message,
+    //   }
+    // });
   });
 });
