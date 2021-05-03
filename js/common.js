@@ -40,19 +40,30 @@ $(function () {
    * raindrops
    */
 
-  $('.rain').raindrops({
-    color: '#444',
-    waveLength: 400,
-    frequency: 5,
-    waveHeight: 80,
-    density: 0,
-    rippleSpeed: 0.002,
-    canvasWidth: 2000,
-    // フッターの高さ
-    canvasHeight: 100,
-    positionBottom: 0,
-    positionLeft: 0
-  });
+  // 処理が重いため、一度フッターが画面に入るまで開始しない
+  // →パフォーマンスにそこまで影響を与えないため、現在は無効
+
+  // $(window).on('scroll', $.throttle(1000, function () {
+  //   var scrollAmount = $(window).scrollTop(),
+  //     windowHeight = $(window).height(),
+  //     footerOffset = $('#footer').offset().top;
+
+  //   if((scrollAmount + windowHeight + 500) >= footerOffset){
+      $('.rain').raindrops({
+        color: '#444',
+        waveLength: 400,
+        frequency: 5,
+        waveHeight: 80,
+        density: 0,
+        rippleSpeed: 0.002,
+        canvasWidth: 2000,
+        // フッターの高さ
+        canvasHeight: 100,
+        positionBottom: 0,
+        positionLeft: 0
+      });
+    // }
+  // }));
 
 
 
@@ -146,37 +157,12 @@ $(function () {
     'contact',
   ];
 
-  // to-skill-
-  // 変更が生じた場合は、
-  var smoothToSkill = [
-    'HTML5',
-    'CSS3',
-    'Sass',
-    'JavaScript',
-    'jQuery',
-    'PHP',
-    'Laravel',
-    'Ruby',
-    'Python',
-    'DB',
-    'MySQL',
-    'GitHub',
-    'Docker',
-  ];
-
   $.each(smooth, function (i, val) {
     smoothScroll('.' + val);
   });
 
   $.each(smoothTo, function (i, val) {
     smoothScroll('.to-' + val);
-  });
-
-  $.each(smoothToSkill, function (i, val) {
-    var offset = 65;
-
-    // リストが完全表示されていない時にスクロールしようとするとエラーとなるのを防ぐ
-    setTimeout(smoothScroll('.to-skill-' + val, offset), 200);
   });
 
   /**
@@ -264,11 +250,11 @@ $(function () {
 
   // Added non-passive event listener to a scroll-blocking 'touchstart' event. Consider marking event handler as 'passive' to make the page more responsive.
 
-  jQuery.event.special.touchstart = {
-    setup: function (_, ns, handle) {
-      this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
-    }
-  };
+  // jQuery.event.special.touchstart = {
+  //   setup: function (_, ns, handle) {
+  //     this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+  //   }
+  // };
 
   // フォーカスが外れた時にバリデーション
   $('.contact-form').validate(verificationOptions);

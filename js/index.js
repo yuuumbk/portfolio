@@ -9,7 +9,7 @@ $(function () {
   var glide = new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
-    hoverpause: false,
+    hoverpause: true,
     peek: {
       before: 50,
       after: 50
@@ -107,18 +107,18 @@ $(function () {
     $list = $mb.find('.skill-list'),
     $item = $list.find('.skill-item'),
     $moreBtn = $('.skill-more-btn'),
-    $skillBtn = $('a[href^="#skill"]'),
+    skillAnchor = 'a[href^="#skill"]',
+    $skillBtn = $(skillAnchor),
     $clickBtn = $('.skill-click'),
     $closeBtn = $('.skill-close-btn'),
     defaultNum = 4,// 初期表示数
     hiddenList = 'li:not(:lt(' + defaultNum + '))';
 
   // defaultNum分以外は非表示
-  $list.find(hiddenList).hide();
+  // $list.find(hiddenList).hide();
   $list.addClass('has-skill-btn');
 
-  skillBtn();
-
+  // ウィンドウ幅に応じて表示するボタンを変える
   // ウィンドウ幅が変更されたら実行
   var skillBtnTimer = 0;
 
@@ -130,7 +130,7 @@ $(function () {
     skillBtnTimer = setTimeout(function(){
       skillBtn();
     },1000);
-  });
+  }).trigger('resize');
 
   /**
    * ウィンドウ幅に応じて表示するボタンを変える
@@ -142,48 +142,87 @@ $(function () {
       if (!$list.filter('.has-skill-btn').length) {
         $moreBtn.hide();
       }
-
-      clickBtn('pc');
-      closeBtn('pc');
     } else { // モバイル
       $moreBtn.show();
       if (!$list.filter('.has-skill-btn').length) {
         $moreBtn.hide();
       }
-
-      clickBtn('mb');
-      closeBtn('mb');
     }
+
+    clickBtn();
+    closeBtn();
   }
 
   /**
    * スキルボタン・クリックボタン・詳細ボタンが押された時の処理
    */
 
+  // スクロール先
   var WorkListOffset = $list.offset().top,
     defaultNumWorkOffset = $item.eq(defaultNum - 1).offset().top;
 
   function clickBtn() {
-    $skillBtn.add($clickBtn).add($moreBtn).on('click', function () {
-      // 余白を調整
-      $mb.css({ marginBottom: 0 });
-      // 下部のグラデーションを消し要素を完全に表示
-      $list.removeClass('has-skill-btn');
-      // 全ての要素を表示
-      $list.find('li:gt(' + (defaultNum - 1) + ')').removeClass('invisible').addClass('visible').show();
-      // 上部のcloseボタンの位置の調節
-      $('.skill-close-btn-height').css({ height: 0 });
-      // ボタンの表示設定
-      $moreBtn.hide();
-      $closeBtn.fadeIn();
+    $skillBtn.add($clickBtn).add($moreBtn).each(function(){
+    // $clickBtnは$skillBtnに含まれるため削除↑
+    // なお、削除されない場合、重複してイベントが発生する
+    // $skillBtn.add($moreBtn).each(function () {
+      $(this).on('click', function (e) {
+        // #で移動されるのを防ぐ
+        e.preventDefault();
+
+        // 全ての要素を表示
+        $list.find('li:gt(' + (defaultNum - 1) + ')')
+          .removeClass('invisible')
+          .addClass('visible').show();
+        // 余白を調整
+        $mb.css({ marginBottom: 0 });
+        // 下部のグラデーションを消し要素を完全に表示
+        $list.removeClass('has-skill-btn');
+        // 上部のcloseボタンの位置の調節
+        $('.skill-close-btn-height').css({ height: 0 });
+
+        // ボタンの表示設定
+        $moreBtn.hide();
+        $closeBtn.fadeIn();
+
+        // $skillBtnの時のみスムーズスクロールする
+        if (!$(this).filter('.skill-more-btn').length) {
+          if(!$(this).filter('.skill-click').length) {
+            var clickTarget = this.hash;
+          } else {
+            var clickTarget = $(this).parent().find(skillAnchor).attr('href');
+          }
+          smoothScrollSkill(clickTarget);
+        }
+      });
     });
   }
 
   /**
+   * スムーズスクロール（スキル用）
+   * @param {*} target 対象要素を指定
+   * @param {*} offset スクロール時に上に指定分余白を開ける（ナビゲーションと重ならないようにするため）
+   * @param {*} duration アニメーション時間
+   * @param {*} easing アニメーション緩急
+   */
+
+  function smoothScrollSkill(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
+
+    var $target = $(target);
+
+    $('html, body').stop().animate({
+      'scrollTop': $target.offset().top - offset,
+    }, duration, easing);
+  }
+
+
+
+  /**
    * 閉じるボタンが押された時の処理
    */
+
   function closeBtn() {
-    $closeBtn.on('click', function () {
+    $closeBtn.on('click', function (e) {
       // 余白を調整
       $mb.css({ marginBottom: 160 });
       // 下部にグラデーションをつけてだんだん非表示にする
@@ -207,58 +246,6 @@ $(function () {
       // stop()で対応
       $('html, body').stop().animate({
         scrollTop: WorkListOffset - 65,
-      }, duration, easing);
-    });
-  }
-
-
-
-  /**
-   * スキルのスライド
-   * clickを促すボタンのスクロール処理
-   */
-
-     // to-skill-
-  var smoothToSkill = [
-    'HTML5',
-    'CSS3',
-    'Sass',
-    'JavaScript',
-    'jQuery',
-    'PHP',
-    'Laravel',
-    'Ruby',
-    'Python',
-    'DB',
-    'MySQL',
-    'GitHub',
-    'Docker',
-  ];
-
-  $.each(smoothToSkill, function (i, val) {
-    var offset = 65;
-
-    smoothScrollSkillClick('.to-skill-' + val + ' .skill-click', offset);
-  });
-
-  /**
-   * スムーズスクロール　スキルクリック限定版
-   * パラメータはスライドのスムーズスクロールと同期している。
-   * @param {*} target 対象要素を指定
-   * @param {*} offset スクロール時に上に指定分余白を開ける（ナビゲーションと重ならないようにするため）
-   * @param {*} duration アニメーション時間
-   * @param {*} easing アニメーション緩急
-   */
-
-  function smoothScrollSkillClick(target, offset = 150, duration = 800, easing = 'easeInOutCirc') {
-    $(target).on('click', function (e) {
-      e.preventDefault();
-
-      var target = $(this).next().attr("href"),//スライドのaリンクを参照
-        $target = $(target);
-
-      $('html, body').animate({
-        'scrollTop': $target.offset().top - offset,
       }, duration, easing);
     });
   }
