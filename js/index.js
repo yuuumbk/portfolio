@@ -120,8 +120,16 @@ $(function () {
   skillBtn();
 
   // ウィンドウ幅が変更されたら実行
+  var skillBtnTimer = 0;
+
   $(window).resize(function () {
-    skillBtn();
+    if (skillBtnTimer > 0){
+      clearTimeout(skillBtnTimer);
+    }
+
+    skillBtnTimer = setTimeout(function(){
+      skillBtn();
+    },1000);
   });
 
   /**
@@ -327,12 +335,20 @@ $(function () {
   workPopUp();
 
   // ウィンドウ幅が変更されたら再度実行
+  var workPopUpTimer = 0;
+
   $(window).resize(function () {
-    workPopUp();
-  })
-    .scroll(function () {
+    if (workPopUpTimer > 0) {
+      clearTimeout(workPopUpTimer);
+    }
+
+    workPopUpTimer = setTimeout(function () {
       workPopUp();
-    });
+    }, 1000);
+  })
+  .scroll(function () {
+    workPopUp();
+  });
 
   /**
    * workのポップアップ処理
@@ -368,7 +384,6 @@ $(function () {
           display: 'none',
         })
         .removeClass(detailView).find('.hidden').empty();
-        console.log('overlay');
 
         // スクロール禁止を解除
         $('html').css({ overflow: 'auto' });

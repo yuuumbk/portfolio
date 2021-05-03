@@ -262,6 +262,14 @@ $(function () {
     $contactFormSubmit = $('.contact-form-submit'),
     $contactFormSubmitMessage = $contactFormSubmit.next();
 
+  // Added non-passive event listener to a scroll-blocking 'touchstart' event. Consider marking event handler as 'passive' to make the page more responsive.
+
+  jQuery.event.special.touchstart = {
+    setup: function (_, ns, handle) {
+      this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+    }
+  };
+
   // フォーカスが外れた時にバリデーション
   $('.contact-form').validate(verificationOptions);
 
@@ -392,18 +400,18 @@ $(function () {
       type = $('.contact-form-type:checked').val(),
       message = $contactFormContent.val();
 
-    //送信処理
-    // $.ajax({
-    //   url: "https://formspree.io/f/xknkorgp",
-    //   method: "POST",
-    //   dataType: "json",
-    //   data: {
-    //     お名前: name,
-    //     メールアドレス: email,
-    //     お問い合わせ種別: type,
-    //     お問い合わせ内容: message,
-    //   }
-    // });
+    送信処理
+    $.ajax({
+      url: "https://formspree.io/f/xknkorgp",
+      method: "POST",
+      dataType: "json",
+      data: {
+        お名前: name,
+        メールアドレス: email,
+        お問い合わせ種別: type,
+        お問い合わせ内容: message,
+      }
+    });
 
     // 送信をしたのでフラグをtrueにして、同内容の複数送信を防ぐ。
     submitFlag = true;
