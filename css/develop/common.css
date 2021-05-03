@@ -90,15 +90,42 @@ h2::after {
 
 p {
   text-indent: 1em;
+  text-align: justify;
 }
 
 a {
   text-decoration: none;
   color: #000;
+  position: relative;
+  text-indent: 0;
 }
 
 a:hover {
   cursor: pointer;
+}
+
+a[target="_blank"] {
+  color: #ed6d35;
+  text-decoration: underline;
+}
+
+a[target="_blank"]::after {
+  content: url(../img/parts/blank.svg);
+  display: inline-block;
+  margin: auto 2px;
+  width: 16px;
+}
+
+a[target="_blank"]:hover {
+  opacity: .7;
+}
+
+a[target="_blank"]:visited {
+  color: #bd6856;
+}
+
+a.remove-icon::after {
+  content: none;
 }
 
 img {
@@ -365,7 +392,7 @@ Header navigation
 
 .wrapper .top {
   position: relative;
-  height: 100%;
+  height: 102%;
 }
 
 .wrapper .top .content {
@@ -785,8 +812,8 @@ Contact
   width: 100%;
   bottom: -60px;
   left: 50%;
-  -webkit-transform: translate(-51%, -50%);
-          transform: translate(-51%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   color: #fff;
   background-color: #444;
   height: 60px;
@@ -962,7 +989,7 @@ Contact
   background-color: rgba(135, 206, 250, 0.8);
   width: 50px;
   height: 50px;
-  border-radius: 40% 40% 50% 40%/50% 50% 50% 50%;
+  border-radius: 45% 35% 50% 40%/50% 50% 50% 50%;
   opacity: 0.7;
   position: fixed;
   right: 40px;

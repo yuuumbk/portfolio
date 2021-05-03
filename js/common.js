@@ -14,6 +14,14 @@ $(function () {
 
 
   /**
+   * target="_blank"が指定されている画像はアイコンを非表示に
+   */
+
+  $('a[target="_blank"]').has('img').addClass('remove-icon');
+
+
+
+  /**
    * 外部リンクから、特定の位置（#skillsなど）に飛んできた時に、headerの高さの影響を受けずに位置を決める
    * 今後、ページが増えた場合、各ページのhashListを動的に変更した方がよい
    */

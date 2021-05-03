@@ -216,7 +216,7 @@ About
 
 .about-name {
   text-align: center;
-  font-size: 36px;
+  font-size: 32px;
   padding: 10px;
   line-height: 1.2em;
 }
@@ -225,6 +225,8 @@ About
   text-indent: 0;
   margin-bottom: 20px;
   font-family: 'Bad Script', cursive;
+  font-weight: normal;
+  text-align: center;
 }
 
 .about-name .name-en::after {
@@ -893,6 +895,7 @@ Skills
 .skills .container .mb .skill-list .skill-item .skill-desc p {
   line-height: 1.5em;
   padding: 20px 10px;
+  margin-bottom: 20px;
   text-align: justify;
 }
 
@@ -1161,13 +1164,22 @@ Overlay
   }
 }
 
-.overlay.detail-view .hidden .work-description a {
-  color: #ed6d35;
-  text-decoration: underline;
+.overlay.detail-view .hidden .work-description .used-skill-list {
+  margin-top: 20px;
+  /* 要素同士の隙間が開くのを防ぐ */
+  letter-spacing: -0.5em;
 }
 
-.overlay.detail-view .hidden .work-description a:hover {
-  opacity: .7;
+.overlay.detail-view .hidden .work-description .used-skill-list .used-skill-item {
+  display: inline-block;
+  letter-spacing: normal;
+  padding: 0 10px;
+  margin: -10px auto;
+  color: #aaa;
+}
+
+.overlay.detail-view .hidden .work-description .used-skill-list .used-skill-item + .used-skill-item {
+  border-left: 1px solid #ccc;
 }
 
 .overlay.detail-view .hidden .work-description .work-url {
@@ -1577,6 +1589,7 @@ Overlay
     line-height: 1.5em;
     letter-spacing: .2em;
     padding: 10px 10px;
+    margin-bottom: 0;
   }
   /*-------------------------------------
   Works
@@ -1724,9 +1737,6 @@ Overlay
   .works-library .work.detail-view .detail-view-content {
     display: block;
   }
-  .works-library .work.detail-view .not-detail-view-content {
-    display: none;
-  }
   .works-library .work.detail-view .work-thumbnail {
     height: auto;
   }
@@ -1817,6 +1827,9 @@ Overlay
     /*-------------------------------------
         Works
         --------------------------------------*/
+  }
+  .overlay.detail-view .hidden .work .not-detail-view-content {
+    display: none;
   }
   .overlay.detail-view .hidden .work-thumbnail {
     display: -webkit-box;

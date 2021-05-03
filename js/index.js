@@ -268,30 +268,30 @@ $(function () {
    */
 
   //最も高いスキルリストの高さ
-  var maxHeight = getMaxHeight();
+  var skillItemMaxHeight = getSkillItemMaxHeight();
 
   $('.skill-item').each(function () {
     $(this).css({
-      height: maxHeight,
+      height: skillItemMaxHeight,
     });
   });
 
   /**
    * 最も高いスキルリストの高さを返す
-   * pcの場合、スキルリストはdisplay:noneとなっており、
-   * 高さを取得できないため、この処理の間のみ、リストを表示する
-   * 処理が終わり次第、再度非表示にする
    */
-  function getMaxHeight() {
+  function getSkillItemMaxHeight() {
     var maxHeight,
       $list = $('.mb .skill-list');//エラーが出る場合があるため、こちらでも指定
 
+    // pcの場合、スキルリストはdisplay: noneとなっており、
+    // 高さを取得できないため、この処理の間のみ、リストを表示する
     $list.find(hiddenList).show();
 
     $('.skill-item').each(function () {
       maxHeight = $(this).outerHeight();
     });
 
+    // 処理が終わり次第、再度非表示にする
     $list.find(hiddenList).hide();
 
     return maxHeight;
@@ -368,12 +368,13 @@ $(function () {
 
         // スクロールを禁止させる
         $('html').css({ overflow: 'hidden' });
+
+        $overlay.css({
+          top: $(window).scrollTop() - 48,
+          height: ' calc(100vh + 48px)',
+        });
       });
 
-      $overlay.css({
-        top: $(window).scrollTop() - 48,
-        height: ' calc(100vh + 48px)',
-      });
 
       $overlay.on('click', function () {
         // オーバーレイを非表示にする
@@ -419,15 +420,24 @@ $(function () {
     // ボタンが押されたworkのoffsetを格納
     var workOffsets = [];
 
-    $workMoreBtn.each(function(){
-      var index = $(this).parent().index(),// 何番目のworkか取得
-        workOffset = $(this).offset().top;// 要素のスクロール量を取得
-      // スクロール量を対応する場所に格納
-      // ※470は調整のため
-      workOffsets[index] = workOffset - 470;
-    });
+    // pc->mbにウィンドウ幅をリサイズした際に、スクロール位置がおかしくなる不具合を確認。対処法として、パフォーマンスはやや落ちるが、クリックされるごとに要素のスクロール料を取得するように改善
+    // $workMoreBtn.each(function () {
+    //   var index = $(this).parent().index(),// 何番目のworkか取得
+    //     workOffset = $(this).offset().top;// 要素のスクロール量を取得
+    //   // スクロール量を対応する場所に格納
+    //   // ※ -470は調整のため
+    //   workOffsets[index] = workOffset - 470;
+    //   console.log(workOffset);
+    // });
 
     $workMoreBtn.on('click', function () {
+      $workMoreBtn.each(function () {
+        var index = $(this).parent().index(),// 何番目のworkか取得
+          workOffset = $(this).offset().top;// 要素のスクロール量を取得
+        // スクロール量を対応する場所に格納
+        // ※ -470は調整のため
+        workOffsets[index] = workOffset - 470;
+      });
       var index = $(this).parent().index();// 何番目のworkか取得
 
       if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
