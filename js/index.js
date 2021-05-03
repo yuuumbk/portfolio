@@ -158,7 +158,7 @@ $(function () {
    */
 
   // スクロール先
-  var WorkListOffset = $list.offset().top,
+  var workListOffset = $list.offset().top,
     defaultNumWorkOffset = $item.eq(defaultNum - 1).offset().top;
 
   function clickBtn() {
@@ -235,18 +235,28 @@ $(function () {
       $closeBtn.hide();
       $moreBtn.show();
 
+      var scrollAmount = $(window).scrollTop();
+
       // Safariで下部のcloseボタンを押すと、スクロール量が保持されないバグ対策
       // まず、defaultNumの一番下の要素の位置に移動する
-      $('html, body').scrollTop(defaultNumWorkOffset);
-      // 次に、一番上の要素までduration秒でスクロールする
-      var duration = 300,
-        easing = 'swing';
+      // 上のcloseボタンが押された時は何もしない
+      if (scrollAmount >= workListOffset) {
+        $('html, body').scrollTop(defaultNumWorkOffset);
+      }
 
-      // モバイル端末にて、スクロール後スクロールが効かなくなることがある他、え
+
+
+      // 以下の処理は画面酔いを引き起こす恐れがあるため行わない
+
+      // 次に、一番上の要素までduration秒でスクロールする
+      // var duration = 300,
+      //   easing = 'swing';
+
+      // モバイル端末にて、スクロール後スクロールが効かなくなることへの対処
       // stop()で対応
-      $('html, body').stop().animate({
-        scrollTop: WorkListOffset - 65,
-      }, duration, easing);
+      // $('html, body').stop().animate({
+      //   scrollTop: WorkListOffset - 65,
+      // }, duration, easing);
     });
   }
 

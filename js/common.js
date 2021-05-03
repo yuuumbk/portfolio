@@ -14,6 +14,42 @@ $(function () {
 
 
   /**
+   * 外部リンクから、特定の位置（#skillsなど）に飛んできた時に、headerの高さの影響を受けずに位置を決める
+   * 今後、ページが増えた場合、各ページのhashListを動的に変更した方がよい
+   */
+
+  var hashList = [
+    'service',
+    'about',
+    'skills',
+    'works',
+    'contact',
+  ];
+
+  if (location.hash.length) {// URLにハッシュが含まれている
+    var locationHash = location.hash,
+      locationHashFlag = false;// 適切なハッシュがあったかを判別するフラグ
+
+      //URLからハッシュを削除
+    history.replaceState('', document.title, location.pathname);
+
+    $.each(hashList, function (i) {
+      if (locationHash === '#' + hashList[i]) {
+        locationHashFlag = true;
+        return false;
+      }
+    });
+
+    if (locationHashFlag) {// ハッシュが正しければ、該当する位置にスクロール
+      $('html, body').scrollTop($(locationHash).offset().top - $('#header').outerHeight() * 2.2);
+    } else {// そうでない場合はトップに
+      $('html, body').scrollTop(0);
+    }
+  }
+
+
+
+  /**
    * ハンバーガー
    */
 

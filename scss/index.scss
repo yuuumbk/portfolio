@@ -165,13 +165,14 @@ About
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          border-bottom: #777 1px dotted;
+          border-bottom: #777 1px dashed;
           box-sizing: border-box;
           padding: 5px;
         }
 
         dt {
-          width: 30%;
+          width: calc(30% - 3px);// dashedが繋がってしまうのを防ぐ
+          margin-right: 3px;
         }
 
         dd {
