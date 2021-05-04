@@ -192,7 +192,7 @@ $(function () {
   // all
   var smooth = [
     'down-allow',
-  ]
+  ];
 
   // to-
   var smoothTo = [
@@ -285,7 +285,7 @@ $(function () {
     errorPlacement: function (error, element) {
       error.appendTo(element.data('error_placement'));
     }
-  }
+  };
 
   // コンタクトフォームのinputオブジェクト
   var $contactFormName = $('#contact-form-name'),
@@ -433,7 +433,7 @@ $(function () {
       type = $('.contact-form-type:checked').val(),
       message = $contactFormContent.val();
 
-    送信処理
+    // 送信処理
     $.ajax({
       url: "https://formspree.io/f/xknkorgp",
       method: "POST",
