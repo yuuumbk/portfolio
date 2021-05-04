@@ -1084,6 +1084,7 @@ Overlay
             }
           }
 
+          .production-period,
           .work-url {
             display: flex;
             justify-content: space-around;
@@ -1503,6 +1504,7 @@ Overlay
 
           &-description {
 
+            .production-period,
             .work-url {
 
               dt {
@@ -1895,6 +1897,7 @@ Overlay
               }
             }
 
+            .production-period,
             .work-url {
               display: block;
               margin-top: 20px;

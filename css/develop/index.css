@@ -1186,6 +1186,7 @@ Overlay
   border-left: 1px solid #ccc;
 }
 
+.overlay.detail-view .hidden .work-description .production-period,
 .overlay.detail-view .hidden .work-description .work-url {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1201,10 +1202,12 @@ Overlay
   margin-top: 20px;
 }
 
+.overlay.detail-view .hidden .work-description .production-period dt,
 .overlay.detail-view .hidden .work-description .work-url dt {
   width: 25%;
 }
 
+.overlay.detail-view .hidden .work-description .production-period dd,
 .overlay.detail-view .hidden .work-description .work-url dd {
   width: 75%;
 }
@@ -1497,9 +1500,11 @@ Overlay
   .overlay.detail-view .hidden .work-thumbnail img {
     width: 100%;
   }
+  .overlay.detail-view .hidden .work-description .production-period dt,
   .overlay.detail-view .hidden .work-description .work-url dt {
     width: 25%;
   }
+  .overlay.detail-view .hidden .work-description .production-period dd,
   .overlay.detail-view .hidden .work-description .work-url dd {
     width: 75%;
   }
@@ -1826,6 +1831,7 @@ Overlay
   .works-library .work.detail-view .work-description a:hover {
     opacity: 1;
   }
+  .works-library .work.detail-view .work-description .production-period,
   .works-library .work.detail-view .work-description .work-url {
     display: block;
     margin-top: 20px;
