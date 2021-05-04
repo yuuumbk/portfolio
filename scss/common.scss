@@ -114,10 +114,6 @@ a {
     &:hover {
       opacity: .7;
     }
-
-    &:visited{
-      color: #bd6856;
-    }
   }
 
   &.remove-icon {
@@ -126,6 +122,11 @@ a {
       content: none;
     }
   }
+}
+
+// placeholderの色を薄くする
+input::placeholder {
+  color: #c4c4c4;
 }
 
 img {
@@ -769,17 +770,17 @@ Contact
         }
 
         label {
-          width: 90%;
+          width: 100%;
 
           &.contact-form-label-type {
-            width: 90%;
+            width: 100%;
           }
         }
 
         &-underline {
 
           &:after {
-            width: 95%;
+            width: 100%;
           }
         }
 
@@ -797,11 +798,10 @@ Contact
         &-name,
         &-email,
         &-content {
-          width: 90%;
+          width: 93%;
         }
 
         &-content {
-          width: 90%;
           height: 280%;
         }
 

@@ -954,6 +954,10 @@ Overlay
     background: rgba(100, 100, 100, .5);
     z-index: 11;
 
+    .not-detail-view-content {
+      display: none;
+    }
+
     /*-------------------------------------
     Works
     --------------------------------------*/
@@ -1222,7 +1226,7 @@ Overlay
           dd {
 
             &:last-of-type {
-              border-bottom: #777 1px dotted;
+              border-bottom: #777 1px dashed;
               margin-bottom: 50px;
             }
           }
@@ -1692,6 +1696,25 @@ Overlay
             height: auto;
           }
 
+          .used-skill-list {
+            margin-top: 20px;
+            /* 要素同士の隙間が開くのを防ぐ */
+            letter-spacing: -0.5em;
+
+            .used-skill-item {
+              display: inline-block;
+              letter-spacing: normal;
+              padding: 0 7px;
+              margin: -20px auto;
+              color: #aaa;
+              font-size: 12px;
+
+              +.used-skill-item {
+                border-left: 1px solid #ccc;
+              }
+            }
+          }
+
           .work-genres {
             // absoluteの場合、transformが効かない。
             // position: absolute;
@@ -1890,52 +1913,41 @@ Overlay
 
 
   /*-------------------------------------
-  Overlay
+  Detail view
   --------------------------------------*/
-  .overlay {
 
-    &.detail-view {
-      display: block;
-      position: absolute;
-      left: 0;
-      // JavaScriptで動的に指定
-      top: 0;
-      width: 0;
-      height: 0;
-      background: transparent;
-      z-index: 1;
+  &.detail-view {
 
-      .hidden {
+    .not-detail-view-content {
+      display: none;
+    }
 
-        /*-------------------------------------
-        Works
-        --------------------------------------*/
-        .work {
+    .hidden {
 
-          .not-detail-view-content {
-            display: none;
+      /*-------------------------------------
+      Works
+      --------------------------------------*/
+      .work {
+
+        &-thumbnail {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: auto;
+          margin: 20px;
+
+          img {
+            width: 90%;
           }
+        }
 
-          &-thumbnail {
-            display: flex;
-            justify-content: space-around;
-            flex-direction: row;
-            flex-wrap: wrap;
-            height: auto;
-            margin: 20px;
+        &-description {
 
-            img {
-              width: 90%;
-            }
-          }
-
-          &-description {
-
-            .work-genres {
-              position: absolute;
-              bottom: 45%;
-              right: 10px;
-            }
+          .work-genres {
+            position: absolute;
+            bottom: 45%;
+            right: 10px;
           }
         }
       }

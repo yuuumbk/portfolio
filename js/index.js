@@ -431,18 +431,19 @@ $(function () {
     // });
 
     $workMoreBtn.on('click', function () {
-      $workMoreBtn.each(function () {
-        var index = $(this).parent().index(),// 何番目のworkか取得
-          workOffset = $(this).offset().top;// 要素のスクロール量を取得
-        // スクロール量を対応する場所に格納
-        // ※ -470は調整のため
-        workOffsets[index] = workOffset - 470;
-      });
       var index = $(this).parent().index();// 何番目のworkか取得
 
       if ($(this).find('.down-allow-more-btn').length) {// moreボタンが押された時
         $(this).find('.btn').removeClass('down-allow-more-btn').addClass('upp-allow-close-btn');
         $(this).parent().addClass(detailView);
+
+        $workMoreBtn.each(function () {
+          var index = $(this).parent().index(),// 何番目のworkか取得
+            workOffset = $(this).parent().offset().top;// 要素のスクロール量を取得
+          // スクロール量を対応する場所に格納
+          // ※ -470は調整のため
+          workOffsets[index] = workOffset - 100;
+        });
       } else {// closeボタンが押された時
         $(this).find('.btn').removeClass('upp-allow-close-btn').addClass('down-allow-more-btn');
         $(this).parent().removeClass(detailView);

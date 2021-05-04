@@ -120,12 +120,24 @@ a[target="_blank"]:hover {
   opacity: .7;
 }
 
-a[target="_blank"]:visited {
-  color: #bd6856;
-}
-
 a.remove-icon::after {
   content: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #c4c4c4;
+}
+
+input:-ms-input-placeholder {
+  color: #c4c4c4;
+}
+
+input::-ms-input-placeholder {
+  color: #c4c4c4;
+}
+
+input::placeholder {
+  color: #c4c4c4;
 }
 
 img {
@@ -762,23 +774,22 @@ Contact
     text-align: left;
   }
   .contact .container .contact-form label {
-    width: 90%;
+    width: 100%;
   }
   .contact .container .contact-form label.contact-form-label-type {
-    width: 90%;
+    width: 100%;
   }
   .contact .container .contact-form-underline:after {
-    width: 95%;
+    width: 100%;
   }
   .contact .container .contact-form-name-error, .contact .container .contact-form-email-error, .contact .container .contact-form-type-error, .contact .container .contact-form-content-error {
     font-size: 14px;
     margin-bottom: 30px;
   }
   .contact .container .contact-form-name, .contact .container .contact-form-email, .contact .container .contact-form-content {
-    width: 90%;
+    width: 93%;
   }
   .contact .container .contact-form-content {
-    width: 90%;
     height: 280%;
   }
   .contact .container .contact-form-submit {

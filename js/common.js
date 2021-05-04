@@ -38,22 +38,25 @@ $(function () {
     var locationHash = location.hash,
       locationHashFlag = false;// 適切なハッシュがあったかを判別するフラグ
 
-      //URLからハッシュを削除
+    //URLからハッシュを削除
     history.replaceState('', document.title, location.pathname);
 
-    $.each(hashList, function (i) {
-      if (locationHash === '#' + hashList[i]) {
-        locationHashFlag = true;
-        return false;
-      }
-    });
+    // HTMLが構成される前にスクロール位置が決まるため、50ms処理を遅らせる
+    setTimeout(function(){
+      $.each(hashList, function (i) {
+        if (locationHash === '#' + hashList[i]) {
+          locationHashFlag = true;
+          return false;
+        }
+      });
 
-    if (locationHashFlag) {// ハッシュが正しければ、該当する位置にスクロール
-      $('html, body').scrollTop($(locationHash).offset().top - $('#header').outerHeight() * 2.2);
-    } else {// そうでない場合はトップに
-      $('html, body').scrollTop(0);
-    }
-  }
+      if (locationHashFlag) {// ハッシュが正しければ、該当する位置にスクロール
+        $('html, body').scrollTop($(locationHash).offset().top - $('#header').outerHeight() * 2.2);
+      } else {// そうでない場合はトップに
+        $('html, body').scrollTop(0);
+      }
+    }, 50);
+}
 
 
 

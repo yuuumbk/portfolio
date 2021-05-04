@@ -1071,6 +1071,10 @@ Overlay
     --------------------------------------*/
 }
 
+.overlay.detail-view .not-detail-view-content {
+  display: none;
+}
+
 .overlay.detail-view .hidden {
   border-radius: 30px;
   position: absolute;
@@ -1279,7 +1283,7 @@ Overlay
   }
   .about .introduction .first-half .latter-half dt:last-of-type,
   .about .introduction .first-half .latter-half dd:last-of-type {
-    border-bottom: #777 1px dotted;
+    border-bottom: #777 1px dashed;
     margin-bottom: 50px;
   }
   .about .introduction .sentence {
@@ -1630,6 +1634,22 @@ Overlay
     text-indent: 0;
     height: auto;
   }
+  .works-library .work-description .used-skill-list {
+    margin-top: 20px;
+    /* 要素同士の隙間が開くのを防ぐ */
+    letter-spacing: -0.5em;
+  }
+  .works-library .work-description .used-skill-list .used-skill-item {
+    display: inline-block;
+    letter-spacing: normal;
+    padding: 0 7px;
+    margin: -20px auto;
+    color: #aaa;
+    font-size: 12px;
+  }
+  .works-library .work-description .used-skill-list .used-skill-item + .used-skill-item {
+    border-left: 1px solid #ccc;
+  }
   .works-library .work-description .work-genres {
     -webkit-transform: translateY(30px);
             transform: translateY(30px);
@@ -1811,27 +1831,17 @@ Overlay
     margin-top: 20px;
   }
   /*-------------------------------------
-  Overlay
+  Detail view
   --------------------------------------*/
-  .overlay.detail-view {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 0;
-    background: transparent;
-    z-index: 1;
-  }
-  .overlay.detail-view .hidden {
-    /*-------------------------------------
-        Works
-        --------------------------------------*/
-  }
-  .overlay.detail-view .hidden .work .not-detail-view-content {
+  .detail-view .not-detail-view-content {
     display: none;
   }
-  .overlay.detail-view .hidden .work-thumbnail {
+  .detail-view .hidden {
+    /*-------------------------------------
+      Works
+      --------------------------------------*/
+  }
+  .detail-view .hidden .work-thumbnail {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1846,10 +1856,10 @@ Overlay
     height: auto;
     margin: 20px;
   }
-  .overlay.detail-view .hidden .work-thumbnail img {
+  .detail-view .hidden .work-thumbnail img {
     width: 90%;
   }
-  .overlay.detail-view .hidden .work-description .work-genres {
+  .detail-view .hidden .work-description .work-genres {
     position: absolute;
     bottom: 45%;
     right: 10px;
