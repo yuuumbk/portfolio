@@ -1213,7 +1213,7 @@ Overlay
 }
 
 .overlay.detail-view .hidden .work-description .work-genres {
-  display: inline-block;
+  display: none;
   color: #aaa;
   font-size: 14px;
   line-height: 0.8em;
