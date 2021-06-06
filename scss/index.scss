@@ -1439,10 +1439,11 @@ Overlay
             li,
             &:after {
               // 画像の大きさを端末ごとに設定
-              width: 9%;
+              width: 15%;
               margin: 0;
               padding: 5px;
               padding-top: 10px;
+              margin-top: 10px;
             }
           }
         }
@@ -1590,20 +1591,20 @@ Overlay
               padding-top: 15px;
             }
 
-            &:after {
-              content: "";
-              box-shadow: rgba(0, 0, 0, .2) 0 2px 4px 0 inset;
-              width: 22%;
-              display: flex;
-              // 画像を中央に
-              align-items: center;
-              text-align: center;
-            }
+            // &:after {
+            //   content: "";
+            //   box-shadow: rgba(0, 0, 0, .2) 0 2px 4px 0 inset;
+            //   width: 22%;
+            //   display: flex;
+            //   // 画像を中央に
+            //   align-items: center;
+            //   text-align: center;
+            // }
           }
         }
 
         .skill-list {
-          margin-top: 40px;
+          // margin-top: 40px;
 
           .skill-item {
             //高さを調整する
