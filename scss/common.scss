@@ -876,13 +876,11 @@ Contact
     height: 35px;
     display: inline-block;
     transition: transform .2s $timing-function2;
+    &:hover{
+      transform: translateY(-5px);
+      transition: transform .2s $timing-function2;
+    }
   }
-
-  li:hover{
-    transform: translateY(-5px);
-    transition: transform .2s $timing-function2;
-  }
-
 }
 
 .logo {
@@ -901,7 +899,7 @@ Contact
 } */
 
 
-// header以外、全般のレスポンシブ対応
+/* header以外、全般のレスポンシブ対応 */
 
 @media screen and (max-width: 1024px) {
   .logo {
@@ -995,79 +993,79 @@ Contact
 }
 
 /**
-  * パララックス
-  * iOSではパララックス未対応のためパララックスを無効にする
-  */
+* パララックス
+* iOSではパララックス未対応のためパララックスを無効にする
+*/
 
+.parallax {
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  background-attachment: fixed;
+
+  &.top {
+    background-image: url(../img/parts/top.pc.jpg);
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .parallax {
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: cover;
-    background-attachment: fixed;
-
-    &.top {
-      background-image: url(../img/parts/top.pc.jpg);
-    }
+    background-attachment: unset;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 599px) {
     .parallax {
-      background-attachment: unset;
-    }
 
-    @media screen and (max-width: 599px) {
-      .parallax {
-
-        &.top {
-          background-image: url(../img/parts/top.mb.jpg);
-        }
+      &.top {
+        background-image: url(../img/parts/top.mb.jpg);
       }
     }
-
   }
 
-  /**
-  * トップへ戻る
-  */
+}
 
-  .to-top {
-    background-color: rgba(135, 206, 250, .8);
-    width: 50px;
-    height: 50px;
-    border-radius: 45% 35% 50% 40%/50% 50% 50% 50%;
-    opacity: 0.7;
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    // フッターと被ると反応しなくなるとを防ぐ
-    z-index: 1;
+/**
+* トップへ戻る
+*/
+
+.to-top {
+  background-color: rgba(135, 206, 250, .8);
+  width: 50px;
+  height: 50px;
+  border-radius: 45% 35% 50% 40%/50% 50% 50% 50%;
+  opacity: 0.7;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  // フッターと被ると反応しなくなるとを防ぐ
+  z-index: 1;
+
+  &:hover {
+    background-color: rgba(135, 206, 250, .6);
+  }
+
+  a {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 
     &:hover {
-      background-color: rgba(135, 206, 250, .6);
+      cursor: pointer;
     }
 
-    a {
-      display: block;
+    &::after {
+      content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(-45deg);
-        border-top: 3px solid #fff;
-        border-right: 3px solid #fff;
-      }
+      width: 15px;
+      height: 15px;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      border-top: 3px solid #fff;
+      border-right: 3px solid #fff;
     }
   }
+}

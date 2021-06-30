@@ -630,7 +630,7 @@ Skills
           // overflow: hidden;
           z-index: 1;
           // 最後のリストはだんだん透明にしていく
-          background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 80%);
+          background: linear-gradient(rgba(255, 255, 255, 0) 30, #fff 80%);
         }
 
         .skill-item {
