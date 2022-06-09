@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAMA,AAAA,EAAE,AAAC,CACD,MAAM,CAAE,WAAW,CACpB,AAED,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK,EACjC,AAAA,EAAE,AAAC,CACD,SAAS,CAAE,IAAI,CAChB",
+    "sources": [
+        "../scss/privacy-disclaimer.scss"
+    ],
+    "names": [],
+    "file": "privacy-disclaimer.min.css"
+}

@@ -1,0 +1,1960 @@
+@charset "utf-8";
+
+@import 'mixin.scss';
+
+$timing-function1: ease;
+$timing-function2: ease-in-out;
+$easeInOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+h2 {
+  font-family: 'Bad Script',
+    cursive;
+}
+
+/* =============================================
+Main content
+============================================= */
+
+// .main {
+// margin-bottom: 80px;
+// }
+
+/*-------------------------------------
+Service
+--------------------------------------*/
+.service {
+
+  margin-bottom: 20px;
+
+  h2 {
+    margin-top: 15px;
+  }
+
+  .service-lists {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .service-list {
+      position: relative;
+      width: 48%;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 20px;
+      background-color: #f5f5f5;
+      @include card-shadow;
+
+      h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-weight: lighter;
+
+        &::after {
+          @include underline;
+          width: 70%;
+
+          // animation
+          animation-name: underline-work;
+          animation-iteration-count: infinite;
+          animation-duration: 1.4s;
+          animation-timing-function: ease;
+          animation-direction: alternate;
+
+          @keyframes underline-work {
+            0% {
+              width: 50%;
+            }
+
+            80% {
+              width: 70%;
+            }
+
+            100% {
+              width: 70%;
+            }
+          }
+        }
+      }
+
+      .service-icon {
+        width: 100%;
+        margin: 10px auto;
+
+        img {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+
+/*-------------------------------------
+About
+--------------------------------------*/
+
+.about {
+  background: linear-gradient(#fff, #fff 180px, #f5f5f5 180px, #f5f5f5);
+  padding: 0 40px 40px;
+
+  position: relative;
+
+  .prf-img {
+    text-align: center;
+    margin-bottom: 50px;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+
+  &-logo {
+    position: absolute;
+    top: 330px;
+    right: 20%;
+
+    .logo {
+      width: 130px;
+    }
+  }
+
+  .about-name {
+
+    &.pc {
+      display: block;
+    }
+
+    &.mb {
+      display: none;
+    }
+  }
+
+  .introduction {
+
+    .first-half,
+    .latter-half {
+
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .first-half {
+
+      .first-half,
+      .latter-half {
+        width: 100%;
+      }
+
+      dl {
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 2.5em;
+
+        dt,
+        dd {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-bottom: #777 1px dashed;
+          box-sizing: border-box;
+          padding: 5px;
+        }
+
+        dt {
+          width: calc(30% - 3px); // dashedが繋がってしまうのを防ぐ
+          margin-right: 3px;
+        }
+
+        dd {
+          width: 70%;
+        }
+      }
+
+      .latter-half {
+
+        dt,
+        dd {
+
+          &:last-of-type {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .sentence {
+      width: 45%;
+      // sentenceの位置を調整。文章を変更するごとに都度修正すると良い
+      margin-top: 80px;
+    }
+
+  }
+
+  &-name {
+    text-align: center;
+    font-size: 32px;
+    padding: 10px;
+    line-height: 1.2em;
+
+    // .name-ja::after {
+    //   @include underline;
+    //   width: 40%;
+    //   margin: 8px auto;
+    // }
+
+    // .name-en {
+    //   padding: 0;
+    //   font-size: medium;
+    // }
+
+    .name-en {
+      text-indent: 0;
+      margin-bottom: 20px;
+      font-family: 'Bad Script',
+      cursive;
+      font-weight: normal;
+      text-align: center;
+
+      &::after {
+        @include underline;
+        width: 50%;
+        margin: 8px auto;
+
+        //animation
+        animation-name: underline-about-name;
+        animation-iteration-count: infinite;
+        animation-duration: 1.4s;
+        animation-timing-function: ease;
+        animation-direction: alternate;
+
+        @keyframes underline-about-name {
+          0% {
+            width: 20%;
+          }
+
+          80% {
+            width: 50%;
+          }
+
+          100% {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------
+Skills
+--------------------------------------*/
+
+.skills {
+
+  .container {
+    width: 100%;
+
+    .pc,
+    .mb {
+
+      .skill-name {
+        position: relative;
+        font-size: 40px;
+        margin-top: 25px;
+        letter-spacing: .15em;
+        font-family: 'Bad Script',
+          cursive;
+
+        &:after {
+          @include underline;
+          width: 110px;
+
+          // animation
+          animation-name: underline-skill;
+          animation-iteration-count: infinite;
+          animation-duration: 1.4s;
+          animation-timing-function: ease;
+          animation-direction: alternate;
+
+          @keyframes underline-skill {
+            0% {
+              width: 60px;
+            }
+
+            80% {
+              width: 110px;
+            }
+
+            100% {
+              width: 110px;
+            }
+          }
+        }
+
+        .num-pos {
+          position: absolute;
+          top: -17px;
+        }
+      }
+
+      .skill-img {
+        position: relative;
+        padding: 20px;
+        height: 300px;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .star {
+        position: relative;
+        display: inline-block;
+        white-space: nowrap;
+        color: #aaa;
+        font-size: 24px;
+
+        &:before,
+        &:after {
+          content: '★★★★★';
+        }
+
+        &:after {
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          color: #ffcf00;
+        }
+
+        &[star="5"]:after {
+          width: 100%;
+        }
+
+        &[star="4.5"]:after {
+          width: 90%;
+        }
+
+        &[star="4"]:after {
+          width: 80%;
+        }
+
+        &[star="3.5"]:after {
+          width: 70%;
+        }
+
+        &[star="3"]:after {
+          width: 60%;
+        }
+
+        &[star="2.5"]:after {
+          width: 50%;
+        }
+
+        &[star="2"]:after {
+          width: 40%;
+        }
+
+        &[star="1.5"]:after {
+          width: 30%;
+        }
+
+        &[star="1"]:after {
+          width: 20%;
+        }
+
+        &[star="0.5"]:after {
+          width: 10%;
+        }
+
+        &[star="0"]:after {
+          width: 0%;
+        }
+      }
+
+      hr {
+        margin: 20px auto 0;
+        width: 85%;
+      }
+
+      .sub-skill {
+        padding: 10px 30px;
+
+        &-img,
+        .desc {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &-img {
+          width: 40%;
+          height: 130px;
+        }
+
+        .desc {
+          width: 56%;
+        }
+      }
+    }
+
+    .pc {
+
+      .glide__track {
+        display: none;
+
+        .glide__slides {
+          display: flex;
+          align-items: center;
+          height: 750px;
+
+          .glide__slide {
+            position: relative;
+            height: 600px;
+            margin: 50px auto;
+            border-radius: 50px;
+            box-shadow: 10px 10px 20px 2px rgba(0, 0, 0, 0.25),
+              -10px 10px 10px 2px rgba(0, 0, 0, 0.25);
+            text-align: center;
+
+            //背景
+            background-image: url(../img/parts/skills-bg.jpg);
+            // background-color: #f5f5f5;
+
+            transform: rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+            transition: transform .2s $timing-function2;
+
+            .skill-click {
+              position: absolute;
+              top: -70px;
+              left: 53%;
+
+              transform: rotateX(-5deg) rotateY(20deg) rotateZ(8deg) translateX(-50%);
+              transition: transform .2s $timing-function2;
+
+              font-family: 'Bubbler One',
+                sans-serif;
+              letter-spacing: .4em;
+
+              //animation
+              animation-name: slide-click;
+              animation-iteration-count: infinite;
+              animation-duration: .5s;
+              animation-timing-function: linear;
+              animation-direction: alternate;
+
+              @keyframes slide-click {
+                0% {
+                  top: -70px;
+                }
+
+                100% {
+                  top: -65px;
+                }
+              }
+
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 75%;
+                left: 35%;
+                width: 8px;
+                height: 8px;
+                border-top: solid 1px #444;
+                border-right: solid 1px #444;
+                transform: rotate(135deg);
+              }
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &:hover {
+              transform: translateY(-20px) rotateX(5deg) rotateY(-20deg) rotateZ(-8deg);
+              transition: transform .2s $timing-function2;
+
+              .skill-click {
+                transform: translateX(-50%) translateY(20px) rotateX(-5deg) rotateY(20deg) rotateZ(8deg);
+                transition: transform .2s $timing-function2;
+              }
+            }
+
+            &.not-has-sub-skill {
+
+              a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .glide__arrow {
+        display: none;
+
+        color: #444;
+        padding: 12px;
+        background-color: rgba(0, 0, 0, 0.25);
+        border: none;
+        border-radius: 50%;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+
+    .mb {
+      width: 90%;
+      margin: 0 auto;
+      margin-bottom: 160px;
+
+      .skill-index {
+        display: none;
+      }
+
+      .skill-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // js無効時は非表示
+        .skill-more-btn,
+        .skill-close-btn {
+          display: none;
+          border: none;
+          margin: 20px auto;
+          position: relative;
+          padding: 8px 12px;
+          font-size: 20px;
+          font-family: 'Bubbler One',
+            sans-serif;
+          text-align: center;
+          letter-spacing: 0.4em;
+          color: #666;
+          border: 1px solid #545454;
+          background-color: #f5f5f5;
+          transition: all .3s $easeInOutBack;
+
+          &::before,
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-color: #545454;
+            box-sizing: border-box;
+            border-style: solid;
+            width: 1em;
+            height: 1em;
+            transition: all .3s $easeInOutBack;
+          }
+
+          &::before {
+            top: -6px;
+            left: -6px;
+            border-width: 1px 0 0 1px;
+            z-index: 1;
+          }
+
+          &::after {
+            bottom: -6px;
+            right: -6px;
+            border-width: 0 1px 1px 0;
+            z-index: 1;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+            transition: all .3s $easeInOutBack;
+
+            &::before,
+            &::after {
+              width: calc(80% + 6px);
+              height: calc(80% + 6px);
+            }
+          }
+        }
+
+        // 上の閉じるボタン分の高さを保持
+        // 閉じるボタンはdisplay:none;で高さが聞かないため、こちらで代用
+        // もっと見るボタンが押された場合は高さを0にする
+        .skill-close-btn-height {
+          height: 86px;
+        }
+
+        // Learn More ボタンはグラデーションさせないように、絶対配置させて独立させる。
+        .skill-more-btn.bottom-btn {
+          position: absolute;
+          bottom: -100px;
+          width: 176px;
+          z-index: 1;
+        }
+      }
+
+      .skill-list {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // overflow: hidden;
+
+        &.has-skill-btn::after {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          content: "";
+          width: 100%;
+          // close時に表示する高さ
+          height: 200px;
+          // overflow: hidden;
+          z-index: 1;
+          // 最後のリストはだんだん透明にしていく
+          background: linear-gradient(rgba(255, 255, 255, 0) 30, #fff 80%);
+        }
+
+        .skill-item {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          position: relative;
+          justify-content: flex-start;
+
+          background-color: #f5f5f5;
+          @include card-shadow;
+          width: 48%;
+          box-sizing: border-box;
+          margin: 15px .5%;
+          height: 100%;
+          min-height: 200px;
+
+          &.visible {
+            // animation
+            animation-name: skill-scroll-down;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+
+            @keyframes skill-scroll-down {
+              0% {
+                transform: translateY(-20px);
+              }
+
+              100% {
+                transform: translateY(0);
+              }
+            }
+          }
+
+          &.invisible {
+            // animation
+            animation-name: skill-scroll-upp;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+
+            @keyframes skill-scroll-upp {
+              0% {
+                transform: translateY(0);
+              }
+
+              100% {
+                transform: translateY(-20px);
+              }
+            }
+          }
+
+          .skill-img {
+            position: relative;
+            // display: inline-block;
+            height: auto;
+            //画像の大きさを調節する
+            width: 80px;
+
+            img {
+              position: absolute;
+              top: 50%;
+              left: 20px;
+              transform: translateY(-50%);
+              max-width: 100%;
+            }
+
+            .star {
+              position: absolute;
+              //位置を微調整
+              bottom: 25px;
+              left: 15px;
+              display: inline-block;
+              white-space: nowrap;
+              color: #aaa;
+              font-size: 16px;
+              margin: auto;
+
+              &:before,
+              &:after {
+                content: '★★★★★';
+              }
+
+              &:after {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                color: #ffcf00;
+              }
+            }
+          }
+
+          .skill-desc {
+            padding: 10px;
+            margin-left: 40px;
+
+            .skill-name {
+              position: relative;
+              font-size: 20px;
+              margin-top: 25px;
+              letter-spacing: .15em;
+              font-family: 'Bad Script',
+                cursive;
+              text-align: center;
+
+              &:after {
+                @include underline;
+                width: 50%;
+                margin: 0 auto;
+              }
+
+              //数字を含むスキル名のアンダーラインの長さを調整
+              //CSS4以降で指定可能
+              &:has(.num-pos):after {
+                width: 60%;
+              }
+
+              &.has-num-pos:after {
+                width: 60%;
+              }
+
+              .num-pos {
+                position: absolute;
+                top: -8px;
+              }
+            }
+
+            p {
+              line-height: 1.5em;
+              padding: 20px 10px;
+              margin-bottom: 20px;
+              // 文章の両端を揃える
+              text-align: justify;
+            }
+          }
+
+          // pcのみ
+          @media screen and (min-width: 1025px) {
+
+            //要素の数が奇数の時のみ最後の要素を100％に
+            &:last-child:nth-child(odd) {
+              width: 100%;
+
+              .skill-name {
+
+                &:after {
+                  width: 23%;
+                }
+              }
+
+              .skill-img {
+                position: absolute;
+                left: 20%;
+                top: 50%;
+                transform: translateY(-50%);
+                // margin-left: 15%;
+              }
+
+              .star {
+                position: absolute;
+                //位置を微調整
+                bottom: -60px;
+                left: 30px;
+              }
+
+              .skill-desc {
+                position: relative;
+                left: 40px;
+                margin: 0 auto 20px;
+                //画像と説明が重なるのを防ぐ
+                max-width: 40%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*-------------------------------------
+Works
+--------------------------------------*/
+
+.works {
+
+  &-library {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &::after,
+    .work {
+      width: 30%;
+      margin: 20px 0.5%;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    .work {
+      height: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      @include card-shadow;
+      cursor: pointer;
+
+      transition: transform .2s $timing-function2;
+
+      &-thumbnail {
+        height: 210px;
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &-description {
+        padding: 10px;
+
+        h3 {
+          font-weight: normal;
+          margin: 10px auto;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 1px;
+            background-color: #000;
+            transition: width .4s $timing-function2;
+          }
+        }
+
+        p {
+          text-indent: 0;
+          // 二行まで
+          // work-genresの位置調整のため
+          height: 56px;
+        }
+
+        a {
+          color: #ed6d35;
+          text-decoration: underline;
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+
+        .work-genres {
+          // absoluteの場合、transformが効かない。
+          // position: absolute;
+          // bottom: 30px;
+          transform: translateY(30px);
+          transition: transform .2s $timing-function2;
+
+          .work-genre {
+            // 横並び
+            display: inline-block;
+            color: #aaa;
+            font-size: 14px;
+            // 区切りの棒の長さを調節
+            line-height: 0.8em;
+
+            &+.work-genre {
+              border-left: 1px solid #aaa;
+              padding: 0 7px;
+            }
+          }
+        }
+      }
+
+      .detail-view-content {
+        display: none;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+        transition: transform .2s $timing-function2;
+
+        .work-description {
+
+          h3::after {
+            width: 70%;
+            transition: width .4s $timing-function2;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*-------------------------------------
+Overlay
+--------------------------------------*/
+.overlay {
+  display: none;
+
+  &.detail-view {
+    // display: block;
+    position: absolute;
+    left: 0;
+    // JavaScriptで動的に指定
+    top: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(100, 100, 100, .5);
+    z-index: 11;
+
+    .not-detail-view-content {
+      display: none;
+    }
+
+    /*-------------------------------------
+    Works
+    --------------------------------------*/
+
+    .hidden {
+      border-radius: 30px;
+      position: absolute;
+      overflow: hidden;
+      width: 80%;
+      height: 80vh;
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // transform-origin: center center;
+
+      /**
+       * 重いため却下
+       */
+      // //animation
+      // animation-name: work-popup;
+      // animation-duration: .8s;
+      // animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+
+      // @keyframes work-popup {
+      //   0% {
+      //     // width: 0%;
+      //     // height: 0vh;
+      //     // top: 80%;
+      //     // left: 50%;
+      //     // transform: translate(-50%, -50%);
+      //     transform: translateY(20px);
+      //     opacity: 0;
+      //   }
+
+      //   100% {
+      //     // width: 80%;
+      //     // height: 80vh;
+      //     // top: 50%;
+      //     // left: 50%;
+      //     // transform: translate(-50%, -50%);
+      //     transform: translateY(0px);
+      //     opacity: 1;
+      //   }
+      // }
+
+      .work {
+        height: 100%;
+        overflow-y: scroll;
+        background-color: #f5f5f5;
+
+        &-thumbnail {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: auto;
+
+          img {
+            width: 50%;
+            // safari対策
+            height: 100%;
+
+            &.not-detail-view-content {
+              display: none;
+            }
+          }
+
+          video {
+            width: 100%;
+          }
+        }
+
+        &-description {
+          padding: 20px;
+
+          h3 {
+            text-align: center;
+            font-weight: normal;
+            font-size: 22px;
+            margin: 10px auto;
+
+            &::after {
+              @include underline;
+
+              // animation
+              animation-name: underline-work;
+              animation-iteration-count: infinite;
+              animation-duration: 1.4s;
+              animation-timing-function: ease;
+              animation-direction: alternate;
+
+              @keyframes underline-work {
+                0% {
+                  width: 10%;
+                }
+
+                80% {
+                  width: 20%;
+                }
+
+                100% {
+                  width: 20%;
+                }
+              }
+            }
+          }
+
+          .used-skill-list {
+            margin-top: 20px;
+            /* 要素同士の隙間が開くのを防ぐ */
+            letter-spacing: -0.5em;
+
+            .used-skill-item {
+              display: inline-block;
+              letter-spacing: normal;
+              padding: 0 10px;
+              margin: -10px auto;
+              color: #aaa;
+
+              +.used-skill-item {
+                border-left: 1px solid #ccc;
+              }
+            }
+          }
+
+          .production-period,
+          .work-url {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 20px;
+
+            dt {
+              width: 25%;
+            }
+
+            dd {
+              width: 75%;
+            }
+          }
+
+          .work-genres {
+            // 横並び
+            display: none;
+            color: #aaa;
+            font-size: 14px;
+            // 区切りの棒の長さを調節
+            line-height: 0.8em;
+            // 左下に配置
+            position: absolute;
+            bottom: 20px;
+
+            &+.work-genre {
+              border-left: 1px solid #aaa;
+              padding: 0 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/* =============================================
+タブレット&モバイル共通
+============================================= */
+
+@media screen and (max-width: 1024px) {
+
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  .top {
+
+    .content {
+
+      h2,
+      p {
+        line-height: 1.2em;
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+
+  .service {
+
+    .service-lists {
+      display: block;
+
+      .service-list {
+        width: 100%;
+        margin-bottom: 40px;
+
+        h3 {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+
+  .about {
+
+    .prf-img {
+      margin-bottom: 20px;
+
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+    }
+
+    &-logo {
+      width: 100%;
+      position: static;
+    }
+
+    .about-name {
+
+      &.pc {
+        display: none;
+      }
+
+      &.mb {
+        display: block;
+
+        .name-en {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .introduction {
+
+      .first-half,
+      .latter-half {
+        width: 100%;
+      }
+
+      .first-half {
+        margin-top: 20px;
+
+        .latter-half {
+
+          dt,
+          dd {
+
+            &:last-of-type {
+              border-bottom: #777 1px dashed;
+              margin-bottom: 50px;
+            }
+          }
+        }
+      }
+
+      .sentence {
+        margin-top: 20px;
+      }
+
+      .latter-half dt {
+        border-top: none;
+      }
+    }
+  }
+
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+
+  .skills {
+
+    .container {
+      width: 90%;
+
+      .pc {
+        display: none;
+      }
+
+      .mb {
+        display: block;
+
+        .skill-index {
+          display: block;
+
+          ul {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li {
+              display: flex;
+              // 画像を中央に
+              align-items: center;
+              text-align: center;
+              box-sizing: border-box;
+              box-shadow: rgba(0, 0, 0, .2) 0 2px 4px 0 inset;
+            }
+
+            // 最後の列を左寄せに
+            &:after {
+              display: block;
+              content: "";
+            }
+          }
+        }
+
+        .skill-btn {
+
+          .skill-more-btn.bottom {
+            bottom: -100px;
+          }
+        }
+
+        .skill-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          // js無効時は非表示
+          .skill-more-btn.mb {
+            display: none;
+            border: none;
+            margin: 20px;
+            position: relative;
+            padding: 8px 12px;
+            font-size: 20px;
+            font-family: 'Bubbler One',
+              sans-serif;
+            letter-spacing: 0.4em;
+            color: #666;
+            border: 1px solid #545454;
+            background-color: #f5f5f5;
+            transition: all .3s $easeInOutBack;
+          }
+        }
+
+        .skill-list {
+
+          &.has-skill-btn::after {
+            // close時に表示する高さ
+            height: 400px;
+          }
+
+          .skill-item {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  /*-------------------------------------
+  Works
+  --------------------------------------*/
+
+  .works {
+
+    &-library {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &::after,
+      .work {
+        width: 45%;
+        margin: 20px 0.5%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+      }
+
+      .work {
+        height: 400px;
+
+        &-thumbnail {
+          height: 210px;
+          width: 100%;
+        }
+
+        &-description {
+          padding: 10px;
+
+          p {
+            text-indent: 0;
+            // 二行まで
+            // work-genresの位置調整のため
+            height: 56px;
+          }
+
+          .work-genres {
+            // absoluteの場合、transformが効かない。
+            // position: absolute;
+            // bottom: 30px;
+            transform: translateY(30px);
+            transition: transform .2s $timing-function2;
+          }
+        }
+
+        &:hover {
+          transform: translateY(0);
+          transition: none;
+
+          .work-description {
+
+            h3::after {
+              width: 0;
+              transition: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* =============================================
+タブレット
+============================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+
+  .skills {
+
+    .container {
+
+      .mb {
+
+        .skill-index {
+
+          ul {
+
+            li,
+            &:after {
+              // 画像の大きさを端末ごとに設定
+              width: 15%;
+              margin: 0;
+              padding: 5px;
+              padding-top: 10px;
+              margin-top: 10px;
+            }
+          }
+        }
+
+        .skill-list {
+
+          .skill-item {
+            //高さを調整する
+            height: 100%;
+            min-height: 200px;
+
+            .skill-img {
+              //画像の大きさを調節する
+              width: 100px;
+
+              .star {
+                position: absolute;
+                //位置を微調整
+                bottom: 30px;
+                left: 17px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Overlay
+  --------------------------------------*/
+  .overlay {
+
+    &.detail-view {
+
+      /*-------------------------------------
+      Works
+      --------------------------------------*/
+
+      .hidden {
+
+        .work {
+
+          &-thumbnail {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            margin: 20px;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          &-description {
+
+            .production-period,
+            .work-url {
+
+              dt {
+                width: 25%;
+              }
+
+              dd {
+                width: 75%;
+              }
+            }
+
+            .work-genres {
+              position: absolute;
+              top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* =============================================
+モバイル用
+============================================= */
+
+@media screen and (max-width: 599px) {
+
+  /* =============================================
+  Main content
+  ============================================= */
+
+  /*-------------------------------------
+  Top
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Service
+  --------------------------------------*/
+
+  .service {
+
+    .service-lists {
+
+      .service-list {
+
+        h3 {
+          // 折り返されるのを防ぐ
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  About
+  --------------------------------------*/
+
+  /*-------------------------------------
+  Skills
+  --------------------------------------*/
+
+  .skills {
+
+    .container {
+
+      .mb {
+
+        .skill-index {
+
+          ul {
+
+            li,
+            &:after {
+              // 画像の大きさを端末ごとに設定
+              width: 24%;
+              margin: 10px 0;
+              padding: 5px;
+              padding-top: 15px;
+            }
+
+            // &:after {
+            //   content: "";
+            //   box-shadow: rgba(0, 0, 0, .2) 0 2px 4px 0 inset;
+            //   width: 22%;
+            //   display: flex;
+            //   // 画像を中央に
+            //   align-items: center;
+            //   text-align: center;
+            // }
+          }
+        }
+
+        .skill-list {
+          // margin-top: 40px;
+
+          .skill-item {
+            //高さを調整する
+            height: 100%;
+            min-height: 280px;
+
+            .skill-img {
+              //画像の大きさを調節する
+              width: 150px;
+
+              img {
+                position: absolute;
+                top: 50%;
+                left: 22px;
+                transform: translateY(-50%);
+                max-width: 100%;
+              }
+
+              .star {
+                position: absolute;
+                //位置を微調整
+                bottom: 60px;
+                left: 20px;
+                font-size: 12px;
+              }
+            }
+
+            .skill-desc {
+
+              .skill-name {
+                margin-top: 10px;
+
+                &:after {
+                  @include underline;
+                  width: 50%;
+                  margin: 0 auto;
+                }
+              }
+
+              p {
+                font-size: 14px;
+                line-height: 1.5em;
+                letter-spacing: .2em;
+                padding: 10px 10px;
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Works
+  --------------------------------------*/
+
+  .works {
+
+    &-library {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &::after,
+      .work {
+        width: 100%;
+        margin: 20px 0.5%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+      }
+
+      .work {
+        height: auto;
+
+        &-thumbnail {
+          height: 210px;
+          width: 100%;
+        }
+
+        &-description {
+          padding: 10px;
+
+          p {
+            text-indent: 0;
+            height: auto;
+          }
+
+          .used-skill-list {
+            margin-top: 20px;
+            /* 要素同士の隙間が開くのを防ぐ */
+            letter-spacing: -0.5em;
+
+            .used-skill-item {
+              display: inline-block;
+              letter-spacing: normal;
+              padding: 0 7px;
+              margin: -20px auto;
+              color: #aaa;
+              font-size: 12px;
+
+              +.used-skill-item {
+                border-left: 1px solid #ccc;
+              }
+            }
+          }
+
+          .work-genres {
+            // absoluteの場合、transformが効かない。
+            // position: absolute;
+            // bottom: 30px;
+            transform: translateY(30px);
+            transition: transform .2s $timing-function2;
+          }
+        }
+
+        .work-allow-more {
+          position: relative;
+          bottom: 5px;
+          left: 48%;
+          transform: translateX(-50%);
+          width: 30px;
+          height: 30px;
+
+          // animation
+          animation-name: work-down-allow;
+          animation-iteration-count: infinite;
+          animation-duration: .5s;
+          animation-timing-function: linear;
+          animation-direction: alternate;
+
+          @keyframes work-down-allow {
+            0% {
+              bottom: 10px;
+            }
+
+            100% {
+              bottom: 5px;
+            }
+          }
+
+          // down-allow-more-btn と upp-allow-close-btn共通
+          .btn {
+            position: absolute;
+            top: 0;
+            left: 0;
+            // タッチしやすいように大きさを調整
+            height: 200%;
+            width: 150%;
+
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 50%;
+              width: 15px;
+              height: 15px;
+              border-top: 2px solid #aaa;
+              border-right: 2px solid #aaa;
+              transform: translateX(50%) rotate(135deg);
+              transition: transform .3s ease-in-out;
+            }
+
+            &:hover {
+              cursor: pointer;
+
+              &::after {
+                transform: translateX(50%) rotate(225deg) rotateY(180deg);
+                transition: transform .3s ease-in-out;
+              }
+            }
+          }
+
+          .down-allow-more-btn,
+          .upp-allow-close-btn {
+
+            &::after {
+              transition: none;
+            }
+
+            &:hover {
+
+              &::after {
+                transition: none;
+              }
+            }
+          }
+
+          .down-allow-more-btn {
+
+            &::after {
+              transform: translateX(50%) rotate(135deg);
+            }
+
+            &:hover {
+
+              &::after {
+                transform: translateX(50%) rotate(135deg);
+              }
+            }
+          }
+
+          .upp-allow-close-btn {
+
+            &::after {
+              transform: translateX(48%) rotate(-45deg);
+            }
+
+            &:hover {
+
+              &::after {
+                transform: translateX(48%) rotate(-45deg);
+              }
+            }
+          }
+        }
+
+        // moreボタンが押された時
+
+        &.detail-view {
+
+          .detail-view-content {
+            display: block;
+          }
+
+          .work-thumbnail {
+            // 画像を複数表示する場合には必ず指定
+            height: auto;
+
+            video {
+              width: 100%;
+            }
+
+            .not-detail-view-content {
+              display: none;
+            }
+          }
+
+          .work-description {
+            padding: 20px;
+
+            h3 {
+              text-align: center;
+              font-weight: normal;
+              font-size: 18px;
+              margin: 10px auto;
+
+              &::after {
+                @include underline;
+
+                // animation
+                animation-name: underline-work;
+                animation-iteration-count: infinite;
+                animation-duration: 1.4s;
+                animation-timing-function: ease;
+                animation-direction: alternate;
+
+                @keyframes underline-work {
+                  0% {
+                    width: 65%;
+                  }
+
+                  80% {
+                    width: 80%;
+                  }
+
+                  100% {
+                    width: 80%;
+                  }
+                }
+              }
+            }
+
+            p {
+              height: auto;
+            }
+
+            a {
+              color: #ed6d35;
+              text-decoration: underline;
+
+              &:hover {
+                opacity: 1;
+              }
+            }
+
+            .production-period,
+            .work-url {
+              display: block;
+              margin-top: 20px;
+            }
+          }
+
+          // .detail-view-content {
+          // jsで設定
+          // display: block;
+          // }
+        }
+      }
+    }
+  }
+
+
+
+  /*-------------------------------------
+  Detail view
+  --------------------------------------*/
+
+  &.detail-view {
+
+    .not-detail-view-content {
+      display: none;
+    }
+
+    .hidden {
+
+      /*-------------------------------------
+      Works
+      --------------------------------------*/
+      .work {
+
+        &-thumbnail {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: auto;
+          margin: 20px;
+
+          img {
+            width: 90%;
+          }
+        }
+
+        &-description {
+
+          .work-genres {
+            position: absolute;
+            bottom: 45%;
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
